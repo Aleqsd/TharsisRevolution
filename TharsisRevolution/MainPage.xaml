@@ -10,11 +10,25 @@
         <RelativePanel.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Space.png"/>
         </RelativePanel.Background>
-        <ProgressBar HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5"/>
-        <Slider x:Name="slider" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0"/>
 
-        <Grid x:Name="Grid_Personnage" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
+        <Border x:Name="block_PvShip" BorderBrush="Gray" BorderThickness="5" RenderTransformOrigin="0.5,0.5"  UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="-123,-108,123,108">
+            <Border.RenderTransform>
+                <CompositeTransform SkewX="50"/>
+            </Border.RenderTransform>
+            <Rectangle Fill="Black" Width="500" Height="200" RenderTransformOrigin="1,1"/>
+        </Border>
+        <ProgressBar x:Name="pg_PvShip" HorizontalAlignment="Left" Height="40" Margin="57,48,-57,-38" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5" RenderTransformOrigin="0.733,1.347" Foreground="White" BorderBrush="Black" Background="#33FFFFFF"/>
+
+        <Border x:Name="block_Semaines" BorderBrush="Gray" BorderThickness="5" Margin="705,-122,-705,122" RenderTransformOrigin="0.5,0.5">
+            <Rectangle Fill="Black" Width="500" Height="200"/>
+        </Border>
+        <Slider x:Name="slider" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0" Margin="-6,17,6,-17" Foreground="White" Background="White"/>
+
+
+        <Grid x:Name="Grid_Personnage" Margin="0,-22,-192,1" Width="1200" Height="800" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -25,12 +39,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <RelativePanel x:Name="reMeca" Width="auto" Height="auto" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <Image x:Name="imLogoMeca" Width="auto" Height="120" Source="Assets/img_meca.png" Margin="0,0,0,5" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <ProgressBar x:Name="pbPvMeca" SmallChange="1" Maximum="6" Width="200" Height="20" RelativePanel.Below="imLogoMeca" Margin="0,0,0,5" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" />
-                <Grid x:Name="grDesMeca" Width="200" Height="30" RelativePanel.Below="pbPvMeca" BorderThickness="0">
+            <RelativePanel x:Name="reMeca" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5">
+                <TextBlock x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
+                <Image x:Name="imLogoMeca" Width="auto" Height="60" Source="Assets/img_meca.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:Name="pbPvMeca" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoMeca" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <Grid x:Name="grDesMeca" Width="90" Height="14" RelativePanel.Below="pbPvMeca" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -43,17 +59,29 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                        <Border BorderBrush="Black" BorderThickness="20" />
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="0" Fill="White"/>
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="1" Fill="White"/>
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Fill="White"/>
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="3" Fill="White"/>
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="4" Fill="White"/>
-                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="5" Fill="White"/>
-                    </Grid>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
+                        <Rectangle Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+
+                </Grid>
             </RelativePanel>
         </Grid>
-        
+
 
         <Grid x:Name="Grid_Ship" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent" >
             <Grid.RowDefinitions>
@@ -67,8 +95,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>            
-            
+            </Grid.ColumnDefinitions>
+
             <Image x:Name="Pilotage" Width="auto" Height="auto" Grid.Row="1" Grid.Column="0" Source="Assets/Module_Pilotage2.png"/>
             <Image x:Name="Serre" Width="auto" Height="auto" Grid.Row="1" Grid.Column="1" Source="Assets/Module_Serre2.png"/>
             <Image x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Infirmerie2.png"/>
@@ -76,10 +104,11 @@
             <Image x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="1" Grid.Column="4" Source="Assets/Module_Maintenance2.png"/>
             <Image x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Source="Assets/Module_Laboratoire2.png"/>
             <Image x:Name="Survie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png"/>
-            
+
         </Grid>
-        
-        
+        <TextBlock x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
+
+
 
     </RelativePanel>
 </Page>

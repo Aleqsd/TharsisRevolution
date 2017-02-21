@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:58:34.578</Modified>
+      <Modified>2017-02-21T14:46:52.108</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-21T12:58:33.809</Modified>
+      <Modified>2017-02-21T14:46:50.863</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -540,7 +540,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.xr.xml">
       <PackagePath>TharsisRevolution.xr.xml</PackagePath>
-      <Modified>2017-02-21T12:58:33.553</Modified>
+      <Modified>2017-02-21T14:46:50.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -549,11 +549,11 @@
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:58:34.359</Modified>
+      <Modified>2017-02-21T14:46:51.770</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-21T12:58:34.570</Modified>
+      <Modified>2017-02-21T14:46:52.091</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

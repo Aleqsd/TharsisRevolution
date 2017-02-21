@@ -102,6 +102,9 @@
     <Compile Include="Membre.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Panne.cs" />
+    <Compile Include="PageModule.xaml.cs">
+      <DependentUpon>PageModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vaisseau.cs" />
   </ItemGroup>
@@ -112,6 +115,7 @@
     <None Include="TharsisRevolution_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\giphy.gif" />
     <Content Include="Assets\img_capitaine.png" />
     <Content Include="Assets\img_commandant.png" />
     <Content Include="Assets\img_Doctor.png" />
@@ -146,6 +150,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

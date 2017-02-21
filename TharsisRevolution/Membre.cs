@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
+    /// <summary>
+    /// Classe du Membre d'équipage
+    /// </summary>
     class Membre
     {
         public enum roleMembre { Docteur, Mécanicien, Capitaine, Commandant }
-        // Classe
         private int id;
         private int pv;
         private int nombreDeDés;

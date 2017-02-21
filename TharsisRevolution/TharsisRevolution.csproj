@@ -92,6 +92,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accueil.xaml.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,19 @@
     <None Include="TharsisRevolution_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\img_capitaine.png" />
+    <Content Include="Assets\img_commandant.png" />
+    <Content Include="Assets\img_Doctor.png" />
+    <Content Include="Assets\img_meca.png" />
+    <Content Include="Assets\Mars.png" />
+    <Content Include="Assets\Module_Detente2.png" />
+    <Content Include="Assets\Module_Infirmerie2.png" />
+    <Content Include="Assets\Module_Laboratoire2.png" />
+    <Content Include="Assets\Module_Maintenance2.png" />
+    <Content Include="Assets\Module_Pilotage2.png" />
+    <Content Include="Assets\Module_Serre2.png" />
+    <Content Include="Assets\Module_Survie2.png" />
+    <Content Include="Assets\Space.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -125,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Accueil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

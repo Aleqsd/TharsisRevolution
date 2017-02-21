@@ -6,8 +6,80 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <RelativePanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="1920" Height="1080" >
+        <RelativePanel.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Space.png"/>
+        </RelativePanel.Background>
+        <ProgressBar HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5"/>
+        <Slider x:Name="slider" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0"/>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="Grid_Personnage" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-    </Grid>
+            <RelativePanel x:Name="reMeca" Width="auto" Height="auto" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Image x:Name="imLogoMeca" Width="auto" Height="120" Source="Assets/img_meca.png" Margin="0,0,0,5" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:Name="pbPvMeca" SmallChange="1" Maximum="6" Width="200" Height="20" RelativePanel.Below="imLogoMeca" Margin="0,0,0,5" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" />
+                <Grid x:Name="grDesMeca" Width="200" Height="30" RelativePanel.Below="pbPvMeca" BorderThickness="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="20" />
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="0" Fill="White"/>
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="1" Fill="White"/>
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Fill="White"/>
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="3" Fill="White"/>
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="4" Fill="White"/>
+                        <Rectangle Width="auto" Height="auto" Grid.Row="0" Grid.Column="5" Fill="White"/>
+                    </Grid>
+            </RelativePanel>
+        </Grid>
+        
+
+        <Grid x:Name="Grid_Ship" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>            
+            
+            <Image x:Name="Pilotage" Width="auto" Height="auto" Grid.Row="1" Grid.Column="0" Source="Assets/Module_Pilotage2.png"/>
+            <Image x:Name="Serre" Width="auto" Height="auto" Grid.Row="1" Grid.Column="1" Source="Assets/Module_Serre2.png"/>
+            <Image x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Infirmerie2.png"/>
+            <Image x:Name="Detente" Width="auto" Height="auto" Grid.Row="1" Grid.Column="3" Source="Assets/Module_Detente2.png"/>
+            <Image x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="1" Grid.Column="4" Source="Assets/Module_Maintenance2.png"/>
+            <Image x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Source="Assets/Module_Laboratoire2.png"/>
+            <Image x:Name="Survie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png"/>
+            
+        </Grid>
+        
+        
+
+    </RelativePanel>
 </Page>

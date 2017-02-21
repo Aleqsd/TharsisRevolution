@@ -9,7 +9,7 @@ namespace TharsisRevolution
     class Membre
     {
         public enum roleMembre { Docteur, Mécanicien, Capitaine, Commandant }
-
+        // Classe
         private int id;
         private int pv;
         private int nombreDeDés;

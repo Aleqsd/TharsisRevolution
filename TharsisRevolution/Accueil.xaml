@@ -11,7 +11,7 @@
             <ImageBrush Stretch="Fill" ImageSource="Assets/Mars.png"/>
         </RelativePanel.Background>
         <Button x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="200" Height="100" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" BorderBrush="Transparent" Click="btn_Jouer_Click"/>
-        <TextBox x:Name="textBox" Foreground="White" Background="Transparent" HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500" BorderBrush="#FF7A7A7A" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" BorderThickness="0" FontFamily="Showcard Gothic"/>
+        <TextBlock x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
 
     </RelativePanel>
 </Page>

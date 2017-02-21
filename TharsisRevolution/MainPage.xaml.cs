@@ -552,6 +552,11 @@ namespace TharsisRevolution
             //VICTOIRE
         }
 
+        private void slider_TimeSemaine_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            this.lbl_TimeSemaine.Text = msg;
+        }
     }
 
 }

@@ -1878,7 +1878,7 @@
           }
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -3630,7 +3630,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -5339,7 +5339,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -7100,7 +7100,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -8809,7 +8809,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -10570,7 +10570,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -12279,7 +12279,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "XAMLAnimatedGif/1.1.6": {
+      "XamlAnimatedGif/1.1.6": {
         "type": "package",
         "compile": {
           "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
@@ -15666,9 +15666,10 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "XAMLAnimatedGif/1.1.6": {
+    "XamlAnimatedGif/1.1.6": {
       "sha512": "1PpqOK04H47atW7DHXzP7cy2faZf9p6NB6VaVSjfBrhC0xWa2AqVZDcIKaYLIDoG5fRYqZ6laaqAKZn2KmpVdQ==",
       "type": "package",
+      "path": "XamlAnimatedGif/1.1.6",
       "files": [
         "XamlAnimatedGif.1.1.6.nupkg.sha512",
         "XamlAnimatedGif.nuspec",
@@ -15682,8 +15683,10 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
-      "XAMLAnimatedGif >= 1.1.6"
+      "XamlAnimatedGif >= 1.1.6"
     ],
     "UAP,Version=v10.0": []
-  }
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
 }

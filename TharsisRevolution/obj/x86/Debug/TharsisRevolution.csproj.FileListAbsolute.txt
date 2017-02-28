@@ -594,9 +594,11 @@ C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Pag
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.cs
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xaml
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xbf
-D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\PageModule.xbf
-D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\XamlAnimatedGif.dll
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\PageModule.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\XamlAnimatedGif.dll
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.i.cs
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.cs
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xaml
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xbf
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\PageModule.xbf
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\XamlAnimatedGif.dll

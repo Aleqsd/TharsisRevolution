@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "XAMLAnimatedGif": "1.1.6"
+    "XamlAnimatedGif": "1.1.6"
   },
   "frameworks": {
     "uap10.0": {}

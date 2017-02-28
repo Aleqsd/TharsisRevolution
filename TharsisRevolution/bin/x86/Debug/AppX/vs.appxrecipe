@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>96E96BA0BECD965D309DD20985E125AFC89804A36C7541C562356B04DEE3C677</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F4CCB0F455E9C0C6EE7E22FFA501978C0584049E094574F4F391E8CFBA2910D5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6_1.0.0.0_x86__cb1hhkscw5m06</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6_cb1hhkscw5m06!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-28T15:30:32.702</Modified>
+      <Modified>2017-02-28T16:19:04.612</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-28T15:30:32.357</Modified>
+      <Modified>2017-02-28T16:19:03.213</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,223 +448,223 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\XAMLAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
+    <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\XamlAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
       <PackagePath>XamlAnimatedGif.dll</PackagePath>
       <Modified>2016-09-18T10:04:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D1.png">
       <PackagePath>Assets\D1.png</PackagePath>
-      <Modified>2017-02-22T12:13:45.198</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D1_HightLight.png">
       <PackagePath>Assets\D1_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:36:03.036</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D1_Lock.png">
       <PackagePath>Assets\D1_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:46:38.891</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D2.png">
       <PackagePath>Assets\D2.png</PackagePath>
-      <Modified>2017-02-22T12:14:56.957</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D2_HightLight.png">
       <PackagePath>Assets\D2_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:37:22.551</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D2_Lock.png">
       <PackagePath>Assets\D2_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:47:20.120</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D3.png">
       <PackagePath>Assets\D3.png</PackagePath>
-      <Modified>2017-02-22T12:15:57.153</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D3_HightLight.png">
       <PackagePath>Assets\D3_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:37:50.262</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D3_Lock.png">
       <PackagePath>Assets\D3_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:47:38.932</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D4.png">
       <PackagePath>Assets\D4.png</PackagePath>
-      <Modified>2017-02-22T12:16:53.089</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D4_HightLight.png">
       <PackagePath>Assets\D4_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:38:18.003</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D4_Lock.png">
       <PackagePath>Assets\D4_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:48:11.408</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D5.png">
       <PackagePath>Assets\D5.png</PackagePath>
-      <Modified>2017-02-22T12:18:34.291</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D5_HightLight.png">
       <PackagePath>Assets\D5_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:38:48.170</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D5_Lock.png">
       <PackagePath>Assets\D5_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:48:29.837</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D6.png">
       <PackagePath>Assets\D6.png</PackagePath>
-      <Modified>2017-02-22T12:19:10.129</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D6_HightLight.png">
       <PackagePath>Assets\D6_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:39:47.597</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D6_Lock.png">
       <PackagePath>Assets\D6_Lock.png</PackagePath>
-      <Modified>2017-02-22T12:48:46.918</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_capitaine.png">
       <PackagePath>Assets\img_capitaine.png</PackagePath>
-      <Modified>2017-02-21T08:22:58.970</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_capitaine_HightLight.png">
       <PackagePath>Assets\img_capitaine_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:43:45.699</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_commandant.png">
       <PackagePath>Assets\img_commandant.png</PackagePath>
-      <Modified>2017-02-21T08:14:48.688</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_commandant_HightLight.png">
       <PackagePath>Assets\img_commandant_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:36:31.811</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_Doctor.png">
       <PackagePath>Assets\img_Doctor.png</PackagePath>
-      <Modified>2017-02-21T07:28:56.434</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_Doctor_HightLight.png">
       <PackagePath>Assets\img_Doctor_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:28:08.114</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_meca.png">
       <PackagePath>Assets\img_meca.png</PackagePath>
-      <Modified>2017-02-21T08:01:31.275</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\img_meca_HightLight.png">
       <PackagePath>Assets\img_meca_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:23:49.006</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Mars.png">
       <PackagePath>Assets\Mars.png</PackagePath>
-      <Modified>2017-02-21T08:00:20.595</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Detente2.png">
       <PackagePath>Assets\Module_Detente2.png</PackagePath>
-      <Modified>2017-02-21T09:34:53.826</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Detente_HightLight.png">
       <PackagePath>Assets\Module_Detente_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:06:21.694</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Infirmerie2.png">
       <PackagePath>Assets\Module_Infirmerie2.png</PackagePath>
-      <Modified>2017-02-21T09:35:55.185</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Infirmerie_HightLight.png">
       <PackagePath>Assets\Module_Infirmerie_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:03:51.802</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Laboratoire2.png">
       <PackagePath>Assets\Module_Laboratoire2.png</PackagePath>
-      <Modified>2017-02-21T09:36:19.800</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Laboratoire_HightLight.png">
       <PackagePath>Assets\Module_Laboratoire_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:02:58.200</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Maintenance2.png">
       <PackagePath>Assets\Module_Maintenance2.png</PackagePath>
-      <Modified>2017-02-21T09:36:47.143</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Maintenance_HightLight.png">
       <PackagePath>Assets\Module_Maintenance_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:02:09.059</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Pilotage2.png">
       <PackagePath>Assets\Module_Pilotage2.png</PackagePath>
-      <Modified>2017-02-21T09:43:46.462</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Pilotage_HightLight.png">
       <PackagePath>Assets\Module_Pilotage_HightLight.png</PackagePath>
-      <Modified>2017-02-22T13:00:53.479</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Serre2.png">
       <PackagePath>Assets\Module_Serre2.png</PackagePath>
-      <Modified>2017-02-21T09:44:08.430</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Serre_HightLight.png">
       <PackagePath>Assets\Module_Serre_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:59:31.632</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Survie2.png">
       <PackagePath>Assets\Module_Survie2.png</PackagePath>
-      <Modified>2017-02-21T09:48:54.270</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Module_Survie_HightLight.png">
       <PackagePath>Assets\Module_Survie_HightLight.png</PackagePath>
-      <Modified>2017-02-22T12:57:59.883</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Space.png">
       <PackagePath>Assets\Space.png</PackagePath>
-      <Modified>2017-02-21T11:08:10.579</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2017-02-21T12:42:36.302</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.303</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.303</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.304</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.305</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.305</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T12:42:36.306</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\giphy.gif">
       <PackagePath>Assets\giphy.gif</PackagePath>
-      <Modified>2017-02-28T07:45:52.694</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-02-21T12:42:36.872</Modified>
+      <Modified>2017-02-28T00:32:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.xr.xml">
       <PackagePath>TharsisRevolution.xr.xml</PackagePath>
-      <Modified>2017-02-28T13:56:43.846</Modified>
+      <Modified>2017-02-28T16:19:02.901</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -673,11 +673,11 @@
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-28T15:01:38.233</Modified>
+      <Modified>2017-02-28T16:19:04.292</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-28T15:30:32.695</Modified>
+      <Modified>2017-02-28T16:19:04.606</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

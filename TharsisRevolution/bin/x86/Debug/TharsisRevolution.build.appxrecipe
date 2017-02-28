@@ -334,7 +334,7 @@
     <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\XAMLAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
+    <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\XamlAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
       <PackagePath>XamlAnimatedGif.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D1.png">

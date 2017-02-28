@@ -102,9 +102,6 @@
     <Compile Include="Membre.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Panne.cs" />
-    <Compile Include="PageModule.xaml.cs">
-      <DependentUpon>PageModule.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vaisseau.cs" />
   </ItemGroup>
@@ -115,19 +112,47 @@
     <None Include="TharsisRevolution_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\giphy.gif" />
+    <Content Include="Assets\D1.png" />
+    <Content Include="Assets\D1_HightLight.png" />
+    <Content Include="Assets\D1_Lock.png" />
+    <Content Include="Assets\D2.png" />
+    <Content Include="Assets\D2_HightLight.png" />
+    <Content Include="Assets\D2_Lock.png" />
+    <Content Include="Assets\D3.png" />
+    <Content Include="Assets\D3_HightLight.png" />
+    <Content Include="Assets\D3_Lock.png" />
+    <Content Include="Assets\D4.png" />
+    <Content Include="Assets\D4_HightLight.png" />
+    <Content Include="Assets\D4_Lock.png" />
+    <Content Include="Assets\D5.png" />
+    <Content Include="Assets\D5_HightLight.png" />
+    <Content Include="Assets\D5_Lock.png" />
+    <Content Include="Assets\D6.png" />
+    <Content Include="Assets\D6_HightLight.png" />
+    <Content Include="Assets\D6_Lock.png" />
     <Content Include="Assets\img_capitaine.png" />
+    <Content Include="Assets\img_capitaine_HightLight.png" />
     <Content Include="Assets\img_commandant.png" />
+    <Content Include="Assets\img_commandant_HightLight.png" />
     <Content Include="Assets\img_Doctor.png" />
+    <Content Include="Assets\img_Doctor_HightLight.png" />
     <Content Include="Assets\img_meca.png" />
+    <Content Include="Assets\img_meca_HightLight.png" />
     <Content Include="Assets\Mars.png" />
     <Content Include="Assets\Module_Detente2.png" />
+    <Content Include="Assets\Module_Detente_HightLight.png" />
     <Content Include="Assets\Module_Infirmerie2.png" />
+    <Content Include="Assets\Module_Infirmerie_HightLight.png" />
     <Content Include="Assets\Module_Laboratoire2.png" />
+    <Content Include="Assets\Module_Laboratoire_HightLight.png" />
     <Content Include="Assets\Module_Maintenance2.png" />
+    <Content Include="Assets\Module_Maintenance_HightLight.png" />
     <Content Include="Assets\Module_Pilotage2.png" />
+    <Content Include="Assets\Module_Pilotage_HightLight.png" />
     <Content Include="Assets\Module_Serre2.png" />
+    <Content Include="Assets\Module_Serre_HightLight.png" />
     <Content Include="Assets\Module_Survie2.png" />
+    <Content Include="Assets\Module_Survie_HightLight.png" />
     <Content Include="Assets\Space.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -150,10 +175,6 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PageModule.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

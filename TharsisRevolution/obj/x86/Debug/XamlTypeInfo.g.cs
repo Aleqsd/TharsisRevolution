@@ -132,35 +132,17 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[13];
+            _typeNameTable = new string[4];
             _typeNameTable[0] = "TharsisRevolution.Accueil";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "TharsisRevolution.MainPage";
-            _typeNameTable[4] = "XamlAnimatedGif.AnimationBehavior";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "System.Uri";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Image";
-            _typeNameTable[8] = "Windows.UI.Xaml.Media.Animation.RepeatBehavior";
-            _typeNameTable[9] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[10] = "System.IO.Stream";
-            _typeNameTable[11] = "Boolean";
-            _typeNameTable[12] = "TharsisRevolution.PageModule";
 
-            _typeTable = new global::System.Type[13];
+            _typeTable = new global::System.Type[4];
             _typeTable[0] = typeof(global::TharsisRevolution.Accueil);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::TharsisRevolution.MainPage);
-            _typeTable[4] = typeof(global::XamlAnimatedGif.AnimationBehavior);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::System.Uri);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Image);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.Media.Animation.RepeatBehavior);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[10] = typeof(global::System.IO.Stream);
-            _typeTable[11] = typeof(global::System.Boolean);
-            _typeTable[12] = typeof(global::TharsisRevolution.PageModule);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -197,7 +179,6 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
 
         private object Activate_0_Accueil() { return new global::TharsisRevolution.Accueil(); }
         private object Activate_3_MainPage() { return new global::TharsisRevolution.MainPage(); }
-        private object Activate_12_PageModule() { return new global::TharsisRevolution.PageModule(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -230,149 +211,16 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
-
-            case 4:   //  XamlAnimatedGif.AnimationBehavior
-                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("SourceUri");
-                userType.AddMemberName("RepeatBehavior");
-                userType.AddMemberName("SourceStream");
-                userType.AddMemberName("AutoStart");
-                userType.AddMemberName("AnimateInDesignMode");
-                xamlType = userType;
-                break;
-
-            case 5:   //  Object
-                xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  System.Uri
-                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 7:   //  Windows.UI.Xaml.Controls.Image
-                xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 8:   //  Windows.UI.Xaml.Media.Animation.RepeatBehavior
-                xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 9:   //  Windows.UI.Xaml.DependencyObject
-                xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 10:   //  System.IO.Stream
-                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 11:   //  Boolean
-                xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 12:   //  TharsisRevolution.PageModule
-                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_PageModule;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
             }
             return xamlType;
         }
 
 
-        private object get_0_AnimationBehavior_SourceUri(object instance)
-        {
-            return global::XamlAnimatedGif.AnimationBehavior.GetSourceUri((global::Windows.UI.Xaml.Controls.Image)instance);
-        }
-        private void set_0_AnimationBehavior_SourceUri(object instance, object Value)
-        {
-            global::XamlAnimatedGif.AnimationBehavior.SetSourceUri((global::Windows.UI.Xaml.Controls.Image)instance, (global::System.Uri)Value);
-        }
-        private object get_1_AnimationBehavior_RepeatBehavior(object instance)
-        {
-            return global::XamlAnimatedGif.AnimationBehavior.GetRepeatBehavior((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_1_AnimationBehavior_RepeatBehavior(object instance, object Value)
-        {
-            global::XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior((global::Windows.UI.Xaml.DependencyObject)instance, (global::Windows.UI.Xaml.Media.Animation.RepeatBehavior)Value);
-        }
-        private object get_2_AnimationBehavior_SourceStream(object instance)
-        {
-            return global::XamlAnimatedGif.AnimationBehavior.GetSourceStream((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_2_AnimationBehavior_SourceStream(object instance, object Value)
-        {
-            global::XamlAnimatedGif.AnimationBehavior.SetSourceStream((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.IO.Stream)Value);
-        }
-        private object get_3_AnimationBehavior_AutoStart(object instance)
-        {
-            return global::XamlAnimatedGif.AnimationBehavior.GetAutoStart((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_3_AnimationBehavior_AutoStart(object instance, object Value)
-        {
-            global::XamlAnimatedGif.AnimationBehavior.SetAutoStart((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
-        }
-        private object get_4_AnimationBehavior_AnimateInDesignMode(object instance)
-        {
-            return global::XamlAnimatedGif.AnimationBehavior.GetAnimateInDesignMode((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_4_AnimationBehavior_AnimateInDesignMode(object instance, object Value)
-        {
-            global::XamlAnimatedGif.AnimationBehavior.SetAnimateInDesignMode((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
-        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember xamlMember = null;
-            global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType userType;
-
-            switch (longMemberName)
-            {
-            case "XamlAnimatedGif.AnimationBehavior.SourceUri":
-                userType = (global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XamlAnimatedGif.AnimationBehavior");
-                xamlMember = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember(this, "SourceUri", "System.Uri");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.Controls.Image");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_0_AnimationBehavior_SourceUri;
-                xamlMember.Setter = set_0_AnimationBehavior_SourceUri;
-                break;
-            case "XamlAnimatedGif.AnimationBehavior.RepeatBehavior":
-                userType = (global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XamlAnimatedGif.AnimationBehavior");
-                xamlMember = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember(this, "RepeatBehavior", "Windows.UI.Xaml.Media.Animation.RepeatBehavior");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_1_AnimationBehavior_RepeatBehavior;
-                xamlMember.Setter = set_1_AnimationBehavior_RepeatBehavior;
-                break;
-            case "XamlAnimatedGif.AnimationBehavior.SourceStream":
-                userType = (global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XamlAnimatedGif.AnimationBehavior");
-                xamlMember = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember(this, "SourceStream", "System.IO.Stream");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_2_AnimationBehavior_SourceStream;
-                xamlMember.Setter = set_2_AnimationBehavior_SourceStream;
-                break;
-            case "XamlAnimatedGif.AnimationBehavior.AutoStart":
-                userType = (global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XamlAnimatedGif.AnimationBehavior");
-                xamlMember = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember(this, "AutoStart", "Boolean");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_3_AnimationBehavior_AutoStart;
-                xamlMember.Setter = set_3_AnimationBehavior_AutoStart;
-                break;
-            case "XamlAnimatedGif.AnimationBehavior.AnimateInDesignMode":
-                userType = (global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XamlAnimatedGif.AnimationBehavior");
-                xamlMember = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlMember(this, "AnimateInDesignMode", "Boolean");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_4_AnimationBehavior_AnimateInDesignMode;
-                xamlMember.Setter = set_4_AnimationBehavior_AnimateInDesignMode;
-                break;
-            }
+            // No Local Properties
             return xamlMember;
         }
     }

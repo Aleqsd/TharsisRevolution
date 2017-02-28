@@ -585,3 +585,12 @@ D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - G
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.xaml
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.xbf
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Accueil.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Accueil.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.g.i.cs
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.g.cs
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.xaml
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Accueil.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.i.cs
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.cs
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xaml
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xbf

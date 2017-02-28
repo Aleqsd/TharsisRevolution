@@ -101,6 +101,9 @@
     </Compile>
     <Compile Include="Membre.cs" />
     <Compile Include="Module.cs" />
+    <Compile Include="PageModule.xaml.cs">
+      <DependentUpon>PageModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Panne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vaisseau.cs" />
@@ -130,6 +133,7 @@
     <Content Include="Assets\D6.png" />
     <Content Include="Assets\D6_HightLight.png" />
     <Content Include="Assets\D6_Lock.png" />
+    <Content Include="Assets\giphy.gif" />
     <Content Include="Assets\img_capitaine.png" />
     <Content Include="Assets\img_capitaine_HightLight.png" />
     <Content Include="Assets\img_commandant.png" />
@@ -173,6 +177,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageModule.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

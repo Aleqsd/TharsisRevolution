@@ -25,180 +25,8 @@
         <TextBlock x:ConnectionId='4' x:Name="lbl_TimeSemaine" Foreground="White" Height="40" Text="10"  Width="40"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic"  RelativePanel.LeftOf="lbl_txtSemaine" Margin="37,6,-37,-6"/>
         <Slider x:ConnectionId='5' x:Name="slider_Semaines" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0" Margin="18,42,-18,-42" Foreground="White" Background="White" Maximum="10"                                                IsDirectionReversed="True" Value="10"/>
         <TextBlock x:ConnectionId='6' x:Name="lbl_txtSemaine" Foreground="White" Height="40" Text="semaines avant Mars"  Width="350"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="42,6,-42,-6"/>
-
-        <Grid x:ConnectionId='7' x:Name="Grid_Personnage" Margin="0,-22,-192,1" Width="1200" Height="800" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <RelativePanel x:ConnectionId='17' x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" CanDrag="True">
-                <TextBlock x:ConnectionId='51' x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
-                <Image x:ConnectionId='52' x:Name="imLogoMeca" Width="auto" Height="60" Source="Assets/img_meca.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <ProgressBar x:ConnectionId='53' x:Name="pbPvMeca" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoMeca" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <Grid x:ConnectionId='54' x:Name="grDesMeca" Width="90" Height="14" RelativePanel.Below="pbPvMeca" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
-                        <Rectangle x:ConnectionId='60' x:Name="Meca_d1" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
-                        <Rectangle x:ConnectionId='59' x:Name="Meca_d2" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
-                        <Rectangle x:ConnectionId='58' x:Name="Meca_d3" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
-                        <Rectangle x:ConnectionId='57' x:Name="Meca_d4" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
-                        <Rectangle x:ConnectionId='56' x:Name="Meca_d5" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
-                        <Rectangle x:ConnectionId='55' x:Name="Meca_d6" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-
-                </Grid>
-            </RelativePanel>
-            <RelativePanel x:ConnectionId='18' x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" CanDrag="True">
-                <TextBlock x:ConnectionId='41' x:Name="lbl_Docteur" Foreground="White" Height="20" Text="Docteur"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
-                <Image x:ConnectionId='42' x:Name="imLogoDocteur" Width="auto" Height="60" Source="Assets/img_Doctor.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <ProgressBar x:ConnectionId='43' x:Name="pb_PvDocteur" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoDocteur" Margin="0,0,0,3" VerticalAlignment="Center" Value="5" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <Grid x:ConnectionId='44' x:Name="gr_DesDocteur" Width="90" Height="14" RelativePanel.Below="pb_PvDocteur" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
-                        <Rectangle x:ConnectionId='50' x:Name="doc_d1"  Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
-                        <Rectangle x:ConnectionId='49' x:Name="doc_d2" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
-                        <Rectangle x:ConnectionId='48' x:Name="doc_d3" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
-                        <Rectangle x:ConnectionId='47' x:Name="doc_d4" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
-                        <Rectangle x:ConnectionId='46' x:Name="doc_d5" Width="auto" Height="auto"  Fill="Black"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
-                        <Rectangle x:ConnectionId='45' x:Name="doc_d6" Width="auto" Height="auto"  Fill="Black"/>
-                    </Border>
-
-                </Grid>
-            </RelativePanel>
-            <RelativePanel x:ConnectionId='19' x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" CanDrag="True">
-                <TextBlock x:ConnectionId='31' x:Name="lbl_Capitaine" Foreground="White" Height="20" Text="Capitaine"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
-                <Image x:ConnectionId='32' x:Name="imLogoCapitaine" Width="auto" Height="60" Source="Assets/img_capitaine.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <ProgressBar x:ConnectionId='33' x:Name="pb_PvCapitaine" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCapitaine" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <Grid x:ConnectionId='34' x:Name="gr_DesCapitaine" Width="90" Height="14" RelativePanel.Below="pb_PvCapitaine" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
-                        <Rectangle x:ConnectionId='40' x:Name="Cap_d1" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
-                        <Rectangle x:ConnectionId='39' x:Name="Cap_d2" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
-                        <Rectangle x:ConnectionId='38' x:Name="Cap_d3" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
-                        <Rectangle x:ConnectionId='37' x:Name="Cap_d4" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
-                        <Rectangle x:ConnectionId='36' x:Name="Cap_d5" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
-                        <Rectangle x:ConnectionId='35' x:Name="Cap_d6" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-
-                </Grid>
-            </RelativePanel>
-            <RelativePanel x:ConnectionId='20' x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" CanDrag="True">
-                <TextBlock x:ConnectionId='21' x:Name="lbl_Commandant" Foreground="White" Height="20" Text="Capitaine"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
-                <Image x:ConnectionId='22' x:Name="imLogoCommandant" Width="auto" Height="60" Source="Assets/img_commandant.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <ProgressBar x:ConnectionId='23' x:Name="pb_PvCommandant" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCommandant" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <Grid x:ConnectionId='24' x:Name="gr_DesCommandant" Width="90" Height="14" RelativePanel.Below="pb_PvCommandant" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
-                        <Rectangle x:ConnectionId='30' x:Name="Com_d1" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
-                        <Rectangle x:ConnectionId='29' x:Name="Com_d2" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
-                        <Rectangle x:ConnectionId='28' x:Name="Com_d3" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
-                        <Rectangle x:ConnectionId='27' x:Name="Com_d4" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
-                        <Rectangle x:ConnectionId='26' x:Name="Com_d5" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
-                        <Rectangle x:ConnectionId='25' x:Name="Com_d6" Width="auto" Height="auto"  Fill="White"/>
-                    </Border>
-
-                </Grid>
-            </RelativePanel>
-        </Grid>
-
-
-        <Grid x:ConnectionId='8' x:Name="Grid_Ship" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent" >
+      
+        <!--Grid x:Name="Grid_Ship" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -212,16 +40,195 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:ConnectionId='10' x:Name="Pilotage" Width="auto" Height="auto" Grid.Row="1" Grid.Column="0" Source="Assets/Module_Pilotage2.png"/>
-            <Image x:ConnectionId='11' x:Name="Serre" Width="auto" Height="auto" Grid.Row="1" Grid.Column="1" Source="Assets/Module_Serre2.png"/>
-            <Image x:ConnectionId='12' x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Infirmerie2.png"/>
-            <Image x:ConnectionId='13' x:Name="Detente" Width="auto" Height="auto" Grid.Row="1" Grid.Column="3" Source="Assets/Module_Detente2.png"/>
-            <Image x:ConnectionId='14' x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="1" Grid.Column="4" Source="Assets/Module_Maintenance2.png"/>
-            <Image x:ConnectionId='15' x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Source="Assets/Module_Laboratoire2.png"/>
-            <Image x:ConnectionId='16' x:Name="Survie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png"/>
+            <Image x:Name="Pilotage" Width="auto" Height="auto" Grid.Row="1" Grid.Column="0" Source="Assets/Module_Pilotage2.png" Tapped="Pilotage_HightLight_OnClick"/>
+            <Image x:Name="Serre" Width="auto" Height="auto" Grid.Row="1" Grid.Column="1" Source="Assets/Module_Serre2.png" Tapped="Serre_HightLight_OnClick"/>
+            <Image x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Infirmerie2.png" Tapped="Infirmerie_HightLight_OnClick"/>
+            <Image x:Name="Detente" Width="auto" Height="auto" Grid.Row="1" Grid.Column="3" Source="Assets/Module_Detente2.png" Tapped="Detente_HightLight_OnClick"/>
+            <Image x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="1" Grid.Column="4" Source="Assets/Module_Maintenance2.png" Tapped="Maintenance_HightLight_OnClick"/>
+            <Image x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="0" Grid.Column="2" Source="Assets/Module_Laboratoire2.png" Tapped="Labo_HightLight_OnClick"/>
+            <Image x:Name="Survie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png" Tapped="Survie_HightLight_OnClick"/>
 
+        </-->
+
+        <Grid x:ConnectionId='7' x:Name="Grid_Jeu" Margin="-72,53,-120,-74" Width="1200" Height="800" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:ConnectionId='9' x:Name="Pilotage" Width="auto" Height="auto" Grid.Row="2" Grid.Column="0" Source="Assets/Module_Pilotage2.png"                                     />
+            <Image x:ConnectionId='10' x:Name="Serre" Width="auto" Height="auto" Grid.Row="2" Grid.Column="1" Source="Assets/Module_Serre2.png"                                  />
+            <Image x:ConnectionId='11' x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="2" Grid.Column="2" Source="Assets/Module_Infirmerie2.png"                                       />
+            <Image x:ConnectionId='12' x:Name="Detente" Width="auto" Height="auto" Grid.Row="2" Grid.Column="3" Source="Assets/Module_Detente2.png"                                    />
+            <Image x:ConnectionId='13' x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="2" Grid.Column="4" Source="Assets/Module_Maintenance2.png"                                        />
+            <Image x:ConnectionId='14' x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Laboratoire2.png"                                 />
+            <Image x:ConnectionId='15' x:Name="Survie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png"                                   />
+            
+            <RelativePanel x:ConnectionId='16' x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5"                                 >
+                <TextBlock x:ConnectionId='50' x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
+                <Image x:ConnectionId='51' x:Name="imLogoMeca" Width="auto" Height="60" Source="Assets/img_meca.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:ConnectionId='52' x:Name="pbPvMeca" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoMeca" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <Grid x:ConnectionId='53' x:Name="grDesMeca" Width="90" Height="14" RelativePanel.Below="pbPvMeca" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                        <Rectangle x:ConnectionId='59' x:Name="Meca_d1" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                        <Rectangle x:ConnectionId='58' x:Name="Meca_d2" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                        <Rectangle x:ConnectionId='57' x:Name="Meca_d3" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                        <Rectangle x:ConnectionId='56' x:Name="Meca_d4" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
+                        <Rectangle x:ConnectionId='55' x:Name="Meca_d5" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
+                        <Rectangle x:ConnectionId='54' x:Name="Meca_d6" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+
+                </Grid>
+            </RelativePanel>
+            <RelativePanel x:ConnectionId='17' x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5"                                >
+                <TextBlock x:ConnectionId='40' x:Name="lbl_Docteur" Foreground="White" Height="20" Text="Docteur"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
+                <Image x:ConnectionId='41' x:Name="imLogoDocteur" Width="auto" Height="60" Source="Assets/img_Doctor.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:ConnectionId='42' x:Name="pb_PvDocteur" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoDocteur" Margin="0,0,0,3" VerticalAlignment="Center" Value="5" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
+                <Grid x:ConnectionId='43' x:Name="gr_DesDocteur" Width="90" Height="14" RelativePanel.Below="pb_PvDocteur" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                        <Rectangle x:ConnectionId='49' x:Name="doc_d1"  Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                        <Rectangle x:ConnectionId='48' x:Name="doc_d2" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                        <Rectangle x:ConnectionId='47' x:Name="doc_d3" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                        <Rectangle x:ConnectionId='46' x:Name="doc_d4" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
+                        <Rectangle x:ConnectionId='45' x:Name="doc_d5" Width="auto" Height="auto"  Fill="Black"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
+                        <Rectangle x:ConnectionId='44' x:Name="doc_d6" Width="auto" Height="auto"  Fill="Black"/>
+                    </Border>
+
+                </Grid>
+            </RelativePanel>
+            <RelativePanel x:ConnectionId='18' x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5"                                      >
+                <TextBlock x:ConnectionId='30' x:Name="lbl_Capitaine" Foreground="White" Height="20" Text="Capitaine"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
+                <Image x:ConnectionId='31' x:Name="imLogoCapitaine" Width="auto" Height="60" Source="Assets/img_capitaine.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:ConnectionId='32' x:Name="pb_PvCapitaine" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCapitaine" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <Grid x:ConnectionId='33' x:Name="gr_DesCapitaine" Width="90" Height="14" RelativePanel.Below="pb_PvCapitaine" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                        <Rectangle x:ConnectionId='39' x:Name="Cap_d1" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                        <Rectangle x:ConnectionId='38' x:Name="Cap_d2" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                        <Rectangle x:ConnectionId='37' x:Name="Cap_d3" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                        <Rectangle x:ConnectionId='36' x:Name="Cap_d4" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
+                        <Rectangle x:ConnectionId='35' x:Name="Cap_d5" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
+                        <Rectangle x:ConnectionId='34' x:Name="Cap_d6" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+
+                </Grid>
+            </RelativePanel>
+            <RelativePanel x:ConnectionId='19' x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5"                                       >
+                <TextBlock x:ConnectionId='20' x:Name="lbl_Commandant" Foreground="White" Height="20" Text="Commandant"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
+                <Image x:ConnectionId='21' x:Name="imLogoCommandant" Width="auto" Height="60" Source="Assets/img_commandant.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <ProgressBar x:ConnectionId='22' x:Name="pb_PvCommandant" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCommandant" Margin="0,0,0,3" VerticalAlignment="Center" Value="3" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <Grid x:ConnectionId='23' x:Name="gr_DesCommandant" Width="90" Height="14" RelativePanel.Below="pb_PvCommandant" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Black" Padding="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                        <Rectangle x:ConnectionId='29' x:Name="Com_d1" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                        <Rectangle x:ConnectionId='28' x:Name="Com_d2" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                        <Rectangle x:ConnectionId='27' x:Name="Com_d3" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                        <Rectangle x:ConnectionId='26' x:Name="Com_d4" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="4">
+                        <Rectangle x:ConnectionId='25' x:Name="Com_d5" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="5">
+                        <Rectangle x:ConnectionId='24' x:Name="Com_d6" Width="auto" Height="auto"  Fill="White"/>
+                    </Border>
+
+                </Grid>
+            </RelativePanel>
         </Grid>
-        <TextBlock x:ConnectionId='9' x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
+
+        <TextBlock x:ConnectionId='8' x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
       
     </RelativePanel>
 </Page>

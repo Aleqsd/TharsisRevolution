@@ -4,15 +4,20 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -29,6 +34,17 @@ namespace TharsisRevolution
         private List<Membre> membres;
         private List<Panne> pannes;
         private int numeroSemaine;
+
+        private Membre.roleMembre currentClickPersonnage;
+
+        private bool hightLight_pilotage = false;
+        private bool hightLight_detente = false;
+        private bool hightLight_serre = false;
+        private bool hightLight_survie = false;
+        private bool hightLight_infirimerie = false;
+        private bool hightLight_maintenance = false;
+        private bool hightLight_labo = false;
+
 
         public MainPage()
         {
@@ -552,10 +568,320 @@ namespace TharsisRevolution
             //VICTOIRE
         }
 
+        //############################################################################# IHM ##############################################################################
+        /// <summary>
+        /// Permet de modifier le texte en fonction de la valeur du slider du temps
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_TimeSemaine_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
             this.lbl_TimeSemaine.Text = msg;
+        }
+
+        /// <summary>
+        /// Fonction pour affichage lumineux à la selection du personnage MEcanicien
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Meca_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Personnage(Membre.roleMembre.Mécanicien);
+            currentClickPersonnage = Membre.roleMembre.Mécanicien;
+        }
+
+        /// <summary>
+        /// Fonction pour affichage lumineux à la selection du personnage Docteur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Doc_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Personnage(Membre.roleMembre.Docteur);
+            currentClickPersonnage = Membre.roleMembre.Docteur;
+        }
+
+        /// <summary>
+        /// Fonction pour affichage lumineux à la selection du personnage Capitaine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Capitaine_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Personnage(Membre.roleMembre.Capitaine);
+            currentClickPersonnage = Membre.roleMembre.Capitaine;
+        }
+
+        /// <summary>
+        /// Fonction pour affichage lumineux à la selection du personnage Commandant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Commandant_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Personnage(Membre.roleMembre.Commandant);
+            currentClickPersonnage = Membre.roleMembre.Commandant;
+        }
+
+        /// <summary>
+        /// Fonction qui va permettre d'appliquer le hightlight sur un personnage qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection
+        /// </summary>
+        /// <param name="perso"></param>
+        private void HightLight_Personnage(Membre.roleMembre perso)
+        {
+            BitmapImage doc = new BitmapImage(new Uri("ms-appx:///Assets/img_Doctor.png"));
+            BitmapImage meca = new BitmapImage(new Uri("ms-appx:///Assets/img_meca.png"));
+            BitmapImage commandant = new BitmapImage(new Uri("ms-appx:///Assets/img_commandant.png"));
+            BitmapImage capitaine = new BitmapImage(new Uri("ms-appx:///Assets/img_capitaine.png"));
+
+            BitmapImage doc_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/img_Doctor_HightLight.png"));
+            BitmapImage meca_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/img_meca_HightLight.png"));
+            BitmapImage capitaine_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/img_capitaine_HightLight.png"));
+            BitmapImage commandant_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/img_commandant_HightLight.png"));
+
+
+            if (perso == Membre.roleMembre.Capitaine)
+            {                
+                this.imLogoCapitaine.Source = capitaine_HightLight;
+
+                this.imLogoCommandant.Source = commandant;
+                this.imLogoDocteur.Source = doc;
+                this.imLogoMeca.Source = meca;
+            }
+            else if(perso == Membre.roleMembre.Commandant)
+            {                
+                this.imLogoCommandant.Source = commandant_HightLight;
+
+                this.imLogoCapitaine.Source = capitaine;
+                this.imLogoDocteur.Source = doc;
+                this.imLogoMeca.Source = meca;
+            }
+            else if(perso == Membre.roleMembre.Docteur)
+            {
+                this.imLogoDocteur.Source = doc_HightLight;
+
+                this.imLogoCommandant.Source = commandant;
+                this.imLogoCapitaine.Source = capitaine;
+                this.imLogoMeca.Source = meca;
+            }
+            else if(perso == Membre.roleMembre.Mécanicien)
+            {             
+                this.imLogoMeca.Source = meca_HightLight;
+
+                this.imLogoCommandant.Source = commandant;
+                this.imLogoDocteur.Source = doc;
+                this.imLogoCapitaine.Source = capitaine;
+            }
+        }
+
+        /// <summary>
+        /// Fonction qui va permettre d'appliquer le hightlight sur un module qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection
+        /// </summary>
+        /// <param name="module"></param>
+        private void HightLight_Module(Module.moduleType module)
+        {
+            BitmapImage pilotage = new BitmapImage(new Uri("ms-appx:///Assets/Module_Pilotage2.png"));
+            BitmapImage serre= new BitmapImage(new Uri("ms-appx:///Assets/Module_Serre2.png"));
+            BitmapImage inf = new BitmapImage(new Uri("ms-appx:///Assets/Module_Infirmerie2.png"));
+            BitmapImage detente = new BitmapImage(new Uri("ms-appx:///Assets/Module_Detente2.png"));
+            BitmapImage maint = new BitmapImage(new Uri("ms-appx:///Assets/Module_Maintenance2.png"));
+            BitmapImage labo = new BitmapImage(new Uri("ms-appx:///Assets/Module_Laboratoire2.png"));
+            BitmapImage survie = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie2.png"));
+
+
+            BitmapImage serre_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Serre_HightLight.png"));
+            BitmapImage pilotage_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Pilotage_HightLight.png"));
+            BitmapImage inf_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Infirmerie_HightLight.png"));
+            BitmapImage detente_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Detente_HightLight.png"));
+            BitmapImage maint_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Maintenance_HightLight.png"));
+            BitmapImage labo_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Laboratoire_HightLight.png"));
+            BitmapImage survie_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie_HightLight.png"));
+
+
+            if (module == Module.moduleType.Détente)
+            {
+                this.Detente.Source = detente_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Infirmerie.Source = inf;
+                this.Serre.Source = serre;
+                this.Laboratoire.Source = labo;
+                this.Survie.Source = survie;
+                this.Maintenance.Source = maint;
+            }
+            else if (module == Module.moduleType.Infirmerie)
+            {
+                this.Infirmerie.Source = inf_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Detente.Source = detente;
+                this.Serre.Source = serre;
+                this.Laboratoire.Source = labo;
+                this.Survie.Source = survie;
+                this.Maintenance.Source = maint; ;
+            }
+            else if (module == Module.moduleType.Laboratoire)
+            {
+                this.Laboratoire.Source = labo_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Infirmerie.Source = inf;
+                this.Serre.Source = serre;
+                this.Detente.Source = detente;
+                this.Survie.Source = survie;
+                this.Maintenance.Source = maint;
+            }
+            else if (module == Module.moduleType.Maintenance)
+            {
+                this.Maintenance.Source = maint_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Infirmerie.Source = inf;
+                this.Serre.Source = serre;
+                this.Laboratoire.Source = labo;
+                this.Survie.Source = survie;
+                this.Detente.Source = detente;
+            }
+            else if (module == Module.moduleType.PostePilotage)
+            {
+                this.Pilotage.Source = pilotage_HightLight;
+
+                this.Detente.Source = detente;
+                this.Infirmerie.Source = inf;
+                this.Serre.Source = serre;
+                this.Laboratoire.Source = labo;
+                this.Survie.Source = survie;
+                this.Maintenance.Source = maint;
+            }
+            else if (module == Module.moduleType.Serre)
+            {
+                this.Serre.Source = serre_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Infirmerie.Source = inf;
+                this.Detente.Source = detente;
+                this.Laboratoire.Source = labo;
+                this.Survie.Source = survie;
+                this.Maintenance.Source = maint;
+            }
+            else if (module == Module.moduleType.SystemeSurvie)
+            {
+                this.Survie.Source = survie_HightLight;
+
+                this.Pilotage.Source = pilotage;
+                this.Infirmerie.Source = inf;
+                this.Serre.Source = serre;
+                this.Laboratoire.Source = labo;
+                this.Detente.Source = detente;
+                this.Maintenance.Source = maint;
+            }
+        }
+
+        /// <summary>
+        /// Fonction de déplacement des personnages vers un module
+        /// </summary>
+        private async void Deplacement_PersonnageToModule(Module.moduleType moduleSelected)
+        {
+            string personnage = currentClickPersonnage.ToString();
+
+            MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le "+personnage+" dans le module : '" + moduleSelected + "' ?", "Déplacement Personnage ?");
+
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+            msgbox.Commands.Add(new UICommand { Label = "Annuler", Id = 2 });
+
+            var res = await msgbox.ShowAsync();
+
+            if ((int)res.Id == 0)
+            {
+                this.Frame.Navigate(typeof(PageModule));
+            }
+
+            if ((int)res.Id == 2 || (int)res.Id == 1)
+            {
+                MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                await msgbox2.ShowAsync();
+            }
+            
+        }
+        
+        /// <summary>
+        /// Fonction d'hightlight du module Pilotage et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Pilotage_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.PostePilotage);
+            Deplacement_PersonnageToModule(Module.moduleType.PostePilotage);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Serre et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Serre_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.Serre);
+            Deplacement_PersonnageToModule(Module.moduleType.Serre);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Infiremerie et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Infirmerie_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.Infirmerie);
+            Deplacement_PersonnageToModule(Module.moduleType.Infirmerie);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Détente et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Detente_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.Détente);
+            Deplacement_PersonnageToModule(Module.moduleType.Détente);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Maintenance et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Maintenance_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.Maintenance);
+            Deplacement_PersonnageToModule(Module.moduleType.Maintenance);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Laboratoire et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Labo_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.Laboratoire);
+            Deplacement_PersonnageToModule(Module.moduleType.Laboratoire);
+        }
+
+        /// <summary>
+        /// Fonction d'hightlight du module Survie et permet le lancement d'un personnage dans ce module même
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Survie_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            HightLight_Module(Module.moduleType.SystemeSurvie);
+            Deplacement_PersonnageToModule(Module.moduleType.SystemeSurvie);
         }
     }
 

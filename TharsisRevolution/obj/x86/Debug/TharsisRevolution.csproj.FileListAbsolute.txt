@@ -594,3 +594,5 @@ C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Pag
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.g.cs
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xaml
 C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\PageModule.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\PageModule.xbf
+C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\XamlAnimatedGif.dll

@@ -8,12 +8,21 @@ namespace TharsisRevolution
 {
     class Vaisseau
     {
+        private static readonly Random rdm = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return rdm.Next(min, max);
+            }
+        }   
+
         private int pv;
 
         public Vaisseau()
         {
-            Random rdm = new Random();
-            Pv = rdm.Next(2, 6);
+            Pv = RandomNumber(2, 6);
         }
 
         public int Pv

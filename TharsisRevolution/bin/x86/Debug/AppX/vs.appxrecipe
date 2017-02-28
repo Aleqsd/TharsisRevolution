@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-28T07:41:21.899</Modified>
+      <Modified>2017-02-28T09:13:56.526</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-28T07:41:20.762</Modified>
+      <Modified>2017-02-28T09:13:56.324</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,6 +448,10 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\XamlAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
+      <PackagePath>XamlAnimatedGif.dll</PackagePath>
+      <Modified>2016-09-18T10:04:14.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Assets\D1.png">
       <PackagePath>Assets\D1.png</PackagePath>
       <Modified>2017-02-28T07:41:01.253</Modified>
@@ -650,13 +654,17 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-02-28T07:41:01.331</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Assets\giphy.gif">
+      <PackagePath>Assets\giphy.gif</PackagePath>
+      <Modified>2017-02-28T07:42:44.471</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-02-28T07:41:01.834</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\TharsisRevolution.xr.xml">
       <PackagePath>TharsisRevolution.xr.xml</PackagePath>
-      <Modified>2017-02-28T07:41:01.834</Modified>
+      <Modified>2017-02-28T07:48:38.777</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -665,11 +673,11 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-28T07:41:21.594</Modified>
+      <Modified>2017-02-28T08:26:39.961</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-02-28T07:41:21.895</Modified>
+      <Modified>2017-02-28T09:13:56.524</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

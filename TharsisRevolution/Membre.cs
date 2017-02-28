@@ -11,6 +11,16 @@ namespace TharsisRevolution
     /// </summary>
     class Membre
     {
+        private static readonly Random rdm = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return rdm.Next(min, max);
+            }
+        }
+
         public enum roleMembre { Docteur, Mécanicien, Capitaine, Commandant }
         private int id;
         private int pv;
@@ -22,9 +32,8 @@ namespace TharsisRevolution
         public Membre(roleMembre role, int id)
         {
             this.role = role;
-            Random rnd = new Random();
-            pv = rnd.Next(2, 5);
-            nombreDeDés = rnd.Next(2, 5);
+            pv = RandomNumber(2, 5);
+            nombreDeDés = RandomNumber(2, 5);
             this.Id = id;
         }
 

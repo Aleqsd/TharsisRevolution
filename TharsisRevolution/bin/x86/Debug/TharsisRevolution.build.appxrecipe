@@ -334,6 +334,9 @@
     <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\XamlAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
+      <PackagePath>XamlAnimatedGif.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Assets\D1.png">
       <PackagePath>Assets\D1.png</PackagePath>
     </AppxPackagedFile>
@@ -486,6 +489,9 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Assets\giphy.gif">
+      <PackagePath>Assets\giphy.gif</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution\TharsisRevolution\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

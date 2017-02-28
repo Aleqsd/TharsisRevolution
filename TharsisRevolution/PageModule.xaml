@@ -12,13 +12,13 @@
         <Image gif:AnimationBehavior.SourceUri="/Assets/giphy.gif" gif:AnimationBehavior.RepeatBehavior="Forever" />
         <ProgressBar HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5"/>
         <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
-            <Button  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold"/>
+            <Button x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonTerminer_Click"/>
         </Border>
         <Border x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
-            <Button  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold"/>
+            <Button x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonLancer_Click"/>
         </Border>
-        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,200,200,10" RelativePanel.Below="btLancer" RelativePanel.AlignRightWithPanel="True">
-            <Button  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"/>
+        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,200,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Button x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"/>
         </Border>
         <Border Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
@@ -43,25 +43,50 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
-                
+            <Border x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD1" Tapped="imDice_Tapped"></Image>
             </Border>
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
-                
+                <Border x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD2" Tapped="imDice_Tapped"></Image>
             </Border>
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
-               
+                <Border x:Name="boD3" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD3" Tapped="imDice_Tapped"></Image>
             </Border>
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
-                
+                <Border x:Name="boD4" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD4" Tapped="imDice_Tapped"></Image>
             </Border>
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
-                
+                <Border x:Name="boD5" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD5" Tapped="imDice_Tapped"></Image>
             </Border>
-            <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
-                
+                <Border x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD6" Tapped="imDice_Tapped"></Image>
             </Border>
                 
+            </Grid>
+        </Border>
+
+        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10 100 10 10" Padding="5" >
+
+            <Grid Width="200" Height="50" Name="grDesHardMode">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD7"></Image>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD8"></Image>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:Name="imgD9"></Image>
+                </Border>
+
             </Grid>
         </Border>
 

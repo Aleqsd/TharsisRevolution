@@ -8,6 +8,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -36,14 +37,9 @@ namespace TharsisRevolution
         private bool hardMode = false;
 
         private Membre.roleMembre currentClickPersonnage;
-
-        private bool hightLight_pilotage = false;
-        private bool hightLight_detente = false;
-        private bool hightLight_serre = false;
-        private bool hightLight_survie = false;
-        private bool hightLight_infirimerie = false;
-        private bool hightLight_maintenance = false;
-        private bool hightLight_labo = false;
+        private Module.moduleType currentClickModule;
+        private int rowCurrentModule;
+        private int columnCurrentModule;
 
         public MainPage()
         {
@@ -107,6 +103,7 @@ namespace TharsisRevolution
 
             //Initialisation Vaisseau
             vaisseau = new Vaisseau();
+            this.pg_PvShip.Value = vaisseau.Pv;
 
             //Initialisation des Moduless
             modules = new List<Module> {
@@ -127,6 +124,262 @@ namespace TharsisRevolution
                 new Membre(Membre.roleMembre.Mécanicien,4)
             };
 
+            //initialisation des paramètres du Personnage Commandant
+            pb_PvCommandant.Value = membres[0].Pv;
+            switch(membres[0].NombreDeDés)
+            {
+                case 0:
+                    Com_d1.Fill = new SolidColorBrush( Colors.Black);
+                    Com_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 1:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 2:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.White);
+                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 3:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.White);
+                    Com_d3.Fill = new SolidColorBrush(Colors.White);
+                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 4:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.White);
+                    Com_d3.Fill = new SolidColorBrush(Colors.White);
+                    Com_d4.Fill = new SolidColorBrush(Colors.White);
+                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 5:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.White);
+                    Com_d3.Fill = new SolidColorBrush(Colors.White);
+                    Com_d4.Fill = new SolidColorBrush(Colors.White);
+                    Com_d5.Fill = new SolidColorBrush(Colors.White);
+                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 6:
+                    Com_d1.Fill = new SolidColorBrush(Colors.White);
+                    Com_d2.Fill = new SolidColorBrush(Colors.White);
+                    Com_d3.Fill = new SolidColorBrush(Colors.White);
+                    Com_d4.Fill = new SolidColorBrush(Colors.White);
+                    Com_d5.Fill = new SolidColorBrush(Colors.White);
+                    Com_d6.Fill = new SolidColorBrush(Colors.White);
+                    break;
+                default:
+                    break;
+            }
+
+            //Initialisation des paramètres du personnage Capitaine
+            pb_PvCapitaine.Value = membres[1].Pv;
+            switch (membres[1].NombreDeDés)
+            {
+                case 0:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 1:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 2:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 3:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 4:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 5:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 6:
+                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d5.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d6.Fill = new SolidColorBrush(Colors.White);
+                    break;
+                default:
+                    break;
+            }
+
+            //Initialisation des paramètres du personnage Docteur
+            pb_PvDocteur.Value = membres[2].Pv;
+            switch (membres[2].NombreDeDés)
+            {
+                case 0:
+                    doc_d1.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d2.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 1:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 2:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.White);
+                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 3:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.White);
+                    doc_d3.Fill = new SolidColorBrush(Colors.White);
+                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 4:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.White);
+                    doc_d3.Fill = new SolidColorBrush(Colors.White);
+                    doc_d4.Fill = new SolidColorBrush(Colors.White);
+                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 5:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.White);
+                    doc_d3.Fill = new SolidColorBrush(Colors.White);
+                    doc_d4.Fill = new SolidColorBrush(Colors.White);
+                    doc_d5.Fill = new SolidColorBrush(Colors.White);
+                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 6:
+                    doc_d1.Fill = new SolidColorBrush(Colors.White);
+                    doc_d2.Fill = new SolidColorBrush(Colors.White);
+                    doc_d3.Fill = new SolidColorBrush(Colors.White);
+                    doc_d4.Fill = new SolidColorBrush(Colors.White);
+                    doc_d5.Fill = new SolidColorBrush(Colors.White);
+                    doc_d6.Fill = new SolidColorBrush(Colors.White);
+                    break;
+                default:
+                    break;
+            }
+
+            //Initialisation des paramètres du personnage Mecanicien
+            pbPvMeca.Value = membres[3].Pv;
+            switch (membres[3].NombreDeDés)
+            {
+                case 0:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 1:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 2:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 3:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 4:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 5:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    break;
+                case 6:
+                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d5.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d6.Fill = new SolidColorBrush(Colors.White);
+                    break;
+                default:
+                    break;
+            }
+
 
             int randomModule = rdm.Next(1, 7);
 
@@ -144,6 +397,7 @@ namespace TharsisRevolution
             //Initialisation Semaine
             numeroSemaine = 1;
             Debug.WriteLine("Semaine 1");
+            this.slider_Semaines.Value = numeroSemaine;
 
             //Initialisation des Pannes avec la première panne moyenne du tour 1
             pannes = new List<Panne>();
@@ -654,14 +908,79 @@ namespace TharsisRevolution
 
         //############################################################################# IHM ##############################################################################
         /// <summary>
-        /// Permet de modifier le texte en fonction de la valeur du slider du temps
+        /// Permet de modifier le texte des semaines en fonction de la valeur du slider du temps
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void slider_TimeSemaine_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-        {
+        {            
             string msg = String.Format("{0}", e.NewValue);
             this.lbl_TimeSemaine.Text = msg;
+        }
+
+        private void progressBar_PvShip(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvShip.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
+        }
+
+        private void progressBar_PvCommandant(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvCommandant.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
+        }
+
+        private void progressBar_PvCapitaine(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvCapitaine.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
+        }
+
+        private void progressBar_PvDocteur(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvDocteur.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
+        }
+
+        private void progressBar_PvMeca(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvMeca.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
         }
 
         /// <summary>
@@ -760,7 +1079,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction qui va permettre d'appliquer le hightlight sur un module qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection
+        /// Fonction qui va permettre d'appliquer le hightlight sur un module qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection + mise en place des coordonnée x,y de l'element selectionner
         /// </summary>
         /// <param name="module"></param>
         private void HightLight_Module(Module.moduleType module)
@@ -780,84 +1099,104 @@ namespace TharsisRevolution
             BitmapImage detente_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Detente_HightLight.png"));
             BitmapImage maint_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Maintenance_HightLight.png"));
             BitmapImage labo_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Laboratoire_HightLight.png"));
-            BitmapImage survie_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie_HightLight.png"));
-
+            BitmapImage survie_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie_HightLight.png"));            
 
             if (module == Module.moduleType.Détente)
             {
-                this.Detente.Source = detente_HightLight;
+                this.Détente.Source = detente_HightLight;
+                rowCurrentModule = Grid.GetRow(Détente);
+                columnCurrentModule = Grid.GetColumn(Détente);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
+                this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
-                this.Survie.Source = survie;
-                this.Maintenance.Source = maint;
+                this.SystemeSurvie.Source = survie;
+                this.Maintenance.Source = maint;                
             }
             else if (module == Module.moduleType.Infirmerie)
             {
                 this.Infirmerie.Source = inf_HightLight;
+                rowCurrentModule = Grid.GetRow(Infirmerie);
+                columnCurrentModule = Grid.GetColumn(Infirmerie);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
-                this.Detente.Source = detente;
+                this.PostePilotage.Source = pilotage;
+                this.Détente.Source = detente;
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
-                this.Survie.Source = survie;
+                this.SystemeSurvie.Source = survie;
                 this.Maintenance.Source = maint; ;
             }
             else if (module == Module.moduleType.Laboratoire)
             {
                 this.Laboratoire.Source = labo_HightLight;
+                rowCurrentModule = Grid.GetRow(Laboratoire);
+                columnCurrentModule = Grid.GetColumn(Laboratoire);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
+                this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
-                this.Detente.Source = detente;
-                this.Survie.Source = survie;
+                this.Détente.Source = detente;
+                this.SystemeSurvie.Source = survie;
                 this.Maintenance.Source = maint;
             }
             else if (module == Module.moduleType.Maintenance)
             {
                 this.Maintenance.Source = maint_HightLight;
+                rowCurrentModule = Grid.GetRow(Maintenance);
+                columnCurrentModule = Grid.GetColumn(Maintenance);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
+                this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
-                this.Survie.Source = survie;
-                this.Detente.Source = detente;
+                this.SystemeSurvie.Source = survie;
+                this.Détente.Source = detente;
             }
             else if (module == Module.moduleType.PostePilotage)
             {
-                this.Pilotage.Source = pilotage_HightLight;
+                this.PostePilotage.Source = pilotage_HightLight;
+                rowCurrentModule = Grid.GetRow(PostePilotage);
+                columnCurrentModule = Grid.GetColumn(PostePilotage);
+                currentClickModule = module;
 
-                this.Detente.Source = detente;
+                this.Détente.Source = detente;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
-                this.Survie.Source = survie;
+                this.SystemeSurvie.Source = survie;
                 this.Maintenance.Source = maint;
             }
             else if (module == Module.moduleType.Serre)
             {
                 this.Serre.Source = serre_HightLight;
+                rowCurrentModule = Grid.GetRow(Serre);
+                columnCurrentModule = Grid.GetColumn(Serre);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
+                this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
-                this.Detente.Source = detente;
+                this.Détente.Source = detente;
                 this.Laboratoire.Source = labo;
-                this.Survie.Source = survie;
+                this.SystemeSurvie.Source = survie;
                 this.Maintenance.Source = maint;
             }
             else if (module == Module.moduleType.SystemeSurvie)
             {
-                this.Survie.Source = survie_HightLight;
+                this.SystemeSurvie.Source = survie_HightLight;
+                rowCurrentModule = Grid.GetRow(SystemeSurvie);
+                columnCurrentModule = Grid.GetColumn(SystemeSurvie);
+                currentClickModule = module;
 
-                this.Pilotage.Source = pilotage;
+                this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
-                this.Detente.Source = detente;
+                this.Détente.Source = detente;
                 this.Maintenance.Source = maint;
             }
         }
@@ -865,27 +1204,198 @@ namespace TharsisRevolution
         /// <summary>
         /// Fonction de déplacement des personnages vers un module
         /// </summary>
-        private async void Deplacement_PersonnageToModule(Module.moduleType moduleSelected)
+        private async void Deplacement_PersonnageToCurrentModule()
         {
             string personnage = currentClickPersonnage.ToString();
-
-            MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + personnage + " dans le module : '" + moduleSelected + "' ?", "Déplacement Personnage ?");
+            MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + currentClickPersonnage + " dans le module : '" + currentClickModule + "' ?", "Déplacement Personnage ?");
 
             msgbox.Commands.Clear();
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
-            msgbox.Commands.Add(new UICommand { Label = "Annuler", Id = 2 });
+
+            switch (personnage)
+            {
+                case "Docteur":
+                    var resDoc = await msgbox.ShowAsync();
+                    if ((int)resDoc.Id == 0)
+                    {
+                        if(currentClickModule == Module.moduleType.Infirmerie)
+                        {
+                            Grid.SetRow(reDocteur, rowCurrentModule + 1);
+                            Grid.SetColumn(reDocteur, columnCurrentModule);
+                        }
+                        else if(currentClickModule == Module.moduleType.SystemeSurvie)
+                        {
+                            Grid.SetRow(reDocteur, rowCurrentModule + 1);
+                            Grid.SetColumn(reDocteur, columnCurrentModule);
+                        }
+                        else
+                        {
+                            Grid.SetRow(reDocteur, rowCurrentModule - 1);
+                            Grid.SetColumn(reDocteur, columnCurrentModule);
+                        }
+
+                        Creation_Btn_Deploiement();
+                    }
+
+                    if ((int)resDoc.Id == 1)
+                    {
+                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                        await msgbox2.ShowAsync();
+                    }                    
+                    break;
+                case "Mécanicien":
+                    var resMeca = await msgbox.ShowAsync();
+                    if ((int)resMeca.Id == 0)
+                    {
+                        if (currentClickModule == Module.moduleType.Infirmerie)
+                        {
+                            Grid.SetRow(reMeca, rowCurrentModule + 1);
+                            Grid.SetColumn(reMeca, columnCurrentModule);
+                        }
+                        else if (currentClickModule == Module.moduleType.SystemeSurvie)
+                        {
+                            Grid.SetRow(reMeca, rowCurrentModule + 1);
+                            Grid.SetColumn(reMeca, columnCurrentModule);
+                        }
+                        else
+                        {
+                            Grid.SetRow(reMeca, rowCurrentModule - 1);
+                            Grid.SetColumn(reMeca, columnCurrentModule);
+                        }
+                        
+                        Creation_Btn_Deploiement();
+                    }
+
+                    if ((int)resMeca.Id == 1)
+                    {
+                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                        await msgbox2.ShowAsync();
+                    }
+                    break;
+                case "Capitaine":
+                    var resCap = await msgbox.ShowAsync();
+                    if ((int)resCap.Id == 0)
+                    {
+                        if (currentClickModule == Module.moduleType.Infirmerie)
+                        {
+                            Grid.SetRow(reCapitaine, rowCurrentModule + 1);
+                            Grid.SetColumn(reCapitaine, columnCurrentModule);
+                        }
+                        else if (currentClickModule == Module.moduleType.SystemeSurvie)
+                        {
+                            Grid.SetRow(reCapitaine, rowCurrentModule + 1);
+                            Grid.SetColumn(reCapitaine, columnCurrentModule);
+                        }
+                        else
+                        {
+                            Grid.SetRow(reCapitaine, rowCurrentModule - 1);
+                            Grid.SetColumn(reCapitaine, columnCurrentModule);
+                        }
+                        
+                        Creation_Btn_Deploiement();
+                    }
+
+                    if ((int)resCap.Id == 1)
+                    {
+                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                        await msgbox2.ShowAsync();
+                    }
+                    break;
+                case "Commandant":
+                    var resCom = await msgbox.ShowAsync();
+                    if ((int)resCom.Id == 0)
+                    {
+                        if (currentClickModule == Module.moduleType.Infirmerie)
+                        {
+                            Grid.SetRow(reCommandant, rowCurrentModule + 1);
+                            Grid.SetColumn(reCommandant, columnCurrentModule);
+                        }
+                        else if (currentClickModule == Module.moduleType.SystemeSurvie)
+                        {
+                            Grid.SetRow(reCommandant, rowCurrentModule + 1);
+                            Grid.SetColumn(reCommandant, columnCurrentModule);
+                        }
+                        else
+                        {
+                            Grid.SetRow(reCommandant, rowCurrentModule - 1);
+                            Grid.SetColumn(reCommandant, columnCurrentModule);
+                        }
+                        
+                        Creation_Btn_Deploiement();
+                    }
+
+                    if ((int)resCom.Id == 1)
+                    {
+                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                        await msgbox2.ShowAsync();
+                    }
+                    break;
+                default:
+                    break;
+            }           
+        }
+
+
+        /// <summary>
+        /// Fonction de création du bouton de déploiment pour permettre le déplacement d'une personnage
+        /// </summary>
+        private void Creation_Btn_Deploiement()
+        {
+            Button btn_deployment = new Button();            
+            btn_deployment.Name = "btn_deployment";
+            btn_deployment.Height = 50;
+            btn_deployment.Width = 240;
+            btn_deployment.VerticalAlignment = (VerticalAlignment)AlignmentY.Bottom;
+            btn_deployment.Content = "Déploiement";
+            btn_deployment.BorderBrush = new SolidColorBrush(Colors.White);
+            btn_deployment.BorderThickness = new Thickness(5);
+            btn_deployment.FontSize = 25;
+            btn_deployment.Foreground = new SolidColorBrush(Colors.White);
+
+            btn_deployment.IsTapEnabled = true;
+            btn_deployment.Tapped += btn_deployment_OnClick;            
+
+            Grid.SetRow(btn_deployment, rowCurrentModule);
+            Grid.SetColumn(btn_deployment, columnCurrentModule);
+
+            /*
+            for (int i = 0; i < Grid_Jeu.Children.Count; i++)
+            {
+                Debug.WriteLine(Grid_Jeu.Children.ElementAt(i).ToString());
+            }*/
+
+            UIElement lastitem = Grid_Jeu.Children.Last(); //recuperation du dernier element creer          
+            if(lastitem.GetType() == btn_deployment.GetType()) //si le dernier element est un bouton
+            {
+                Grid_Jeu.Children.Remove(lastitem); //on supprime le dernier bouton
+            }
+
+            this.Grid_Jeu.Children.Add(btn_deployment); // puis on creer le bouton deploiement
+        }
+
+        /// <summary>
+        /// Fonction de deploiement d'un personnage dans un module au click du bouton deploiement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btn_deployment_OnClick(object sender, TappedRoutedEventArgs e)
+        {                       
+            MessageDialog msgbox = new MessageDialog("Voulez vous déploier le " + currentClickPersonnage + " dans le module : '" + currentClickModule + "' ?", "Déploiment de "+currentClickPersonnage+" ?");
+
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
 
             var res = await msgbox.ShowAsync();
-
             if ((int)res.Id == 0)
             {
                 this.Frame.Navigate(typeof(PageModule));
             }
 
-            if ((int)res.Id == 2 || (int)res.Id == 1)
+            if ((int)res.Id == 1)
             {
-                MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
+                MessageDialog msgbox2 = new MessageDialog("Votre déploiment a été annulé...");
                 await msgbox2.ShowAsync();
             }
 
@@ -899,7 +1409,7 @@ namespace TharsisRevolution
         private void Pilotage_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.PostePilotage);
-            Deplacement_PersonnageToModule(Module.moduleType.PostePilotage);
+            Deplacement_PersonnageToCurrentModule();
         }
 
         /// <summary>
@@ -910,7 +1420,7 @@ namespace TharsisRevolution
         private void Serre_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.Serre);
-            Deplacement_PersonnageToModule(Module.moduleType.Serre);
+            Deplacement_PersonnageToCurrentModule();
         }
 
         /// <summary>
@@ -921,7 +1431,8 @@ namespace TharsisRevolution
         private void Infirmerie_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.Infirmerie);
-            Deplacement_PersonnageToModule(Module.moduleType.Infirmerie);
+            Deplacement_PersonnageToCurrentModule();
+
         }
 
         /// <summary>
@@ -932,7 +1443,8 @@ namespace TharsisRevolution
         private void Detente_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.Détente);
-            Deplacement_PersonnageToModule(Module.moduleType.Détente);
+            Deplacement_PersonnageToCurrentModule();
+
         }
 
         /// <summary>
@@ -943,7 +1455,8 @@ namespace TharsisRevolution
         private void Maintenance_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.Maintenance);
-            Deplacement_PersonnageToModule(Module.moduleType.Maintenance);
+            Deplacement_PersonnageToCurrentModule();
+
         }
 
         /// <summary>
@@ -954,7 +1467,8 @@ namespace TharsisRevolution
         private void Labo_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.Laboratoire);
-            Deplacement_PersonnageToModule(Module.moduleType.Laboratoire);
+            Deplacement_PersonnageToCurrentModule();
+
         }
 
         /// <summary>
@@ -965,8 +1479,10 @@ namespace TharsisRevolution
         private void Survie_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
             HightLight_Module(Module.moduleType.SystemeSurvie);
-            Deplacement_PersonnageToModule(Module.moduleType.SystemeSurvie);
+            Deplacement_PersonnageToCurrentModule();
+
         }
+        
     }
 
 }

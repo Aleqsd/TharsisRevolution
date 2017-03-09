@@ -24,8 +24,12 @@
       <RootMethod Name="SetAlignVerticalCenterWithPanel" />
       <RootMethod Name="GetLeftOf" />
       <RootMethod Name="SetLeftOf" />
+      <RootMethod Name="GetAlignVerticalCenterWith" />
+      <RootMethod Name="SetAlignVerticalCenterWith" />
       <RootMethod Name="GetBelow" />
       <RootMethod Name="SetBelow" />
+      <RootMethod Name="GetAlignHorizontalCenterWith" />
+      <RootMethod Name="SetAlignHorizontalCenterWith" />
       <RootMethod Name="GetAlignRightWithPanel" />
       <RootMethod Name="SetAlignRightWithPanel" />
       <RootMethod Name="GetAlignBottomWithPanel" />
@@ -92,8 +96,10 @@
       <RootProperty Name="Background" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="RequestedTheme" />
+      <RootEvent Name="ValueChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />

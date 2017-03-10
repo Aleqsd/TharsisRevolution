@@ -1,4 +1,7 @@
 WinMetadata\Windows.winmd
+Assets\AcceuiSoundTrack.mp3
+Assets\Ambox_warning_red.png
+Assets\AREA21 - Spaceships.mp3
 Assets\D1.png
 Assets\D1_HightLight.png
 Assets\D1_Lock.png
@@ -26,6 +29,7 @@ Assets\img_Doctor.png
 Assets\img_Doctor_HightLight.png
 Assets\img_meca.png
 Assets\img_meca_HightLight.png
+Assets\Interstellar Main Theme.mp3
 Assets\LockScreenLogo.scale-200.png
 Assets\Mars.png
 Assets\Module_Detente_HightLight.png
@@ -42,6 +46,7 @@ Assets\Module_Serre_HightLight.png
 Assets\Module_Serre2.png
 Assets\Module_Survie_HightLight.png
 Assets\Module_Survie2.png
+Assets\original.gif
 Assets\Space.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png

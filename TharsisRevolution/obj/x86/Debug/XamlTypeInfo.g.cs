@@ -136,30 +136,30 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
             _typeNameTable[0] = "TharsisRevolution.Accueil";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "TharsisRevolution.MainPage";
-            _typeNameTable[4] = "XamlAnimatedGif.AnimationBehavior";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "System.Uri";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Image";
-            _typeNameTable[8] = "Windows.UI.Xaml.Media.Animation.RepeatBehavior";
-            _typeNameTable[9] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[10] = "System.IO.Stream";
-            _typeNameTable[11] = "Boolean";
+            _typeNameTable[3] = "XamlAnimatedGif.AnimationBehavior";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "System.Uri";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.Image";
+            _typeNameTable[7] = "Windows.UI.Xaml.Media.Animation.RepeatBehavior";
+            _typeNameTable[8] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[9] = "System.IO.Stream";
+            _typeNameTable[10] = "Boolean";
+            _typeNameTable[11] = "TharsisRevolution.MainPage";
             _typeNameTable[12] = "TharsisRevolution.PageModule";
 
             _typeTable = new global::System.Type[13];
             _typeTable[0] = typeof(global::TharsisRevolution.Accueil);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::TharsisRevolution.MainPage);
-            _typeTable[4] = typeof(global::XamlAnimatedGif.AnimationBehavior);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::System.Uri);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Image);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.Media.Animation.RepeatBehavior);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[10] = typeof(global::System.IO.Stream);
-            _typeTable[11] = typeof(global::System.Boolean);
+            _typeTable[3] = typeof(global::XamlAnimatedGif.AnimationBehavior);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::System.Uri);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Image);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Media.Animation.RepeatBehavior);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[9] = typeof(global::System.IO.Stream);
+            _typeTable[10] = typeof(global::System.Boolean);
+            _typeTable[11] = typeof(global::TharsisRevolution.MainPage);
             _typeTable[12] = typeof(global::TharsisRevolution.PageModule);
         }
 
@@ -196,7 +196,7 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
         }
 
         private object Activate_0_Accueil() { return new global::TharsisRevolution.Accueil(); }
-        private object Activate_3_MainPage() { return new global::TharsisRevolution.MainPage(); }
+        private object Activate_11_MainPage() { return new global::TharsisRevolution.MainPage(); }
         private object Activate_12_PageModule() { return new global::TharsisRevolution.PageModule(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -224,14 +224,7 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  TharsisRevolution.MainPage
-                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  XamlAnimatedGif.AnimationBehavior
+            case 3:   //  XamlAnimatedGif.AnimationBehavior
                 userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("SourceUri");
                 userType.AddMemberName("RepeatBehavior");
@@ -241,36 +234,43 @@ namespace TharsisRevolution.TharsisRevolution_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 5:   //  Object
+            case 4:   //  Object
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  System.Uri
+            case 5:   //  System.Uri
                 userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.Image
+            case 6:   //  Windows.UI.Xaml.Controls.Image
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Windows.UI.Xaml.Media.Animation.RepeatBehavior
+            case 7:   //  Windows.UI.Xaml.Media.Animation.RepeatBehavior
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  Windows.UI.Xaml.DependencyObject
+            case 8:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  System.IO.Stream
+            case 9:   //  System.IO.Stream
                 userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Boolean
+            case 10:   //  Boolean
                 xamlType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  TharsisRevolution.MainPage
+                userType = new global::TharsisRevolution.TharsisRevolution_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
             case 12:   //  TharsisRevolution.PageModule

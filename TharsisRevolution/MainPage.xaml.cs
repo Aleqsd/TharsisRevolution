@@ -381,8 +381,8 @@ namespace TharsisRevolution
             }
 
 
-            int randomModule = rdm.Next(0, 6);
-
+            int randomModule = rdm.Next(0, 6); //dans la liste les item vont de 0 et 6 et pas de 1 à 7, car sur le 7 j'ai toujours un outofrange :/
+            
             // Positionnement des membres dans les modules // modif Thomas (pas certain mais proposition)
             for (int i = 0; i < 4; i++)
             {
@@ -390,7 +390,7 @@ namespace TharsisRevolution
                 while (modules[randomModule].PresenceMembre)
                     randomModule = rdm.Next(0, 7);
                 membres[i].Position = modules[randomModule];
-                modules[randomModule].PresenceMembre = true;
+                modules[randomModule].PresenceMembre = true; //thomas (permet de faire fonctionner ta boucle while au dessus)
 
                 //Thomas : Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
                 Deplacement_PersonnageToCurrentModule(membres[i].Role , membres[i].Position);
@@ -587,18 +587,81 @@ namespace TharsisRevolution
         }
 
         /// <summary>
+        /// Fonction pour afficher des informations sur la panne au click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void informationPanne_OnClick(object sender, TappedRoutedEventArgs e)
+        {
+            int x = Grid.GetColumn((FrameworkElement)sender);     
+            int y = Grid.GetRow((FrameworkElement)sender);
+            string coordonnee = x.ToString() + y.ToString();
+            MessageDialog msgbox;
+
+            switch (coordonnee)
+            {
+                case "02":
+                    //pilotage
+                    msgbox = new MessageDialog("Panne " + modules[0].Panne.TaillePanne + " de " + modules[0].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "12":
+                    //serre
+                    msgbox = new MessageDialog("Panne " + modules[1].Panne.TaillePanne + " de " + modules[1].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "22":
+                    //infi
+                    msgbox = new MessageDialog("Panne " + modules[4].Panne.TaillePanne + " de " + modules[4].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "32":
+                    //detente
+                    msgbox = new MessageDialog("Panne " + modules[5].Panne.TaillePanne + " de " + modules[5].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "42":
+                    //maintenance
+                    msgbox = new MessageDialog("Panne " + modules[3].Panne.TaillePanne + " de " + modules[3].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "21":
+                    //labo
+                    msgbox = new MessageDialog("Panne " + modules[6].Panne.TaillePanne + " de " + modules[6].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                case "33":
+                    //survie
+                    msgbox = new MessageDialog("Panne " + modules[2].Panne.TaillePanne + " de " + modules[2].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    await msgbox.ShowAsync();
+                    break;
+                default:
+                    break;
+            }            
+        }
+
+        /// <summary>
         /// Création d'un certain nombre de panne en fonction du jour de la semaine et assignation de la panne à son module
         /// </summary>
         /// <param name="numeroSemaine"></param>
         private void CreationPannes(int numeroSemaine)
         {
+            //creation image Panne (Thomas)
+            BitmapImage imagePanne = new BitmapImage(new Uri("ms-appx:///Assets/Ambox_warning_red.png"));
+            Image img_Panne = new Image();
+            img_Panne.Source = imagePanne;
+            img_Panne.Width = 40;
+            img_Panne.Height = 40;
+            img_Panne.IsTapEnabled = true;
+            img_Panne.Tapped += informationPanne_OnClick;
+            
             int random = rdm.Next(0, 7);
             Debug.WriteLine("Création de panne pour la semaine " + numeroSemaine);
             switch (numeroSemaine)
             {
                 case 1:
                     // ToDo METTRE RANDOM pour le premier jour, là c'est pour test
-                    pannes.Add(new Panne(1, Panne.taille.Moyenne, hardMode));
+                    pannes.Add(new Panne(1, Panne.taille.Moyenne, hardMode));                    
                     modules[1].Panne = pannes.Where(p => p.Id == 1).FirstOrDefault();
                     modules[1].EstEnPanne = true;
                     break;
@@ -747,6 +810,11 @@ namespace TharsisRevolution
                 if (module.EstEnPanne)
                 {
                     Debug.WriteLine("Module " + module.Type.ToString() + " est en " + module.Panne.TaillePanne + " panne");
+
+                    //positionnement de l'image de panne
+                    Grid.SetColumn(img_Panne, module.EmplacementX);
+                    Grid.SetRow(img_Panne, module.EmplacementY);
+                    this.Grid_Jeu.Children.Add(img_Panne);
                 }
             }
 
@@ -764,7 +832,7 @@ namespace TharsisRevolution
                 }
             }
         }
-
+        
         /// <summary>
         /// Reparation totale ou partielle d'une panne à un module donné
         /// </summary>

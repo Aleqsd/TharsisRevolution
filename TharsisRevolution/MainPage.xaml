@@ -5,12 +5,13 @@
     xmlns:local="using:TharsisRevolution"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d">
     <RelativePanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="1920" Height="1080" >
         <RelativePanel.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Space.png"/>
         </RelativePanel.Background>
-
+        <Image gif:AnimationBehavior.SourceUri="/Assets/original.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Margin="-228,-852,-2256,-216" />
         <Border x:Name="block_PvShip" BorderBrush="Gray" BorderThickness="5" RenderTransformOrigin="0.5,0.5"  UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="-123,-108,123,108">
             <Border.RenderTransform>
                 <CompositeTransform SkewX="50"/>
@@ -24,7 +25,7 @@
         </Border>
         <TextBlock x:Name="lbl_TimeSemaine" Foreground="White" Height="40" Text="1"  Width="40"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic"  RelativePanel.LeftOf="lbl_txtSemaine" Margin="3,4,-3,-4"/>
         <TextBlock x:Name="lbl_TimeSemaineMax" Foreground="White" Height="40" Text="/ 10"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic"  RelativePanel.LeftOf="lbl_txtSemaine" Margin="37,4,-57,-4"/>
-        <Slider x:Name="slider_Semaines" IsEnabled="False" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0" Margin="18,42,-18,-42" Foreground="White" Background="White" Maximum="10" ValueChanged="slider_TimeSemaine_ValueChanged" IsDirectionReversed="True" Value="10"/>
+        <Slider x:Name="slider_Semaines" IsEnabled="False" Height="50" VerticalAlignment="Top" Width="302" RelativePanel.AlignHorizontalCenterWithPanel="True" LargeChange="1" BorderThickness="0" Margin="18,42,-18,-42" Foreground="White" Background="White" Maximum="10" ValueChanged="slider_TimeSemaine_ValueChanged" Value="10"/>
         <TextBlock x:Name="lbl_txtSemaine" Foreground="White" Height="40" Text="semaines avant Mars"  Width="350"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="80,4,-80,-4"/>
 
         <!--Grid x:Name="Grid_Ship" Margin="0,-1,0,1" Width="1000" Height="600" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Background="Transparent">
@@ -74,6 +75,8 @@
             <Image x:Name="Maintenance" Width="auto" Height="auto" Grid.Row="2" Grid.Column="4" Source="Assets/Module_Maintenance2.png" Tapped="Maintenance_HightLight_OnClick"/>
             <Image x:Name="Laboratoire" Width="auto" Height="auto" Grid.Row="1" Grid.Column="2" Source="Assets/Module_Laboratoire2.png" Tapped="Labo_HightLight_OnClick"/>
             <Image x:Name="SystemeSurvie" Width="auto" Height="auto" Grid.Row="3" Grid.Column="3" Source="Assets/Module_Survie2.png" Tapped="Survie_HightLight_OnClick"/>
+
+            <!--Image x:Name="img_Panne" Source="Assets/Ambox_warning_red.png" Width="70px" Height="70px" Grid.Row="2" Grid.Column="2"></-->
 
             <RelativePanel x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" Tapped="Meca_HightLight_OnClick">
                 <TextBlock x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
@@ -235,6 +238,7 @@
 
         <TextBlock x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
         <TextBlock x:Name="lbl_PvShip" Foreground="Red" Height="40" Text="0"  Width="40" FontSize="30" FontFamily="Showcard Gothic" RelativePanel.AlignVerticalCenterWith="pg_PvShip" RelativePanel.Below="pg_PvShip" Margin="183,43,-183,-43"></TextBlock>
-
+        <MediaElement Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="1"></MediaElement>
     </RelativePanel>
+    
 </Page>

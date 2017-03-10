@@ -337,6 +337,9 @@
     <AppxPackagedFile Include="C:\Users\tpala\.nuget\packages\XamlAnimatedGif\1.1.6\lib\portable-win81+wpa81\XamlAnimatedGif.dll">
       <PackagePath>XamlAnimatedGif.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Ambox_warning_red.png">
+      <PackagePath>Assets\Ambox_warning_red.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\D1.png">
       <PackagePath>Assets\D1.png</PackagePath>
     </AppxPackagedFile>
@@ -490,8 +493,20 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\AREA21 - Spaceships.mp3">
+      <PackagePath>Assets\AREA21 - Spaceships.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\AcceuiSoundTrack.mp3">
+      <PackagePath>Assets\AcceuiSoundTrack.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\Interstellar Main Theme.mp3">
+      <PackagePath>Assets\Interstellar Main Theme.mp3</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\giphy.gif">
       <PackagePath>Assets\giphy.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Assets\original.gif">
+      <PackagePath>Assets\original.gif</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

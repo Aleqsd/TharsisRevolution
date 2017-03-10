@@ -12,6 +12,6 @@
         </RelativePanel.Background>
         <Button x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="200" Height="100" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" BorderBrush="Transparent" Click="btn_Jouer_Click"/>
         <TextBlock x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
-
+        <MediaElement Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1"></MediaElement>
     </RelativePanel>
 </Page>

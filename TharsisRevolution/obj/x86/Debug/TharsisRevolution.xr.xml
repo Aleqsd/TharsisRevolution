@@ -68,7 +68,26 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="FontWeight" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MediaElement">
+      <RootProperty Name="Source" />
+      <RootProperty Name="AudioCategory" />
+      <RootProperty Name="Volume" />
+    </RootType>
     <RootType FullName="TharsisRevolution.Accueil" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootEvent Name="Tapped" />
+    </RootType>
+    <RootType FullName="XamlAnimatedGif.AnimationBehavior">
+      <RootMethod Name="GetSourceUri" />
+      <RootMethod Name="SetSourceUri" />
+      <RootMethod Name="GetRepeatBehavior" />
+      <RootMethod Name="SetRepeatBehavior" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
@@ -109,7 +128,6 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
       <RootProperty Name="Maximum" />
-      <RootProperty Name="IsDirectionReversed" />
       <RootProperty Name="Value" />
       <RootEvent Name="ValueChanged" />
     </RootType>
@@ -134,14 +152,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Source" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootEvent Name="Tapped" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
@@ -152,12 +162,6 @@
       <RootProperty Name="SkewX" />
     </RootType>
     <RootType FullName="TharsisRevolution.MainPage" />
-    <RootType FullName="XamlAnimatedGif.AnimationBehavior">
-      <RootMethod Name="GetSourceUri" />
-      <RootMethod Name="SetSourceUri" />
-      <RootMethod Name="GetRepeatBehavior" />
-      <RootMethod Name="SetRepeatBehavior" />
-    </RootType>
     <RootType FullName="TharsisRevolution.PageModule" />
   </Roots.RootTypes>
 </Roots>

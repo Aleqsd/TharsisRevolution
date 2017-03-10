@@ -10,15 +10,16 @@ namespace TharsisRevolution
     {
         public enum moduleType { PostePilotage, Serre, SystemeSurvie, Maintenance, Infirmerie, Détente, Laboratoire }
 
-        private int emplacement;
+        private int emplacementX, emplacementY; //modif thomas
         private moduleType type;
         private bool estEnPanne = false;
         private Panne panne;
         private bool presenceMembre = false;
 
-        public Module(moduleType type, int emplacement)
+        public Module(moduleType type, int emplacementX, int emplacementY)//modif thomas
         {
-            this.emplacement = emplacement;
+            this.emplacementX = emplacementX; //modif thomas
+            this.emplacementY = emplacementY;//modif thomas
             this.type = type;
         }
 
@@ -61,16 +62,29 @@ namespace TharsisRevolution
             }
         }
 
-        public int Emplacement
+        public int EmplacementX
         {
             get
             {
-                return emplacement;
+                return emplacementX;
             }
 
             set
             {
-                emplacement = value;
+                emplacementX = value;
+            }
+        }
+
+        public int EmplacementY
+        {
+            get
+            {
+                return emplacementY;
+            }
+
+            set
+            {
+                emplacementY = value;
             }
         }
 

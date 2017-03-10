@@ -30,7 +30,7 @@ namespace TharsisRevolution
         public PageModule()
         {
             this.InitializeComponent();
-            Module m = new Module(Module.moduleType.Détente, 1);
+            Module m = new Module(Module.moduleType.Détente,1,1);
             m.PresenceMembre = true;
             jack = new Membre(Membre.roleMembre.Docteur, 1);
             jack.Position = m;

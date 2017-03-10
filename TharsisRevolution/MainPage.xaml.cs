@@ -105,15 +105,15 @@ namespace TharsisRevolution
             vaisseau = new Vaisseau();
             this.pg_PvShip.Value = vaisseau.Pv;
 
-            //Initialisation des Moduless
+            //Initialisation des Moduless //modif thomas (proposition)
             modules = new List<Module> {
-                new Module(Module.moduleType.PostePilotage,1),
-                new Module(Module.moduleType.Serre,2),
-                new Module(Module.moduleType.Infirmerie,3),
-                new Module(Module.moduleType.Laboratoire,4),
-                new Module(Module.moduleType.Détente,5),
-                new Module(Module.moduleType.SystemeSurvie,6),
-                new Module(Module.moduleType.Maintenance,7),
+                new Module(Module.moduleType.PostePilotage,Grid.GetColumn(PostePilotage),Grid.GetRow(PostePilotage)),
+                new Module(Module.moduleType.Serre,Grid.GetColumn(Serre),Grid.GetRow(Serre)),
+                new Module(Module.moduleType.Infirmerie,Grid.GetColumn(Infirmerie),Grid.GetRow(Infirmerie)),
+                new Module(Module.moduleType.Laboratoire,Grid.GetColumn(Laboratoire),Grid.GetRow(Laboratoire)),
+                new Module(Module.moduleType.Détente,Grid.GetColumn(Détente),Grid.GetRow(Détente)),
+                new Module(Module.moduleType.SystemeSurvie,Grid.GetColumn(SystemeSurvie),Grid.GetRow(SystemeSurvie)),
+                new Module(Module.moduleType.Maintenance,Grid.GetColumn(Maintenance),Grid.GetRow(Maintenance)),
             };
 
             //Initialisation des Membres
@@ -381,18 +381,22 @@ namespace TharsisRevolution
             }
 
 
-            int randomModule = rdm.Next(1, 7);
+            int randomModule = rdm.Next(0, 6);
 
-            // Positionnement des membres dans les modules
+            // Positionnement des membres dans les modules // modif Thomas (pas certain mais proposition)
             for (int i = 0; i < 4; i++)
             {
                 //Tant qu'on tombe sur un module avec um membre à l'interieur, recommencer.
                 while (modules[randomModule].PresenceMembre)
-                    randomModule = rdm.Next(1, 8);
+                    randomModule = rdm.Next(0, 7);
                 membres[i].Position = modules[randomModule];
-                Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position);
+                modules[randomModule].PresenceMembre = true;
 
+                //Thomas : Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
+                Deplacement_PersonnageToCurrentModule(membres[i].Role , membres[i].Position);
+                Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
             }
+            
 
             //Initialisation Semaine
             numeroSemaine = 1;
@@ -411,8 +415,8 @@ namespace TharsisRevolution
         private void Deplacement(Membre membre, Module moduleDestination)
         {
             // Variable du deplacement du personnage
-            int indexDeLaSalleDeDepart = membres[membre.Id].Position.Emplacement;
-            int indexDeLaSalleChoisie = moduleDestination.Emplacement;
+            int indexDeLaSalleDeDepart = membres[membre.Id].Position.EmplacementX;
+            int indexDeLaSalleChoisie = moduleDestination.EmplacementX;
 
             Debug.WriteLine("Membre " + membre.Role + " PV avant déplacement " + membre.Pv);
 
@@ -768,7 +772,7 @@ namespace TharsisRevolution
         /// <param name="montantDeLaReparation"></param>
         private void ReparationPanneDuModule(Module module, int montantDeLaReparation)
         {
-            Debug.WriteLine("Réparation du module " + module.Emplacement + " de " + montantDeLaReparation);
+            Debug.WriteLine("Réparation du module " + module.EmplacementX + " de " + montantDeLaReparation);
             if (module.EstEnPanne)
             {
                 if (module.Panne.Dégat <= montantDeLaReparation)
@@ -788,7 +792,7 @@ namespace TharsisRevolution
         /// <param name="module"></param>
         private void PanneInfligeDégat(Module module)
         {
-            Debug.WriteLine("Panne du module inflige des dégats " + module.Emplacement);
+            Debug.WriteLine("Panne du module inflige des dégats " + module.EmplacementX);
             int typeDegat = rdm.Next(1, 4);
             switch (typeDegat)
             {
@@ -1334,6 +1338,88 @@ namespace TharsisRevolution
                 default:
                     break;
             }           
+        }
+
+        /// <summary>
+        /// Surcharge de la fonction de deplacement des personnages lors de leur initalisation des positions de départ
+        /// </summary>
+        /// <param name="personnage"></param>
+        /// <param name="module"></param>
+        private void Deplacement_PersonnageToCurrentModule(Membre.roleMembre personnage, Module module)
+        {
+            switch (personnage.ToString())
+            {
+                case "Docteur":
+                        if (module.Type == Module.moduleType.Infirmerie)
+                        {
+                            Grid.SetRow(reDocteur, module.EmplacementY + 1);
+                            Grid.SetColumn(reDocteur, module.EmplacementX);
+                        }
+                        else if (module.Type == Module.moduleType.SystemeSurvie)
+                        {
+                            Grid.SetRow(reDocteur, module.EmplacementY + 1);
+                            Grid.SetColumn(reDocteur, module.EmplacementX);
+                        }
+                        else
+                        {
+                            Grid.SetRow(reDocteur, module.EmplacementY - 1);
+                            Grid.SetColumn(reDocteur, module.EmplacementX);
+                        }
+                    break;
+                case "Mécanicien":
+                    if (module.Type == Module.moduleType.Infirmerie)
+                    {
+                        Grid.SetRow(reMeca, module.EmplacementY + 1);
+                        Grid.SetColumn(reMeca, module.EmplacementX);
+                    }
+                    else if (module.Type == Module.moduleType.SystemeSurvie)
+                    {
+                        Grid.SetRow(reMeca, module.EmplacementY + 1);
+                        Grid.SetColumn(reMeca, module.EmplacementX);
+                    }
+                    else
+                    {
+                        Grid.SetRow(reMeca, module.EmplacementY - 1);
+                        Grid.SetColumn(reMeca, module.EmplacementX);
+                    }
+                    break;
+                case "Capitaine":
+                    if (module.Type == Module.moduleType.Infirmerie)
+                    {
+                        Grid.SetRow(reCapitaine, module.EmplacementY + 1);
+                        Grid.SetColumn(reCapitaine, module.EmplacementX);
+                    }
+                    else if (module.Type == Module.moduleType.SystemeSurvie)
+                    {
+                        Grid.SetRow(reCapitaine, module.EmplacementY + 1);
+                        Grid.SetColumn(reCapitaine, module.EmplacementX);
+                    }
+                    else
+                    {
+                        Grid.SetRow(reCapitaine, module.EmplacementY - 1);
+                        Grid.SetColumn(reCapitaine, module.EmplacementX);
+                    }
+                    break;
+                case "Commandant":
+                    if (module.Type == Module.moduleType.Infirmerie)
+                    {
+                        Grid.SetRow(reCommandant, module.EmplacementY + 1);
+                        Grid.SetColumn(reCommandant, module.EmplacementX);
+                    }
+                    else if (module.Type == Module.moduleType.SystemeSurvie)
+                    {
+                        Grid.SetRow(reCommandant, module.EmplacementY + 1);
+                        Grid.SetColumn(reCommandant, module.EmplacementX);
+                    }
+                    else
+                    {
+                        Grid.SetRow(reCommandant, module.EmplacementY - 1);
+                        Grid.SetColumn(reCommandant, module.EmplacementX);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
 

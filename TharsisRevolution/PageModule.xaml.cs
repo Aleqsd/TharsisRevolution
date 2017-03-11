@@ -6,9 +6,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
 //TODO mettre un fond en fonction du module
+//TODO VIRER TOUS LES ACCENTS DANS LE C#
 
 namespace TharsisRevolution
 {
@@ -83,6 +86,7 @@ namespace TharsisRevolution
 
 
             }
+            tbLancesRestant.Text = nombreLancers + " restant";
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -111,6 +115,8 @@ namespace TharsisRevolution
 
         private void ButtonLancer_Click(object sender, RoutedEventArgs e)
         {
+            btLancer1.Content = "Relancer";
+
             if (nombreLancers > 0)
             {
                 List<Image> imageList;
@@ -193,6 +199,9 @@ namespace TharsisRevolution
                 }
 
                 nombreLancers--;
+                // Mise à jour du nombre de dés restant affichés
+                tbLancesRestant.Text = nombreLancers + " restant"; 
+                
 
             }
             else
@@ -212,11 +221,35 @@ namespace TharsisRevolution
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + "_HightLight.png";
+
+
+                    // Surbrillance des actions possible et activation du bouton de réparation
+                    btLancer1.Background = new SolidColorBrush(Colors.White);
+                    btLancer1.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.Background = new SolidColorBrush(Colors.White);
+                    btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.IsEnabled = true;
                 }
                 else
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + ".png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + ".png";
+
+                    List<Boolean> SelectedDices = new List<Boolean>{ imgD1.Tag.ToString().Contains("HightLight"),
+                                                            imgD2.Tag.ToString().Contains("HightLight"),
+                                                            imgD3.Tag.ToString().Contains("HightLight"),
+                                                            imgD4.Tag.ToString().Contains("HightLight"),
+                                                            imgD5.Tag.ToString().Contains("HightLight"),
+                                                            imgD6.Tag.ToString().Contains("HightLight")};
+                    if (!SelectedDices.Contains(true))
+                    {
+                        btLancer1.Background = btTerminer.Background;
+                        btLancer1.Foreground = new SolidColorBrush(Colors.White);
+                        btReparerValeur.Background = btTerminer.Background;
+                        btReparerValeur.Foreground = new SolidColorBrush(Colors.White);
+                        btReparerValeur.IsEnabled = false;
+                    }
+
                 }
             }
         }
@@ -240,6 +273,10 @@ namespace TharsisRevolution
             //Griser le dé ciblé
             //Ne devra pas être relancé si on utilise le bouton relance
         }
+
+
+
+
 
         /// <summary>
         /// Utilisation d'un pouvoir d'un membre à un emplacement de panne donné pour un lancer de dés donné
@@ -301,5 +338,37 @@ namespace TharsisRevolution
                 }
             }
         }
+        /// <summary>
+        /// OnClick listener du bouton servant à réparer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btReparerValeur_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            /* TODO : finir le backend 
+            // Liste des dés selectionnés par le joueur
+            List<Boolean> SelectedDices = new List < Boolean >{ imgD1.Tag.ToString().Contains("HightLight"),
+                                                            imgD2.Tag.ToString().Contains("HightLight"),
+                                                            imgD3.Tag.ToString().Contains("HightLight"),
+                                                            imgD4.Tag.ToString().Contains("HightLight"),
+                                                            imgD5.Tag.ToString().Contains("HightLight"),
+                                                            imgD6.Tag.ToString().Contains("HightLight")};
+            
+
+            // Si le joueur a lancé les dés et en a sélectionné au moins 1
+            if (nombreLancers < 3 & SelectedDices.Contains(true))
+            {
+                int ValeurAReparer = 0;
+                foreach(Boolean DesSelectionne in SelectedDices)
+                {
+                    
+                }
+                this.Réparer(ValeurAReparer);
+            }
+
+            */
+        }
     }
+
+ 
 }

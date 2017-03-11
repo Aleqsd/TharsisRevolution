@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
-    class Vaisseau
+    public class Vaisseau
     {
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();

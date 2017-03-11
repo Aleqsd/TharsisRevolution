@@ -22,6 +22,8 @@ namespace TharsisRevolution
     /// </summary>
     public sealed partial class Accueil : Page
     {
+        private bool hardMode = false;
+
         public Accueil()
         {
             this.InitializeComponent();
@@ -29,7 +31,9 @@ namespace TharsisRevolution
 
         private void btn_Jouer_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            var parameters = new GameParameters(hardMode);
+
+            this.Frame.Navigate(typeof(MainPage),parameters);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TharsisRevolution
     /// <summary>
     /// Classe du Membre d'équipage
     /// </summary>
-    class Membre
+    public class Membre
     {
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();

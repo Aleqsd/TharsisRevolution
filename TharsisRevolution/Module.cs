@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
-    class Module
+    public class Module
     {
         public enum moduleType { PostePilotage, Serre, SystemeSurvie, Maintenance, Infirmerie, Détente, Laboratoire }
 

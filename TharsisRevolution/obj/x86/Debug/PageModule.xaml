@@ -14,7 +14,7 @@
         <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
             <Button x:ConnectionId='24' x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold"                             />
         </Border>
-        <TextBlock x:ConnectionId='1' x:Name="tbLancesRestant" Width="40" Height="40" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White"/>
+        <TextBlock x:ConnectionId='1' x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" Margin="-161,-13,83,-5"/>
         <Border x:ConnectionId='2' x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
             <Button x:ConnectionId='23' x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold"                           />
         </Border>
@@ -31,39 +31,39 @@
             </RelativePanel>
         </Border>
         <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" >
-            
-            <Grid x:ConnectionId='7' Width="200" Height="50" Name="grPilotage">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
-            <Border x:ConnectionId='8' x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+            <Grid x:ConnectionId='7' Width="200" Height="50" Name="grPilotage">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border x:ConnectionId='8' x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='19' x:Name="imgD1"                        Tag="null"></Image>
-            </Border>
+                </Border>
                 <Border x:ConnectionId='9' x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='18' x:Name="imgD2"                        Tag="null"></Image>
-            </Border>
+                </Border>
                 <Border x:ConnectionId='10' x:Name="boD3" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='17' x:Name="imgD3"                        Tag="null"></Image>
-            </Border>
+                </Border>
                 <Border x:ConnectionId='11' x:Name="boD4" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='16' x:Name="imgD4"                        Tag="null"></Image>
-            </Border>
+                </Border>
                 <Border x:ConnectionId='12' x:Name="boD5" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='15' x:Name="imgD5"                        Tag="null"></Image>
-            </Border>
+                </Border>
                 <Border x:ConnectionId='13' x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:ConnectionId='14' x:Name="imgD6"                        Tag="null"></Image>
-            </Border>
-                
+                </Border>
+
             </Grid>
         </Border>
 

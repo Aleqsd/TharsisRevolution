@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 // TODO Ajouter du fun (un nyan cat ?)
 // TODO supprimer les using ou fonctions inutilisées
 // TODO commenter tous le code
+// TODO faire continuer la musique même dans un module, possible ?
 
 namespace TharsisRevolution
 {
@@ -114,44 +115,23 @@ namespace TharsisRevolution
             //FIN SEMAINE (même fonction, détecte si semaine 10)
         }
 
-
-
         /// <summary>
-        /// Initialisation de la partie, création des objets, placement des membres à leurs positions initiales randomisées
+        /// Fonction à appeler à chaque changement dans l'UI
         /// </summary>
-        private void Initialiser()
+        private void UpdateUI()
         {
-            rdm = new Random();
+            //TODO prendre en compte la mort d'un personnage
 
-            //Initialisation Vaisseau
-            vaisseau = new Vaisseau();
             this.pg_PvShip.Value = vaisseau.Pv;
-
-            //Initialisation des Moduless //modif thomas (proposition)
-            modules = new List<Module> {
-                new Module(Module.moduleType.PostePilotage,Grid.GetColumn(PostePilotage),Grid.GetRow(PostePilotage)),
-                new Module(Module.moduleType.Serre,Grid.GetColumn(Serre),Grid.GetRow(Serre)),
-                new Module(Module.moduleType.Infirmerie,Grid.GetColumn(Infirmerie),Grid.GetRow(Infirmerie)),
-                new Module(Module.moduleType.Laboratoire,Grid.GetColumn(Laboratoire),Grid.GetRow(Laboratoire)),
-                new Module(Module.moduleType.Détente,Grid.GetColumn(Détente),Grid.GetRow(Détente)),
-                new Module(Module.moduleType.SystemeSurvie,Grid.GetColumn(SystemeSurvie),Grid.GetRow(SystemeSurvie)),
-                new Module(Module.moduleType.Maintenance,Grid.GetColumn(Maintenance),Grid.GetRow(Maintenance)),
-            };
-
-            //Initialisation des Membres
-            membres = new List<Membre> {
-                new Membre(Membre.roleMembre.Commandant,1),
-                new Membre(Membre.roleMembre.Capitaine,2),
-                new Membre(Membre.roleMembre.Docteur,3),
-                new Membre(Membre.roleMembre.Mécanicien,4)
-            };
+            this.slider_Semaines.Value = numeroSemaine;
 
             //initialisation des paramètres du Personnage Commandant
             pb_PvCommandant.Value = membres[0].Pv;
-            switch(membres[0].NombreDeDés)
+
+            switch (membres[0].NombreDeDés)
             {
                 case 0:
-                    Com_d1.Fill = new SolidColorBrush( Colors.Black);
+                    Com_d1.Fill = new SolidColorBrush(Colors.Black);
                     Com_d2.Fill = new SolidColorBrush(Colors.Black);
                     Com_d3.Fill = new SolidColorBrush(Colors.Black);
                     Com_d4.Fill = new SolidColorBrush(Colors.Black);
@@ -401,9 +381,38 @@ namespace TharsisRevolution
                 default:
                     break;
             }
+        }
 
+        /// <summary>
+        /// Initialisation de la partie, création des objets, placement des membres à leurs positions initiales randomisées
+        /// </summary>
+        private void Initialiser()
+        {
+            rdm = new Random();
 
-            int randomModule = rdm.Next(0, 6); //dans la liste les item vont de 0 et 6 et pas de 1 à 7, car sur le 7 j'ai toujours un outofrange :/
+            //Initialisation Vaisseau
+            vaisseau = new Vaisseau();
+
+            //Initialisation des Moduless //modif thomas (proposition)
+            modules = new List<Module> {
+                new Module(Module.moduleType.PostePilotage,Grid.GetColumn(PostePilotage),Grid.GetRow(PostePilotage)),
+                new Module(Module.moduleType.Serre,Grid.GetColumn(Serre),Grid.GetRow(Serre)),
+                new Module(Module.moduleType.Infirmerie,Grid.GetColumn(Infirmerie),Grid.GetRow(Infirmerie)),
+                new Module(Module.moduleType.Laboratoire,Grid.GetColumn(Laboratoire),Grid.GetRow(Laboratoire)),
+                new Module(Module.moduleType.Détente,Grid.GetColumn(Détente),Grid.GetRow(Détente)),
+                new Module(Module.moduleType.SystemeSurvie,Grid.GetColumn(SystemeSurvie),Grid.GetRow(SystemeSurvie)),
+                new Module(Module.moduleType.Maintenance,Grid.GetColumn(Maintenance),Grid.GetRow(Maintenance)),
+            };
+
+            //Initialisation des Membres
+            membres = new List<Membre> {
+                new Membre(Membre.roleMembre.Commandant,1),
+                new Membre(Membre.roleMembre.Capitaine,2),
+                new Membre(Membre.roleMembre.Docteur,3),
+                new Membre(Membre.roleMembre.Mécanicien,4)
+            };
+
+            int randomModule = rdm.Next(0, 7); //va de 0 à 6, à verifier
             
             // Positionnement des membres dans les modules // modif Thomas (pas certain mais proposition)
             for (int i = 0; i < 4; i++)
@@ -418,68 +427,18 @@ namespace TharsisRevolution
                 Deplacement_PersonnageToCurrentModule(membres[i].Role , membres[i].Position);
                 Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
             }
-            
 
             //Initialisation Semaine
             numeroSemaine = 1;
             Debug.WriteLine("Semaine 1");
-            this.slider_Semaines.Value = numeroSemaine;
 
             //Initialisation des Pannes avec la première panne moyenne du tour 1
             pannes = new List<Panne>();
+
+            UpdateUI();
         }
 
-        /// <summary>
-        /// Déplacement d'un membre à un Module avec gestion des dégats si il traverse une panne
-        /// </summary>
-        /// <param name="membre"></param>
-        /// <param name="moduleDestination"></param>
-        private void Deplacement(Membre membre, Module moduleDestination)
-        {
-            // Variable du deplacement du personnage
-            int indexDeLaSalleDeDepart = membres[membre.Id].Position.EmplacementX;
-            int indexDeLaSalleChoisie = moduleDestination.EmplacementX;
 
-            Debug.WriteLine("Membre " + membre.Role + " PV avant déplacement " + membre.Pv);
-
-            //Gestion de tous les cas pouvant générer des dégats au passage
-            if (modules[1].EstEnPanne) // Serre en Panne
-            {
-                if (indexDeLaSalleChoisie == 0 && indexDeLaSalleDeDepart > 2) //Direction Pilotage depuis Infirmerie ou plus loin
-                    membres[membre.Id].Pv--;
-                if (indexDeLaSalleChoisie > 2 && indexDeLaSalleDeDepart == 0) //Depart de Pilotage vers Infirmerie ou plus loin
-                    membres[membre.Id].Pv--;
-            }
-            if (modules[2].EstEnPanne) // Infirmerie en Panne
-            {
-                if (indexDeLaSalleChoisie == 4 && (indexDeLaSalleDeDepart != 3 && indexDeLaSalleDeDepart != 4)) // Direction Laboratoire si départ n'est pas Infirmerie ou Laboratoire
-                    membres[membre.Id].Pv--;
-                if (indexDeLaSalleChoisie > 4 && (indexDeLaSalleDeDepart > 3 || indexDeLaSalleDeDepart == 4)) //Direction à droite de Infirmerie, départ à gauche Infirmerie ou Laboratoire
-                    membres[membre.Id].Pv--;
-                if (indexDeLaSalleChoisie < 3 && indexDeLaSalleDeDepart > 3) // Direction à gauche de l'Infirmerie, départ à droite de l'Infirmerie ou Laboratoire
-                    membres[membre.Id].Pv--;
-            }
-            if (modules[3].EstEnPanne) // Détente en Panne
-            {
-                if (indexDeLaSalleChoisie == 7 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 6)) // Direction Maintenance, Départ Survie ou à gauche de Détente
-                    membres[membre.Id].Pv--;
-                if (indexDeLaSalleChoisie == 6 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 7)) // Direction Survie, Départ Maintenance ou à gauche de Détente
-                    membres[membre.Id].Pv--;
-                if (indexDeLaSalleChoisie < 5 && (indexDeLaSalleDeDepart > 5)) // Direction gauche de Détente, Départ Maintenance ou Survie
-                    membres[membre.Id].Pv--;
-            }
-
-            Debug.WriteLine("Membre " + membre.Role + " PV après déplacement " + membre.Pv);
-
-            // Défaite si on traverse une panne avec son dernier membre en vie avec un Pv...
-            if (!unMembreEnVie())
-                Défaite();
-
-            // Déplacement
-            membres[membre.Id].Position = modules[indexDeLaSalleChoisie];
-
-            Debug.WriteLine("Membre " + membre.Role + " déplacé à la position " + membre.Position);
-        }
 
         /// <summary>
         /// Fonction pour afficher des informations sur la panne au click
@@ -507,27 +466,29 @@ namespace TharsisRevolution
                     break;
                 case "22":
                     //infi
-                    msgbox = new MessageDialog("Panne " + modules[4].Panne.TaillePanne + " de " + modules[4].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    // TODO meme erreur qu'en dessous
+                    msgbox = new MessageDialog("Panne " + modules[2].Panne.TaillePanne + " de " + modules[2].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 case "32":
                     //detente
-                    msgbox = new MessageDialog("Panne " + modules[5].Panne.TaillePanne + " de " + modules[5].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    msgbox = new MessageDialog("Panne " + modules[4].Panne.TaillePanne + " de " + modules[4].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 case "42":
                     //maintenance
-                    msgbox = new MessageDialog("Panne " + modules[3].Panne.TaillePanne + " de " + modules[3].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    msgbox = new MessageDialog("Panne " + modules[6].Panne.TaillePanne + " de " + modules[6].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 case "21":
                     //labo
-                    msgbox = new MessageDialog("Panne " + modules[6].Panne.TaillePanne + " de " + modules[6].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    msgbox = new MessageDialog("Panne " + modules[3].Panne.TaillePanne + " de " + modules[3].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 case "33":
                     //survie
-                    msgbox = new MessageDialog("Panne " + modules[2].Panne.TaillePanne + " de " + modules[2].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
+                    // TODO j'ai eu une erreur sur celui ci, a verifier (panne inexistante pour ce module ?)
+                    msgbox = new MessageDialog("Panne " + modules[5].Panne.TaillePanne + " de " + modules[5].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 default:
@@ -726,27 +687,6 @@ namespace TharsisRevolution
                         Debug.WriteLine(dé.Valeur + " = " + dé.Type.ToString());
                     }
                 }
-            }
-        }
-        
-        /// <summary>
-        /// Reparation totale ou partielle d'une panne à un module donné
-        /// </summary>
-        /// <param name="module"></param>
-        /// <param name="montantDeLaReparation"></param>
-        private void ReparationPanneDuModule(Module module, int montantDeLaReparation)
-        {
-            Debug.WriteLine("Réparation du module " + module.EmplacementX + " de " + montantDeLaReparation);
-            if (module.EstEnPanne)
-            {
-                if (module.Panne.Dégat <= montantDeLaReparation)
-                {
-                    module.Panne.Dégat = 0;
-                    module.Panne = null;
-                    module.EstEnPanne = false;
-                }
-                else
-                    module.Panne.Dégat = module.Panne.Dégat - montantDeLaReparation;
             }
         }
 
@@ -1092,7 +1032,7 @@ namespace TharsisRevolution
                 rowCurrentModule = Grid.GetRow(Laboratoire);
                 columnCurrentModule = Grid.GetColumn(Laboratoire);
                 indexCurrentClickModule = 3;
-
+                    
                 this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
@@ -1159,11 +1099,124 @@ namespace TharsisRevolution
         }
 
         /// <summary>
+        /// Déplacement d'un membre à un Module avec gestion des dégats si il traverse une panne
+        /// </summary>
+        /// <param name="membre"></param>
+        /// <param name="moduleDestination"></param>
+        private void Deplacement(Membre membre, Module moduleDestination)
+        {
+            // TODO afficher un message lorsqu'on prend des dégats
+            // Variable du deplacement du personnage
+
+            int indexDeLaSalleDeDepart;
+            int indexDeLaSalleChoisie;
+
+            switch (membre.Position.Type)
+            {
+                case Module.moduleType.PostePilotage:
+                    indexDeLaSalleDeDepart = 1;
+                    break;
+                case Module.moduleType.Serre:
+                    indexDeLaSalleDeDepart = 2;
+                    break;
+                case Module.moduleType.Infirmerie:
+                    indexDeLaSalleDeDepart = 3;
+                    break;
+                case Module.moduleType.Laboratoire:
+                    indexDeLaSalleDeDepart = 4;
+                    break;
+                case Module.moduleType.Détente:
+                    indexDeLaSalleDeDepart = 5;
+                    break;
+                case Module.moduleType.SystemeSurvie:
+                    indexDeLaSalleDeDepart = 6;
+                    break;
+                case Module.moduleType.Maintenance:
+                    indexDeLaSalleDeDepart = 7;
+                    break;
+                default:
+                    indexDeLaSalleDeDepart = 1;
+                    break;
+            }
+
+            switch (moduleDestination.Type)
+            {
+                case Module.moduleType.PostePilotage:
+                    indexDeLaSalleChoisie = 1;
+                    break;
+                case Module.moduleType.Serre:
+                    indexDeLaSalleChoisie = 2;
+                    break;
+                case Module.moduleType.Infirmerie:
+                    indexDeLaSalleChoisie = 3;
+                    break;
+                case Module.moduleType.Laboratoire:
+                    indexDeLaSalleChoisie = 4;
+                    break;
+                case Module.moduleType.Détente:
+                    indexDeLaSalleChoisie = 5;
+                    break;
+                case Module.moduleType.SystemeSurvie:
+                    indexDeLaSalleChoisie = 6;
+                    break;
+                case Module.moduleType.Maintenance:
+                    indexDeLaSalleChoisie = 7;
+                    break;
+                default:
+                    indexDeLaSalleChoisie = 1;
+                    break;
+            }
+
+
+            Debug.WriteLine("Membre " + membre.Role + " PV avant déplacement " + membre.Pv);
+
+            //Gestion de tous les cas pouvant générer des dégats au passage
+            if (modules[1].EstEnPanne) // Serre en Panne
+            {
+                if (indexDeLaSalleChoisie == 1 && indexDeLaSalleDeDepart > 2) //Direction Pilotage depuis Infirmerie ou plus loin
+                    membres[membre.Id-1].Pv--;
+                if (indexDeLaSalleChoisie > 2 && indexDeLaSalleDeDepart == 1) //Depart de Pilotage vers Infirmerie ou plus loin
+                    membres[membre.Id-1].Pv--;
+            }
+            if (modules[2].EstEnPanne) // Infirmerie en Panne
+            {
+                if (indexDeLaSalleChoisie == 4 && (indexDeLaSalleDeDepart != 3 && indexDeLaSalleDeDepart != 4)) // Direction Laboratoire si départ n'est pas Infirmerie ou Laboratoire
+                    membres[membre.Id-1].Pv--;
+                if (indexDeLaSalleChoisie > 4 && (indexDeLaSalleDeDepart < 3 || indexDeLaSalleDeDepart == 4)) //Direction à droite de Infirmerie, départ à gauche Infirmerie ou Laboratoire
+                    membres[membre.Id-1].Pv--;
+                if (indexDeLaSalleChoisie < 3 && indexDeLaSalleDeDepart > 3) // Direction à gauche de l'Infirmerie, départ à droite de l'Infirmerie ou Laboratoire
+                    membres[membre.Id-1].Pv--;
+            }
+            if (modules[4].EstEnPanne) // Détente en Panne
+            {
+                if (indexDeLaSalleChoisie == 7 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 6)) // Direction Maintenance, Départ Survie ou à gauche de Détente
+                    membres[membre.Id-1].Pv--;
+                if (indexDeLaSalleChoisie == 6 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 7)) // Direction Survie, Départ Maintenance ou à gauche de Détente
+                    membres[membre.Id-1].Pv--;
+                if (indexDeLaSalleChoisie < 5 && (indexDeLaSalleDeDepart > 5)) // Direction gauche de Détente, Départ Maintenance ou Survie
+                    membres[membre.Id-1].Pv--;
+            }
+
+            Debug.WriteLine("Membre " + membre.Role + " PV après déplacement " + membre.Pv);
+
+            // Défaite si on traverse une panne avec son dernier membre en vie avec un Pv...
+            if (!unMembreEnVie())
+                Défaite();
+
+            // Déplacement
+            membres[membre.Id-1].Position = modules[indexDeLaSalleChoisie-1];
+
+            Debug.WriteLine("Membre " + membres[membre.Id-1].Role + " déplacé à la position " + membres[membre.Id-1].Position.Type.ToString());
+        }
+
+        /// <summary>
         /// Fonction de déplacement des personnages vers un module
         /// </summary>
         private async void Deplacement_PersonnageToCurrentModule()
         {
             MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déplacement Personnage ?");
+
+            //TODO Superposition, si déplacement au même endroit
 
             msgbox.Commands.Clear();
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
@@ -1175,6 +1228,7 @@ namespace TharsisRevolution
                     var resDoc = await msgbox.ShowAsync();
                     if ((int)resDoc.Id == 0)
                     {
+                        Deplacement(membres[2], modules[indexCurrentClickModule]);
                         if(indexCurrentClickModule == 2) // Infirmerie
                         {
                             Grid.SetRow(reDocteur, rowCurrentModule + 1);
@@ -1204,6 +1258,7 @@ namespace TharsisRevolution
                     var resMeca = await msgbox.ShowAsync();
                     if ((int)resMeca.Id == 0)
                     {
+                        Deplacement(membres[3], modules[indexCurrentClickModule]);
                         if (indexCurrentClickModule == 2) // Infirmerie
                         {
                             Grid.SetRow(reMeca, rowCurrentModule + 1);
@@ -1233,6 +1288,7 @@ namespace TharsisRevolution
                     var resCap = await msgbox.ShowAsync();
                     if ((int)resCap.Id == 0)
                     {
+                        Deplacement(membres[1], modules[indexCurrentClickModule]);
                         if (indexCurrentClickModule == 2) // Infirmerie
                         {
                             Grid.SetRow(reCapitaine, rowCurrentModule + 1);
@@ -1262,6 +1318,7 @@ namespace TharsisRevolution
                     var resCom = await msgbox.ShowAsync();
                     if ((int)resCom.Id == 0)
                     {
+                        Deplacement(membres[0], modules[indexCurrentClickModule]);
                         if (indexCurrentClickModule == 2) // Infirmerie
                         {
                             Grid.SetRow(reCommandant, rowCurrentModule + 1);
@@ -1289,7 +1346,8 @@ namespace TharsisRevolution
                     break;
                 default:
                     break;
-            }           
+            }
+            UpdateUI();
         }
 
         /// <summary>
@@ -1420,7 +1478,7 @@ namespace TharsisRevolution
         private async void btn_deployment_OnClick(object sender, TappedRoutedEventArgs e)
         {                       
             MessageDialog msgbox = new MessageDialog("Voulez vous déploier le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déploiment de "+ membres[indexCurrentClickMembre].Role.ToString()+" ?");
-            // TODO gérer l'impossibilité de déployer dans un module sans panne
+            // TODO gérer l'impossibilité de déployer dans un module sans panne (Module.EstEnPanne == false)
             msgbox.Commands.Clear();
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });

@@ -44,6 +44,21 @@ namespace TharsisRevolution
         public PageModule()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var parameters = (CurrentParameters)e.Parameter;
+
+            indexCurrentMembre = parameters.IndexCurrentMembre;
+            indexCurrentModule = parameters.IndexCurrentModule;
+            membres = parameters.Membres;
+            modules = parameters.Modules;
+            hardMode = parameters.HardMode;
+            vaisseau = parameters.Vaisseau;
+            numeroSemaine = parameters.NumeroSemaine;
 
             if (hardMode)
             {
@@ -53,13 +68,16 @@ namespace TharsisRevolution
                 listeDéPiégés = new List<Dé>(new Dé[nombreDésPiégés]);
                 int index = 0;
                 // TODO a verifier
-                if (listeDéPiégés.Count>0)
+                if (listeDéPiégés.Count > 0)
                 {
+                    for (int i = 0; i < nombreDésPiégés; i++)
+                        listeDéPiégés[i] = new Dé();
+                    
                     foreach (Dé déPiégé in listeDéPiégés)
                     {
-                        if (index < listeDéPiégés.Count-1)
+                        if (index < listeDéPiégés.Count - 1)
                         {
-                            while (listeDéPiégés[index].Valeur == listeDéPiégés[index+1].Valeur)
+                            while (listeDéPiégés[index].Valeur == listeDéPiégés[index + 1].Valeur)
                             {
                                 listeDéPiégés[index + 1].Valeur = RandomNumber(1, 7);
                             }
@@ -80,28 +98,12 @@ namespace TharsisRevolution
                         index++;
                     }
                 }
-
-
-
-
-
             }
-            tbLancesRestant.Text = nombreLancers + " restant";
-        }
+            if (nombreLancers > 1)
+                tbLancesRestant.Text = nombreLancers + " restants";
+            else
+                tbLancesRestant.Text = nombreLancers + " restant";
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            var parameters = (CurrentParameters)e.Parameter;
-
-            indexCurrentMembre = parameters.IndexCurrentMembre;
-            indexCurrentModule = parameters.IndexCurrentModule;
-            membres = parameters.Membres;
-            modules = parameters.Modules;
-            hardMode = parameters.HardMode;
-            vaisseau = parameters.Vaisseau;
-            numeroSemaine = parameters.NumeroSemaine;
         }
 
         private void ButtonTerminer_Click(object sender, RoutedEventArgs e)
@@ -116,6 +118,12 @@ namespace TharsisRevolution
         private void ButtonLancer_Click(object sender, RoutedEventArgs e)
         {
             btLancer1.Content = "Relancer";
+
+            if (nombreLancers == 3)
+            {
+                lancer = new List<Dé>(new Dé[membres[indexCurrentMembre].NombreDeDés]);
+                Debug.WriteLine("Lancer de " + membres[indexCurrentMembre].NombreDeDés + " dés");
+            }
 
             if (nombreLancers > 0)
             {
@@ -146,10 +154,6 @@ namespace TharsisRevolution
                 }
                 Random rnd = new Random();
 
-                // Création de la liste de dé, de X dés en fonction du nombre de dés du membre
-                lancer = new List<Dé>(new Dé[membres[indexCurrentMembre].NombreDeDés]);
-                Debug.WriteLine("Lancer de " + membres[indexCurrentMembre].NombreDeDés + " dés");
-
                 int j = 0;
                 foreach (Image i in imageList)
                 {
@@ -157,10 +161,24 @@ namespace TharsisRevolution
                     //Griser Dé si le dé est piégé en hardmode, animation, ou message ?
 
                     // new Dé cré un dé à valeur random
-                    lancer[j] = new Dé();
-                    i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
-                    i.Tag = "D" + lancer[j].Valeur + ".png";
-                    Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
+                    if (nombreLancers == 3)
+                    {                
+                        // Création de la liste de dé, de X dés en fonction du nombre de dés du membre
+                        lancer[j] = new Dé();
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[j].Valeur + ".png";
+                        Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
+                    }
+                    else
+                    {
+                        if (lancer[j].Type.Equals(déType.Highlight))
+                        {
+                            lancer[j] = new Dé();
+                            i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                            i.Tag = "D" + lancer[j].Valeur + ".png";
+                            Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
+                        }
+                    }
                     j++;
                 }
                 // TODO a verifier
@@ -216,12 +234,38 @@ namespace TharsisRevolution
             if (e.OriginalSource is FrameworkElement)
             {
                 Image b = ((Image)e.OriginalSource);
+                int indexDé = 0;
+
+                switch (b.Name)
+                {
+                    case "imgD1":
+                        indexDé = 0;
+                        break;
+                    case "imgD2":
+                        indexDé = 1;
+                        break;
+                    case "imgD3":
+                        indexDé = 2;
+                        break;
+                    case "imgD4":
+                        indexDé = 3;
+                        break;
+                    case "imgD5":
+                        indexDé = 4;
+                        break;
+                    case "imgD6":
+                        indexDé = 7;
+                        break;
+                    default:
+                        break;
+                }
+
                 string s = b.Tag.ToString();
                 if (!s.Contains("HightLight"))
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + "_HightLight.png";
-
+                    lancer[indexDé].Type = déType.Highlight;
 
                     // Surbrillance des actions possible et activation du bouton de réparation
                     btLancer1.Background = new SolidColorBrush(Colors.White);
@@ -234,6 +278,7 @@ namespace TharsisRevolution
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + ".png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + ".png";
+                    lancer[indexDé].Type = déType.Normal;
 
                     List<Boolean> SelectedDices = new List<Boolean>{ imgD1.Tag.ToString().Contains("HightLight"),
                                                             imgD2.Tag.ToString().Contains("HightLight"),

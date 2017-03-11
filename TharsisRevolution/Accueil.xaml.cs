@@ -29,7 +29,7 @@ namespace TharsisRevolution
             this.InitializeComponent();
 
             List<string> sDifficulte = new List<string>();
-            sDifficulte.Add("Facile");
+            sDifficulte.Add("Normal");
             sDifficulte.Add("Difficile");
             cb_Difficulté.ItemsSource = sDifficulte;
             cb_Difficulté.SelectedIndex = 0;
@@ -37,8 +37,12 @@ namespace TharsisRevolution
 
         private void btn_Jouer_Click(object sender, RoutedEventArgs e)
         {
-            // Si l'index est 1, mode difficile, sinon facile
-            var parameters = new GameParameters(cb_Difficulté.SelectedIndex==1);
+            // Si l'index est 1, mode difficile, sinon normal
+            if (cb_Difficulté.SelectedIndex == 1)
+                hardMode = true;
+            else
+                hardMode = false;
+            var parameters = new GameParameters(hardMode);
 
             this.Frame.Navigate(typeof(MainPage),parameters);
         }

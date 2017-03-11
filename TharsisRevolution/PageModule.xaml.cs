@@ -22,10 +22,21 @@ namespace TharsisRevolution
         private List<Membre> membres;
         private List<Module> modules;
         private List<Dé> lancer;
+        private List<Dé> listeDéPiégés;
         private bool hardMode;
         private int nombreLancers = 3;
         private Vaisseau vaisseau;
         private int numeroSemaine;
+
+        private static readonly Random rdm = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return rdm.Next(min, max);
+            }
+        }
 
         public PageModule()
         {
@@ -33,7 +44,44 @@ namespace TharsisRevolution
 
             if (hardMode)
             {
-                // Mettre les 3 dés piégés en image qui sont dans modules[indexCurrentModule].Panne.DésPiégés (c'est une liste d'objet Dé) chaque dé a sa valeur et son type de piege
+                // TODO Mettre les 3 dés piégés en image qui sont dans modules[indexCurrentModule].Panne.DésPiégés (c'est une liste d'objet Dé) chaque dé a sa valeur et son type de piege
+                int nombreDésPiégés = RandomNumber(0, 4);
+
+                listeDéPiégés = new List<Dé>(new Dé[nombreDésPiégés]);
+                int index = 0;
+                // TODO a verifier
+                if (listeDéPiégés.Count>0)
+                {
+                    foreach (Dé déPiégé in listeDéPiégés)
+                    {
+                        if (index < listeDéPiégés.Count-1)
+                        {
+                            while (listeDéPiégés[index].Valeur == listeDéPiégés[index+1].Valeur)
+                            {
+                                listeDéPiégés[index + 1].Valeur = RandomNumber(1, 7);
+                            }
+                        }
+                        int random = RandomNumber(0, 3);
+                        switch (random)
+                        {
+                            case 0:
+                                déPiégé.Type = déType.Bléssure;
+                                break;
+                            case 1:
+                                déPiégé.Type = déType.Caduc;
+                                break;
+                            case 2:
+                                déPiégé.Type = déType.Stase;
+                                break;
+                        }
+                        index++;
+                    }
+                }
+
+
+
+
+
             }
         }
 
@@ -109,14 +157,14 @@ namespace TharsisRevolution
                     Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
                     j++;
                 }
-
+                // TODO a verifier
                 if (hardMode)
                 {
                     // Pour chaque dés dans le lancer
                     for (int i = 0; i < membres[indexCurrentMembre].NombreDeDés; i++)
                     {
                         // Pour chaque dé piégé, regarder si c'est la même valeur que le dé du lancer
-                        foreach (Dé dé in modules[indexCurrentModule].Panne.DésPiégés)
+                        foreach (Dé dé in listeDéPiégés)
                         {
                             if (dé.Valeur.Equals(lancer[i]))
                             {

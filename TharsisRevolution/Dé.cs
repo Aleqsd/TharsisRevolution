@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
-    public enum déType { Bléssure, Stase, Caduc }
+    public enum déType {Normal, Bléssure, Stase, Caduc, Highlight, Grisé}
 
     class Dé
     {
@@ -26,19 +26,8 @@ namespace TharsisRevolution
         public Dé()
         {
             this.valeur = RandomNumber(1, 7);
-            int temp = RandomNumber(1, 4);
-            switch (temp)
-            {
-                case 1:
-                    this.type = déType.Bléssure;
-                    break;
-                case 2:
-                    this.type = déType.Caduc;
-                    break;
-                case 3:
-                    this.type = déType.Stase;
-                    break;
-            }
+            this.type = déType.Normal;
+
         }
 
         public int Valeur

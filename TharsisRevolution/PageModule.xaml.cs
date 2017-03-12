@@ -9,11 +9,10 @@ using System.Diagnostics;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
 
-//TODO interface : Afficher le nom du module et le nom du membre à l'interieur
+
 //TODO mettre un fond en fonction du module
 //TODO VIRER TOUS LES ACCENTS DANS LE C#
 //TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
-
 
 namespace TharsisRevolution
 {
@@ -50,6 +49,16 @@ namespace TharsisRevolution
         public PageModule()
         {
             this.InitializeComponent();
+
+            //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
+            // ça devrait le faire mais exception??
+            //rtTitreModule.Text = modules[indexCurrentModule].Type.ToString();
+            //rtNomPersonnage.Text = membres[indexCurrentMembre].Role.ToString();
+
+            imgD7.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+            imgD8.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+            imgD9.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -177,12 +186,12 @@ namespace TharsisRevolution
                         i.Tag = "D" + lancer[index].Valeur + ".png";
                         break;
                     case déType.Highlight:
-                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Hightlight.png", UriKind.RelativeOrAbsolute));
-                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_HightLight.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_HightLight.png";
                         break;
                     case déType.Grisé:
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Lock.png", UriKind.RelativeOrAbsolute));
-                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        i.Tag = "D" + lancer[index].Valeur + "_Lock.png";
                         break;
                     default:
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + ".png", UriKind.RelativeOrAbsolute));
@@ -346,6 +355,8 @@ namespace TharsisRevolution
                 }
 
                 string s = b.Tag.ToString();
+                // TODO : Bug sur la condition : quand un dés devient grisé(lock) apres l'avoir utiliser
+                // pour réparer, quand on clic dessus  = il redevient highlight
                 if (!s.Contains("HightLight") && !s.Contains("Lock"))
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));

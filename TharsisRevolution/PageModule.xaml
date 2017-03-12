@@ -11,6 +11,9 @@
     <RelativePanel Width="auto" Height="auto" Background="Black">
         <Image gif:AnimationBehavior.SourceUri="/Assets/giphy.gif" gif:AnimationBehavior.RepeatBehavior="Forever" />
         <ProgressBar HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5"/>
+        <TextBlock x:Name="rtTitreModule" Width="50" Height="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        <TextBlock x:Name="rtNomPersonnage" Width="50" Height="20" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        
         <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
             <Button x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonTerminer_Click"/>
         </Border>

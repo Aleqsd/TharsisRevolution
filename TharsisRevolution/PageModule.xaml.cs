@@ -12,6 +12,8 @@ using Windows.UI;
 //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
 //TODO mettre un fond en fonction du module
 //TODO VIRER TOUS LES ACCENTS DANS LE C#
+//TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
+
 
 namespace TharsisRevolution
 {
@@ -289,7 +291,7 @@ namespace TharsisRevolution
                                     case déType.Stase:
                                         lancer[i].Type = déType.Stase;
                                         Debug.WriteLine("Dé emplacement : " + i + " = stase, à rendre non relancable mais utilisable pour capacité ou réparation");
-                                        // TODO Dé impossible à relancer mais utilisable pour capacité spéciale ou réparation
+                                        // TODO Dé impossible à relancer mais utilisable pour capacité spéciale ou réparation (highlighté obligatoire quoi)
                                         break;
                                     case déType.Caduc:
                                         lancer[i].Type = déType.Caduc;
@@ -476,8 +478,6 @@ namespace TharsisRevolution
                         i++;
                     }
                 }
-                //TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
-                //TODO message en fonction du pouvoir
 
                 Debug.WriteLine("Lancer a au moins un 5 ? " + is5InList.ToString());
                 Debug.WriteLine("Lancer a au moins un 6 ? " + is5InList.ToString());

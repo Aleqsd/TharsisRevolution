@@ -409,9 +409,6 @@ namespace TharsisRevolution
         /// </summary>
         private void UpdateUI()
         {
-            //TODO prendre en compte la mort d'un personnage
-            //TODO prendre en compte la disparition d'une panne
-
             this.pg_PvShip.Value = vaisseau.Pv;
             this.slider_Semaines.Value = numeroSemaine;
 
@@ -1139,7 +1136,6 @@ namespace TharsisRevolution
         /// <param name="moduleDestination"></param>
         private void Deplacement(Membre membre, Module moduleDestination)
         {
-            // TODO afficher un message lorsqu'on prend des dégats
             // Variable du deplacement du personnage
 
             int indexDeLaSalleDeDepart;

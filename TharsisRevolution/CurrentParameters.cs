@@ -10,11 +10,13 @@ namespace TharsisRevolution
     {
         private List<Membre> membres;
         private List<Module> modules;
+        private List<Panne> pannes;
         private int indexCurrentMembre;
         private int indexCurrentModule;
         private bool hardMode;
         private Vaisseau vaisseau;
         private int numeroSemaine;
+        private bool gameStarted;
 
         public List<Membre> Membres
         {
@@ -107,15 +109,43 @@ namespace TharsisRevolution
             }
         }
 
-        public CurrentParameters(List<Membre> membres, List<Module> modules, int indexCurrentMembre, int indexCurrentModule, bool hardMode, Vaisseau vaisseau, int numeroSemaine)
+        public bool GameStarted
+        {
+            get
+            {
+                return gameStarted;
+            }
+
+            set
+            {
+                gameStarted = value;
+            }
+        }
+
+        internal List<Panne> Pannes
+        {
+            get
+            {
+                return pannes;
+            }
+
+            set
+            {
+                pannes = value;
+            }
+        }
+
+        public CurrentParameters(List<Membre> membres, List<Module> modules, List<Panne> pannes, int indexCurrentMembre, int indexCurrentModule, bool hardMode, Vaisseau vaisseau, int numeroSemaine, bool gameStarted)
         {
             this.membres = membres;
             this.modules = modules;
+            this.pannes = pannes;
             this.indexCurrentMembre = indexCurrentMembre;
             this.indexCurrentModule = indexCurrentModule;
             this.hardMode = hardMode;
             this.vaisseau = vaisseau;
             this.numeroSemaine = numeroSemaine;
+            this.gameStarted = gameStarted;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
-    class Panne
+    public class Panne
     {
         public enum taille { Petite, Moyenne, Grosse }
 

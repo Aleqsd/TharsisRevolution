@@ -24,12 +24,16 @@ namespace TharsisRevolution
         private int indexCurrentModule;
         private List<Membre> membres;
         private List<Module> modules;
+        private List<Panne> pannes;
         private List<Dé> lancer;
         private List<Dé> listeDéPiégés;
         private bool hardMode;
         private int nombreLancers = 3;
         private Vaisseau vaisseau;
         private int numeroSemaine;
+        private bool pouvoirUtilisé = false;
+        private bool utilisationPouvoirCapitaine = false;
+        private bool gameStarted = true;
 
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -58,11 +62,14 @@ namespace TharsisRevolution
             modules = parameters.Modules;
             hardMode = parameters.HardMode;
             vaisseau = parameters.Vaisseau;
+            pannes = parameters.Pannes;
             numeroSemaine = parameters.NumeroSemaine;
+
+            btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
 
             if (hardMode)
             {
-                // TODO Mettre les 3 dés piégés en image qui sont dans modules[indexCurrentModule].Panne.DésPiégés (c'est une liste d'objet Dé) chaque dé a sa valeur et son type de piege
+                // TODO Mettre les 3 dés piégés en image qui sont dans listeDéPiégés (c'est une liste d'objet Dé) chaque dé a sa valeur et son type de piege
                 int nombreDésPiégés = RandomNumber(0, 4);
 
                 listeDéPiégés = new List<Dé>(new Dé[nombreDésPiégés]);
@@ -72,7 +79,7 @@ namespace TharsisRevolution
                 {
                     for (int i = 0; i < nombreDésPiégés; i++)
                         listeDéPiégés[i] = new Dé();
-                    
+
                     foreach (Dé déPiégé in listeDéPiégés)
                     {
                         if (index < listeDéPiégés.Count - 1)
@@ -104,13 +111,92 @@ namespace TharsisRevolution
             else
                 tbLancesRestant.Text = nombreLancers + " restant";
 
+            switch (membres[indexCurrentMembre].Role)
+            {
+                case Membre.roleMembre.Capitaine:
+                    DetailPouvoir.Text = "+1 Dé pour chaque membre";
+                    break;
+                case Membre.roleMembre.Commandant:
+                    DetailPouvoir.Text = "+10 Réparation";
+                    break;
+                case Membre.roleMembre.Mécanicien:
+                    DetailPouvoir.Text = "+1 PV pour le vaisseau";
+                    break;
+                case Membre.roleMembre.Docteur:
+                    DetailPouvoir.Text = "+1 PV pour chaque membre";
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void UpdateUI()
+        {
+            List<Image> imageList;
+            switch (membres[indexCurrentMembre].NombreDeDés)
+            {
+                case 1:
+                    imageList = new List<Image> { imgD1 };
+                    break;
+                case 2:
+                    imageList = new List<Image> { imgD1, imgD2 };
+                    break;
+                case 3:
+                    imageList = new List<Image> { imgD1, imgD2, imgD3 };
+                    break;
+                case 4:
+                    imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4 };
+                    break;
+                case 5:
+                    imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5 };
+                    break;
+                case 6:
+                    imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
+                    break;
+                default:
+                    imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
+                    break;
+            }
+
+            if (utilisationPouvoirCapitaine)
+            {
+                lancer.Add(new Dé());
+                utilisationPouvoirCapitaine = false;
+            }
+
+            int index = 0;
+            foreach (Image i in imageList)
+            {
+                switch (lancer[index].Type)
+                {
+                    case déType.Normal:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        break;
+                    case déType.Highlight:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Hightlight.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        break;
+                    case déType.Grisé:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Lock.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        break;
+                    default:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + ".png";
+                        break;
+                }
+                index++;
+            }
+
+            btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
         }
 
         private void ButtonTerminer_Click(object sender, RoutedEventArgs e)
         {
             membres[indexCurrentMembre].AJoué = true;
-            numeroSemaine++;
-            var parameters = new CurrentParameters(membres, modules, indexCurrentMembre, indexCurrentModule, hardMode,vaisseau,numeroSemaine);
+            var parameters = new CurrentParameters(membres, modules, pannes, indexCurrentMembre, indexCurrentModule, hardMode, vaisseau, numeroSemaine, gameStarted);
 
             this.Frame.Navigate(typeof(MainPage), parameters);
         }
@@ -155,14 +241,14 @@ namespace TharsisRevolution
                 Random rnd = new Random();
 
                 int j = 0;
+
                 foreach (Image i in imageList)
                 {
-                    //TODO relancer seulement les dé highlighté (différence entre premier lancer et relance = nombredelancer < 3)
                     //Griser Dé si le dé est piégé en hardmode, animation, ou message ?
 
                     // new Dé cré un dé à valeur random
                     if (nombreLancers == 3)
-                    {                
+                    {
                         // Création de la liste de dé, de X dés en fonction du nombre de dés du membre
                         lancer[j] = new Dé();
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
@@ -171,7 +257,7 @@ namespace TharsisRevolution
                     }
                     else
                     {
-                        if (lancer[j].Type.Equals(déType.Highlight))
+                        if (lancer[j].Type.Equals(déType.Normal))
                         {
                             lancer[j] = new Dé();
                             i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
@@ -218,14 +304,11 @@ namespace TharsisRevolution
 
                 nombreLancers--;
                 // Mise à jour du nombre de dés restant affichés
-                tbLancesRestant.Text = nombreLancers + " restant"; 
-                
-
+                tbLancesRestant.Text = nombreLancers + " restant";
+                UpdateUI();
             }
             else
-            {
-                // TODO Afficher "il ne vous reste plus de lancer"
-            }
+                Affichage.Text = "Vous n'avez plus de lancers";
         }
 
 
@@ -261,7 +344,7 @@ namespace TharsisRevolution
                 }
 
                 string s = b.Tag.ToString();
-                if (!s.Contains("HightLight"))
+                if (!s.Contains("HightLight") && !s.Contains("Lock"))
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + "_HightLight.png";
@@ -306,8 +389,10 @@ namespace TharsisRevolution
             if (dégatAprès < 1)
             {
                 modules[indexCurrentModule].Panne.Dégat = 0;
-                modules[indexCurrentModule].Panne = null;
                 modules[indexCurrentModule].EstEnPanne = false;
+                BorderPanne.Visibility = Visibility.Collapsed;
+                tbReparer.Text = "Panne réparée";
+                Affichage.Text = "Panne réparée";
             }
             else
                 modules[indexCurrentModule].Panne.Dégat = dégatAprès;
@@ -319,70 +404,6 @@ namespace TharsisRevolution
             //Ne devra pas être relancé si on utilise le bouton relance
         }
 
-
-
-
-
-        /// <summary>
-        /// Utilisation d'un pouvoir d'un membre à un emplacement de panne donné pour un lancer de dés donné
-        /// </summary>
-        private void UtiliserPouvoir()
-        {
-            bool is5InList = false;
-            bool is6InList = false;
-
-            foreach (Dé dé in lancer)
-            {
-                if (dé.Valeur.Equals(5))
-                    is5InList = true;
-                if (dé.Valeur.Equals(6))
-                    is6InList = true;
-            }
-
-            //TODO faire disparaitre le dé
-
-            Debug.WriteLine("Lancer a au moins un 5 ? " + is5InList.ToString());
-            Debug.WriteLine("Lancer a au moins un 6 ? " + is5InList.ToString());
-
-            // On peut récupérer l'index du dé 5 ou 6 avec lancers.IndexOf(5)
-            // A voir
-
-            if (is5InList || is6InList)
-            {
-                Debug.WriteLine("Le " + membres[indexCurrentMembre].Role.ToString() + " utilise son pouvoir !!!");
-
-                // Commandant : 10 de réparation
-                if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Commandant))
-                    Réparer(10);
-
-                // Capitaine : +1 Dés pour chaque membre
-                if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Capitaine))
-                {
-                    foreach (Membre m in membres)
-                    {
-                        if (m.NombreDeDés < 6)
-                            m.NombreDeDés++;
-                    }
-                }
-
-                // Docteur : +1 pv pour chaque membre
-                if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Capitaine))
-                {
-                    foreach (Membre m in membres)
-                    {
-                        if (m.Pv < 6 && m.Pv > 0)
-                            m.Pv++;
-                    }
-                }
-
-                // Mécanicien : +1 pv au vaisseau
-                if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Mécanicien))
-                {
-                    if (vaisseau.Pv < 10)
-                        vaisseau.Pv++;
-                }
-            }
-        }
         /// <summary>
         /// OnClick listener du bouton servant à réparer
         /// </summary>
@@ -390,30 +411,122 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void btReparerValeur_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            /* TODO : finir le backend 
             // Liste des dés selectionnés par le joueur
-            List<Boolean> SelectedDices = new List < Boolean >{ imgD1.Tag.ToString().Contains("HightLight"),
+            List<Boolean> SelectedDices = new List<Boolean>{ imgD1.Tag.ToString().Contains("HightLight"),
                                                             imgD2.Tag.ToString().Contains("HightLight"),
                                                             imgD3.Tag.ToString().Contains("HightLight"),
                                                             imgD4.Tag.ToString().Contains("HightLight"),
                                                             imgD5.Tag.ToString().Contains("HightLight"),
                                                             imgD6.Tag.ToString().Contains("HightLight")};
-            
+
 
             // Si le joueur a lancé les dés et en a sélectionné au moins 1
             if (nombreLancers < 3 & SelectedDices.Contains(true))
             {
                 int ValeurAReparer = 0;
-                foreach(Boolean DesSelectionne in SelectedDices)
+                foreach (Dé dé in lancer)
                 {
-                    
+                    if (dé.Type.Equals(déType.Highlight))
+                    {
+                        ValeurAReparer += dé.Valeur;
+                        dé.Type = déType.Grisé;
+                    }
                 }
                 this.Réparer(ValeurAReparer);
+                UpdateUI();
             }
+        }
 
-            */
+        /// <summary>
+        /// Utilisation du pouvoir spécial onTap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_PouvoirSpe_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (!pouvoirUtilisé)
+            {
+                bool is5InList = false;
+                bool is6InList = false;
+
+                int indexDé5 = 0;
+                int indexDé6 = 0;
+                int i = 0;
+                foreach (Dé dé in lancer)
+                {
+                    if (dé.Valeur.Equals(5) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight)))
+                    {
+                        is5InList = true;
+                        indexDé5 = i;
+                        break;
+                    }
+                    i++;
+                }
+                if (!is5InList)
+                {
+                    i = 0;
+                    foreach (Dé dé in lancer)
+                    {
+                        if (dé.Valeur.Equals(6) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight)))
+                        {
+                            is6InList = true;
+                            indexDé6 = i;
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                //TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
+                //TODO message en fonction du pouvoir
+
+                Debug.WriteLine("Lancer a au moins un 5 ? " + is5InList.ToString());
+                Debug.WriteLine("Lancer a au moins un 6 ? " + is5InList.ToString());
+
+                if (is5InList || is6InList)
+                {
+                    if (is5InList)
+                        lancer[indexDé5].Type = déType.Grisé;
+                    if (is6InList)
+                        lancer[indexDé6].Type = déType.Grisé;
+
+                    Debug.WriteLine("Le " + membres[indexCurrentMembre].Role.ToString() + " utilise son pouvoir !!!");
+
+                    // Commandant : 10 de réparation
+                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Commandant))
+                        Réparer(10);
+
+                    // Capitaine : +1 Dés pour chaque membre
+                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Capitaine))
+                    {
+                        foreach (Membre m in membres)
+                        {
+                            if (m.NombreDeDés < 6)
+                                m.NombreDeDés++;
+                        }
+                        utilisationPouvoirCapitaine = true;
+                    }
+
+                    // Docteur : +1 pv pour chaque membre
+                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Capitaine))
+                    {
+                        foreach (Membre m in membres)
+                        {
+                            if (m.Pv < 6 && m.Pv > 0)
+                                m.Pv++;
+                        }
+                    }
+
+                    // Mécanicien : +1 pv au vaisseau
+                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Mécanicien))
+                    {
+                        if (vaisseau.Pv < 10)
+                            vaisseau.Pv++;
+                    }
+                }
+                UpdateUI();
+                pouvoirUtilisé = true;
+            }
         }
     }
-
- 
 }
+

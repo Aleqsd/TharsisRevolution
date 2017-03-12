@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -14,12 +15,17 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
+// TODO affichage des dés du hardmode, ajouter des images pour les dés piégés ?
+
 // TODO faire gaffe aux résolutions
 // TODO Garder le gif et y insérer en plus un fond d'écran immobile ?
 // TODO Ajouter du fun (un nyan cat ?)
 // TODO supprimer les using ou fonctions inutilisées
 // TODO commenter tous le code
 // TODO faire continuer la musique même dans un module, possible ?
+// TODO systeme de sauvegarde dans un fichier ?
+// TODO voir si l'updateUI est pas appelé trop de fois
+// TODO afficher la mort (tete de mort?)
 
 namespace TharsisRevolution
 {
@@ -28,24 +34,36 @@ namespace TharsisRevolution
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Random rdm;
         private Vaisseau vaisseau;
         private List<Module> modules;
         private List<Membre> membres;
         private List<Panne> pannes;
         private int numeroSemaine;
-        private bool hardMode = false;
+        private bool hardMode;
+        private bool gameStarted = false;
 
         private int indexCurrentClickMembre;
         private int indexCurrentClickModule;
         private int rowCurrentModule;
         private int columnCurrentModule;
 
+        private static readonly Random rdm = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return rdm.Next(min, max);
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            if(e.Parameter is GameParameters)
+            //Initialiser();
+
+            if (e.Parameter is GameParameters)
             {
                 var parameters = (GameParameters)e.Parameter;
                 hardMode = parameters.HardMode;
@@ -59,71 +77,34 @@ namespace TharsisRevolution
                 indexCurrentClickModule = parameters.IndexCurrentModule;
                 vaisseau = parameters.Vaisseau;
                 numeroSemaine = parameters.NumeroSemaine;
+                gameStarted = parameters.GameStarted;
+                pannes = parameters.Pannes;
             }
 
+            if (!gameStarted)
+            {
+                Initialiser();
+                NouvelleSemaine();
+            }
+
+            UpdateUI();
         }
         public MainPage()
         {
             this.InitializeComponent();
-            //INITIALISATION DU JEU
-            hardMode = true;
-            Initialiser();
-
-            // ---------------------------------------------------
-            //NOUVELLE SEMAINE
-            NouvelleSemaine();
-
-            //CREATION PANNE
-            CreationPannes(numeroSemaine);
-
-            // =========================
-            //SELECTION D'UN MEMBRE = UI
-
-            //DEPLACEMENT 
-            //Deplacement(membres[0], modules[1]);
-
-            //LANCER DE DES 
-            //List<Dé> monLancer = LancerDés(5, modules[1].Panne, membres[0]);
-
-            //Facultatif : RELANCER LES dés voulus (modification du tableau int[] reçu de LancerDés avec LancerDé à certaines positions)
-            //LancerDé();
-
-            //Facultatif : UTILISATION POUVOIR
-            //UtiliserPouvoir(membres[0], modules[1], monLancer);
-
-            //Facultatif : REPARATION MODULE
-            //ReparationPanneDuModule(modules[1], 5);
-
-            //FINDUTOUR pour ce membre
-            //FinTour(membres[0]);
-            // ==========================
-
-            // ==========================
-            //SELECTION D'UN AUTRE MEMBRE
-            //
-            //FinTour(membres[1]);
-            //FinTour(membres[2]);
-            //FinTour(membres[3]);
-
-            // ...
-            // ==========================
-
-            //FIN SEMAINE (détecte défaite)
-            //FinSemaine();
-            // ---------------------------------------------------
-
-            //FIN SEMAINE (même fonction, détecte si semaine 10)
         }
 
         /// <summary>
-        /// Fonction à appeler à chaque changement dans l'UI
+        /// Positionne les cadres des personnages avec leurs PV et Dés
         /// </summary>
-        private void UpdateUI()
+        private void InitialiserValeursPersonnages()
         {
-            //TODO prendre en compte la mort d'un personnage
-
-            this.pg_PvShip.Value = vaisseau.Pv;
-            this.slider_Semaines.Value = numeroSemaine;
+            for (int i = 0; i < 4; i++)
+            {
+                //Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
+                Deplacement_PersonnageToCurrentModule(membres[i].Role, membres[i].Position);
+                Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
+            }
 
             //initialisation des paramètres du Personnage Commandant
             pb_PvCommandant.Value = membres[0].Pv;
@@ -384,11 +365,66 @@ namespace TharsisRevolution
         }
 
         /// <summary>
+        /// Positionne les pannes dans l'interface
+        /// </summary>
+        private void InitialiserUIPannes()
+        {
+            BitmapImage imagePanne = new BitmapImage(new Uri("ms-appx:///Assets/Ambox_warning_red.png"));
+            Image img_Panne = new Image();
+
+            for (int i = 11; i < Grid_Jeu.Children.Count; i++) // Supprimer les pannes
+            {
+                UIElement item = Grid_Jeu.Children.ElementAt(i);
+                if (item.GetType() == img_Panne.GetType())
+                {
+                    Grid_Jeu.Children.Remove(item);
+                }
+            }
+
+            foreach (Module module in modules)
+            {
+                if (module.EstEnPanne)
+                {
+                    Debug.WriteLine("Module " + module.Type.ToString() + " est en " + module.Panne.TaillePanne + " panne");
+
+                    img_Panne = new Image();
+                    img_Panne.Source = imagePanne;
+                    img_Panne.Name = "panne";
+                    img_Panne.AccessKey = "panne";
+                    img_Panne.Width = 40;
+                    img_Panne.Height = 40;
+                    img_Panne.IsTapEnabled = true;
+                    img_Panne.Tapped += informationPanne_OnClick;
+
+                    //positionnement de l'image de panne
+                    Grid.SetColumn(img_Panne, module.EmplacementX);
+                    Grid.SetRow(img_Panne, module.EmplacementY);
+                    this.Grid_Jeu.Children.Add(img_Panne);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fonction à appeler à chaque changement dans l'UI
+        /// </summary>
+        private void UpdateUI()
+        {
+            //TODO prendre en compte la mort d'un personnage
+            //TODO prendre en compte la disparition d'une panne
+
+            this.pg_PvShip.Value = vaisseau.Pv;
+            this.slider_Semaines.Value = numeroSemaine;
+
+            InitialiserValeursPersonnages();
+            InitialiserUIPersonnages();
+            InitialiserUIPannes();
+        }
+
+        /// <summary>
         /// Initialisation de la partie, création des objets, placement des membres à leurs positions initiales randomisées
         /// </summary>
         private void Initialiser()
         {
-            rdm = new Random();
 
             //Initialisation Vaisseau
             vaisseau = new Vaisseau();
@@ -412,21 +448,23 @@ namespace TharsisRevolution
                 new Membre(Membre.roleMembre.Mécanicien,4)
             };
 
-            int randomModule = rdm.Next(0, 7); //va de 0 à 6, à verifier
-            
+            int randomModule = RandomNumber(0, 7); //va de 0 à 6, à verifier
+
             // Positionnement des membres dans les modules // modif Thomas (pas certain mais proposition)
             for (int i = 0; i < 4; i++)
             {
                 //Tant qu'on tombe sur un module avec um membre à l'interieur, recommencer.
                 while (modules[randomModule].PresenceMembre)
-                    randomModule = rdm.Next(0, 7);
+                    randomModule = RandomNumber(0, 7);
                 membres[i].Position = modules[randomModule];
                 modules[randomModule].PresenceMembre = true; //thomas (permet de faire fonctionner ta boucle while au dessus)
 
                 //Thomas : Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
-                Deplacement_PersonnageToCurrentModule(membres[i].Role , membres[i].Position);
+                //Deplacement_PersonnageToCurrentModule(membres[i].Role, membres[i].Position);
                 Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
             }
+
+            InitialiserUIPersonnages();
 
             //Initialisation Semaine
             numeroSemaine = 1;
@@ -447,7 +485,7 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private async void informationPanne_OnClick(object sender, TappedRoutedEventArgs e)
         {
-            int x = Grid.GetColumn((FrameworkElement)sender);     
+            int x = Grid.GetColumn((FrameworkElement)sender);
             int y = Grid.GetRow((FrameworkElement)sender);
             string coordonnee = x.ToString() + y.ToString();
             MessageDialog msgbox;
@@ -466,7 +504,6 @@ namespace TharsisRevolution
                     break;
                 case "22":
                     //infi
-                    // TODO meme erreur qu'en dessous
                     msgbox = new MessageDialog("Panne " + modules[2].Panne.TaillePanne + " de " + modules[2].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
@@ -487,13 +524,12 @@ namespace TharsisRevolution
                     break;
                 case "33":
                     //survie
-                    // TODO j'ai eu une erreur sur celui ci, a verifier (panne inexistante pour ce module ?)
                     msgbox = new MessageDialog("Panne " + modules[5].Panne.TaillePanne + " de " + modules[5].Panne.Dégat + " points de dégats !", "Information sur la Panne.");
                     await msgbox.ShowAsync();
                     break;
                 default:
                     break;
-            }            
+            }
         }
 
         /// <summary>
@@ -502,23 +538,14 @@ namespace TharsisRevolution
         /// <param name="numeroSemaine"></param>
         private void CreationPannes(int numeroSemaine)
         {
-            //creation image Panne (Thomas)
-            //TODO gérer plusieurs pannes
-            BitmapImage imagePanne = new BitmapImage(new Uri("ms-appx:///Assets/Ambox_warning_red.png"));
-            Image img_Panne = new Image();
-            img_Panne.Source = imagePanne;
-            img_Panne.Width = 40;
-            img_Panne.Height = 40;
-            img_Panne.IsTapEnabled = true;
-            img_Panne.Tapped += informationPanne_OnClick;
-            
-            int random = rdm.Next(0, 7);
+
+            int random = RandomNumber(0, 7);
             Debug.WriteLine("Création de panne pour la semaine " + numeroSemaine);
             switch (numeroSemaine)
             {
                 case 1:
-                    random = rdm.Next(0, 7);
-                    pannes.Add(new Panne(1, Panne.taille.Moyenne, hardMode));                    
+                    random = RandomNumber(0, 7);
+                    pannes.Add(new Panne(1, Panne.taille.Moyenne, hardMode));
                     modules[random].Panne = pannes.Where(p => p.Id == 1).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
@@ -526,17 +553,17 @@ namespace TharsisRevolution
                     pannes.Add(new Panne(2, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(3, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(4, Panne.taille.Moyenne, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 2).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 3).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 4).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
@@ -544,30 +571,30 @@ namespace TharsisRevolution
                     pannes.Add(new Panne(5, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(6, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(7, Panne.taille.Petite, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 5).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 6).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 7).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 case 4:
                     pannes.Add(new Panne(8, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(9, Panne.taille.Petite, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 8).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 9).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
@@ -575,43 +602,43 @@ namespace TharsisRevolution
                     pannes.Add(new Panne(10, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(11, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(12, Panne.taille.Moyenne, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 10).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 11).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 12).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 case 6:
                     pannes.Add(new Panne(13, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(14, Panne.taille.Moyenne, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 13).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 14).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 case 7:
                     pannes.Add(new Panne(15, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(16, Panne.taille.Moyenne, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 15).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 16).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
@@ -619,74 +646,48 @@ namespace TharsisRevolution
                     pannes.Add(new Panne(17, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(18, Panne.taille.Petite, hardMode));
                     pannes.Add(new Panne(19, Panne.taille.Petite, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 17).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 18).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 19).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 case 9:
                     pannes.Add(new Panne(20, Panne.taille.Moyenne, hardMode));
                     pannes.Add(new Panne(21, Panne.taille.Petite, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 20).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 21).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 case 10:
                     pannes.Add(new Panne(22, Panne.taille.Grosse, hardMode));
                     pannes.Add(new Panne(23, Panne.taille.Petite, hardMode));
-                    random = rdm.Next(0, 7);
+                    random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 22).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
-                        random = rdm.Next(0, 7);
+                        random = RandomNumber(0, 7);
                     modules[random].Panne = pannes.Where(p => p.Id == 23).FirstOrDefault();
                     modules[random].EstEnPanne = true;
                     break;
                 default:
                     break;
-            }
-            foreach (Module module in modules)
-            {
-                if (module.EstEnPanne)
-                {
-                    Debug.WriteLine("Module " + module.Type.ToString() + " est en " + module.Panne.TaillePanne + " panne");
-
-                    //positionnement de l'image de panne
-                    Grid.SetColumn(img_Panne, module.EmplacementX);
-                    Grid.SetRow(img_Panne, module.EmplacementY);
-                    this.Grid_Jeu.Children.Add(img_Panne);
-                }
-            }
-
-            Debug.WriteLine("Liste des pannes");
-            foreach (Panne panne in pannes)
-            {
-                Debug.WriteLine("Panne "+ panne.Id+ " : " + panne.TaillePanne);
-                if (hardMode)
-                {
-                    Debug.WriteLine("Panne a " + panne.NombreDésPiégés + " dés piégés");
-                    foreach (Dé dé in panne.DésPiégés)
-                    {
-                        Debug.WriteLine(dé.Valeur + " = " + dé.Type.ToString());
-                    }
-                }
             }
         }
 
@@ -697,20 +698,20 @@ namespace TharsisRevolution
         private void PanneInfligeDégat(Module module)
         {
             Debug.WriteLine("Panne du module inflige des dégats " + module.EmplacementX);
-            int typeDegat = rdm.Next(1, 4);
+            int typeDegat = RandomNumber(1, 4);
             switch (typeDegat)
             {
                 case 1: //Perte de vie membres
-                    int dégatMembre = rdm.Next(1, 4);
+                    int dégatMembre = RandomNumber(1, 4);
                     foreach (Membre membre in membres)
                         membre.Pv = membre.Pv - dégatMembre;
                     break;
                 case 2: //Perte de vie vaisseau
-                    int dégatVaisseau = rdm.Next(1, 4);
+                    int dégatVaisseau = RandomNumber(1, 4);
                     vaisseau.Pv = vaisseau.Pv - dégatVaisseau;
                     break;
                 case 3: //Perte de dés membres
-                    int perteDés = rdm.Next(1, 4);
+                    int perteDés = RandomNumber(1, 4);
                     foreach (Membre membre in membres)
                     {
                         if (membre.NombreDeDés - perteDés < 1)
@@ -733,44 +734,54 @@ namespace TharsisRevolution
 
             foreach (Membre membre in membres)
                 membre.AJoué = false;
+
+            CreationPannes(numeroSemaine);
         }
 
-        /// <summary>
-        /// Gere les evenements arrivant en fin de semaine, une fois que tous les membres ont joués
-        /// </summary>
-        private void FinSemaine()
+        private bool MembresOntJoué()
         {
             int nombreMembreQuiOntJoué = 0;
-            Debug.WriteLine("Fin semaine");
             foreach (Membre membre in membres)
             {
                 if (membre.AJoué)
                     nombreMembreQuiOntJoué++;
             }
-            if (nombreMembreQuiOntJoué == 4) //Fin de semaine
+            if (nombreMembreQuiOntJoué == membres.Count)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Gere les evenements arrivant en fin de semaine, une fois que tous les membres ont joués
+        /// A appeler si MembresOntJoué()
+        /// </summary>
+        private void FinSemaine()
+        {
+            Debug.WriteLine("Fin semaine");
+
+            foreach (Membre membre in membres)
             {
-                foreach (Membre membre in membres)
-                {
-                    if (membre.NombreDeDés > 1)
-                        membre.NombreDeDés--;
-                }
-
-                foreach (Module module in modules)
-                {
-                    if (module.EstEnPanne)
-                    {
-                        PanneInfligeDégat(module);
-                    }
-                }
-
-                if (vaisseau.Pv < 1)
-                    Défaite();
-
-                if (numeroSemaine == 10 && vaisseau.Pv < 1 && unMembreEnVie())
-                    Victoire();
-
-                numeroSemaine++;
+                if (membre.NombreDeDés > 1)
+                    membre.NombreDeDés--;
             }
+
+            foreach (Module module in modules)
+            {
+                if (module.EstEnPanne)
+                {
+                    PanneInfligeDégat(module);
+                }
+            }
+
+            if (vaisseau.Pv < 1 || !unMembreEnVie())
+                Défaite();
+
+            if (numeroSemaine == 10 && vaisseau.Pv < 1 && unMembreEnVie())
+                Victoire();
+
+            numeroSemaine++;
+
         }
 
         /// <summary>
@@ -790,17 +801,21 @@ namespace TharsisRevolution
         /// <summary>
         /// Declenche la Défaite
         /// </summary>
-        private void Défaite()
+        private async void Défaite()
         {
-            //DEFAITE
+            MessageDialog msgbox = new MessageDialog("Défaite");
+            await msgbox.ShowAsync();
+            this.Frame.Navigate(typeof(Accueil));
         }
 
         /// <summary>
         /// Déclenche la Victoire
         /// </summary>
-        private void Victoire()
+        private async void Victoire()
         {
-            //VICTOIRE
+            MessageDialog msgbox = new MessageDialog("Victoire");
+            await msgbox.ShowAsync();
+            this.Frame.Navigate(typeof(Accueil));
         }
 
         //############################################################################# IHM ##############################################################################
@@ -810,7 +825,7 @@ namespace TharsisRevolution
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void slider_TimeSemaine_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-        {            
+        {
             string msg = String.Format("{0}", e.NewValue);
             this.lbl_TimeSemaine.Text = msg;
         }
@@ -944,34 +959,53 @@ namespace TharsisRevolution
             if (perso == Membre.roleMembre.Capitaine)
             {
                 this.imLogoCapitaine.Source = capitaine_HightLight;
+                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Red);
 
                 this.imLogoCommandant.Source = commandant;
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoDocteur.Source = doc;
+                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoMeca.Source = meca;
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
+
             }
             else if (perso == Membre.roleMembre.Commandant)
             {
                 this.imLogoCommandant.Source = commandant_HightLight;
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Red);
 
                 this.imLogoCapitaine.Source = capitaine;
+                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoDocteur.Source = doc;
+                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoMeca.Source = meca;
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
+
             }
             else if (perso == Membre.roleMembre.Docteur)
             {
                 this.imLogoDocteur.Source = doc_HightLight;
+                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Red);
 
                 this.imLogoCommandant.Source = commandant;
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoCapitaine.Source = capitaine;
+                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoMeca.Source = meca;
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
+
             }
             else if (perso == Membre.roleMembre.Mécanicien)
             {
                 this.imLogoMeca.Source = meca_HightLight;
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Red);
 
                 this.imLogoCommandant.Source = commandant;
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoDocteur.Source = doc;
+                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoCapitaine.Source = capitaine;
+                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }
 
@@ -996,7 +1030,7 @@ namespace TharsisRevolution
             BitmapImage detente_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Detente_HightLight.png"));
             BitmapImage maint_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Maintenance_HightLight.png"));
             BitmapImage labo_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Laboratoire_HightLight.png"));
-            BitmapImage survie_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie_HightLight.png"));            
+            BitmapImage survie_HightLight = new BitmapImage(new Uri("ms-appx:///Assets/Module_Survie_HightLight.png"));
 
             if (module == Module.moduleType.Détente)
             {
@@ -1010,7 +1044,7 @@ namespace TharsisRevolution
                 this.Serre.Source = serre;
                 this.Laboratoire.Source = labo;
                 this.SystemeSurvie.Source = survie;
-                this.Maintenance.Source = maint;                
+                this.Maintenance.Source = maint;
             }
             else if (module == Module.moduleType.Infirmerie)
             {
@@ -1032,7 +1066,7 @@ namespace TharsisRevolution
                 rowCurrentModule = Grid.GetRow(Laboratoire);
                 columnCurrentModule = Grid.GetColumn(Laboratoire);
                 indexCurrentClickModule = 3;
-                    
+
                 this.PostePilotage.Source = pilotage;
                 this.Infirmerie.Source = inf;
                 this.Serre.Source = serre;
@@ -1174,27 +1208,51 @@ namespace TharsisRevolution
             if (modules[1].EstEnPanne) // Serre en Panne
             {
                 if (indexDeLaSalleChoisie == 1 && indexDeLaSalleDeDepart > 2) //Direction Pilotage depuis Infirmerie ou plus loin
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
                 if (indexDeLaSalleChoisie > 2 && indexDeLaSalleDeDepart == 1) //Depart de Pilotage vers Infirmerie ou plus loin
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
             }
             if (modules[2].EstEnPanne) // Infirmerie en Panne
             {
                 if (indexDeLaSalleChoisie == 4 && (indexDeLaSalleDeDepart != 3 && indexDeLaSalleDeDepart != 4)) // Direction Laboratoire si départ n'est pas Infirmerie ou Laboratoire
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
                 if (indexDeLaSalleChoisie > 4 && (indexDeLaSalleDeDepart < 3 || indexDeLaSalleDeDepart == 4)) //Direction à droite de Infirmerie, départ à gauche Infirmerie ou Laboratoire
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
                 if (indexDeLaSalleChoisie < 3 && indexDeLaSalleDeDepart > 3) // Direction à gauche de l'Infirmerie, départ à droite de l'Infirmerie ou Laboratoire
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
             }
             if (modules[4].EstEnPanne) // Détente en Panne
             {
                 if (indexDeLaSalleChoisie == 7 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 6)) // Direction Maintenance, Départ Survie ou à gauche de Détente
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
                 if (indexDeLaSalleChoisie == 6 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 7)) // Direction Survie, Départ Maintenance ou à gauche de Détente
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
                 if (indexDeLaSalleChoisie < 5 && (indexDeLaSalleDeDepart > 5)) // Direction gauche de Détente, Départ Maintenance ou Survie
-                    membres[membre.Id-1].Pv--;
+                {
+                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    membres[membre.Id - 1].Pv--;
+                }
             }
 
             Debug.WriteLine("Membre " + membre.Role + " PV après déplacement " + membre.Pv);
@@ -1204,9 +1262,9 @@ namespace TharsisRevolution
                 Défaite();
 
             // Déplacement
-            membres[membre.Id-1].Position = modules[indexDeLaSalleChoisie-1];
+            membres[membre.Id - 1].Position = modules[indexDeLaSalleChoisie - 1];
 
-            Debug.WriteLine("Membre " + membres[membre.Id-1].Role + " déplacé à la position " + membres[membre.Id-1].Position.Type.ToString());
+            Debug.WriteLine("Membre " + membres[membre.Id - 1].Role + " déplacé à la position " + membres[membre.Id - 1].Position.Type.ToString());
         }
 
         /// <summary>
@@ -1214,141 +1272,179 @@ namespace TharsisRevolution
         /// </summary>
         private async void Deplacement_PersonnageToCurrentModule()
         {
-            MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déplacement Personnage ?");
-
-            //TODO Superposition, si déplacement au même endroit
-
-            msgbox.Commands.Clear();
-            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
-            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
-
-            switch (indexCurrentClickMembre)
+            if (membres[indexCurrentClickMembre].AJoué)
+                Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " a déjà joué";
+            else if (membres[indexCurrentClickMembre].Pv == 0)
             {
-                case 2: //Docteur
-                    var resDoc = await msgbox.ShowAsync();
-                    if ((int)resDoc.Id == 0)
-                    {
-                        Deplacement(membres[2], modules[indexCurrentClickModule]);
-                        if(indexCurrentClickModule == 2) // Infirmerie
-                        {
-                            Grid.SetRow(reDocteur, rowCurrentModule + 1);
-                            Grid.SetColumn(reDocteur, columnCurrentModule);
-                        }
-                        else if(indexCurrentClickModule == 5) // SystèmeSurvie
-                        {
-                            Grid.SetRow(reDocteur, rowCurrentModule + 1);
-                            Grid.SetColumn(reDocteur, columnCurrentModule);
-                        }
-                        else
-                        {
-                            Grid.SetRow(reDocteur, rowCurrentModule - 1);
-                            Grid.SetColumn(reDocteur, columnCurrentModule);
-                        }
-
-                        Creation_Btn_Deploiement();
-                    }
-
-                    if ((int)resDoc.Id == 1)
-                    {
-                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
-                        await msgbox2.ShowAsync();
-                    }                    
-                    break;
-                case 3: // Mécanicien
-                    var resMeca = await msgbox.ShowAsync();
-                    if ((int)resMeca.Id == 0)
-                    {
-                        Deplacement(membres[3], modules[indexCurrentClickModule]);
-                        if (indexCurrentClickModule == 2) // Infirmerie
-                        {
-                            Grid.SetRow(reMeca, rowCurrentModule + 1);
-                            Grid.SetColumn(reMeca, columnCurrentModule);
-                        }
-                        else if (indexCurrentClickModule == 5) // SystèmeSurvie
-                        {
-                            Grid.SetRow(reMeca, rowCurrentModule + 1);
-                            Grid.SetColumn(reMeca, columnCurrentModule);
-                        }
-                        else
-                        {
-                            Grid.SetRow(reMeca, rowCurrentModule - 1);
-                            Grid.SetColumn(reMeca, columnCurrentModule);
-                        }
-                        
-                        Creation_Btn_Deploiement();
-                    }
-
-                    if ((int)resMeca.Id == 1)
-                    {
-                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
-                        await msgbox2.ShowAsync();
-                    }
-                    break;
-                case 1: //Capitaine
-                    var resCap = await msgbox.ShowAsync();
-                    if ((int)resCap.Id == 0)
-                    {
-                        Deplacement(membres[1], modules[indexCurrentClickModule]);
-                        if (indexCurrentClickModule == 2) // Infirmerie
-                        {
-                            Grid.SetRow(reCapitaine, rowCurrentModule + 1);
-                            Grid.SetColumn(reCapitaine, columnCurrentModule);
-                        }
-                        else if (indexCurrentClickModule == 5) // SystèmeSurvie
-                        {
-                            Grid.SetRow(reCapitaine, rowCurrentModule + 1);
-                            Grid.SetColumn(reCapitaine, columnCurrentModule);
-                        }
-                        else
-                        {
-                            Grid.SetRow(reCapitaine, rowCurrentModule - 1);
-                            Grid.SetColumn(reCapitaine, columnCurrentModule);
-                        }
-                        
-                        Creation_Btn_Deploiement();
-                    }
-
-                    if ((int)resCap.Id == 1)
-                    {
-                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
-                        await msgbox2.ShowAsync();
-                    }
-                    break;
-                case 0: //Commandant
-                    var resCom = await msgbox.ShowAsync();
-                    if ((int)resCom.Id == 0)
-                    {
-                        Deplacement(membres[0], modules[indexCurrentClickModule]);
-                        if (indexCurrentClickModule == 2) // Infirmerie
-                        {
-                            Grid.SetRow(reCommandant, rowCurrentModule + 1);
-                            Grid.SetColumn(reCommandant, columnCurrentModule);
-                        }
-                        else if (indexCurrentClickModule == 5) // SystèmeSurvie
-                        {
-                            Grid.SetRow(reCommandant, rowCurrentModule + 1);
-                            Grid.SetColumn(reCommandant, columnCurrentModule);
-                        }
-                        else
-                        {
-                            Grid.SetRow(reCommandant, rowCurrentModule - 1);
-                            Grid.SetColumn(reCommandant, columnCurrentModule);
-                        }
-                        
-                        Creation_Btn_Deploiement();
-                    }
-
-                    if ((int)resCom.Id == 1)
-                    {
-                        MessageDialog msgbox2 = new MessageDialog("Votre déplacement a été annulé...");
-                        await msgbox2.ShowAsync();
-                    }
-                    break;
-                default:
-                    break;
+                Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " est mort";
             }
-            UpdateUI();
+            else
+            {
+                MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déplacement Personnage ?");
+
+                msgbox.Commands.Clear();
+                msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+                msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+
+                switch (indexCurrentClickMembre)
+                {
+                    case 2: //Docteur
+                        var resDoc = await msgbox.ShowAsync();
+                        if ((int)resDoc.Id == 0)
+                        {
+
+                            Deplacement(membres[2], modules[indexCurrentClickModule]);
+
+
+                            if (modules[indexCurrentClickModule].EstEnPanne)
+                                Creation_Btn_Deploiement();
+                        }
+                        break;
+                    case 3: // Mécanicien
+                        var resMeca = await msgbox.ShowAsync();
+                        if ((int)resMeca.Id == 0)
+                        {
+
+
+                            Deplacement(membres[3], modules[indexCurrentClickModule]);
+
+                            if (modules[indexCurrentClickModule].EstEnPanne)
+                                Creation_Btn_Deploiement();
+                        }
+                        break;
+                    case 1: //Capitaine
+                        var resCap = await msgbox.ShowAsync();
+                        if ((int)resCap.Id == 0)
+                        {
+
+                            Deplacement(membres[1], modules[indexCurrentClickModule]);
+
+
+                            if (modules[indexCurrentClickModule].EstEnPanne)
+                                Creation_Btn_Deploiement();
+                        }
+                        break;
+                    case 0: //Commandant
+                        var resCom = await msgbox.ShowAsync();
+                        if ((int)resCom.Id == 0)
+                        {
+                          
+
+                            Deplacement(membres[0], modules[indexCurrentClickModule]);
+
+
+                            if (modules[indexCurrentClickModule].EstEnPanne)
+                                Creation_Btn_Deploiement();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                UpdateUI();
+            }
         }
+
+        private void InitialiserUIPersonnages()
+        {
+            int marginLevel = 0;
+            Thickness margin;
+            foreach (Membre membre in membres)
+            {
+                switch (membre.Role)
+                {
+                    case Membre.roleMembre.Commandant:
+                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                            Grid.SetRow(reCommandant, membre.Position.EmplacementY + 1);
+                        else
+                            Grid.SetRow(reCommandant, membre.Position.EmplacementY - 1);
+
+                        Grid.SetColumn(reCommandant, membre.Position.EmplacementX);
+
+                        if (membre.AJoué)
+                            lbl_Commandant.Foreground = new SolidColorBrush(Colors.DimGray);
+                        else
+                            lbl_Commandant.Foreground = new SolidColorBrush(Colors.White);
+
+                        break;
+                    case Membre.roleMembre.Capitaine:
+                        marginLevel = 0;
+                        if (membres[0].Position.Equals(membre.Position))
+                            marginLevel++;
+                        margin = reCapitaine.Margin;
+                        margin.Top = -15 * marginLevel;
+                        margin.Right = -15 * marginLevel;
+                        reCapitaine.Margin = margin;
+
+                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                            Grid.SetRow(reCapitaine, membre.Position.EmplacementY + 1);
+                        else
+                            Grid.SetRow(reCapitaine, membre.Position.EmplacementY - 1);
+
+                        Grid.SetColumn(reCapitaine, membre.Position.EmplacementX);
+
+                        if (membre.AJoué)
+                            lbl_Capitaine.Foreground = new SolidColorBrush(Colors.DimGray);
+                        else
+                            lbl_Capitaine.Foreground = new SolidColorBrush(Colors.White);
+
+                        break;
+                    case Membre.roleMembre.Docteur:
+                        marginLevel = 0;
+                        if (membres[0].Position.Equals(membre.Position))
+                            marginLevel++;
+                        if (membres[1].Position.Equals(membre.Position))
+                            marginLevel++;
+                        margin = reDocteur.Margin;
+                        margin.Top = -15 * marginLevel;
+                        margin.Right = -15 * marginLevel;
+                        reDocteur.Margin = margin;
+
+                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                            Grid.SetRow(reDocteur, membre.Position.EmplacementY + 1);
+                        else
+                            Grid.SetRow(reDocteur, membre.Position.EmplacementY - 1);
+
+                        Grid.SetColumn(reDocteur, membre.Position.EmplacementX);
+
+                        if (membre.AJoué)
+                            lbl_Docteur.Foreground = new SolidColorBrush(Colors.DimGray);
+                        else
+                            lbl_Docteur.Foreground = new SolidColorBrush(Colors.White);
+
+                        break;
+                    case Membre.roleMembre.Mécanicien:
+                        marginLevel = 0;
+                        if (membres[0].Position.Equals(membre.Position))
+                            marginLevel++;
+                        if (membres[1].Position.Equals(membre.Position))
+                            marginLevel++;
+                        if (membres[2].Position.Equals(membre.Position))
+                            marginLevel++;
+                        margin = reMeca.Margin;
+                        margin.Top = -15 * marginLevel;
+                        margin.Right = -15 * marginLevel;
+                        reMeca.Margin = margin;
+
+                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                            Grid.SetRow(reMeca, membre.Position.EmplacementY + 1);
+                        else
+                            Grid.SetRow(reMeca, membre.Position.EmplacementY - 1);
+
+                        Grid.SetColumn(reMeca, membre.Position.EmplacementX);
+
+                        if (membre.AJoué)
+                            lbl_Mecanicien.Foreground = new SolidColorBrush(Colors.DimGray);
+                        else
+                            lbl_Mecanicien.Foreground = new SolidColorBrush(Colors.White);
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Surcharge de la fonction de deplacement des personnages lors de leur initalisation des positions de départ
@@ -1360,21 +1456,21 @@ namespace TharsisRevolution
             switch (personnage.ToString())
             {
                 case "Docteur":
-                        if (module.Type == Module.moduleType.Infirmerie)
-                        {
-                            Grid.SetRow(reDocteur, module.EmplacementY + 1);
-                            Grid.SetColumn(reDocteur, module.EmplacementX);
-                        }
-                        else if (module.Type == Module.moduleType.SystemeSurvie)
-                        {
-                            Grid.SetRow(reDocteur, module.EmplacementY + 1);
-                            Grid.SetColumn(reDocteur, module.EmplacementX);
-                        }
-                        else
-                        {
-                            Grid.SetRow(reDocteur, module.EmplacementY - 1);
-                            Grid.SetColumn(reDocteur, module.EmplacementX);
-                        }
+                    if (module.Type == Module.moduleType.Infirmerie)
+                    {
+                        Grid.SetRow(reDocteur, module.EmplacementY + 1);
+                        Grid.SetColumn(reDocteur, module.EmplacementX);
+                    }
+                    else if (module.Type == Module.moduleType.SystemeSurvie)
+                    {
+                        Grid.SetRow(reDocteur, module.EmplacementY + 1);
+                        Grid.SetColumn(reDocteur, module.EmplacementX);
+                    }
+                    else
+                    {
+                        Grid.SetRow(reDocteur, module.EmplacementY - 1);
+                        Grid.SetColumn(reDocteur, module.EmplacementX);
+                    }
                     break;
                 case "Mécanicien":
                     if (module.Type == Module.moduleType.Infirmerie)
@@ -1432,39 +1528,36 @@ namespace TharsisRevolution
             }
         }
 
-
         /// <summary>
         /// Fonction de création du bouton de déploiment pour permettre le déplacement d'une personnage
         /// </summary>
         private void Creation_Btn_Deploiement()
         {
-            Button btn_deployment = new Button();            
+            Button btn_deployment = new Button();
             btn_deployment.Name = "btn_deployment";
             btn_deployment.Height = 50;
             btn_deployment.Width = 240;
             btn_deployment.VerticalAlignment = (VerticalAlignment)AlignmentY.Bottom;
             btn_deployment.Content = "Déploiement";
-            btn_deployment.BorderBrush = new SolidColorBrush(Colors.White);
+            btn_deployment.BorderBrush = new SolidColorBrush(Colors.Black);
             btn_deployment.BorderThickness = new Thickness(5);
             btn_deployment.FontSize = 25;
             btn_deployment.Foreground = new SolidColorBrush(Colors.White);
+            btn_deployment.Background = new SolidColorBrush(Colors.Gray);
 
             btn_deployment.IsTapEnabled = true;
-            btn_deployment.Tapped += btn_deployment_OnClick;            
+            btn_deployment.Tapped += btn_deployment_OnClick;
 
             Grid.SetRow(btn_deployment, rowCurrentModule);
             Grid.SetColumn(btn_deployment, columnCurrentModule);
 
-            /*
-            for (int i = 0; i < Grid_Jeu.Children.Count; i++)
+            for (int i = 11; i < Grid_Jeu.Children.Count; i++) // Supprimer les deploiements
             {
-                Debug.WriteLine(Grid_Jeu.Children.ElementAt(i).ToString());
-            }*/
-
-            UIElement lastitem = Grid_Jeu.Children.Last(); //recuperation du dernier element creer          
-            if(lastitem.GetType() == btn_deployment.GetType()) //si le dernier element est un bouton
-            {
-                Grid_Jeu.Children.Remove(lastitem); //on supprime le dernier bouton
+                UIElement item = Grid_Jeu.Children.ElementAt(i);
+                if (item.GetType().Equals(btn_deployment.GetType()))
+                {
+                    Grid_Jeu.Children.Remove(item);
+                }
             }
 
             this.Grid_Jeu.Children.Add(btn_deployment); // puis on creer le bouton deploiement
@@ -1476,27 +1569,22 @@ namespace TharsisRevolution
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void btn_deployment_OnClick(object sender, TappedRoutedEventArgs e)
-        {                       
-            MessageDialog msgbox = new MessageDialog("Voulez vous déploier le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déploiment de "+ membres[indexCurrentClickMembre].Role.ToString()+" ?");
-            // TODO gérer l'impossibilité de déployer dans un module sans panne (Module.EstEnPanne == false)
+        {
+            MessageDialog msgbox = new MessageDialog("Voulez vous déploier le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déploiment de " + membres[indexCurrentClickMembre].Role.ToString() + " ?");
             msgbox.Commands.Clear();
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
 
-            var parameters = new CurrentParameters(membres, modules, indexCurrentClickMembre, indexCurrentClickModule,hardMode,vaisseau,numeroSemaine);
+            var parameters = new CurrentParameters(membres, modules, pannes, indexCurrentClickMembre, indexCurrentClickModule, hardMode, vaisseau, numeroSemaine, gameStarted);
 
             var res = await msgbox.ShowAsync();
             if ((int)res.Id == 0)
             {
-                this.Frame.Navigate(typeof(PageModule),parameters);
+                if (!modules[indexCurrentClickModule].EstEnPanne)
+                    Affichage.Text = "Le module " + modules[indexCurrentClickModule].Type.ToString() + " n'est pas en panne";
+                else
+                    this.Frame.Navigate(typeof(PageModule), parameters);
             }
-
-            if ((int)res.Id == 1)
-            {
-                MessageDialog msgbox2 = new MessageDialog("Votre déploiment a été annulé...");
-                await msgbox2.ShowAsync();
-            }
-
         }
 
         /// <summary>
@@ -1580,7 +1668,29 @@ namespace TharsisRevolution
             Deplacement_PersonnageToCurrentModule();
 
         }
-        
-    }
 
+        private async void btnFinSemaine_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MessageDialog msgbox = new MessageDialog(" Voulez-vous terminer la semaine ?");
+
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+
+            var resDoc = await msgbox.ShowAsync();
+
+            if ((int)resDoc.Id == 0)
+            {
+                FinSemaine();
+                NouvelleSemaine();
+                UpdateUI();
+            }
+        }
+
+        private void ChangeVolume(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            if (song != null)
+                song.Volume = (double)volumeSlider.Value / 100;
+        }
+    }
 }

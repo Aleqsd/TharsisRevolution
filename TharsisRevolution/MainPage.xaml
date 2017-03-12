@@ -67,7 +67,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            <Button x:Name="btnFinSemaine" Content="Finir Semaine" Grid.Column="4" HorizontalAlignment="Left" Margin="380,117,-281,0" Grid.Row="4" VerticalAlignment="Top" Foreground="White" Tapped="btnFinSemaine_Tapped" Height="42" Width="141"/>
             <Image x:Name="PostePilotage" Width="auto" Height="auto" Grid.Row="2" Grid.Column="0" Source="Assets/Module_Pilotage2.png" Tapped="Pilotage_HightLight_OnClick"/>
             <Image x:Name="Serre" Width="auto" Height="auto" Grid.Row="2" Grid.Column="1" Source="Assets/Module_Serre2.png" Tapped="Serre_HightLight_OnClick"/>
             <Image x:Name="Infirmerie" Width="auto" Height="auto" Grid.Row="2" Grid.Column="2" Source="Assets/Module_Infirmerie2.png" Tapped="Infirmerie_HightLight_OnClick"/>
@@ -78,7 +78,7 @@
 
             <!--Image x:Name="img_Panne" Source="Assets/Ambox_warning_red.png" Width="70px" Height="70px" Grid.Row="2" Grid.Column="2"></-->
 
-            <RelativePanel x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" Tapped="Meca_HightLight_OnClick">
+            <RelativePanel x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="100" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Meca_HightLight_OnClick">
                 <TextBlock x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
                 <Image x:Name="imLogoMeca" Width="auto" Height="60" Source="Assets/img_meca.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                 <ProgressBar x:Name="pbPvMeca" ValueChanged="progressBar_PvMeca" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoMeca" Margin="0,0,0,3" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
@@ -117,7 +117,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" Tapped="Doc_HightLight_OnClick">
+            <RelativePanel x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Doc_HightLight_OnClick">
                 <TextBlock x:Name="lbl_Docteur" Foreground="White" Height="20" Text="Docteur"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
                 <Image x:Name="imLogoDocteur" Width="auto" Height="60" Source="Assets/img_Doctor.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                 <ProgressBar x:Name="pb_PvDocteur" ValueChanged="progressBar_PvDocteur" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoDocteur" Margin="0,0,0,3" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
@@ -156,7 +156,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" Tapped="Capitaine_HightLight_OnClick">
+            <RelativePanel x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Capitaine_HightLight_OnClick">
                 <TextBlock x:Name="lbl_Capitaine" Foreground="White" Height="20" Text="Capitaine"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
                 <Image x:Name="imLogoCapitaine" Width="auto" Height="60" Source="Assets/img_capitaine.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                 <ProgressBar x:Name="pb_PvCapitaine" ValueChanged="progressBar_PvCapitaine" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCapitaine" Margin="0,0,0,3" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
@@ -195,7 +195,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="0.5" Tapped="Commandant_HightLight_OnClick">
+            <RelativePanel x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="100" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Commandant_HightLight_OnClick">
                 <TextBlock x:Name="lbl_Commandant" Foreground="White" Height="20" Text="Commandant"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" Margin="-21,-1,-25,1"/>
                 <Image x:Name="imLogoCommandant" Width="auto" Height="60" Source="Assets/img_commandant.png" Margin="0,18,0,3" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                 <ProgressBar x:Name="pb_PvCommandant" ValueChanged="progressBar_PvCommandant" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCommandant" Margin="0,0,0,3" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
@@ -234,11 +234,17 @@
 
                 </Grid>
             </RelativePanel>
+            <Slider x:Name="volumeSlider" HorizontalAlignment="Left" Margin="-315,120,0,-4" Grid.Row="4" VerticalAlignment="Top" Width="140" Background="#66FFFFFF" Maximum="100" LargeChange="20" SmallChange="10" ValueChanged="ChangeVolume" Value="50" StepFrequency="10" TickFrequency="10"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="-269,101,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Volume" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
 
         <TextBlock x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
         <TextBlock x:Name="lbl_PvShip" Foreground="Red" Height="40" Text="0"  Width="40" FontSize="30" FontFamily="Showcard Gothic" RelativePanel.AlignVerticalCenterWith="pg_PvShip" RelativePanel.Below="pg_PvShip" Margin="183,43,-183,-43"></TextBlock>
-        <MediaElement Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="1"></MediaElement>
+        <MediaElement x:Name="song" Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="0.5" IsLooping="True" ></MediaElement>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="71"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="62"/>
+        <TextBlock x:Name="Affichage" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18" Margin="42,964,-42,-964"/>
     </RelativePanel>
-    
+
 </Page>

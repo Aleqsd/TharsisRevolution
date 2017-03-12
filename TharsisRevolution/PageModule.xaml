@@ -18,19 +18,20 @@
         <Border x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
             <Button x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonLancer_Click"/>
         </Border>
-        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,200,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <Button x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"/>
+        <TextBlock x:Name="Affichage" RelativePanel.Above="BorderBottom" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" HorizontalAlignment="Right" Margin="0,-14,0,14" RelativePanel.Below="" RelativePanel.AlignBottomWith="" RelativePanel.AlignTopWith=""/>
+        <Border x:Name="BorderPouvoir" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,10,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Button x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold" Tapped="bt_PouvoirSpe_Tapped"/>
         </Border>
-        <Border Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
+        <TextBlock x:Name="DetailPouvoir" TextWrapping="Wrap" Foreground="White" Text="" FontSize="18" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="-328,-105,10,105" HorizontalAlignment="Center" />
+        <Border x:Name="BorderPanne" Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
                 <TextBlock x:Name="tbReparer" Text="Réparer" FontSize="40" FontWeight="Bold" Foreground="Gray"/>
                 <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbReparer">
-                    <Button x:Name="btReparerValeur" Content="20" FontSize="40" FontWeight="Bold" Foreground="White" Tapped="btReparerValeur_Tapped" IsEnabled="False">
-                    </Button>
+                    <Button x:Name="btReparerValeur" Content="20" FontSize="40" FontWeight="Bold" Foreground="White" Tapped="btReparerValeur_Tapped" IsEnabled="False" VerticalAlignment="Bottom"/>
                 </Border>
             </RelativePanel>
         </Border>
-        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" >
+        <Border x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" >
 
             <Grid Width="200" Height="50" Name="grPilotage">
                 <Grid.RowDefinitions>
@@ -91,8 +92,5 @@
 
             </Grid>
         </Border>
-
-
     </RelativePanel>
-
 </Page>

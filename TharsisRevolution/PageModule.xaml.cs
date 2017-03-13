@@ -13,6 +13,7 @@ using Windows.UI;
 //TODO mettre un fond en fonction du module
 //TODO VIRER TOUS LES ACCENTS DANS LE C#
 //TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
+//TODO faire des images de pièges pour les 3 types de pièges (comme les pannes ?)
 
 namespace TharsisRevolution
 {
@@ -49,16 +50,6 @@ namespace TharsisRevolution
         public PageModule()
         {
             this.InitializeComponent();
-
-            //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
-            // ça devrait le faire mais exception??
-            //rtTitreModule.Text = modules[indexCurrentModule].Type.ToString();
-            //rtNomPersonnage.Text = membres[indexCurrentMembre].Role.ToString();
-
-            imgD7.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
-            imgD8.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
-            imgD9.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -80,7 +71,7 @@ namespace TharsisRevolution
 
             if (hardMode)
             {
-                // TODO Mettre les 3 dés piégés en image qui sont dans listeDéPiégés (c'est une liste d'objet Dé) chaque dé a sa valeur et son type de piege
+                // TODO hardmode à coder
                 int nombreDésPiégés = RandomNumber(0, 4);
 
                 listeDéPiégés = new List<Dé>(new Dé[nombreDésPiégés]);
@@ -139,6 +130,15 @@ namespace TharsisRevolution
                 default:
                     break;
             }
+
+            //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
+            // ça devrait le faire mais exception??
+            rtTitreModule.Text = modules[indexCurrentModule].Type.ToString();
+            rtNomPersonnage.Text = membres[indexCurrentMembre].Role.ToString();
+
+            imgD7.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+            imgD8.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+            imgD9.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
 
         }
 
@@ -355,9 +355,11 @@ namespace TharsisRevolution
                 }
 
                 string s = b.Tag.ToString();
-                // TODO : Bug sur la condition : quand un dés devient grisé(lock) apres l'avoir utiliser
-                // pour réparer, quand on clic dessus  = il redevient highlight
-                if (!s.Contains("HightLight") && !s.Contains("Lock"))
+                if (s.Contains("Lock"))
+                {
+                    Affichage.Text = "Ce dé est inutilisable";
+                }
+                else if (!s.Contains("HightLight"))
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + "_HightLight.png";

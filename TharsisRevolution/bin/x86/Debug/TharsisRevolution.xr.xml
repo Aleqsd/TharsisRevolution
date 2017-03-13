@@ -30,10 +30,12 @@
       <RootMethod Name="SetAlignVerticalCenterWith" />
       <RootMethod Name="GetAlignHorizontalCenterWith" />
       <RootMethod Name="SetAlignHorizontalCenterWith" />
-      <RootMethod Name="GetAbove" />
-      <RootMethod Name="SetAbove" />
+      <RootMethod Name="GetAlignTopWithPanel" />
+      <RootMethod Name="SetAlignTopWithPanel" />
       <RootMethod Name="GetAlignRightWithPanel" />
       <RootMethod Name="SetAlignRightWithPanel" />
+      <RootMethod Name="GetAbove" />
+      <RootMethod Name="SetAbove" />
       <RootMethod Name="GetAlignBottomWith" />
       <RootMethod Name="SetAlignBottomWith" />
       <RootMethod Name="GetAlignTopWith" />

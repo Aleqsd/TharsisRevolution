@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-14T11:12:41.431</Modified>
+      <Modified>2017-03-14T15:06:12.724</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-14T11:12:40.832</Modified>
+      <Modified>2017-03-14T15:06:12.462</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -478,10 +478,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Caduc.png">
       <PackagePath>Assets\D1_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.546</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Caduc_HightLight.png">
-      <PackagePath>Assets\D1_Caduc_HightLight.png</PackagePath>
       <Modified>2017-03-14T11:02:02.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_HightLight.png">
@@ -494,6 +490,10 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Stase.png">
       <PackagePath>Assets\D1_Stase.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.546</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Stase_HightLight.png">
+      <PackagePath>Assets\D1_Stase_HightLight.png</PackagePath>
       <Modified>2017-03-14T11:02:02.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2.png">
@@ -510,11 +510,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Caduc.png">
       <PackagePath>Assets\D2_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.552</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Caduc_HightLight.png">
-      <PackagePath>Assets\D2_Caduc_HightLight.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.553</Modified>
+      <Modified>2017-03-14T11:02:02.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_HightLight.png">
       <PackagePath>Assets\D2_HightLight.png</PackagePath>
@@ -526,7 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Stase.png">
       <PackagePath>Assets\D2_Stase.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.554</Modified>
+      <Modified>2017-03-14T11:02:02.552</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Stase_HightLight.png">
+      <PackagePath>Assets\D2_Stase_HightLight.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3.png">
       <PackagePath>Assets\D3.png</PackagePath>
@@ -542,11 +542,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Caduc.png">
       <PackagePath>Assets\D3_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.558</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Caduc_HightLight.png">
-      <PackagePath>Assets\D3_Caduc_HightLight.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.559</Modified>
+      <Modified>2017-03-14T11:02:02.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_HightLight.png">
       <PackagePath>Assets\D3_HightLight.png</PackagePath>
@@ -558,7 +554,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Stase.png">
       <PackagePath>Assets\D3_Stase.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.560</Modified>
+      <Modified>2017-03-14T11:02:02.558</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Stase_HightLight.png">
+      <PackagePath>Assets\D3_Stase_HightLight.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.559</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4.png">
       <PackagePath>Assets\D4.png</PackagePath>
@@ -574,11 +574,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Caduc.png">
       <PackagePath>Assets\D4_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.563</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Caduc_HightLight.png">
-      <PackagePath>Assets\D4_Caduc_HightLight.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.565</Modified>
+      <Modified>2017-03-14T11:02:02.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_HightLight.png">
       <PackagePath>Assets\D4_HightLight.png</PackagePath>
@@ -590,7 +586,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Stase.png">
       <PackagePath>Assets\D4_Stase.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.566</Modified>
+      <Modified>2017-03-14T11:02:02.563</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Stase_HightLight.png">
+      <PackagePath>Assets\D4_Stase_HightLight.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5.png">
       <PackagePath>Assets\D5.png</PackagePath>
@@ -606,11 +606,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Caduc.png">
       <PackagePath>Assets\D5_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.569</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Caduc_HightLight.png">
-      <PackagePath>Assets\D5_Caduc_HightLight.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.570</Modified>
+      <Modified>2017-03-14T11:02:02.571</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_HightLight.png">
       <PackagePath>Assets\D5_HightLight.png</PackagePath>
@@ -622,7 +618,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Stase.png">
       <PackagePath>Assets\D5_Stase.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.571</Modified>
+      <Modified>2017-03-14T11:02:02.569</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Stase_HightLight.png">
+      <PackagePath>Assets\D5_Stase_HightLight.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.570</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6.png">
       <PackagePath>Assets\D6.png</PackagePath>
@@ -638,11 +638,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Caduc.png">
       <PackagePath>Assets\D6_Caduc.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.575</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Caduc_HightLight.png">
-      <PackagePath>Assets\D6_Caduc_HightLight.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.576</Modified>
+      <Modified>2017-03-14T11:02:02.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_HightLight.png">
       <PackagePath>Assets\D6_HightLight.png</PackagePath>
@@ -654,7 +650,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Stase.png">
       <PackagePath>Assets\D6_Stase.png</PackagePath>
-      <Modified>2017-03-14T11:02:02.577</Modified>
+      <Modified>2017-03-14T11:02:02.575</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Stase_HightLight.png">
+      <PackagePath>Assets\D6_Stase_HightLight.png</PackagePath>
+      <Modified>2017-03-14T11:02:02.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\img_capitaine.png">
       <PackagePath>Assets\img_capitaine.png</PackagePath>
@@ -820,7 +820,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.xr.xml">
       <PackagePath>TharsisRevolution.xr.xml</PackagePath>
-      <Modified>2017-03-14T11:10:53.952</Modified>
+      <Modified>2017-03-14T14:23:46.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -829,11 +829,11 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-14T11:12:41.294</Modified>
+      <Modified>2017-03-14T14:23:47.275</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-14T11:12:41.428</Modified>
+      <Modified>2017-03-14T15:06:12.721</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

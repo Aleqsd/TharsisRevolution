@@ -41,9 +41,38 @@ namespace TharsisRevolution
             if (hardMode)
             {
                 DésPiégés = new List<Dé>();
-                NombreDésPiégés = RandomNumber(1, 4);
+                NombreDésPiégés = RandomNumber(0, 4);
                 for (int i = 0; i < NombreDésPiégés; i++)
                     DésPiégés.Add(new Dé());
+
+                int index = 0;
+                if (NombreDésPiégés > 0)
+                {
+                    foreach (Dé déPiégé in DésPiégés)
+                    {
+                        if (index < NombreDésPiégés - 1)
+                        {
+                            while (DésPiégés[index].Valeur == DésPiégés[index + 1].Valeur)
+                            {
+                                DésPiégés[index + 1].Valeur = RandomNumber(1, 7);
+                            }
+                        }
+                        int random = RandomNumber(0, 3);
+                        switch (random)
+                        {
+                            case 0:
+                                déPiégé.Type = déType.Bléssure;
+                                break;
+                            case 1:
+                                déPiégé.Type = déType.Caduc;
+                                break;
+                            case 2:
+                                déPiégé.Type = déType.Stase;
+                                break;
+                        }
+                        index++;
+                    }
+                }
             }
         }
 

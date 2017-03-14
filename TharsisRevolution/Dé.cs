@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
-    public enum déType {Normal, Bléssure, Stase, Caduc, Highlight, Grisé}
+    public enum déType {Normal, Bléssure, Stase, Caduc, Highlight, Grisé, BléssureHighlight, StaseHighlight}
 
     public class Dé
     {

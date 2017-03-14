@@ -12,7 +12,7 @@
         <Image gif:AnimationBehavior.SourceUri="/Assets/giphy.gif" gif:AnimationBehavior.RepeatBehavior="Forever" />
         <TextBlock x:Name="rtTitreModule" Width="50" Height="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
         <TextBlock x:Name="rtNomPersonnage" Width="50" Height="20" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
-        
+
         <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
             <Button x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonTerminer_Click"/>
         </Border>
@@ -34,7 +34,7 @@
             </RelativePanel>
         </Border>
         <Border x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" Margin="2,-14,-2,14" >
-                
+
             <Grid Width="500" Height="100" Name="grPilotage">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -49,7 +49,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Border x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:Name="imgD1" Tapped="imDice_Tapped" Tag="null"></Image>                    
+                    <Image x:Name="imgD1" Tapped="imDice_Tapped" Tag="null"></Image>
                 </Border>
                 <Border x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:Name="imgD2" Tapped="imDice_Tapped" Tag="null"></Image>
@@ -66,10 +66,10 @@
                 <Border x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
                     <Image x:Name="imgD6" Tapped="imDice_Tapped" Tag="null"></Image>
                 </Border>
-            </Grid>            
+            </Grid>
         </Border>
 
-        <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10 100 10 10" Padding="5" >
+        <Border x:Name="BorderPiege" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10" Padding="5" >
 
             <Grid Width="300" Height="100" Name="grDesHardMode">
                 <Grid.RowDefinitions>
@@ -93,5 +93,6 @@
 
             </Grid>
         </Border>
+        <TextBlock x:Name="TooltipPiege" HorizontalAlignment="Center" Height="100" TextWrapping="Wrap" Text="" VerticalAlignment="Center" RelativePanel.Above="BorderPiege" Margin="10,0,-262,0" Width="314" FontSize="24" Foreground="White"/>
     </RelativePanel>
 </Page>

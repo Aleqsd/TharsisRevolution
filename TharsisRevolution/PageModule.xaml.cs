@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
+using Windows.UI.Popups;
 
 namespace TharsisRevolution
 {
@@ -29,6 +30,7 @@ namespace TharsisRevolution
         private bool pouvoirUtilisé = false;
         private bool utilisationPouvoirCapitaine = false;
         private bool gameStarted = true;
+        private string tooltipPiege;
 
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -63,43 +65,60 @@ namespace TharsisRevolution
 
             if (hardMode)
             {
-                // TODO hardmode à coder
-                int nombreDésPiégés = RandomNumber(0, 4);
+                listeDéPiégés = modules[indexCurrentModule].Panne.DésPiégés;
 
-                listeDéPiégés = new List<Dé>(new Dé[nombreDésPiégés]);
-                int index = 0;
-                // TODO a verifier
-                if (listeDéPiégés.Count > 0)
+                foreach (Dé dé in listeDéPiégés)
+                    tooltipPiege += "Dé " + dé.Valeur + " = " + dé.Type + "\n";
+
+                List<Image> imageListDésPiégés;
+                switch (listeDéPiégés.Count)
                 {
-                    for (int i = 0; i < nombreDésPiégés; i++)
-                        listeDéPiégés[i] = new Dé();
+                    case 0:
+                        imageListDésPiégés = new List<Image>();
+                        break;
+                    case 1:
+                        imageListDésPiégés = new List<Image> { imgD7 };
+                        break;
+                    case 2:
+                        imageListDésPiégés = new List<Image> { imgD7, imgD8 };
+                        break;
+                    case 3:
+                        imageListDésPiégés = new List<Image> { imgD7, imgD8, imgD9 };
+                        break;
+                    default:
+                        imageListDésPiégés = new List<Image>();
+                        break;
+                }
 
-                    foreach (Dé déPiégé in listeDéPiégés)
+                int index2 = 0;
+                foreach (Image i in imageListDésPiégés)
+                {
+                    switch (listeDéPiégés[index2].Type)
                     {
-                        if (index < listeDéPiégés.Count - 1)
-                        {
-                            while (listeDéPiégés[index].Valeur == listeDéPiégés[index + 1].Valeur)
-                            {
-                                listeDéPiégés[index + 1].Valeur = RandomNumber(1, 7);
-                            }
-                        }
-                        int random = RandomNumber(0, 3);
-                        switch (random)
-                        {
-                            case 0:
-                                déPiégé.Type = déType.Bléssure;
-                                break;
-                            case 1:
-                                déPiégé.Type = déType.Caduc;
-                                break;
-                            case 2:
-                                déPiégé.Type = déType.Stase;
-                                break;
-                        }
-                        index++;
+                        case déType.Bléssure:
+                            i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + listeDéPiégés[index2].Valeur + "_Blessure.png", UriKind.RelativeOrAbsolute));
+                            i.Tag = "D" + listeDéPiégés[index2].Valeur + "_Blessure.png";
+                            break;
+                        case déType.Caduc:
+                            i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + listeDéPiégés[index2].Valeur + "_Caduc.png", UriKind.RelativeOrAbsolute));
+                            i.Tag = "D" + listeDéPiégés[index2].Valeur + "_Caduc.png";
+                            break;
+                        case déType.Stase:
+                            i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + listeDéPiégés[index2].Valeur + "_Stase.png", UriKind.RelativeOrAbsolute));
+                            i.Tag = "D" + listeDéPiégés[index2].Valeur + "_Stase.png";
+                            break;
+                        default:
+                            i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + listeDéPiégés[index2].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                            i.Tag = "D" + listeDéPiégés[index2].Valeur + ".png";
+                            break;
                     }
+                    index2++;
                 }
             }
+            else
+                BorderPiege.Visibility = Visibility.Collapsed;
+
+
             if (nombreLancers > 1)
                 tbLancesRestant.Text = nombreLancers + " restants";
             else
@@ -123,14 +142,14 @@ namespace TharsisRevolution
                     break;
             }
 
-            //TODO interface : Afficher le nom du module et le nom du membre à l'interieur
-            // ça devrait le faire mais exception??
             rtTitreModule.Text = modules[indexCurrentModule].Type.ToString();
             rtNomPersonnage.Text = membres[indexCurrentMembre].Role.ToString();
 
-            imgD7.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
-            imgD8.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
-            imgD9.Source = new BitmapImage(new Uri("ms-appx:/Assets/D1.png", UriKind.RelativeOrAbsolute));
+            btLancer1.Background = new SolidColorBrush(Colors.White);
+            btLancer1.Foreground = new SolidColorBrush(Colors.Black);
+
+            if (listeDéPiégés.Count > 0)
+                TooltipPiege.Text = tooltipPiege;
 
         }
 
@@ -185,12 +204,43 @@ namespace TharsisRevolution
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Lock.png", UriKind.RelativeOrAbsolute));
                         i.Tag = "D" + lancer[index].Valeur + "_Lock.png";
                         break;
+                    case déType.Bléssure:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Blessure.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_Blessure.png";
+                        break;
+                    case déType.Caduc:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Caduc.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_Caduc.png";
+                        break;
+                    case déType.Stase:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Stase.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_Stase.png";
+                        break;
+                    case déType.StaseHighlight:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Stase_HightLight.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_Stase_HightLight.png";
+                        break;
+                    case déType.BléssureHighlight:
+                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + "_Blessure_HightLight.png", UriKind.RelativeOrAbsolute));
+                        i.Tag = "D" + lancer[index].Valeur + "_Blessure_HightLight.png";
+                        break;
                     default:
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[index].Valeur + ".png", UriKind.RelativeOrAbsolute));
                         i.Tag = "D" + lancer[index].Valeur + ".png";
                         break;
                 }
                 index++;
+
+                if (PouvoirUtilisable())
+                {
+                    bt_PouvoirSpe.Background = new SolidColorBrush(Colors.White);
+                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.Black);
+                }
+                else
+                {
+                    bt_PouvoirSpe.Background = btTerminer.Background;
+                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
 
             btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
@@ -212,6 +262,12 @@ namespace TharsisRevolution
             {
                 lancer = new List<Dé>(new Dé[membres[indexCurrentMembre].NombreDeDés]);
                 Debug.WriteLine("Lancer de " + membres[indexCurrentMembre].NombreDeDés + " dés");
+            }
+
+            if (nombreLancers == 1)
+            {
+                btLancer1.Background = btTerminer.Background;
+                btLancer1.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (nombreLancers > 0)
@@ -256,20 +312,30 @@ namespace TharsisRevolution
                         lancer[j] = new Dé();
                         i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
                         i.Tag = "D" + lancer[j].Valeur + ".png";
-                        Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
                     }
                     else
                     {
-                        if (lancer[j].Type.Equals(déType.Normal))
+                        if (lancer[j].Type.Equals(déType.Normal) || lancer[j].Type.Equals(déType.Bléssure))
                         {
                             lancer[j] = new Dé();
                             i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
                             i.Tag = "D" + lancer[j].Valeur + ".png";
-                            Debug.WriteLine("Lancer " + j + " : " + lancer[j].Valeur);
                         }
                     }
                     j++;
                 }
+
+                if (PouvoirUtilisable())
+                {
+                    bt_PouvoirSpe.Background = new SolidColorBrush(Colors.White);
+                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.Black);
+                }
+                else
+                {
+                    bt_PouvoirSpe.Background = btTerminer.Background;
+                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.White);
+                }
+
                 // TODO a verifier
                 if (hardMode)
                 {
@@ -279,25 +345,21 @@ namespace TharsisRevolution
                         // Pour chaque dé piégé, regarder si c'est la même valeur que le dé du lancer
                         foreach (Dé dé in listeDéPiégés)
                         {
-                            if (dé.Valeur.Equals(lancer[i]))
+                            if (dé.Valeur.Equals(lancer[i].Valeur) && (!lancer[i].Type.Equals(déType.Grisé) && !lancer[i].Type.Equals(déType.Caduc)))
                             {
                                 switch (dé.Type)
                                 {
                                     // TODO mettre des messages d'alertes quand on subit un malus
                                     case déType.Bléssure:
                                         lancer[i].Type = déType.Bléssure;
-                                        Debug.WriteLine("Dé emplacement : " + i + " = bléssure, -1 pv pour le membre");
                                         membres[indexCurrentMembre].Pv--;
+                                        Affichage.Text = "Le dé " + dé.Valeur + " vous inflige une bléssure (PV actuel : " + membres[indexCurrentMembre].Pv + ").";
                                         break;
                                     case déType.Stase:
                                         lancer[i].Type = déType.Stase;
-                                        Debug.WriteLine("Dé emplacement : " + i + " = stase, à rendre non relancable mais utilisable pour capacité ou réparation");
-                                        // TODO Dé impossible à relancer mais utilisable pour capacité spéciale ou réparation (highlighté obligatoire quoi)
                                         break;
                                     case déType.Caduc:
                                         lancer[i].Type = déType.Caduc;
-                                        Debug.WriteLine("Dé emplacement : " + i + " = caduc, à rendre non relancable, non utilisable");
-                                        // TODO Griser le dé
                                         break;
                                 }
                             }
@@ -306,6 +368,9 @@ namespace TharsisRevolution
                 }
 
                 nombreLancers--;
+
+                if (membres[indexCurrentMembre].Pv < 1)
+                    nombreLancers = 0;
                 // Mise à jour du nombre de dés restant affichés
                 tbLancesRestant.Text = nombreLancers + " restant";
                 UpdateUI();
@@ -347,24 +412,61 @@ namespace TharsisRevolution
                 }
 
                 string s = b.Tag.ToString();
-                if (s.Contains("Lock"))
+                if (s.Contains("Lock") || s.Contains("Caduc")) //Gris et Caduc
                 {
                     Affichage.Text = "Ce dé est inutilisable";
                 }
-                else if (!s.Contains("HightLight"))
+                else if (s.Contains("Blessure.png")) //Blessure
+                {
+                    b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_Blessure_HightLight.png", UriKind.RelativeOrAbsolute));
+                    b.Tag = "D" + s[1] + "_Blessure_HightLight.png";
+                    lancer[indexDé].Type = déType.BléssureHighlight;
+
+                    btReparerValeur.Background = new SolidColorBrush(Colors.White);
+                    btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.IsEnabled = true;
+                }
+                else if (s.Contains("Stase.png")) //Stase
+                {
+                    b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_Stase_HightLight.png", UriKind.RelativeOrAbsolute));
+                    b.Tag = "D" + s[1] + "_Stase_HightLight.png";
+                    lancer[indexDé].Type = déType.StaseHighlight;
+
+                    btReparerValeur.Background = new SolidColorBrush(Colors.White);
+                    btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.IsEnabled = true;
+                }
+                else if (s.Contains("Blessure_HightLight")) // Blessure Highlight
+                {
+                    b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_Blessure.png", UriKind.RelativeOrAbsolute));
+                    b.Tag = "D" + s[1] + "_Blessure.png";
+                    lancer[indexDé].Type = déType.Bléssure;
+
+                    btReparerValeur.Background = new SolidColorBrush(Colors.White);
+                    btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.IsEnabled = true;
+                }
+                else if (s.Contains("Stase_HightLight")) // Stase Highlight
+                {
+                    b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_Stase.png", UriKind.RelativeOrAbsolute));
+                    b.Tag = "D" + s[1] + "_Stase.png";
+                    lancer[indexDé].Type = déType.Stase;
+
+                    btReparerValeur.Background = new SolidColorBrush(Colors.White);
+                    btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
+                    btReparerValeur.IsEnabled = true;
+                }
+                else if (!s.Contains("HightLight")) // Blanc
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + "_HightLight.png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + "_HightLight.png";
                     lancer[indexDé].Type = déType.Highlight;
 
-                    // Surbrillance des actions possible et activation du bouton de réparation
-                    btLancer1.Background = new SolidColorBrush(Colors.White);
-                    btLancer1.Foreground = new SolidColorBrush(Colors.Black);
                     btReparerValeur.Background = new SolidColorBrush(Colors.White);
                     btReparerValeur.Foreground = new SolidColorBrush(Colors.Black);
                     btReparerValeur.IsEnabled = true;
                 }
-                else
+                else //Highlighté
                 {
                     b.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + s[1] + ".png", UriKind.RelativeOrAbsolute));
                     b.Tag = "D" + s[1] + ".png";
@@ -378,13 +480,10 @@ namespace TharsisRevolution
                                                             imgD6.Tag.ToString().Contains("HightLight")};
                     if (!SelectedDices.Contains(true))
                     {
-                        btLancer1.Background = btTerminer.Background;
-                        btLancer1.Foreground = new SolidColorBrush(Colors.White);
                         btReparerValeur.Background = btTerminer.Background;
                         btReparerValeur.Foreground = new SolidColorBrush(Colors.White);
                         btReparerValeur.IsEnabled = false;
                     }
-
                 }
             }
         }
@@ -403,12 +502,6 @@ namespace TharsisRevolution
             }
             else
                 modules[indexCurrentModule].Panne.Dégat = dégatAprès;
-        }
-
-        private void VerouillerDé()
-        {
-            //Griser le dé ciblé
-            //Ne devra pas être relancé si on utilise le bouton relance
         }
 
         /// <summary>
@@ -433,7 +526,7 @@ namespace TharsisRevolution
                 int ValeurAReparer = 0;
                 foreach (Dé dé in lancer)
                 {
-                    if (dé.Type.Equals(déType.Highlight))
+                    if (dé.Type.Equals(déType.Highlight) || dé.Type.Equals(déType.BléssureHighlight) || dé.Type.Equals(déType.StaseHighlight))
                     {
                         ValeurAReparer += dé.Valeur;
                         dé.Type = déType.Grisé;
@@ -444,6 +537,20 @@ namespace TharsisRevolution
             }
         }
 
+        private bool PouvoirUtilisable()
+        {
+            if (nombreLancers == 3)
+                return false;
+            if (pouvoirUtilisé)
+                return false;
+            foreach (Dé dé in lancer)
+            {
+                if ((dé.Valeur.Equals(5) || dé.Valeur.Equals(6)) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight) || dé.Type.Equals(déType.BléssureHighlight) || dé.Type.Equals(déType.StaseHighlight) || dé.Type.Equals(déType.Bléssure) || dé.Type.Equals(déType.Stase)))
+                    return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Utilisation du pouvoir spécial onTap
         /// </summary>
@@ -451,7 +558,7 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void bt_PouvoirSpe_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (!pouvoirUtilisé)
+            if (PouvoirUtilisable())
             {
                 bool is5InList = false;
                 bool is6InList = false;
@@ -461,7 +568,7 @@ namespace TharsisRevolution
                 int i = 0;
                 foreach (Dé dé in lancer)
                 {
-                    if (dé.Valeur.Equals(5) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight)))
+                    if (dé.Valeur.Equals(5) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight) || dé.Type.Equals(déType.BléssureHighlight) || dé.Type.Equals(déType.StaseHighlight) || dé.Type.Equals(déType.Bléssure) || dé.Type.Equals(déType.Stase)))
                     {
                         is5InList = true;
                         indexDé5 = i;
@@ -474,7 +581,7 @@ namespace TharsisRevolution
                     i = 0;
                     foreach (Dé dé in lancer)
                     {
-                        if (dé.Valeur.Equals(6) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight)))
+                        if (dé.Valeur.Equals(6) && (dé.Type.Equals(déType.Normal) || dé.Type.Equals(déType.Highlight) || dé.Type.Equals(déType.BléssureHighlight) || dé.Type.Equals(déType.StaseHighlight) || dé.Type.Equals(déType.Bléssure) || dé.Type.Equals(déType.Stase)))
                         {
                             is6InList = true;
                             indexDé6 = i;
@@ -532,7 +639,6 @@ namespace TharsisRevolution
                 pouvoirUtilisé = true;
             }
         }
-
     }
 }
 

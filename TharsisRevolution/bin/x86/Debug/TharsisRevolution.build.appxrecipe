@@ -358,9 +358,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Caduc.png">
       <PackagePath>Assets\D1_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Caduc_HightLight.png">
-      <PackagePath>Assets\D1_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_HightLight.png">
       <PackagePath>Assets\D1_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -369,6 +366,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Stase.png">
       <PackagePath>Assets\D1_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D1_Stase_HightLight.png">
+      <PackagePath>Assets\D1_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2.png">
       <PackagePath>Assets\D2.png</PackagePath>
@@ -382,9 +382,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Caduc.png">
       <PackagePath>Assets\D2_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Caduc_HightLight.png">
-      <PackagePath>Assets\D2_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_HightLight.png">
       <PackagePath>Assets\D2_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -393,6 +390,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Stase.png">
       <PackagePath>Assets\D2_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D2_Stase_HightLight.png">
+      <PackagePath>Assets\D2_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3.png">
       <PackagePath>Assets\D3.png</PackagePath>
@@ -406,9 +406,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Caduc.png">
       <PackagePath>Assets\D3_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Caduc_HightLight.png">
-      <PackagePath>Assets\D3_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_HightLight.png">
       <PackagePath>Assets\D3_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -417,6 +414,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Stase.png">
       <PackagePath>Assets\D3_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D3_Stase_HightLight.png">
+      <PackagePath>Assets\D3_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4.png">
       <PackagePath>Assets\D4.png</PackagePath>
@@ -430,9 +430,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Caduc.png">
       <PackagePath>Assets\D4_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Caduc_HightLight.png">
-      <PackagePath>Assets\D4_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_HightLight.png">
       <PackagePath>Assets\D4_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -441,6 +438,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Stase.png">
       <PackagePath>Assets\D4_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D4_Stase_HightLight.png">
+      <PackagePath>Assets\D4_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5.png">
       <PackagePath>Assets\D5.png</PackagePath>
@@ -454,9 +454,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Caduc.png">
       <PackagePath>Assets\D5_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Caduc_HightLight.png">
-      <PackagePath>Assets\D5_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_HightLight.png">
       <PackagePath>Assets\D5_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -465,6 +462,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Stase.png">
       <PackagePath>Assets\D5_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D5_Stase_HightLight.png">
+      <PackagePath>Assets\D5_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6.png">
       <PackagePath>Assets\D6.png</PackagePath>
@@ -478,9 +478,6 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Caduc.png">
       <PackagePath>Assets\D6_Caduc.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Caduc_HightLight.png">
-      <PackagePath>Assets\D6_Caduc_HightLight.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_HightLight.png">
       <PackagePath>Assets\D6_HightLight.png</PackagePath>
     </AppxPackagedFile>
@@ -489,6 +486,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Stase.png">
       <PackagePath>Assets\D6_Stase.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\D6_Stase_HightLight.png">
+      <PackagePath>Assets\D6_Stase_HightLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\img_capitaine.png">
       <PackagePath>Assets\img_capitaine.png</PackagePath>

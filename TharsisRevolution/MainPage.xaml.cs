@@ -13,14 +13,17 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-
 // --- HIGH PRIORITY ---
-// TODO Gérer le hardmode
-// TODO Cacher les dés piégés si hardmode
-// TODO imposer le fullscreen par défaut
-// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded...
-// TODO mettre un fond en fonction du module
-// TODO enable le bouton pouvoir quand pouvoir possible (dé 5 ou 6), disable quand pas possible
+
+// === BACK-END ===
+// TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule
+// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
+// TODO Afficher instructions de jeu
+
+// === FRONT-END ===
+// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
+// TODO Afficher instructions de jeu
+// TODO afficher la mort (tete de mort?)
 
 // --- MEDIUM PRIORITY ---
 // TODO Ajouter du fun (un nyan cat ?)
@@ -28,7 +31,6 @@ using Windows.UI.Xaml.Navigation;
 // TODO voir si l'updateUI est pas appelé trop de fois
 
 // --- LOW PRIORITY ---
-// TODO afficher la mort (tete de mort?)
 // TODO ajouter volume à la sauvegarde
 
 
@@ -71,8 +73,6 @@ namespace TharsisRevolution
             base.OnNavigatedTo(e);
 
             Initialiser();
-            NouvelleSemaine();
-            gameStarted = true;
 
             if (e.Parameter is GameParameters)
             {
@@ -89,7 +89,11 @@ namespace TharsisRevolution
                 vaisseau = parameters.Vaisseau;
                 numeroSemaine = parameters.NumeroSemaine;
                 gameStarted = parameters.GameStarted;
+                hardMode = parameters.HardMode;
             }
+            if (!gameStarted)
+                NouvelleSemaine();
+            gameStarted = true;
 
             UpdateUI();
         }
@@ -543,88 +547,27 @@ namespace TharsisRevolution
             {
                 case 1:
                     random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(1, Panne.taille.Moyenne, hardMode);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(22, Panne.taille.Grosse, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(23, Panne.taille.Petite, hardMode);
                     modules[random].EstEnPanne = true;
                     break;
                 case 2:
                     random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(2, Panne.taille.Moyenne, hardMode);
+                    modules[random].Panne = new Panne(20, Panne.taille.Moyenne, hardMode);
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(3, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(4, Panne.taille.Moyenne, hardMode);
+                    modules[random].Panne = new Panne(21, Panne.taille.Petite, hardMode);
                     modules[random].EstEnPanne = true;
                     break;
                 case 3:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(5, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(6, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(7, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 4:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(8, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(9, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 5:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(10, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(11, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(12, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 6:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(13, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(14, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 7:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(15, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(16, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 8:
                     random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
                         random = RandomNumber(0, 7);
@@ -639,26 +582,87 @@ namespace TharsisRevolution
                     modules[random].Panne = new Panne(19, Panne.taille.Petite, hardMode);
                     modules[random].EstEnPanne = true;
                     break;
+                case 4:
+                    random = RandomNumber(0, 7);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(15, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(16, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    break;
+                case 5:
+                    random = RandomNumber(0, 7);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(13, Panne.taille.Grosse, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(14, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    break;
+                case 6:
+                    random = RandomNumber(0, 7);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(10, Panne.taille.Grosse, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(11, Panne.taille.Grosse, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(12, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    break;
+                case 7:
+                    random = RandomNumber(0, 7);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(8, Panne.taille.Grosse, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(9, Panne.taille.Petite, hardMode);
+                    modules[random].EstEnPanne = true;
+                    break;
+                case 8:
+                    random = RandomNumber(0, 7);
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(5, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(6, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(7, Panne.taille.Petite, hardMode);
+                    modules[random].EstEnPanne = true;
+                    break;
                 case 9:
                     random = RandomNumber(0, 7);
                     while (modules[random].EstEnPanne)
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(20, Panne.taille.Moyenne, hardMode);
+                    modules[random].Panne = new Panne(2, Panne.taille.Moyenne, hardMode);
                     modules[random].EstEnPanne = true;
                     while (modules[random].EstEnPanne)
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(21, Panne.taille.Petite, hardMode);
+                    modules[random].Panne = new Panne(3, Panne.taille.Moyenne, hardMode);
+                    modules[random].EstEnPanne = true;
+                    while (modules[random].EstEnPanne)
+                        random = RandomNumber(0, 7);
+                    modules[random].Panne = new Panne(4, Panne.taille.Moyenne, hardMode);
                     modules[random].EstEnPanne = true;
                     break;
                 case 10:
                     random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(22, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(23, Panne.taille.Petite, hardMode);
+                    modules[random].Panne = new Panne(1, Panne.taille.Moyenne, hardMode);
                     modules[random].EstEnPanne = true;
                     break;
                 default:

@@ -19,7 +19,6 @@ using Windows.UI.Xaml.Navigation;
 // TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
 // TODO Afficher instructions de jeu
-// TODO Bug affichage des positions de certains personnages quand on load
 
 // === FRONT-END ===
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
@@ -28,11 +27,9 @@ using Windows.UI.Xaml.Navigation;
 // TODO ne pas lier d'element relative a la border de la réparation car elle disparaît (cf le textbox du nom du membre et sa barre de vie)
 // TODO afficher la mort (tete de mort?)
 
-
 // --- MEDIUM PRIORITY ---
 // TODO Ajouter du fun (un nyan cat ?)
 // TODO faire continuer la musique même dans un module, possible ?
-// TODO voir si l'updateUI est pas appelé trop de fois
 
 // --- LOW PRIORITY ---
 // TODO ajouter volume à la sauvegarde
@@ -46,7 +43,7 @@ using Windows.UI.Xaml.Navigation;
 namespace TharsisRevolution
 {
     /// <summary>
-    /// Page principale
+    /// Page principale du jeu
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -64,6 +61,7 @@ namespace TharsisRevolution
         SolidColorBrush color_Blanc = new SolidColorBrush(Colors.White);
         SolidColorBrush color_Black = new SolidColorBrush(Colors.Black);
 
+        // Bonne fonction randon
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
         public static int RandomNumber(int min, int max)
@@ -74,6 +72,12 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction appelée quand on navigate vers cette page, 
+        /// Initialisation des variables et possibles assignation des variables aux valeurs retransmises par les autres pages
+        /// Update de l'UI
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -103,6 +107,10 @@ namespace TharsisRevolution
 
             UpdateUI();
         }
+
+        /// <summary>
+        /// Constructeur, initialise les Component de l'UI
+        /// </summary>
         public MainPage()
         {
             this.InitializeComponent();
@@ -431,11 +439,10 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Initialisation de la partie, création des objets, placement des membres à leurs positions initiales randomisées
+        /// Initialisation de la partie, création des objets, placement des membres à leurs positions initiales randomisées et différentes
         /// </summary>
         private void Initialiser()
         {
-
             //Initialisation Vaisseau
             vaisseau = new Vaisseau();
 
@@ -468,22 +475,11 @@ namespace TharsisRevolution
                     randomModule = RandomNumber(0, 7);
                 membres[i].Position = modules[randomModule];
                 modules[randomModule].PresenceMembre = true; //thomas (permet de faire fonctionner ta boucle while au dessus)
-
-                //Thomas : Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
-                //Deplacement_PersonnageToCurrentModule(membres[i].Role, membres[i].Position);
-                Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
             }
-
-            InitialiserUIPersonnages();
 
             //Initialisation Semaine
             numeroSemaine = 1;
-            Debug.WriteLine("Semaine 1");
-
-            UpdateUI();
         }
-
-
 
         /// <summary>
         /// Fonction pour afficher des informations sur la panne au click
@@ -681,7 +677,6 @@ namespace TharsisRevolution
         /// <param name="module"></param>
         private void PanneInfligeDégat(Module module)
         {
-            Debug.WriteLine("Panne du module inflige des dégats " + module.EmplacementX);
             int typeDegat = RandomNumber(1, 4);
             switch (typeDegat)
             {
@@ -722,6 +717,10 @@ namespace TharsisRevolution
             CreationPannes(numeroSemaine);
         }
 
+        /// <summary>
+        /// Bool renvoyant true si tous les membres ont joué cette semaine
+        /// </summary>
+        /// <returns></returns>
         private bool MembresOntJoué()
         {
             int nombreMembreQuiOntJoué = 0;
@@ -753,9 +752,7 @@ namespace TharsisRevolution
             foreach (Module module in modules)
             {
                 if (module.EstEnPanne)
-                {
                     PanneInfligeDégat(module);
-                }
             }
 
             if (vaisseau.Pv < 1 || !unMembreEnVie())
@@ -765,11 +762,10 @@ namespace TharsisRevolution
                 Victoire();
 
             numeroSemaine++;
-
         }
 
         /// <summary>
-        /// Check si un membre au moins est en vie (condition vicotire)
+        /// Renvoi true au moins un membre est en vie (condition vicotire)
         /// </summary>
         /// <returns></returns>
         private bool unMembreEnVie()
@@ -924,7 +920,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction qui va permettre d'appliquer le hightlight sur un personnage qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection
+        /// Fonction qui va permettre d'appliquer le hightlight sur un personnage qui sera selectionné et qu'il soit le seul lumineux montrant ainsi sa sélection
         /// </summary>
         /// <param name="perso"></param>
         private void HightLight_Personnage(Membre.roleMembre perso)
@@ -1014,7 +1010,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction qui va permettre d'appliquer le hightlight sur un module qui sera selectionner et qu'il sois le seul lumineux montrant ainsi sa selection + mise en place des coordonnée x,y de l'element selectionner
+        /// Fonction qui va permettre d'appliquer le highlight sur un module qui sera selectionné et qu'il soit le seul lumineux montrant ainsi sa sélection + mise en place des coordonnée x,y de l'element selectionner
         /// </summary>
         /// <param name="module"></param>
         private void HightLight_Module(Module.moduleType module)
@@ -1275,12 +1271,10 @@ namespace TharsisRevolution
         /// </summary>
         private async void Deplacement_PersonnageToCurrentModule()
         {
-            if (membres[indexCurrentClickMembre].AJoué)
+            if (membres[indexCurrentClickMembre].AJoué) // A déjà joué
                 Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " a déjà joué";
-            else if (membres[indexCurrentClickMembre].Pv == 0)
-            {
+            else if (membres[indexCurrentClickMembre].Pv == 0) // Mort
                 Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " est mort";
-            }
             else
             {
                 MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déplacement Personnage ?");
@@ -1295,11 +1289,9 @@ namespace TharsisRevolution
                         var resDoc = await msgbox.ShowAsync();
                         if ((int)resDoc.Id == 0)
                         {
+                            Deplacement(membres[2], modules[indexCurrentClickModule]); // Déplacement
 
-                            Deplacement(membres[2], modules[indexCurrentClickModule]);
-
-
-                            if (modules[indexCurrentClickModule].EstEnPanne)
+                            if (modules[indexCurrentClickModule].EstEnPanne) // Déploiement seulemetn si le module est en panne
                                 Creation_Btn_Deploiement();
                         }
                         break;
@@ -1307,8 +1299,6 @@ namespace TharsisRevolution
                         var resMeca = await msgbox.ShowAsync();
                         if ((int)resMeca.Id == 0)
                         {
-
-
                             Deplacement(membres[3], modules[indexCurrentClickModule]);
 
                             if (modules[indexCurrentClickModule].EstEnPanne)
@@ -1319,9 +1309,7 @@ namespace TharsisRevolution
                         var resCap = await msgbox.ShowAsync();
                         if ((int)resCap.Id == 0)
                         {
-
                             Deplacement(membres[1], modules[indexCurrentClickModule]);
-
 
                             if (modules[indexCurrentClickModule].EstEnPanne)
                                 Creation_Btn_Deploiement();
@@ -1331,10 +1319,7 @@ namespace TharsisRevolution
                         var resCom = await msgbox.ShowAsync();
                         if ((int)resCom.Id == 0)
                         {
-
-
                             Deplacement(membres[0], modules[indexCurrentClickModule]);
-
 
                             if (modules[indexCurrentClickModule].EstEnPanne)
                                 Creation_Btn_Deploiement();
@@ -1347,6 +1332,9 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Position l'UI des personnages
+        /// </summary>
         private void InitialiserUIPersonnages()
         {
             int marginLevel = 0;
@@ -1356,7 +1344,7 @@ namespace TharsisRevolution
                 switch (membre.Role)
                 {
                     case Membre.roleMembre.Commandant:
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reCommandant, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reCommandant, membre.Position.EmplacementY - 1);
@@ -1378,7 +1366,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reCapitaine.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reCapitaine, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reCapitaine, membre.Position.EmplacementY - 1);
@@ -1402,7 +1390,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reDocteur.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reDocteur, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reDocteur, membre.Position.EmplacementY - 1);
@@ -1428,7 +1416,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reMeca.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reMeca, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reMeca, membre.Position.EmplacementY - 1);
@@ -1446,8 +1434,6 @@ namespace TharsisRevolution
                 }
             }
         }
-
-
 
         /// <summary>
         /// Surcharge de la fonction de deplacement des personnages lors de leur initalisation des positions de départ

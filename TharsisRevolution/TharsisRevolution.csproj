@@ -149,6 +149,7 @@
     <Content Include="Assets\img_meca.png" />
     <Content Include="Assets\img_meca_HightLight.png" />
     <Content Include="Assets\Interstellar Main Theme.mp3" />
+    <Content Include="Assets\LoopMenu.mp4" />
     <Content Include="Assets\Mars.png" />
     <Content Include="Assets\Module_Detente2.png" />
     <Content Include="Assets\Module_Detente_HightLight.png" />
@@ -166,6 +167,7 @@
     <Content Include="Assets\Module_Survie_HightLight.png" />
     <Content Include="Assets\original.gif" />
     <Content Include="Assets\Space.png" />
+    <Content Include="Assets\Tharsis Intro.mp4" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

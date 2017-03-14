@@ -932,6 +932,16 @@ namespace McgInterop
 		internal static int StdCall__int__(
 					global::System.IntPtr pfn, 
 					void* pthis, 
+					void* arg0, 
+					int arg1)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__int__(
+					global::System.IntPtr pfn, 
+					void* pthis, 
 					global::Windows.UI.Xaml.CornerRadius arg0)
 		{
 			// This method is implemented elsewhere in the toolchain
@@ -943,16 +953,6 @@ namespace McgInterop
 					void* pthis, 
 					double arg0, 
 					double arg1)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__int__(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					void* arg0, 
-					int arg1)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -1876,52 +1876,52 @@ namespace McgInterop
 		public delegate void AddrOfTarget88(
 					global::System.__ComObject a0, 
 					object a1, 
-					global::Windows.UI.Xaml.Controls.SelectionChangedEventArgs a2);
-
-		public delegate int AddrOfTarget89(
-					global::System.IntPtr a0, 
-					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl** a2);
-
-		public delegate void AddrOfTarget90(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ContextMenuEventArgs a2);
-
-		public delegate int AddrOfTarget91(
-					global::System.IntPtr a0, 
-					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
-					global::Windows.UI.Xaml.Controls.IContextMenuEventArgs__Impl.Vtbl** a2);
-
-		public delegate void AddrOfTarget92(
-					global::System.__ComObject a0, 
-					object a1, 
 					global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs a2);
 
-		public delegate void AddrOfTarget93(
+		public delegate void AddrOfTarget89(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.Media.RateChangedRoutedEventArgs a2);
 
-		public delegate int AddrOfTarget94(
+		public delegate int AddrOfTarget90(
 					global::System.IntPtr a0, 
 					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
 					global::Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs__Impl.Vtbl** a2);
 
-		public delegate int AddrOfTarget95(
+		public delegate int AddrOfTarget91(
 					global::System.IntPtr a0, 
 					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
 					global::Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs__Impl.Vtbl** a2);
 
-		public delegate void AddrOfTarget96(
+		public delegate void AddrOfTarget92(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.MediaElement a1, 
 					global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs a2);
 
-		public delegate int AddrOfTarget97(
+		public delegate int AddrOfTarget93(
 					global::System.IntPtr a0, 
 					global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl** a1, 
 					global::Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs__Impl.Vtbl** a2);
+
+		public delegate void AddrOfTarget94(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.SelectionChangedEventArgs a2);
+
+		public delegate int AddrOfTarget95(
+					global::System.IntPtr a0, 
+					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
+					global::Windows.UI.Xaml.Controls.ISelectionChangedEventArgs__Impl.Vtbl** a2);
+
+		public delegate void AddrOfTarget96(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.ContextMenuEventArgs a2);
+
+		public delegate int AddrOfTarget97(
+					global::System.IntPtr a0, 
+					global::System.Runtime.InteropServices.__vtable_IInspectable* a1, 
+					global::Windows.UI.Xaml.Controls.IContextMenuEventArgs__Impl.Vtbl** a2);
 
 		public delegate void AddrOfTarget98(
 					global::System.__ComObject a0, 

@@ -958,6 +958,11 @@ namespace TharsisRevolution
                 this.imLogoCapitaine.Source = capitaine_HightLight;
                 this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Red);
 
+                Canvas.SetZIndex(reCapitaine,1);
+                Canvas.SetZIndex(reCommandant, 0);
+                Canvas.SetZIndex(reDocteur, 0);
+                Canvas.SetZIndex(reMeca, 0);
+
                 this.imLogoCommandant.Source = commandant;
                 this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoDocteur.Source = doc;
@@ -970,6 +975,11 @@ namespace TharsisRevolution
             {
                 this.imLogoCommandant.Source = commandant_HightLight;
                 this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Red);
+
+                Canvas.SetZIndex(reCapitaine, 0);
+                Canvas.SetZIndex(reCommandant, 1);
+                Canvas.SetZIndex(reDocteur, 0);
+                Canvas.SetZIndex(reMeca, 0);
 
                 this.imLogoCapitaine.Source = capitaine;
                 this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -984,6 +994,11 @@ namespace TharsisRevolution
                 this.imLogoDocteur.Source = doc_HightLight;
                 this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Red);
 
+                Canvas.SetZIndex(reCapitaine, 0);
+                Canvas.SetZIndex(reCommandant, 0);
+                Canvas.SetZIndex(reDocteur, 1);
+                Canvas.SetZIndex(reMeca, 0);
+
                 this.imLogoCommandant.Source = commandant;
                 this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
                 this.imLogoCapitaine.Source = capitaine;
@@ -996,6 +1011,11 @@ namespace TharsisRevolution
             {
                 this.imLogoMeca.Source = meca_HightLight;
                 this.reMeca.BorderBrush = new SolidColorBrush(Colors.Red);
+
+                Canvas.SetZIndex(reCapitaine, 0);
+                Canvas.SetZIndex(reCommandant, 0);
+                Canvas.SetZIndex(reDocteur, 0);
+                Canvas.SetZIndex(reMeca, 1);
 
                 this.imLogoCommandant.Source = commandant;
                 this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);

@@ -11,7 +11,7 @@
         <RelativePanel.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Space.png"/>
         </RelativePanel.Background>
-        <Image gif:AnimationBehavior.SourceUri="/Assets/original.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Margin="-228,-852,-2256,-216" />
+        <Image gif:AnimationBehavior.SourceUri="/Assets/original.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Margin="-228,-852,-2226,-198" />
         <Border x:Name="block_PvShip" BorderBrush="Gray" BorderThickness="5" RenderTransformOrigin="0.5,0.5"  UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="-123,-108,123,108">
             <Border.RenderTransform>
                 <CompositeTransform SkewX="50"/>

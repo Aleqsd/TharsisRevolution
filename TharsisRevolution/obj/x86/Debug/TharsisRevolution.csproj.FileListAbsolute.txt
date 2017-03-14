@@ -192,7 +192,6 @@ C:\Users\Alex\Source\Repos\TPPatternRepository\TharsisRevolution\TharsisRevoluti
 C:\Users\Alex\Source\Repos\TPPatternRepository\TharsisRevolution\TharsisRevolution\obj\x86\Debug\resources.en-us.resfiles
 C:\Users\Alex\Source\Repos\TPPatternRepository\TharsisRevolution\TharsisRevolution\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\Users\Alex\Source\Repos\TPPatternRepository\TharsisRevolution\TharsisRevolution\obj\x86\Debug\ProjectArchitectures.txt
-D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csprojResolveAssemblyReference.cache
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\App.g.i.cs
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\App.g.cs
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\MainPage.g.i.cs
@@ -807,3 +806,4 @@ C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Mu
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\resources.en-us.resfiles
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\ProjectArchitectures.txt
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csprojResolveAssemblyReference.cache

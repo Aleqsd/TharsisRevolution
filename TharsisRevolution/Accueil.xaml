@@ -18,6 +18,6 @@
         <Rectangle x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
         <MediaElement x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="0.7" Canvas.ZIndex="1" IsFullWindow="True" MediaEnded="video_Ended" Tapped="video_clicked"/>
         <Button x:Name="btn_Load" Content="Load" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top" Tapped="btn_Load_Tapped" RelativePanel.Below="cb_Difficulté" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
-
+        <Button x:Name="btn_Quitter" Content="Quitter" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top" Tapped="btn_Quitter_Tapped" RelativePanel.Below="btn_Load" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
     </RelativePanel>
 </Page>

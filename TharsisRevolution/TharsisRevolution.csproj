@@ -121,6 +121,7 @@
     <Content Include="Assets\Ambox_warning_red.png" />
     <Content Include="Assets\AREA21 - Spaceships.mp3" />
     <Content Include="Assets\AcceuiSoundTrack.mp3" />
+    <Content Include="Assets\Custom-Icon-Design-Mono-General-3-Arrow-undo.ico" />
     <Content Include="Assets\D1.png" />
     <Content Include="Assets\D1_Blessure.png" />
     <Content Include="Assets\D1_Blessure_HightLight.png" />
@@ -169,6 +170,13 @@
     <Content Include="Assets\D6_Lock.png" />
     <Content Include="Assets\D6_Stase.png" />
     <Content Include="Assets\D6_Stase_HightLight.png" />
+    <Content Include="Assets\FD_Module_Detente.png" />
+    <Content Include="Assets\FD_Module_Infirmerie.png" />
+    <Content Include="Assets\FD_Module_Laboratoire.png" />
+    <Content Include="Assets\FD_Module_Maintenance.png" />
+    <Content Include="Assets\FD_Module_Pilotage.png" />
+    <Content Include="Assets\FD_Module_Serre.png" />
+    <Content Include="Assets\FD_Module_Survie.png" />
     <Content Include="Assets\giphy.gif" />
     <Content Include="Assets\img_capitaine.png" />
     <Content Include="Assets\img_capitaine_HightLight.png" />

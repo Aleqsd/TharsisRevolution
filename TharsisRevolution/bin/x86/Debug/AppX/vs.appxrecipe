@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>90B74F1030F0CE57EAA02D97B052A5B6849A3749082C6F55F4893648ABB35F09</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>01E764BEC614125A6770C95FF7A38A117203EDCB6F125965394D120758B07101</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6_1.0.0.0_x86__cb1hhkscw5m06</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6_cb1hhkscw5m06!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-14T15:06:12.724</Modified>
+      <Modified>2017-03-14T15:33:00.227</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-14T15:06:12.462</Modified>
+      <Modified>2017-03-14T15:32:59.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -656,6 +656,34 @@
       <PackagePath>Assets\D6_Stase_HightLight.png</PackagePath>
       <Modified>2017-03-14T11:02:02.576</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Detente.png">
+      <PackagePath>Assets\FD_Module_Detente.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.658</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Infirmerie.png">
+      <PackagePath>Assets\FD_Module_Infirmerie.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.663</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Laboratoire.png">
+      <PackagePath>Assets\FD_Module_Laboratoire.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Maintenance.png">
+      <PackagePath>Assets\FD_Module_Maintenance.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Pilotage.png">
+      <PackagePath>Assets\FD_Module_Pilotage.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.678</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Serre.png">
+      <PackagePath>Assets\FD_Module_Serre.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.680</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\FD_Module_Survie.png">
+      <PackagePath>Assets\FD_Module_Survie.png</PackagePath>
+      <Modified>2017-03-14T15:19:55.682</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\img_capitaine.png">
       <PackagePath>Assets\img_capitaine.png</PackagePath>
       <Modified>2017-03-13T07:01:40.628</Modified>
@@ -759,12 +787,12 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-13T07:01:40.800</Modified>
+      <Modified>2017-03-14T15:26:46.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-13T07:01:40.800</Modified>
+      <Modified>2017-03-14T15:22:57.100</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
@@ -798,6 +826,10 @@
       <PackagePath>Assets\Interstellar Main Theme.mp3</PackagePath>
       <Modified>2017-03-13T07:01:40.753</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\Custom-Icon-Design-Mono-General-3-Arrow-undo.ico">
+      <PackagePath>Assets\Custom-Icon-Design-Mono-General-3-Arrow-undo.ico</PackagePath>
+      <Modified>2017-03-14T15:12:25.814</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\Assets\giphy.gif">
       <PackagePath>Assets\giphy.gif</PackagePath>
       <Modified>2017-03-13T07:01:40.628</Modified>
@@ -820,7 +852,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.xr.xml">
       <PackagePath>TharsisRevolution.xr.xml</PackagePath>
-      <Modified>2017-03-14T14:23:46.697</Modified>
+      <Modified>2017-03-14T15:30:06.126</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -829,11 +861,11 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-14T14:23:47.275</Modified>
+      <Modified>2017-03-14T15:30:06.773</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-14T15:06:12.721</Modified>
+      <Modified>2017-03-14T15:33:00.223</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

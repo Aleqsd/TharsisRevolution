@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp;
 using System.Collections.Generic;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -17,11 +18,18 @@ namespace TharsisRevolution
         {
             this.InitializeComponent();
 
+            ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+
             List<string> sDifficulte = new List<string>();
             sDifficulte.Add("Normal");
             sDifficulte.Add("Difficile");
             cb_Difficulté.ItemsSource = sDifficulte;
             cb_Difficulté.SelectedIndex = 0;
+        }
+
+        private void btn_Quitter_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
         }
 
         private void btn_Jouer_Click(object sender, RoutedEventArgs e)

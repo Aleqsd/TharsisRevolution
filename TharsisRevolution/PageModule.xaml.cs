@@ -9,6 +9,7 @@ using System.Diagnostics;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace TharsisRevolution
 {
@@ -63,6 +64,41 @@ namespace TharsisRevolution
 
             btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
 
+            BitmapImage pilotage = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Pilotage.png"));
+            BitmapImage serre = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Serre.png"));
+            BitmapImage inf = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Infirmerie.png"));
+            BitmapImage detente = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Detente.png"));
+            BitmapImage maint = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Maintenance.png"));
+            BitmapImage labo = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Laboratoire.png"));
+            BitmapImage survie = new BitmapImage(new Uri("ms-appx:///Assets/FD_Module_Survie.png"));
+
+            switch (modules[indexCurrentModule].Type.ToString())
+            {
+                case "PostePilotage":
+                    Background_PageModule.ImageSource = pilotage;
+                    break;
+                case "Serre":
+                    Background_PageModule.ImageSource = serre;
+                    break;
+                case "SystemeSurvie":
+                    Background_PageModule.ImageSource = survie;
+                    break;
+                case "Maintenance":
+                    Background_PageModule.ImageSource = maint;
+                    break;
+                case "Infirmerie":
+                    Background_PageModule.ImageSource = inf;
+                    break;
+                case "Détente":
+                    Background_PageModule.ImageSource = detente;
+                    break;
+                case "Laboratoire":
+                    Background_PageModule.ImageSource = labo;
+                    break;
+                default:
+                    break;
+            }
+
             if (hardMode)
             {
                 listeDéPiégés = modules[indexCurrentModule].Panne.DésPiégés;
@@ -114,6 +150,8 @@ namespace TharsisRevolution
                     }
                     index2++;
                 }
+                if (listeDéPiégés.Count > 0)
+                    TooltipPiege.Text = tooltipPiege;
             }
             else
                 BorderPiege.Visibility = Visibility.Collapsed;
@@ -144,13 +182,10 @@ namespace TharsisRevolution
 
             rtTitreModule.Text = modules[indexCurrentModule].Type.ToString();
             rtNomPersonnage.Text = membres[indexCurrentMembre].Role.ToString();
+            pg_Personnage.Value = membres[indexCurrentMembre].pv;
 
             btLancer1.Background = new SolidColorBrush(Colors.White);
             btLancer1.Foreground = new SolidColorBrush(Colors.Black);
-
-            if (listeDéPiégés.Count > 0)
-                TooltipPiege.Text = tooltipPiege;
-
         }
 
         private void UpdateUI()
@@ -243,6 +278,7 @@ namespace TharsisRevolution
                 }
             }
 
+            pg_Personnage.Value = membres[indexCurrentMembre].pv;
             btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
         }
 
@@ -537,6 +573,19 @@ namespace TharsisRevolution
             }
         }
 
+        private void progressBar_PvPersonnage(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = String.Format("{0}", e.NewValue);
+            try
+            {
+                this.lbl_PvPersonnage.Text = msg;
+            }
+            catch (NullReferenceException exe)
+            {
+                Debug.WriteLine("Message exeption :" + exe);
+            }
+        }
+
         private bool PouvoirUtilisable()
         {
             if (nombreLancers == 3)
@@ -550,6 +599,8 @@ namespace TharsisRevolution
             }
             return false;
         }
+
+
 
         /// <summary>
         /// Utilisation du pouvoir spécial onTap

@@ -2,6 +2,7 @@ WinMetadata\Windows.winmd
 Assets\AcceuiSoundTrack.mp3
 Assets\Ambox_warning_red.png
 Assets\AREA21 - Spaceships.mp3
+Assets\Custom-Icon-Design-Mono-General-3-Arrow-undo.ico
 Assets\D1.png
 Assets\D1_Blessure.png
 Assets\D1_Blessure_HightLight.png
@@ -50,6 +51,13 @@ Assets\D6_HightLight.png
 Assets\D6_Lock.png
 Assets\D6_Stase.png
 Assets\D6_Stase_HightLight.png
+Assets\FD_Module_Detente.png
+Assets\FD_Module_Infirmerie.png
+Assets\FD_Module_Laboratoire.png
+Assets\FD_Module_Maintenance.png
+Assets\FD_Module_Pilotage.png
+Assets\FD_Module_Serre.png
+Assets\FD_Module_Survie.png
 Assets\giphy.gif
 Assets\img_capitaine.png
 Assets\img_capitaine_HightLight.png

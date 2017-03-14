@@ -19,11 +19,15 @@ using Windows.UI.Xaml.Navigation;
 // TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
 // TODO Afficher instructions de jeu
+// TODO Bug affichage des positions de certains personnages quand on load
 
 // === FRONT-END ===
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
 // TODO Afficher instructions de jeu
+// TODO Bouton retour au menu dans MainPage
+// TODO ne pas lier d'element relative a la border de la réparation car elle disparaît (cf le textbox du nom du membre et sa barre de vie)
 // TODO afficher la mort (tete de mort?)
+
 
 // --- MEDIUM PRIORITY ---
 // TODO Ajouter du fun (un nyan cat ?)
@@ -57,6 +61,8 @@ namespace TharsisRevolution
         private int indexCurrentClickModule;
         private int rowCurrentModule;
         private int columnCurrentModule;
+        SolidColorBrush color_Blanc = new SolidColorBrush(Colors.White);
+        SolidColorBrush color_Black = new SolidColorBrush(Colors.Black);
 
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -116,64 +122,63 @@ namespace TharsisRevolution
 
             //initialisation des paramètres du Personnage Commandant
             pb_PvCommandant.Value = membres[0].Pv;
-
             switch (membres[0].NombreDeDés)
             {
                 case 0:
-                    Com_d1.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Black;
+                    Com_d2.Fill = color_Black;
+                    Com_d3.Fill = color_Black;
+                    Com_d4.Fill = color_Black;
+                    Com_d5.Fill = color_Black;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 1:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Black;
+                    Com_d3.Fill = color_Black;
+                    Com_d4.Fill = color_Black;
+                    Com_d5.Fill = color_Black;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 2:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.White);
-                    Com_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Blanc;
+                    Com_d3.Fill = color_Black;
+                    Com_d4.Fill = color_Black;
+                    Com_d5.Fill = color_Black;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 3:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.White);
-                    Com_d3.Fill = new SolidColorBrush(Colors.White);
-                    Com_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Blanc;
+                    Com_d3.Fill = color_Blanc;
+                    Com_d4.Fill = color_Black;
+                    Com_d5.Fill = color_Black;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 4:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.White);
-                    Com_d3.Fill = new SolidColorBrush(Colors.White);
-                    Com_d4.Fill = new SolidColorBrush(Colors.White);
-                    Com_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Blanc;
+                    Com_d3.Fill = color_Blanc;
+                    Com_d4.Fill = color_Blanc;
+                    Com_d5.Fill = color_Black;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 5:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.White);
-                    Com_d3.Fill = new SolidColorBrush(Colors.White);
-                    Com_d4.Fill = new SolidColorBrush(Colors.White);
-                    Com_d5.Fill = new SolidColorBrush(Colors.White);
-                    Com_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Blanc;
+                    Com_d3.Fill = color_Blanc;
+                    Com_d4.Fill = color_Blanc;
+                    Com_d5.Fill = color_Blanc;
+                    Com_d6.Fill = color_Black;
                     break;
                 case 6:
-                    Com_d1.Fill = new SolidColorBrush(Colors.White);
-                    Com_d2.Fill = new SolidColorBrush(Colors.White);
-                    Com_d3.Fill = new SolidColorBrush(Colors.White);
-                    Com_d4.Fill = new SolidColorBrush(Colors.White);
-                    Com_d5.Fill = new SolidColorBrush(Colors.White);
-                    Com_d6.Fill = new SolidColorBrush(Colors.White);
+                    Com_d1.Fill = color_Blanc;
+                    Com_d2.Fill = color_Blanc;
+                    Com_d3.Fill = color_Blanc;
+                    Com_d4.Fill = color_Blanc;
+                    Com_d5.Fill = color_Blanc;
+                    Com_d6.Fill = color_Blanc;
                     break;
                 default:
                     break;
@@ -184,60 +189,60 @@ namespace TharsisRevolution
             switch (membres[1].NombreDeDés)
             {
                 case 0:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Black;
+                    Cap_d2.Fill = color_Black;
+                    Cap_d3.Fill = color_Black;
+                    Cap_d4.Fill = color_Black;
+                    Cap_d5.Fill = color_Black;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 1:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Black;
+                    Cap_d3.Fill = color_Black;
+                    Cap_d4.Fill = color_Black;
+                    Cap_d5.Fill = color_Black;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 2:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Blanc;
+                    Cap_d3.Fill = color_Black;
+                    Cap_d4.Fill = color_Black;
+                    Cap_d5.Fill = color_Black;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 3:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Blanc;
+                    Cap_d3.Fill = color_Blanc;
+                    Cap_d4.Fill = color_Black;
+                    Cap_d5.Fill = color_Black;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 4:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Blanc;
+                    Cap_d3.Fill = color_Blanc;
+                    Cap_d4.Fill = color_Blanc;
+                    Cap_d5.Fill = color_Black;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 5:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Blanc;
+                    Cap_d3.Fill = color_Blanc;
+                    Cap_d4.Fill = color_Blanc;
+                    Cap_d5.Fill = color_Blanc;
+                    Cap_d6.Fill = color_Black;
                     break;
                 case 6:
-                    Cap_d1.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d2.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d3.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d4.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d5.Fill = new SolidColorBrush(Colors.White);
-                    Cap_d6.Fill = new SolidColorBrush(Colors.White);
+                    Cap_d1.Fill = color_Blanc;
+                    Cap_d2.Fill = color_Blanc;
+                    Cap_d3.Fill = color_Blanc;
+                    Cap_d4.Fill = color_Blanc;
+                    Cap_d5.Fill = color_Blanc;
+                    Cap_d6.Fill = color_Blanc;
                     break;
                 default:
                     break;
@@ -248,60 +253,60 @@ namespace TharsisRevolution
             switch (membres[2].NombreDeDés)
             {
                 case 0:
-                    doc_d1.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d2.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Black;
+                    doc_d2.Fill = color_Black;
+                    doc_d3.Fill = color_Black;
+                    doc_d4.Fill = color_Black;
+                    doc_d5.Fill = color_Black;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 1:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Black;
+                    doc_d3.Fill = color_Black;
+                    doc_d4.Fill = color_Black;
+                    doc_d5.Fill = color_Black;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 2:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.White);
-                    doc_d3.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Blanc;
+                    doc_d3.Fill = color_Black;
+                    doc_d4.Fill = color_Black;
+                    doc_d5.Fill = color_Black;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 3:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.White);
-                    doc_d3.Fill = new SolidColorBrush(Colors.White);
-                    doc_d4.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Blanc;
+                    doc_d3.Fill = color_Blanc;
+                    doc_d4.Fill = color_Black;
+                    doc_d5.Fill = color_Black;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 4:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.White);
-                    doc_d3.Fill = new SolidColorBrush(Colors.White);
-                    doc_d4.Fill = new SolidColorBrush(Colors.White);
-                    doc_d5.Fill = new SolidColorBrush(Colors.Black);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Blanc;
+                    doc_d3.Fill = color_Blanc;
+                    doc_d4.Fill = color_Blanc;
+                    doc_d5.Fill = color_Black;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 5:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.White);
-                    doc_d3.Fill = new SolidColorBrush(Colors.White);
-                    doc_d4.Fill = new SolidColorBrush(Colors.White);
-                    doc_d5.Fill = new SolidColorBrush(Colors.White);
-                    doc_d6.Fill = new SolidColorBrush(Colors.Black);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Blanc;
+                    doc_d3.Fill = color_Blanc;
+                    doc_d4.Fill = color_Blanc;
+                    doc_d5.Fill = color_Blanc;
+                    doc_d6.Fill = color_Black;
                     break;
                 case 6:
-                    doc_d1.Fill = new SolidColorBrush(Colors.White);
-                    doc_d2.Fill = new SolidColorBrush(Colors.White);
-                    doc_d3.Fill = new SolidColorBrush(Colors.White);
-                    doc_d4.Fill = new SolidColorBrush(Colors.White);
-                    doc_d5.Fill = new SolidColorBrush(Colors.White);
-                    doc_d6.Fill = new SolidColorBrush(Colors.White);
+                    doc_d1.Fill = color_Blanc;
+                    doc_d2.Fill = color_Blanc;
+                    doc_d3.Fill = color_Blanc;
+                    doc_d4.Fill = color_Blanc;
+                    doc_d5.Fill = color_Blanc;
+                    doc_d6.Fill = color_Blanc;
                     break;
                 default:
                     break;
@@ -312,60 +317,60 @@ namespace TharsisRevolution
             switch (membres[3].NombreDeDés)
             {
                 case 0:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Black;
+                    Meca_d2.Fill = color_Black;
+                    Meca_d3.Fill = color_Black;
+                    Meca_d4.Fill = color_Black;
+                    Meca_d5.Fill = color_Black;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 1:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Black;
+                    Meca_d3.Fill = color_Black;
+                    Meca_d4.Fill = color_Black;
+                    Meca_d5.Fill = color_Black;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 2:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Blanc;
+                    Meca_d3.Fill = color_Black;
+                    Meca_d4.Fill = color_Black;
+                    Meca_d5.Fill = color_Black;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 3:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Blanc;
+                    Meca_d3.Fill = color_Blanc;
+                    Meca_d4.Fill = color_Black;
+                    Meca_d5.Fill = color_Black;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 4:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.Black);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Blanc;
+                    Meca_d3.Fill = color_Blanc;
+                    Meca_d4.Fill = color_Blanc;
+                    Meca_d5.Fill = color_Black;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 5:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.Black);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Blanc;
+                    Meca_d3.Fill = color_Blanc;
+                    Meca_d4.Fill = color_Blanc;
+                    Meca_d5.Fill = color_Blanc;
+                    Meca_d6.Fill = color_Black;
                     break;
                 case 6:
-                    Meca_d1.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d2.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d3.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d4.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d5.Fill = new SolidColorBrush(Colors.White);
-                    Meca_d6.Fill = new SolidColorBrush(Colors.White);
+                    Meca_d1.Fill = color_Blanc;
+                    Meca_d2.Fill = color_Blanc;
+                    Meca_d3.Fill = color_Blanc;
+                    Meca_d4.Fill = color_Blanc;
+                    Meca_d5.Fill = color_Blanc;
+                    Meca_d6.Fill = color_Blanc;
                     break;
                 default:
                     break;

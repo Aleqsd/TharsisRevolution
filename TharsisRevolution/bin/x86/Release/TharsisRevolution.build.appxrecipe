@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-7AK0S0S</Machine>
-    <WindowsUser>louis</WindowsUser>
+    <Machine>NOBODYX</Machine>
+    <WindowsUser>tpala</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,203 +10,209 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>ce34a7e8-ffe9-4dd0-a579-5770f0e22eb6</PackageIdentityName>
     <PackageIdentityPublisher>CN=Alex</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\AppxManifest.xml">
+    <AppXManifest Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\AcceuiSoundTrack.mp3">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\AcceuiSoundTrack.mp3">
       <PackagePath>Assets\AcceuiSoundTrack.mp3</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Ambox_warning_red.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Ambox_warning_red.png">
       <PackagePath>Assets\Ambox_warning_red.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\AREA21 - Spaceships.mp3">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\AREA21 - Spaceships.mp3">
       <PackagePath>Assets\AREA21 - Spaceships.mp3</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1.png">
       <PackagePath>Assets\D1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1_HightLight.png">
       <PackagePath>Assets\D1_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D1_Lock.png">
       <PackagePath>Assets\D1_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2.png">
       <PackagePath>Assets\D2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2_HightLight.png">
       <PackagePath>Assets\D2_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D2_Lock.png">
       <PackagePath>Assets\D2_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3.png">
       <PackagePath>Assets\D3.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3_HightLight.png">
       <PackagePath>Assets\D3_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D3_Lock.png">
       <PackagePath>Assets\D3_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4.png">
       <PackagePath>Assets\D4.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4_HightLight.png">
       <PackagePath>Assets\D4_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D4_Lock.png">
       <PackagePath>Assets\D4_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5.png">
       <PackagePath>Assets\D5.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5_HightLight.png">
       <PackagePath>Assets\D5_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D5_Lock.png">
       <PackagePath>Assets\D5_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6.png">
       <PackagePath>Assets\D6.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6_HightLight.png">
       <PackagePath>Assets\D6_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6_Lock.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\D6_Lock.png">
       <PackagePath>Assets\D6_Lock.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\giphy.gif">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\giphy.gif">
       <PackagePath>Assets\giphy.gif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_capitaine.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_capitaine.png">
       <PackagePath>Assets\img_capitaine.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_capitaine_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_capitaine_HightLight.png">
       <PackagePath>Assets\img_capitaine_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_commandant.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_commandant.png">
       <PackagePath>Assets\img_commandant.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_commandant_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_commandant_HightLight.png">
       <PackagePath>Assets\img_commandant_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_Doctor.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_Doctor.png">
       <PackagePath>Assets\img_Doctor.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_Doctor_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_Doctor_HightLight.png">
       <PackagePath>Assets\img_Doctor_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_meca.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_meca.png">
       <PackagePath>Assets\img_meca.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_meca_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\img_meca_HightLight.png">
       <PackagePath>Assets\img_meca_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Interstellar Main Theme.mp3">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Interstellar Main Theme.mp3">
       <PackagePath>Assets\Interstellar Main Theme.mp3</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Mars.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\LoopMenu.mp4">
+      <PackagePath>Assets\LoopMenu.mp4</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Mars.png">
       <PackagePath>Assets\Mars.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Detente2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Detente2.png">
       <PackagePath>Assets\Module_Detente2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Detente_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Detente_HightLight.png">
       <PackagePath>Assets\Module_Detente_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Infirmerie2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Infirmerie2.png">
       <PackagePath>Assets\Module_Infirmerie2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Infirmerie_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Infirmerie_HightLight.png">
       <PackagePath>Assets\Module_Infirmerie_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Laboratoire2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Laboratoire2.png">
       <PackagePath>Assets\Module_Laboratoire2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Laboratoire_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Laboratoire_HightLight.png">
       <PackagePath>Assets\Module_Laboratoire_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Maintenance2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Maintenance2.png">
       <PackagePath>Assets\Module_Maintenance2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Maintenance_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Maintenance_HightLight.png">
       <PackagePath>Assets\Module_Maintenance_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Pilotage2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Pilotage2.png">
       <PackagePath>Assets\Module_Pilotage2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Pilotage_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Pilotage_HightLight.png">
       <PackagePath>Assets\Module_Pilotage_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Serre2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Serre2.png">
       <PackagePath>Assets\Module_Serre2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Serre_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Serre_HightLight.png">
       <PackagePath>Assets\Module_Serre_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Survie2.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Survie2.png">
       <PackagePath>Assets\Module_Survie2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Survie_HightLight.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Module_Survie_HightLight.png">
       <PackagePath>Assets\Module_Survie_HightLight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\original.gif">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\original.gif">
       <PackagePath>Assets\original.gif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Space.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Space.png">
       <PackagePath>Assets\Space.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Tharsis Intro.mp4">
+      <PackagePath>Assets\Tharsis Intro.mp4</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\ClrCompression.dll">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\ClrCompression.dll">
       <PackagePath>ClrCompression.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\resources.pri">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.dll">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.dll">
       <PackagePath>TharsisRevolution.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.exe">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.pdb">
+    <AppxPackagedFile Include="D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Release\ilc\TharsisRevolution.pdb">
       <PackagePath>TharsisRevolution.pdb</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
+using Windows.UI.Popups;
 
 
 //TODO mettre un fond en fonction du module
@@ -540,6 +541,7 @@ namespace TharsisRevolution
                 pouvoirUtilisé = true;
             }
         }
+
     }
 }
 

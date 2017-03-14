@@ -8,35 +8,35 @@
     xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d">
 
-    <RelativePanel Width="auto" Height="auto" Background="Black">
+    <RelativePanel x:ConnectionId='1' x:Name="RelativeMain" Width="auto" Height="auto" Background="Black">
         <Image gif:AnimationBehavior.SourceUri="/Assets/giphy.gif" gif:AnimationBehavior.RepeatBehavior="Forever" />
-        <ProgressBar HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="282" Maximum="10" SmallChange="1" Value="5"/>
-        <TextBlock x:ConnectionId='1' x:Name="rtTitreModule" Width="50" Height="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
-        <TextBlock x:ConnectionId='2' x:Name="rtNomPersonnage" Width="50" Height="20" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        <TextBlock x:ConnectionId='2' x:Name="rtTitreModule" Width="50" Height="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        <TextBlock x:ConnectionId='3' x:Name="rtNomPersonnage" Width="50" Height="20" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
         
         <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
-            <Button x:ConnectionId='31' x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold"                             />
+            <Button x:ConnectionId='33' x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold"                             />
         </Border>
-        <TextBlock x:ConnectionId='3' x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" Margin="-161,-13,83,-5"/>
-        <Border x:ConnectionId='4' x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
-            <Button x:ConnectionId='30' x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold"                           />
+        <TextBlock x:ConnectionId='4' x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" Margin="-161,-13,83,-5"/>
+        <Border x:ConnectionId='5' x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
+            <Button x:ConnectionId='32' x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold"                           />
         </Border>
-        <TextBlock x:ConnectionId='5' x:Name="Affichage" RelativePanel.Above="BorderBottom" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" HorizontalAlignment="Right" Margin="0,-14,0,14" RelativePanel.Below="" RelativePanel.AlignBottomWith="" RelativePanel.AlignTopWith=""/>
-        <Border x:ConnectionId='6' x:Name="BorderPouvoir" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,10,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-            <Button x:ConnectionId='29' x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"                              />
+        <TextBlock x:ConnectionId='6' x:Name="Affichage" RelativePanel.Above="BorderBottom" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" HorizontalAlignment="Right" Margin="0,-14,0,14" RelativePanel.Below="" RelativePanel.AlignBottomWith="" RelativePanel.AlignTopWith=""/>
+        <Border x:ConnectionId='7' x:Name="BorderPouvoir" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,10,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Button x:ConnectionId='31' x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"                              />
         </Border>
-        <TextBlock x:ConnectionId='7' x:Name="DetailPouvoir" TextWrapping="Wrap" Foreground="White" Text="" FontSize="18" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="-328,-105,10,105" HorizontalAlignment="Center" />
-        <Border x:ConnectionId='8' x:Name="BorderPanne" Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
+        <TextBlock x:ConnectionId='8' x:Name="DetailPouvoir" TextWrapping="Wrap" Foreground="White" Text="" FontSize="18" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="-328,-105,10,105" HorizontalAlignment="Center" />
+        <Border x:ConnectionId='9' x:Name="BorderPanne" Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
-                <TextBlock x:ConnectionId='27' x:Name="tbReparer" Text="Réparer" FontSize="40" FontWeight="Bold" Foreground="Gray"/>
+                <TextBlock x:ConnectionId='29' x:Name="tbReparer" Text="Réparer" FontSize="40" FontWeight="Bold" Foreground="Gray"/>
                 <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbReparer">
-                    <Button x:ConnectionId='28' x:Name="btReparerValeur" Content="20" FontSize="40" FontWeight="Bold" Foreground="White"                                 IsEnabled="False" VerticalAlignment="Bottom"/>
+                    <Button x:ConnectionId='30' x:Name="btReparerValeur" Content="20" FontSize="40" FontWeight="Bold" Foreground="White"                                 IsEnabled="False" VerticalAlignment="Bottom"/>
                 </Border>
             </RelativePanel>
         </Border>
-        <Border x:ConnectionId='9' x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" >
-
-            <Grid x:ConnectionId='14' Width="200" Height="50" Name="grPilotage">
+        <TextBlock x:ConnectionId='10' x:Name="InfoDes" Width="400" Height="50" Margin="756,897,-756,-897"></TextBlock>
+        <Border x:ConnectionId='11' x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" Margin="2,-14,-2,14" >
+                
+            <Grid x:ConnectionId='16' Width="500" Height="100" Name="grPilotage">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -49,31 +49,30 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border x:ConnectionId='15' x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='26' x:Name="imgD1"                        Tag="null"></Image>
+                <Border x:ConnectionId='17' x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='28' x:Name="imgD1"                        Tag="null"                                      ></Image>                    
                 </Border>
-                <Border x:ConnectionId='16' x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='25' x:Name="imgD2"                        Tag="null"></Image>
+                <Border x:ConnectionId='18' x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='27' x:Name="imgD2"                        Tag="null"></Image>
                 </Border>
-                <Border x:ConnectionId='17' x:Name="boD3" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='24' x:Name="imgD3"                        Tag="null"></Image>
+                <Border x:ConnectionId='19' x:Name="boD3" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='26' x:Name="imgD3"                        Tag="null"></Image>
                 </Border>
-                <Border x:ConnectionId='18' x:Name="boD4" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='23' x:Name="imgD4"                        Tag="null"></Image>
+                <Border x:ConnectionId='20' x:Name="boD4" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='25' x:Name="imgD4"                        Tag="null"></Image>
                 </Border>
-                <Border x:ConnectionId='19' x:Name="boD5" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='22' x:Name="imgD5"                        Tag="null"></Image>
+                <Border x:ConnectionId='21' x:Name="boD5" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='24' x:Name="imgD5"                        Tag="null"></Image>
                 </Border>
-                <Border x:ConnectionId='20' x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='21' x:Name="imgD6"                        Tag="null"></Image>
+                <Border x:ConnectionId='22' x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='23' x:Name="imgD6"                        Tag="null"></Image>
                 </Border>
-
-            </Grid>
+            </Grid>            
         </Border>
 
         <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10 100 10 10" Padding="5" >
 
-            <Grid x:ConnectionId='10' Width="200" Height="50" Name="grDesHardMode">
+            <Grid x:ConnectionId='12' Width="300" Height="100" Name="grDesHardMode">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -84,13 +83,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='13' x:Name="imgD7"></Image>
+                    <Image x:ConnectionId='15' x:Name="imgD7"></Image>
                 </Border>
                 <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='12' x:Name="imgD8"></Image>
+                    <Image x:ConnectionId='14' x:Name="imgD8"></Image>
                 </Border>
                 <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
-                    <Image x:ConnectionId='11' x:Name="imgD9"></Image>
+                    <Image x:ConnectionId='13' x:Name="imgD9"></Image>
                 </Border>
 
             </Grid>

@@ -10917,7 +10917,7 @@ namespace Windows.Foundation
 				pfnQueryInterface = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfQueryInterface>(System.Runtime.InteropServices.__vtable_IUnknown.QueryInterface),
 				pfnAddRef = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfAddRef>(System.Runtime.InteropServices.__vtable_IUnknown.AddRef),
 				pfnRelease = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfRelease>(System.Runtime.InteropServices.__vtable_IUnknown.Release),
-				pfnInvoke_Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V_ = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget97>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl.Invoke__STUB),
+				pfnInvoke_Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V_ = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget93>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl.Invoke__STUB),
 			}
 			#endif
 			;
@@ -37904,6 +37904,978 @@ namespace Windows.UI.Xaml.Controls
 		}
 	}
 
+	// Windows.UI.Xaml.Controls.IMediaElement
+	public unsafe static class IMediaElement__Impl
+	{
+		// StubClass for 'Windows.UI.Xaml.Controls.IMediaElement'
+		public static partial class StubClass
+		{
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Uri get_Source(global::System.__ComObject __this)
+			{
+				global::System.Uri __ret = global::McgInterop.ForwardComSharedStubs.Func_Uri__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_Source
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_Source(
+						global::System.__ComObject __this, 
+						global::System.Uri value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_Uri__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_Source
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static bool get_AutoPlay(global::System.__ComObject __this)
+			{
+				bool __ret = global::McgInterop.ForwardComSharedStubs.Func_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_AutoPlay
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_AutoPlay(
+						global::System.__ComObject __this, 
+						bool value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_AutoPlay
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static double get_Volume(global::System.__ComObject __this)
+			{
+				double __ret = global::McgInterop.ForwardComSharedStubs.Func_double__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_Volume
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_Volume(
+						global::System.__ComObject __this, 
+						double value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_Volume
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static bool get_IsLooping(global::System.__ComObject __this)
+			{
+				bool __ret = global::McgInterop.ForwardComSharedStubs.Func_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_IsLooping
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_IsLooping(
+						global::System.__ComObject __this, 
+						bool value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_IsLooping
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			// Signature, Windows.UI.Xaml.Controls.IMediaElement.get_AudioCategory, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_AudioCategory__Windows_UI_Xaml_Media__AudioCategory, 
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::Windows.UI.Xaml.Media.AudioCategory get_AudioCategory(global::System.__ComObject __this)
+			{
+				// Setup
+				global::Windows.UI.Xaml.Media.AudioCategory unsafe_value__retval;
+				global::Windows.UI.Xaml.Media.AudioCategory value__retval;
+				int unsafe___return__;
+				// Marshalling
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_AudioCategory, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = unsafe_value__retval;
+				// Return
+				return value__retval;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_AudioCategory(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.Media.AudioCategory value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_int<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									((int)value), 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_AudioCategory
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaOpened(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaOpened
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_MediaOpened(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaOpened
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaEnded(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaEnded
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_MediaEnded(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaEnded
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaFailed(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.ExceptionRoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_ExceptionRoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaFailed
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_MediaFailed(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaFailed
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_DownloadProgressChanged(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_DownloadProgressChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_DownloadProgressChanged(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_DownloadProgressChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_BufferingProgressChanged(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_BufferingProgressChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_BufferingProgressChanged(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_BufferingProgressChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_CurrentStateChanged(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_CurrentStateChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_CurrentStateChanged(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_CurrentStateChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			// Signature, Windows.UI.Xaml.Controls.IMediaElement.add_MarkerReached, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Media_TimelineMarkerRoutedEventHandler__Windows_UI_Xaml_Media__TimelineMarkerRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MarkerReached(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler value)
+			{
+				// Setup
+				global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl**);
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+				int unsafe___return__;
+				try
+				{
+					// Marshalling
+					unsafe_value = (global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+										value, 
+										typeof(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler).TypeHandle, 
+										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget88>(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Invoke)
+									);
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
+										global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MarkerReached, 
+										unsafe_value, 
+										&(unsafe_token__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					token__retval = unsafe_token__retval;
+					// Return
+					return token__retval;
+				}
+				finally
+				{
+					// Cleanup
+					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				}
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_MarkerReached(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MarkerReached
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			// Signature, Windows.UI.Xaml.Controls.IMediaElement.add_RateChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Media_RateChangedRoutedEventHandler__Windows_UI_Xaml_Media__RateChangedRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_RateChanged(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler value)
+			{
+				// Setup
+				global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl**);
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+				int unsafe___return__;
+				try
+				{
+					// Marshalling
+					unsafe_value = (global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+										value, 
+										typeof(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler).TypeHandle, 
+										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget89>(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Invoke)
+									);
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
+										global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_RateChanged, 
+										unsafe_value, 
+										&(unsafe_token__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					token__retval = unsafe_token__retval;
+					// Return
+					return token__retval;
+				}
+				finally
+				{
+					// Cleanup
+					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				}
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_RateChanged(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_RateChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_VolumeChanged(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_VolumeChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_VolumeChanged(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_VolumeChanged
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_SeekCompleted(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_SeekCompleted
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_SeekCompleted(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_SeekCompleted
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void Stop(global::System.__ComObject __this)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_Stop
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void Play(global::System.__ComObject __this)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_<global::Windows.UI.Xaml.Controls.IMediaElement>(
+									__this, 
+									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_Play
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// DispatchClass for 'Windows.UI.Xaml.Controls.IMediaElement'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement))]
+		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Controls.IMediaElement
+		{
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.Source")]
+			global::System.Uri global::Windows.UI.Xaml.Controls.IMediaElement.get_Source()
+			{
+				global::System.Uri __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_Source(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.Source")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.put_Source(global::System.Uri value)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_Source(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.AutoPlay")]
+			bool global::Windows.UI.Xaml.Controls.IMediaElement.get_AutoPlay()
+			{
+				bool __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_AutoPlay(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.AutoPlay")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.put_AutoPlay(bool value)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_AutoPlay(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.Volume")]
+			double global::Windows.UI.Xaml.Controls.IMediaElement.get_Volume()
+			{
+				double __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_Volume(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.Volume")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.put_Volume(double value)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_Volume(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.IsLooping")]
+			bool global::Windows.UI.Xaml.Controls.IMediaElement.get_IsLooping()
+			{
+				bool __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_IsLooping(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.IsLooping")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.put_IsLooping(bool value)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_IsLooping(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.AudioCategory")]
+			global::Windows.UI.Xaml.Media.AudioCategory global::Windows.UI.Xaml.Controls.IMediaElement.get_AudioCategory()
+			{
+				global::Windows.UI.Xaml.Media.AudioCategory __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_AudioCategory(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.AudioCategory")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.put_AudioCategory(global::Windows.UI.Xaml.Media.AudioCategory value)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_AudioCategory(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaOpened")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaOpened(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaOpened(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaOpened")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaOpened(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaOpened(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaEnded")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaEnded(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaEnded(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaEnded")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaEnded(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaEnded(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaFailed")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaFailed(global::Windows.UI.Xaml.ExceptionRoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaFailed(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaFailed")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaFailed(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaFailed(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.DownloadProgressChanged")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_DownloadProgressChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_DownloadProgressChanged(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.DownloadProgressChanged")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_DownloadProgressChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_DownloadProgressChanged(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.BufferingProgressChanged")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_BufferingProgressChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_BufferingProgressChanged(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.BufferingProgressChanged")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_BufferingProgressChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_BufferingProgressChanged(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.CurrentStateChanged")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_CurrentStateChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_CurrentStateChanged(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.CurrentStateChanged")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_CurrentStateChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_CurrentStateChanged(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MarkerReached")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MarkerReached(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MarkerReached(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MarkerReached")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MarkerReached(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MarkerReached(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.RateChanged")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_RateChanged(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_RateChanged(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.RateChanged")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_RateChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_RateChanged(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.VolumeChanged")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_VolumeChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_VolumeChanged(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.VolumeChanged")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_VolumeChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_VolumeChanged(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.SeekCompleted")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_SeekCompleted(global::Windows.UI.Xaml.RoutedEventHandler value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_SeekCompleted(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.SeekCompleted")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_SeekCompleted(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_SeekCompleted(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.Stop()
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.Stop(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			void global::Windows.UI.Xaml.Controls.IMediaElement.Play()
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.Play(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement))]
+		public unsafe partial struct Vtbl
+		{
+			internal const int idx_get_Source = 8;
+			internal const int idx_put_Source = 9;
+			internal const int idx_get_AutoPlay = 13;
+			internal const int idx_put_AutoPlay = 14;
+			internal const int idx_get_Volume = 15;
+			internal const int idx_put_Volume = 16;
+			internal const int idx_get_IsLooping = 36;
+			internal const int idx_put_IsLooping = 37;
+			internal const int idx_get_AudioCategory = 45;
+			internal const int idx_put_AudioCategory = 46;
+			internal const int idx_add_MediaOpened = 56;
+			internal const int idx_remove_MediaOpened = 57;
+			internal const int idx_add_MediaEnded = 58;
+			internal const int idx_remove_MediaEnded = 59;
+			internal const int idx_add_MediaFailed = 60;
+			internal const int idx_remove_MediaFailed = 61;
+			internal const int idx_add_DownloadProgressChanged = 62;
+			internal const int idx_remove_DownloadProgressChanged = 63;
+			internal const int idx_add_BufferingProgressChanged = 64;
+			internal const int idx_remove_BufferingProgressChanged = 65;
+			internal const int idx_add_CurrentStateChanged = 66;
+			internal const int idx_remove_CurrentStateChanged = 67;
+			internal const int idx_add_MarkerReached = 68;
+			internal const int idx_remove_MarkerReached = 69;
+			internal const int idx_add_RateChanged = 70;
+			internal const int idx_remove_RateChanged = 71;
+			internal const int idx_add_VolumeChanged = 72;
+			internal const int idx_remove_VolumeChanged = 73;
+			internal const int idx_add_SeekCompleted = 74;
+			internal const int idx_remove_SeekCompleted = 75;
+			internal const int idx_Stop = 76;
+			internal const int idx_Play = 77;
+		}
+	}
+
+	// Windows.UI.Xaml.Controls.IMediaElement2
+	public unsafe static class IMediaElement2__Impl
+	{
+		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement2'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement2))]
+		public unsafe partial struct Vtbl
+		{
+		}
+	}
+
+	// Windows.UI.Xaml.Controls.IMediaElement3
+	public unsafe static class IMediaElement3__Impl
+	{
+		// StubClass for 'Windows.UI.Xaml.Controls.IMediaElement3'
+		public static partial class StubClass
+		{
+			// Signature, Windows.UI.Xaml.Controls.IMediaElement3.add_PartialMediaFailureDetected, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_MediaElement__Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_PartialMediaFailureDetected(
+						global::System.__ComObject __this, 
+						global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs> value)
+			{
+				// Setup
+				global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl**);
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
+				int unsafe___return__;
+				try
+				{
+					// Marshalling
+					unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
+										value, 
+										typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs>).TypeHandle, 
+										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget92>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Invoke)
+									);
+					// Call to native method
+					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+										__this, 
+										typeof(global::Windows.UI.Xaml.Controls.IMediaElement3).TypeHandle, 
+										global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.Vtbl.idx_add_PartialMediaFailureDetected, 
+										unsafe_value, 
+										&(unsafe_token__retval)
+									);
+					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+					token__retval = unsafe_token__retval;
+					// Return
+					return token__retval;
+				}
+				finally
+				{
+					// Cleanup
+					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
+				}
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void remove_PartialMediaFailureDetected(
+						global::System.__ComObject __this, 
+						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement3>(
+									__this, 
+									token, 
+									global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.Vtbl.idx_remove_PartialMediaFailureDetected
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// DispatchClass for 'Windows.UI.Xaml.Controls.IMediaElement3'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement3))]
+		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Controls.IMediaElement3
+		{
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement3.PartialMediaFailureDetected")]
+			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement3.add_PartialMediaFailureDetected(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs> value)
+			{
+				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.StubClass.add_PartialMediaFailureDetected(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement3.PartialMediaFailureDetected")]
+			void global::Windows.UI.Xaml.Controls.IMediaElement3.remove_PartialMediaFailureDetected(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			{
+				global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.StubClass.remove_PartialMediaFailureDetected(
+									this, 
+									token
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement3'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement3))]
+		public unsafe partial struct Vtbl
+		{
+			internal const int idx_add_PartialMediaFailureDetected = 8;
+			internal const int idx_remove_PartialMediaFailureDetected = 9;
+		}
+	}
+
 	// Windows.UI.Xaml.Controls.IButtonFactory
 	public unsafe static class IButtonFactory__Impl
 	{
@@ -38912,7 +39884,7 @@ namespace Windows.UI.Xaml.Controls
 				pfnQueryInterface = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfQueryInterface>(System.Runtime.InteropServices.__vtable_IUnknown.QueryInterface),
 				pfnAddRef = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfAddRef>(System.Runtime.InteropServices.__vtable_IUnknown.AddRef),
 				pfnRelease = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfRelease>(System.Runtime.InteropServices.__vtable_IUnknown.Release),
-				pfnInvoke_Windows_UI_Xaml_Controls__SelectionChangedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget89>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl.Invoke__STUB),
+				pfnInvoke_Windows_UI_Xaml_Controls__SelectionChangedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget95>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl.Invoke__STUB),
 			}
 			#endif
 			;
@@ -39656,7 +40628,7 @@ namespace Windows.UI.Xaml.Controls
 				pfnQueryInterface = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfQueryInterface>(System.Runtime.InteropServices.__vtable_IUnknown.QueryInterface),
 				pfnAddRef = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfAddRef>(System.Runtime.InteropServices.__vtable_IUnknown.AddRef),
 				pfnRelease = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfRelease>(System.Runtime.InteropServices.__vtable_IUnknown.Release),
-				pfnInvoke_Windows_UI_Xaml_Controls__ContextMenuOpeningEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget91>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Vtbl.Invoke__STUB),
+				pfnInvoke_Windows_UI_Xaml_Controls__ContextMenuOpeningEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget97>(global::Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler__Impl.Vtbl.Invoke__STUB),
 			}
 			#endif
 			;
@@ -39736,893 +40708,87 @@ namespace Windows.UI.Xaml.Controls
 		}
 	}
 
-	// Windows.UI.Xaml.Controls.IMediaElement
-	public unsafe static class IMediaElement__Impl
+	// Windows.UI.Xaml.Controls.ICanvasStatics
+	public unsafe static class ICanvasStatics__Impl
 	{
-		// StubClass for 'Windows.UI.Xaml.Controls.IMediaElement'
+		// StubClass for 'Windows.UI.Xaml.Controls.ICanvasStatics'
 		public static partial class StubClass
 		{
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Uri get_Source(global::System.__ComObject __this)
+			public static int GetZIndex(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.UIElement element)
 			{
-				global::System.Uri __ret = global::McgInterop.ForwardComSharedStubs.Func_Uri__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+				int __ret = global::McgInterop.ForwardComSharedStubs.Func_TArg0__int__<global::Windows.UI.Xaml.Controls.ICanvasStatics, global::Windows.UI.Xaml.UIElement>(
 									__this, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_Source
+									element, 
+									global::Windows.UI.Xaml.Controls.ICanvasStatics__Impl.Vtbl.idx_GetZIndex
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 				return __ret;
 			}
 
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void put_Source(
+			public static void SetZIndex(
 						global::System.__ComObject __this, 
-						global::System.Uri value)
+						global::Windows.UI.Xaml.UIElement element, 
+						int value)
 			{
-				global::McgInterop.ForwardComSharedStubs.Proc_Uri__<global::Windows.UI.Xaml.Controls.IMediaElement>(
+				global::McgInterop.ForwardComSharedStubs.Proc_TArg0__int__<global::Windows.UI.Xaml.Controls.ICanvasStatics, global::Windows.UI.Xaml.UIElement>(
 									__this, 
+									element, 
 									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_Source
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static double get_Volume(global::System.__ComObject __this)
-			{
-				double __ret = global::McgInterop.ForwardComSharedStubs.Func_double__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_Volume
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void put_Volume(
-						global::System.__ComObject __this, 
-						double value)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_Volume
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static bool get_IsLooping(global::System.__ComObject __this)
-			{
-				bool __ret = global::McgInterop.ForwardComSharedStubs.Func_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_IsLooping
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void put_IsLooping(
-						global::System.__ComObject __this, 
-						bool value)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc_bool__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_IsLooping
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			// Signature, Windows.UI.Xaml.Controls.IMediaElement.get_AudioCategory, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Media_AudioCategory__Windows_UI_Xaml_Media__AudioCategory, 
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::Windows.UI.Xaml.Media.AudioCategory get_AudioCategory(global::System.__ComObject __this)
-			{
-				// Setup
-				global::Windows.UI.Xaml.Media.AudioCategory unsafe_value__retval;
-				global::Windows.UI.Xaml.Media.AudioCategory value__retval;
-				int unsafe___return__;
-				// Marshalling
-				// Call to native method
-				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-									__this, 
-									typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_get_AudioCategory, 
-									&(unsafe_value__retval)
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				value__retval = unsafe_value__retval;
-				// Return
-				return value__retval;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void put_AudioCategory(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.Media.AudioCategory value)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc_int<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									((int)value), 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_put_AudioCategory
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaOpened(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaOpened
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_MediaOpened(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaOpened
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaEnded(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaEnded
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_MediaEnded(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaEnded
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MediaFailed(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.ExceptionRoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_ExceptionRoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MediaFailed
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_MediaFailed(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MediaFailed
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_DownloadProgressChanged(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_DownloadProgressChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_DownloadProgressChanged(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_DownloadProgressChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_BufferingProgressChanged(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_BufferingProgressChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_BufferingProgressChanged(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_BufferingProgressChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_CurrentStateChanged(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_CurrentStateChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_CurrentStateChanged(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_CurrentStateChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			// Signature, Windows.UI.Xaml.Controls.IMediaElement.add_MarkerReached, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Media_TimelineMarkerRoutedEventHandler__Windows_UI_Xaml_Media__TimelineMarkerRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_MarkerReached(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler value)
-			{
-				// Setup
-				global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl**);
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-				int unsafe___return__;
-				try
-				{
-					// Marshalling
-					unsafe_value = (global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-										value, 
-										typeof(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler).TypeHandle, 
-										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget92>(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Invoke)
-									);
-					// Call to native method
-					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-										__this, 
-										typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
-										global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_MarkerReached, 
-										unsafe_value, 
-										&(unsafe_token__retval)
-									);
-					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-					token__retval = unsafe_token__retval;
-					// Return
-					return token__retval;
-				}
-				finally
-				{
-					// Cleanup
-					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				}
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_MarkerReached(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_MarkerReached
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			// Signature, Windows.UI.Xaml.Controls.IMediaElement.add_RateChanged, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_UI_Xaml_Media_RateChangedRoutedEventHandler__Windows_UI_Xaml_Media__RateChangedRoutedEventHandler *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_RateChanged(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler value)
-			{
-				// Setup
-				global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl** unsafe_value = default(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl**);
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-				int unsafe___return__;
-				try
-				{
-					// Marshalling
-					unsafe_value = (global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-										value, 
-										typeof(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler).TypeHandle, 
-										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget93>(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Invoke)
-									);
-					// Call to native method
-					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-										__this, 
-										typeof(global::Windows.UI.Xaml.Controls.IMediaElement).TypeHandle, 
-										global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_RateChanged, 
-										unsafe_value, 
-										&(unsafe_token__retval)
-									);
-					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-					token__retval = unsafe_token__retval;
-					// Return
-					return token__retval;
-				}
-				finally
-				{
-					// Cleanup
-					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				}
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_RateChanged(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_RateChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_VolumeChanged(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_VolumeChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_VolumeChanged(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_VolumeChanged
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_SeekCompleted(
-						global::System.__ComObject __this, 
-						global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __ret = global::McgInterop.ForwardComSharedStubs.Func_UI_Xaml_RoutedEventHandler___WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									value, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_add_SeekCompleted
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __ret;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_SeekCompleted(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement__Impl.Vtbl.idx_remove_SeekCompleted
+									global::Windows.UI.Xaml.Controls.ICanvasStatics__Impl.Vtbl.idx_SetZIndex
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			}
 		}
 
-		// DispatchClass for 'Windows.UI.Xaml.Controls.IMediaElement'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement))]
-		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Controls.IMediaElement
+		// DispatchClass for 'Windows.UI.Xaml.Controls.ICanvasStatics'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.ICanvasStatics))]
+		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Controls.ICanvasStatics
 		{
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.Source")]
-			global::System.Uri global::Windows.UI.Xaml.Controls.IMediaElement.get_Source()
+			int global::Windows.UI.Xaml.Controls.ICanvasStatics.GetZIndex(global::Windows.UI.Xaml.UIElement element)
 			{
-				global::System.Uri __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_Source(this);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.Source")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.put_Source(global::System.Uri value)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_Source(
+				int __retVal = global::Windows.UI.Xaml.Controls.ICanvasStatics__Impl.StubClass.GetZIndex(
 									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.Volume")]
-			double global::Windows.UI.Xaml.Controls.IMediaElement.get_Volume()
-			{
-				double __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_Volume(this);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.Volume")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.put_Volume(double value)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_Volume(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.IsLooping")]
-			bool global::Windows.UI.Xaml.Controls.IMediaElement.get_IsLooping()
-			{
-				bool __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_IsLooping(this);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.IsLooping")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.put_IsLooping(bool value)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_IsLooping(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Controls.IMediaElement.AudioCategory")]
-			global::Windows.UI.Xaml.Media.AudioCategory global::Windows.UI.Xaml.Controls.IMediaElement.get_AudioCategory()
-			{
-				global::Windows.UI.Xaml.Media.AudioCategory __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.get_AudioCategory(this);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Controls.IMediaElement.AudioCategory")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.put_AudioCategory(global::Windows.UI.Xaml.Media.AudioCategory value)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.put_AudioCategory(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaOpened")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaOpened(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaOpened(
-									this, 
-									value
+									element
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 				return __retVal;
 			}
 
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaOpened")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaOpened(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
+			void global::Windows.UI.Xaml.Controls.ICanvasStatics.SetZIndex(
+						global::Windows.UI.Xaml.UIElement element, 
+						int value)
 			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaOpened(
+				global::Windows.UI.Xaml.Controls.ICanvasStatics__Impl.StubClass.SetZIndex(
 									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaEnded")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaEnded(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaEnded(
-									this, 
+									element, 
 									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaEnded")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaEnded(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaEnded(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MediaFailed")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MediaFailed(global::Windows.UI.Xaml.ExceptionRoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MediaFailed(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MediaFailed")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MediaFailed(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MediaFailed(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.DownloadProgressChanged")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_DownloadProgressChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_DownloadProgressChanged(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.DownloadProgressChanged")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_DownloadProgressChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_DownloadProgressChanged(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.BufferingProgressChanged")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_BufferingProgressChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_BufferingProgressChanged(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.BufferingProgressChanged")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_BufferingProgressChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_BufferingProgressChanged(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.CurrentStateChanged")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_CurrentStateChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_CurrentStateChanged(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.CurrentStateChanged")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_CurrentStateChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_CurrentStateChanged(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.MarkerReached")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_MarkerReached(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_MarkerReached(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.MarkerReached")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_MarkerReached(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_MarkerReached(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.RateChanged")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_RateChanged(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_RateChanged(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.RateChanged")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_RateChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_RateChanged(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.VolumeChanged")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_VolumeChanged(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_VolumeChanged(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.VolumeChanged")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_VolumeChanged(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_VolumeChanged(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement.SeekCompleted")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement.add_SeekCompleted(global::Windows.UI.Xaml.RoutedEventHandler value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.add_SeekCompleted(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement.SeekCompleted")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement.remove_SeekCompleted(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement__Impl.StubClass.remove_SeekCompleted(
-									this, 
-									token
 								);
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			}
 		}
 
-		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement))]
+		// v-table for 'Windows.UI.Xaml.Controls.ICanvasStatics'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.ICanvasStatics))]
 		public unsafe partial struct Vtbl
 		{
-			internal const int idx_get_Source = 8;
-			internal const int idx_put_Source = 9;
-			internal const int idx_get_Volume = 15;
-			internal const int idx_put_Volume = 16;
-			internal const int idx_get_IsLooping = 36;
-			internal const int idx_put_IsLooping = 37;
-			internal const int idx_get_AudioCategory = 45;
-			internal const int idx_put_AudioCategory = 46;
-			internal const int idx_add_MediaOpened = 56;
-			internal const int idx_remove_MediaOpened = 57;
-			internal const int idx_add_MediaEnded = 58;
-			internal const int idx_remove_MediaEnded = 59;
-			internal const int idx_add_MediaFailed = 60;
-			internal const int idx_remove_MediaFailed = 61;
-			internal const int idx_add_DownloadProgressChanged = 62;
-			internal const int idx_remove_DownloadProgressChanged = 63;
-			internal const int idx_add_BufferingProgressChanged = 64;
-			internal const int idx_remove_BufferingProgressChanged = 65;
-			internal const int idx_add_CurrentStateChanged = 66;
-			internal const int idx_remove_CurrentStateChanged = 67;
-			internal const int idx_add_MarkerReached = 68;
-			internal const int idx_remove_MarkerReached = 69;
-			internal const int idx_add_RateChanged = 70;
-			internal const int idx_remove_RateChanged = 71;
-			internal const int idx_add_VolumeChanged = 72;
-			internal const int idx_remove_VolumeChanged = 73;
-			internal const int idx_add_SeekCompleted = 74;
-			internal const int idx_remove_SeekCompleted = 75;
+			internal const int idx_GetZIndex = 13;
+			internal const int idx_SetZIndex = 14;
 		}
 	}
 
-	// Windows.UI.Xaml.Controls.IMediaElement2
-	public unsafe static class IMediaElement2__Impl
+	// Windows.UI.Xaml.Controls.ICanvas
+	public unsafe static class ICanvas__Impl
 	{
-		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement2'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement2))]
+		// v-table for 'Windows.UI.Xaml.Controls.ICanvas'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.ICanvas))]
 		public unsafe partial struct Vtbl
 		{
-		}
-	}
-
-	// Windows.UI.Xaml.Controls.IMediaElement3
-	public unsafe static class IMediaElement3__Impl
-	{
-		// StubClass for 'Windows.UI.Xaml.Controls.IMediaElement3'
-		public static partial class StubClass
-		{
-			// Signature, Windows.UI.Xaml.Controls.IMediaElement3.add_PartialMediaFailureDetected, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.WinRTDelegateMarshaller] Windows_Foundation_TypedEventHandler_2_Windows_UI_Xaml_Controls_MediaElement__Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs___Windows_Foundation__TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V_ *, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.BlittableValueMarshaller] System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken__Windows_Foundation__EventRegistrationToken, 
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken add_PartialMediaFailureDetected(
-						global::System.__ComObject __this, 
-						global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs> value)
-			{
-				// Setup
-				global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl** unsafe_value = default(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl**);
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken unsafe_token__retval;
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token__retval;
-				int unsafe___return__;
-				try
-				{
-					// Marshalling
-					unsafe_value = (global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
-										value, 
-										typeof(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs>).TypeHandle, 
-										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget96>(global::Windows.Foundation.TypedEventHandler_A_Windows_UI_Xaml_Controls_MediaElement_j_Windows_UI_Xaml_Media_PartialMediaFailureDetectedEventArgs_V___Impl.Invoke)
-									);
-					// Call to native method
-					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
-										__this, 
-										typeof(global::Windows.UI.Xaml.Controls.IMediaElement3).TypeHandle, 
-										global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.Vtbl.idx_add_PartialMediaFailureDetected, 
-										unsafe_value, 
-										&(unsafe_token__retval)
-									);
-					global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-					token__retval = unsafe_token__retval;
-					// Return
-					return token__retval;
-				}
-				finally
-				{
-					// Cleanup
-					global::System.Runtime.InteropServices.McgMarshal.ComSafeRelease(new global::System.IntPtr(((void*)unsafe_value)));
-				}
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			public static void remove_PartialMediaFailureDetected(
-						global::System.__ComObject __this, 
-						global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::McgInterop.ForwardComSharedStubs.Proc__WindowsRuntime_EventRegistrationToken__<global::Windows.UI.Xaml.Controls.IMediaElement3>(
-									__this, 
-									token, 
-									global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.Vtbl.idx_remove_PartialMediaFailureDetected
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-		}
-
-		// DispatchClass for 'Windows.UI.Xaml.Controls.IMediaElement3'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement3))]
-		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Controls.IMediaElement3
-		{
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventAdd, "Windows.UI.Xaml.Controls.IMediaElement3.PartialMediaFailureDetected")]
-			global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken global::Windows.UI.Xaml.Controls.IMediaElement3.add_PartialMediaFailureDetected(global::Windows.Foundation.TypedEventHandler<global::Windows.UI.Xaml.Controls.MediaElement, global::Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs> value)
-			{
-				global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken __retVal = global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.StubClass.add_PartialMediaFailureDetected(
-									this, 
-									value
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-				return __retVal;
-			}
-
-			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
-			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.EventRemove, "Windows.UI.Xaml.Controls.IMediaElement3.PartialMediaFailureDetected")]
-			void global::Windows.UI.Xaml.Controls.IMediaElement3.remove_PartialMediaFailureDetected(global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken token)
-			{
-				global::Windows.UI.Xaml.Controls.IMediaElement3__Impl.StubClass.remove_PartialMediaFailureDetected(
-									this, 
-									token
-								);
-				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
-			}
-		}
-
-		// v-table for 'Windows.UI.Xaml.Controls.IMediaElement3'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Controls.IMediaElement3))]
-		public unsafe partial struct Vtbl
-		{
-			internal const int idx_add_PartialMediaFailureDetected = 8;
-			internal const int idx_remove_PartialMediaFailureDetected = 9;
 		}
 	}
 
@@ -42976,7 +43142,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 					unsafe_value = (global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Vtbl**)global::System.Runtime.InteropServices.McgModuleManager.DelegateToComInterface(
 										value, 
 										typeof(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler).TypeHandle, 
-										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget88>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
+										global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget94>(global::Windows.UI.Xaml.Controls.SelectionChangedEventHandler__Impl.Invoke)
 									);
 					// Call to native method
 					unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
@@ -47008,16 +47174,6 @@ namespace Windows.UI.Xaml.Media
 		}
 	}
 
-	// Windows.UI.Xaml.Media.IFontFamily
-	public unsafe static class IFontFamily__Impl
-	{
-		// v-table for 'Windows.UI.Xaml.Media.IFontFamily'
-		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IFontFamily))]
-		public unsafe partial struct Vtbl
-		{
-		}
-	}
-
 	// Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler
 	public unsafe static class TimelineMarkerRoutedEventHandler__Impl
 	{
@@ -47053,7 +47209,7 @@ namespace Windows.UI.Xaml.Media
 				pfnQueryInterface = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfQueryInterface>(System.Runtime.InteropServices.__vtable_IUnknown.QueryInterface),
 				pfnAddRef = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfAddRef>(System.Runtime.InteropServices.__vtable_IUnknown.AddRef),
 				pfnRelease = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfRelease>(System.Runtime.InteropServices.__vtable_IUnknown.Release),
-				pfnInvoke_Windows_UI_Xaml_Media__TimelineMarkerRoutedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget94>(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl.Invoke__STUB),
+				pfnInvoke_Windows_UI_Xaml_Media__TimelineMarkerRoutedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget90>(global::Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler__Impl.Vtbl.Invoke__STUB),
 			}
 			#endif
 			;
@@ -47138,7 +47294,7 @@ namespace Windows.UI.Xaml.Media
 				pfnQueryInterface = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfQueryInterface>(System.Runtime.InteropServices.__vtable_IUnknown.QueryInterface),
 				pfnAddRef = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfAddRef>(System.Runtime.InteropServices.__vtable_IUnknown.AddRef),
 				pfnRelease = global::McgInterop.Intrinsics.AddrOf<global::System.Runtime.InteropServices.AddrOfRelease>(System.Runtime.InteropServices.__vtable_IUnknown.Release),
-				pfnInvoke_Windows_UI_Xaml_Media__RateChangedRoutedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget95>(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl.Invoke__STUB),
+				pfnInvoke_Windows_UI_Xaml_Media__RateChangedRoutedEventHandler = global::McgInterop.Intrinsics.AddrOf<global::McgInterop.AddrOfIntrinsics.AddrOfTarget91>(global::Windows.UI.Xaml.Media.RateChangedRoutedEventHandler__Impl.Vtbl.Invoke__STUB),
 			}
 			#endif
 			;
@@ -47203,6 +47359,16 @@ namespace Windows.UI.Xaml.Media
 	{
 		// v-table for 'Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs2'
 		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs2))]
+		public unsafe partial struct Vtbl
+		{
+		}
+	}
+
+	// Windows.UI.Xaml.Media.IFontFamily
+	public unsafe static class IFontFamily__Impl
+	{
+		// v-table for 'Windows.UI.Xaml.Media.IFontFamily'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IFontFamily))]
 		public unsafe partial struct Vtbl
 		{
 		}

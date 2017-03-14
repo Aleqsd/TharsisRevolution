@@ -1,22 +1,8 @@
 ﻿using Microsoft.Toolkit.Uwp;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-// TODO bien gérer la gestion de la cinématique (voir si elle se termine bien, bien afficher l'écran noir tout ça, j'ai pas eu le temps de regarder en détail, donc juste voir si tout marche bien)
-// TODO voir si on met tout les width et height des relative panel en AUTO si ça marche bien
 
 namespace TharsisRevolution
 {
@@ -53,6 +39,16 @@ namespace TharsisRevolution
         private void video_clicked(object sender, TappedRoutedEventArgs e)
         {
             VideoIntro.Stop();
+            VideoIntro.IsFullWindow = false;
+            FDNoir.Visibility = Visibility.Collapsed;
+            VideoIntro.Visibility = Visibility.Collapsed;
+            MusiqueIntro.Play();
+        }
+
+        private void video_Ended(object sender, RoutedEventArgs e)
+        {
+            VideoIntro.Stop();
+            VideoIntro.IsFullWindow = false;
             FDNoir.Visibility = Visibility.Collapsed;
             VideoIntro.Visibility = Visibility.Collapsed;
             MusiqueIntro.Play();

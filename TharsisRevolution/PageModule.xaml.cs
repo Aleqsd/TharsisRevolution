@@ -8,13 +8,6 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
-using Windows.UI.Popups;
-
-
-//TODO mettre un fond en fonction du module
-//TODO VIRER TOUS LES ACCENTS DANS LE C#
-//TODO enable le bouton quand pouvoir possible (dé 5 ou 6), disable quand pas possible
-//TODO faire des images de pièges pour les 3 types de pièges (comme les pannes ?)
 
 namespace TharsisRevolution
 {

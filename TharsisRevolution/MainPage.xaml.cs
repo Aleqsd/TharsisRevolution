@@ -13,21 +13,29 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-// Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-// TODO affichage des dés du hardmode, ajouter des images pour les dés piégés ?
+// --- HIGH PRIORITY ---
+// TODO Gérer le hardmode
+// TODO Cacher les dés piégés si hardmode
+// TODO imposer le fullscreen par défaut
+// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded...
+// TODO mettre un fond en fonction du module
+// TODO enable le bouton pouvoir quand pouvoir possible (dé 5 ou 6), disable quand pas possible
 
-// TODO faire gaffe aux résolutions
-// TODO Garder le gif et y insérer en plus un fond d'écran immobile ?
+// --- MEDIUM PRIORITY ---
 // TODO Ajouter du fun (un nyan cat ?)
+// TODO faire continuer la musique même dans un module, possible ?
+// TODO voir si l'updateUI est pas appelé trop de fois
+
+// --- LOW PRIORITY ---
+// TODO afficher la mort (tete de mort?)
+// TODO ajouter volume à la sauvegarde
+
+
+// --- JUSTE AVANT DE RENDRE LE PROJET ---
 // TODO supprimer les using ou fonctions inutilisées
 // TODO commenter tous le code
-// TODO faire continuer la musique même dans un module, possible ?
-// TODO systeme de sauvegarde dans un fichier ?
-// TODO voir si l'updateUI est pas appelé trop de fois
-// TODO afficher la mort (tete de mort?)
-// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, etc...
-// TODO bouton volume accueil aussi
+// TODO Virer tous les accents dans le code (gros replace)
 
 namespace TharsisRevolution
 {
@@ -368,7 +376,7 @@ namespace TharsisRevolution
             BitmapImage imagePanne = new BitmapImage(new Uri("ms-appx:///Assets/Ambox_warning_red.png"));
             Image img_Panne = new Image();
 
-            for (int i = 11; i < Grid_Jeu.Children.Count; i++) // Supprimer les pannes
+            for (int i = 9; i < Grid_Jeu.Children.Count; i++) // Supprimer les pannes
             {
                 UIElement item = Grid_Jeu.Children.ElementAt(i);
                 if (item.GetType() == img_Panne.GetType())
@@ -1537,7 +1545,7 @@ namespace TharsisRevolution
             Grid.SetRow(btn_deployment, rowCurrentModule);
             Grid.SetColumn(btn_deployment, columnCurrentModule);
 
-            for (int i = 11; i < Grid_Jeu.Children.Count; i++) // Supprimer les deploiements
+            for (int i = 9; i < Grid_Jeu.Children.Count; i++) // Supprimer les deploiements
             {
                 UIElement item = Grid_Jeu.Children.ElementAt(i);
                 if (item.GetType().Equals(btn_deployment.GetType()))

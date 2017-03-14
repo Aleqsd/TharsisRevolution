@@ -468,19 +468,13 @@ namespace TharsisRevolution
                     randomModule = RandomNumber(0, 7);
                 membres[i].Position = modules[randomModule];
                 modules[randomModule].PresenceMembre = true; //thomas (permet de faire fonctionner ta boucle while au dessus)
-
-                //Thomas : Initialisation emplacement personnage visuelement avec une fonction prévu spécialement pour l'initialisation des positions de départ
-                //Deplacement_PersonnageToCurrentModule(membres[i].Role, membres[i].Position);
-                Debug.WriteLine("Membre " + membres[i].Role + " à la position " + membres[i].Position.Type);
             }
-
-            InitialiserUIPersonnages();
 
             //Initialisation Semaine
             numeroSemaine = 1;
             Debug.WriteLine("Semaine 1");
 
-            UpdateUI();
+            //UpdateUI();
         }
 
 
@@ -681,7 +675,6 @@ namespace TharsisRevolution
         /// <param name="module"></param>
         private void PanneInfligeDégat(Module module)
         {
-            Debug.WriteLine("Panne du module inflige des dégats " + module.EmplacementX);
             int typeDegat = RandomNumber(1, 4);
             switch (typeDegat)
             {
@@ -1356,7 +1349,7 @@ namespace TharsisRevolution
                 switch (membre.Role)
                 {
                     case Membre.roleMembre.Commandant:
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reCommandant, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reCommandant, membre.Position.EmplacementY - 1);
@@ -1378,7 +1371,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reCapitaine.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reCapitaine, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reCapitaine, membre.Position.EmplacementY - 1);
@@ -1402,7 +1395,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reDocteur.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reDocteur, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reDocteur, membre.Position.EmplacementY - 1);
@@ -1428,7 +1421,7 @@ namespace TharsisRevolution
                         margin.Right = -15 * marginLevel;
                         reMeca.Margin = margin;
 
-                        if (membre.Position.Equals(modules[2]) || membre.Position.Equals(modules[5])) // Infirmerie || Système de survie
+                        if (membre.Position.Type.Equals(Module.moduleType.Infirmerie) || membre.Position.Type.Equals(Module.moduleType.SystemeSurvie)) // Infirmerie || Système de survie
                             Grid.SetRow(reMeca, membre.Position.EmplacementY + 1);
                         else
                             Grid.SetRow(reMeca, membre.Position.EmplacementY - 1);
@@ -1446,8 +1439,6 @@ namespace TharsisRevolution
                 }
             }
         }
-
-
 
         /// <summary>
         /// Surcharge de la fonction de deplacement des personnages lors de leur initalisation des positions de départ

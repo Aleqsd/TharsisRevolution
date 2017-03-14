@@ -10,10 +10,14 @@
         <RelativePanel.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Mars.png"/>
         </RelativePanel.Background>
-        <Button x:ConnectionId='1' x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="200" Height="50" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF"                        />
-        <ComboBox x:ConnectionId='2' x:Name="cb_Difficulté" RelativePanel.Below="btn_Jouer" Width="200" Height="50" VerticalAlignment="Top" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" />
-        <TextBlock x:ConnectionId='3' x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
-        <MediaElement Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1"></MediaElement>
+        <MediaElement Source="Assets/LoopMenu.mp4" AutoPlay="True" Width="1920" Height="1080" IsLooping="True" Volume="0.5"></MediaElement>
+        <Rectangle x:ConnectionId='1' x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
+        <Button x:ConnectionId='2' x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="200" Height="50" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF"                        />
+        <ComboBox x:ConnectionId='3' x:Name="cb_Difficulté" RelativePanel.Below="btn_Jouer" Width="200" Height="50" VerticalAlignment="Top" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" />
+        <TextBlock x:ConnectionId='4' x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
+        <MediaElement x:ConnectionId='5' x:Name="MusiqueIntro" Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1" AutoPlay="False"></MediaElement>
+        <MediaElement x:ConnectionId='6' x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="0.7" Width="1920" Height="1080" Canvas.ZIndex="1"                       />
+
     </RelativePanel>
 </Page>
 

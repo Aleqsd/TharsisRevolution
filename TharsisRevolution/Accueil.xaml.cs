@@ -46,5 +46,13 @@ namespace TharsisRevolution
 
             this.Frame.Navigate(typeof(MainPage),parameters);
         }
+
+        private void video_clicked(object sender, TappedRoutedEventArgs e)
+        {
+            VideoIntro.Stop();
+            FDNoir.Visibility = Visibility.Collapsed;
+            VideoIntro.Visibility = Visibility.Collapsed;
+            MusiqueIntro.Play();
+        }        
     }
 }

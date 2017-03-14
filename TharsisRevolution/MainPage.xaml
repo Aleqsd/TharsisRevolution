@@ -9,6 +9,14 @@
     mc:Ignorable="d">
     <RelativePanel Width="auto" Height="auto" >
         <Image gif:AnimationBehavior.SourceUri="/Assets/original.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Margin="-243,-497,-1857,-724" RenderTransformOrigin="0.5,0.5" />
+
+        <Border x:Name="boPersoTip" Width="200" Height="200" Margin="20" Visibility="Collapsed" BorderBrush="Gray" BorderThickness="2" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <RelativePanel>
+                <TextBlock x:Name="tbPersoPouvoirTip" TextWrapping="Wrap" FontSize="15" Foreground="White"/>
+            </RelativePanel>
+        </Border>
+        
+        
         <Border x:Name="block_PvShip" Width="500" Height="100" Background="Black" BorderBrush="Gray" BorderThickness="5" RenderTransformOrigin="0.5,0.5"  UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="-100,0,0,0">
             <Border.RenderTransform>
                 <CompositeTransform SkewX="50"/>
@@ -70,7 +78,7 @@
 
             <!--Image x:Name="img_Panne" Source="Assets/Ambox_warning_red.png" Width="70px" Height="70px" Grid.Row="2" Grid.Column="2"></-->
 
-            <RelativePanel x:Name="reMeca" Grid.Column="0" Grid.Row="1" Width="120" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Meca_HightLight_OnClick">
+            <RelativePanel x:Name="reMeca" Grid.Column="0" Tag="Donne 1 pv au vaisseau" Grid.Row="1" Width="120" Height="120" RelativePanel.Below="imPilotage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Meca_HightLight_OnClick" PointerEntered="rePerso_PointerEntered" PointerExited="rePerso_PointerExited">
                 <TextBlock x:Name="lbl_Mecanicien" Foreground="White" Height="20" Text="Mécanicien"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" />
                 <Image x:Name="imLogoMeca" Width="auto" Height="60" Source="Assets/img_meca.png" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="lbl_Mecanicien" />
                 <ProgressBar x:Name="pbPvMeca" ValueChanged="progressBar_PvMeca" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoMeca" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
@@ -109,7 +117,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Width="120" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Doc_HightLight_OnClick">
+            <RelativePanel x:Name="reDocteur" Grid.Column="1" Grid.Row="1" Tag="Donne 1 pv à tous les membres" Width="120" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Doc_HightLight_OnClick" PointerEntered="rePerso_PointerEntered" PointerExited="rePerso_PointerExited">
                 <TextBlock x:Name="lbl_Docteur" Foreground="White" Height="20" Text="Docteur"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" />
                 <Image x:Name="imLogoDocteur" Width="auto" Height="60" Source="Assets/img_Doctor.png" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="lbl_Docteur" />
                 <ProgressBar x:Name="pb_PvDocteur" ValueChanged="progressBar_PvDocteur" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoDocteur" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
@@ -148,7 +156,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="120" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Capitaine_HightLight_OnClick">
+            <RelativePanel x:Name="reCapitaine" Grid.Column="2" Grid.Row="0" Width="120" Height="120"  Tag="Donne 1 dés a tous les membres de l'équipage" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Capitaine_HightLight_OnClick" PointerEntered="rePerso_PointerEntered" PointerExited="rePerso_PointerExited">
                 <TextBlock x:Name="lbl_Capitaine" Foreground="White" Height="20" Text="Capitaine"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic"/>
                 <Image x:Name="imLogoCapitaine" Width="auto" Height="60" Source="Assets/img_capitaine.png" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="lbl_Capitaine"/>
                 <ProgressBar x:Name="pb_PvCapitaine" ValueChanged="progressBar_PvCapitaine" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCapitaine" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />
@@ -187,7 +195,7 @@
 
                 </Grid>
             </RelativePanel>
-            <RelativePanel x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="120" Height="120"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Commandant_HightLight_OnClick">
+            <RelativePanel x:Name="reCommandant" Grid.Column="4" Grid.Row="3" Width="120" Height="120"  Tag="Peut réparer 10 points d'un coup" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Gray" BorderBrush="Black" BorderThickness="3,3,3,3" Tapped="Commandant_HightLight_OnClick" PointerEntered="rePerso_PointerEntered" PointerExited="rePerso_PointerExited">
                 <TextBlock x:Name="lbl_Commandant" Foreground="White" Height="20" Text="Commandant"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="15" FontFamily="Showcard Gothic" />
                 <Image x:Name="imLogoCommandant" Width="auto" Height="60" Source="Assets/img_commandant.png" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="lbl_Commandant"/>
                 <ProgressBar x:Name="pb_PvCommandant" ValueChanged="progressBar_PvCommandant" SmallChange="1" Maximum="6" Width="90" Height="15" RelativePanel.Below="imLogoCommandant" VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.AlignHorizontalCenterWithPanel="True" />

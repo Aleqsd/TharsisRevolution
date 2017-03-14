@@ -16,9 +16,15 @@
         <TextBlock x:Name="rtNomPersonnage" Foreground="White" FontSize="25" Width="500" Height="50" RelativePanel.RightOf="BorderPanne" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignHorizontalCenterWith="" RelativePanel.AlignVerticalCenterWith="BorderPanne" TextAlignment="Center" />
         <ProgressBar x:Name="pg_Personnage" ValueChanged="progressBar_PvPersonnage" SmallChange="1" Maximum="6" Width="350" Height="50"  VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.Below="rtNomPersonnage" RelativePanel.AlignVerticalCenterWith="" RelativePanel.AlignHorizontalCenterWith="rtNomPersonnage" />
         <TextBlock x:Name="lbl_PvPersonnage" Width="40" FontSize="35" Text="0" RelativePanel.AlignHorizontalCenterWith="pg_Personnage" RelativePanel.AlignTopWith="pg_Personnage"/>
-        
-        <Border RelativePanel.AlignVerticalCenterWithPanel="True" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="50,10,10,10">
-            <Button x:Name="btTerminer"  Content="Terminer le déploiement" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonTerminer_Click"/>
+
+
+        <Border Background="Gray" RelativePanel.AlignVerticalCenterWithPanel="True" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="2">
+            <Button x:Name="btTerminer" RelativePanel.AlignRightWith="imFleche" Foreground="White" FontSize="20" FontWeight="Bold" Click="ButtonTerminer_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="imFleche" Width="50" Height="50" Source="/Assets/Custom-Icon-Design-Mono-General-3-Arrow-undo.ico"/>
+                    <TextBlock Padding="2" Text="Terminer le déploiement" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </Border>
         <TextBlock x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" Margin="-161,-13,83,-5"/>
         <Border x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">

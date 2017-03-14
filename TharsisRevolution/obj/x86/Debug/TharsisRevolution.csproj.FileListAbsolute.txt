@@ -1017,3 +1017,8 @@ C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Mi
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csproj.GenerateResource.Cache
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Microsoft.Toolkit.Uwp.dll
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Microsoft.Toolkit.Uwp.pdb
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csproj.GenerateResource.Cache
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml

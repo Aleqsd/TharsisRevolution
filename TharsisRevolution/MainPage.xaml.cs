@@ -1723,5 +1723,19 @@ namespace TharsisRevolution
             helper.Save("indexCurrentClickMembre", indexCurrentClickMembre);
             helper.Save("indexCurrentClickModule", indexCurrentClickModule);
         }
+
+        private void rePerso_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            if (e.OriginalSource is FrameworkElement) {
+                RelativePanel r = ((RelativePanel)e.OriginalSource);
+                tbPersoPouvoirTip.Text = r.Name.Substring(2)+" : \n"+"Pouvoir Spécial : \n"+r.Tag.ToString();
+                boPersoTip.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void rePerso_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            boPersoTip.Visibility = Visibility.Collapsed;
+        }
     }
 }

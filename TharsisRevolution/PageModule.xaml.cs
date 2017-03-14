@@ -27,7 +27,6 @@ namespace TharsisRevolution
         private int indexCurrentModule;
         private List<Membre> membres;
         private List<Module> modules;
-        private List<Panne> pannes;
         private List<Dé> lancer;
         private List<Dé> listeDéPiégés;
         private bool hardMode;
@@ -65,7 +64,6 @@ namespace TharsisRevolution
             modules = parameters.Modules;
             hardMode = parameters.HardMode;
             vaisseau = parameters.Vaisseau;
-            pannes = parameters.Pannes;
             numeroSemaine = parameters.NumeroSemaine;
 
             btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
@@ -208,7 +206,7 @@ namespace TharsisRevolution
         private void ButtonTerminer_Click(object sender, RoutedEventArgs e)
         {
             membres[indexCurrentMembre].AJoué = true;
-            var parameters = new CurrentParameters(membres, modules, pannes, indexCurrentMembre, indexCurrentModule, hardMode, vaisseau, numeroSemaine, gameStarted);
+            var parameters = new CurrentParameters(membres, modules, indexCurrentMembre, indexCurrentModule, hardMode, vaisseau, numeroSemaine, gameStarted);
 
             this.Frame.Navigate(typeof(MainPage), parameters);
         }

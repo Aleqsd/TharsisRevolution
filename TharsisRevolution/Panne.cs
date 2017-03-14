@@ -20,12 +20,12 @@ namespace TharsisRevolution
             }
         }
 
-        private int dégat;
-        private int id;
-        private taille taillePanne;
-        private bool hardMode;
-        private int nombreDésPiégés = 0;
-        private List<Dé> désPiégés;
+        public int dégat;
+        public int id;
+        public taille taillePanne;
+        public bool hardMode;
+        public int nombreDésPiégés = 0;
+        public List<Dé> désPiégés;
 
         public Panne(int id, taille taillePanne, bool hardMode)
         {

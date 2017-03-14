@@ -8,7 +8,7 @@ namespace TharsisRevolution
 {
     public enum déType {Normal, Bléssure, Stase, Caduc, Highlight, Grisé}
 
-    class Dé
+    public class Dé
     {
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();

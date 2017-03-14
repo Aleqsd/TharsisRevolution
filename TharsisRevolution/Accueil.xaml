@@ -11,12 +11,13 @@
             <ImageBrush Stretch="Fill" ImageSource="Assets/Mars.png"/>
         </RelativePanel.Background>
         <MediaElement Source="Assets/LoopMenu.mp4" AutoPlay="True" Width="1920" Height="1080" IsLooping="True" Volume="0.5"></MediaElement>
-        <Rectangle x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
         <Button x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="200" Height="50" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" Click="btn_Jouer_Click"/>
         <ComboBox x:Name="cb_Difficulté" RelativePanel.Below="btn_Jouer" Width="200" Height="50" VerticalAlignment="Top" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" />
         <TextBlock x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="500"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
+        <Rectangle x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
         <MediaElement x:Name="MusiqueIntro" Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1" AutoPlay="False"></MediaElement>
         <MediaElement x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="0.7" Width="1920" Height="1080" Canvas.ZIndex="1" Tapped="video_clicked"/>
+        <Button x:Name="btn_Load" Content="Load" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="65" Margin="925,643,-925,-643" Tapped="btn_Load_Tapped"/>
 
     </RelativePanel>
 </Page>

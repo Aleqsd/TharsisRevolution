@@ -22,12 +22,12 @@ namespace TharsisRevolution
         }
 
         public enum roleMembre { Docteur, Mécanicien, Capitaine, Commandant }
-        private int id;
-        private int pv;
-        private int nombreDeDés;
-        private roleMembre role;
-        private bool aJoué = false;
-        private Module position;
+        public int id;
+        public int pv;
+        public int nombreDeDés;
+        public roleMembre role;
+        public bool aJoué = false;
+        public Module position;
 
         public Membre(roleMembre role, int id)
         {

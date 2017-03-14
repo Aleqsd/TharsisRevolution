@@ -10,11 +10,11 @@ namespace TharsisRevolution
     {
         public enum moduleType { PostePilotage, Serre, SystemeSurvie, Maintenance, Infirmerie, Détente, Laboratoire }
 
-        private int emplacementX, emplacementY; //modif thomas
-        private moduleType type;
-        private bool estEnPanne = false;
-        private Panne panne;
-        private bool presenceMembre = false;
+        public int emplacementX, emplacementY; //modif thomas
+        public moduleType type;
+        public bool estEnPanne = false;
+        public Panne panne;
+        public bool presenceMembre = false;
 
         public Module(moduleType type, int emplacementX, int emplacementY)//modif thomas
         {

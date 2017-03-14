@@ -67,6 +67,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Button x:Name="btnSauvegarde" Content="Sauvegarder" Grid.Column="4" HorizontalAlignment="Left" Margin="380,59,-281,0" Grid.Row="4" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnSauvegarde_Click"/>
             <Button x:Name="btnFinSemaine" Content="Finir Semaine" Grid.Column="4" HorizontalAlignment="Left" Margin="380,117,-281,0" Grid.Row="4" VerticalAlignment="Top" Foreground="White" Tapped="btnFinSemaine_Tapped" Height="42" Width="141"/>
             <Image x:Name="PostePilotage" Width="auto" Height="auto" Grid.Row="2" Grid.Column="0" Source="Assets/Module_Pilotage2.png" Tapped="Pilotage_HightLight_OnClick"/>
             <Image x:Name="Serre" Width="auto" Height="auto" Grid.Row="2" Grid.Column="1" Source="Assets/Module_Serre2.png" Tapped="Serre_HightLight_OnClick"/>
@@ -241,9 +242,6 @@
         <TextBlock x:Name="lbl_Ship" Foreground="White" Height="40" Text="Vaisseau"  Width="150"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic" Margin="-762,4,762,-4"/>
         <TextBlock x:Name="lbl_PvShip" Foreground="Red" Height="40" Text="0"  Width="40" FontSize="30" FontFamily="Showcard Gothic" RelativePanel.AlignVerticalCenterWith="pg_PvShip" RelativePanel.Below="pg_PvShip" Margin="183,43,-183,-43"></TextBlock>
         <MediaElement x:Name="song" Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="0.5" IsLooping="True" ></MediaElement>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="71"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="71"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="62"/>
         <TextBlock x:Name="Affichage" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18" Margin="42,964,-42,-964"/>
     </RelativePanel>
 

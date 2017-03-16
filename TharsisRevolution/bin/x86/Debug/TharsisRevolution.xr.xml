@@ -47,10 +47,6 @@
       <RootMethod Name="SetAlignVerticalCenterWith" />
       <RootMethod Name="GetLeftOf" />
       <RootMethod Name="SetLeftOf" />
-      <RootMethod Name="GetAlignLeftWith" />
-      <RootMethod Name="SetAlignLeftWith" />
-      <RootMethod Name="GetRightOf" />
-      <RootMethod Name="SetRightOf" />
       <RootMethod Name="GetAlignRightWith" />
       <RootMethod Name="SetAlignRightWith" />
     </RootType>
@@ -84,6 +80,8 @@
       <RootProperty Name="IsEnabled" />
       <RootEvent Name="Click" />
       <RootEvent Name="Tapped" />
+      <RootEvent Name="PointerEntered" />
+      <RootEvent Name="PointerExited" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Width" />
@@ -127,6 +125,8 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Tag" />
       <RootEvent Name="Tapped" />
+      <RootEvent Name="PointerEntered" />
+      <RootEvent Name="PointerExited" />
     </RootType>
     <RootType FullName="XamlAnimatedGif.AnimationBehavior">
       <RootMethod Name="GetSourceUri" />

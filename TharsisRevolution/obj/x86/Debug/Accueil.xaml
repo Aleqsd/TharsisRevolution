@@ -16,7 +16,7 @@
         <TextBlock x:ConnectionId='3' x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="Auto"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
         <MediaElement x:ConnectionId='4' x:Name="MusiqueIntro" Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1" AutoPlay="False"></MediaElement>
         <Rectangle x:ConnectionId='5' x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
-        <MediaElement x:ConnectionId='6' x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="0.7" Canvas.ZIndex="1" IsFullWindow="True"                                                />
+        <MediaElement x:ConnectionId='6' x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="1" Canvas.ZIndex="1" IsFullWindow="True"                                                />
         <Button x:ConnectionId='7' x:Name="btn_Load" Content="Load" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top"                          RelativePanel.Below="cb_Difficulté" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
         <Button x:ConnectionId='8' x:Name="btn_Quitter" Content="Quitter" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top"                             RelativePanel.Below="btn_Load" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
     </RelativePanel>

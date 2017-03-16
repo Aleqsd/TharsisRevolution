@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,6 +20,7 @@ using Windows.UI.Xaml.Navigation;
 // TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
 // TODO Afficher instructions de jeu
+// TODO Bug d'application apres avoir fait a mainte reprise finir semaine, en laissant les pannes remplir tous les modules
 
 // === FRONT-END ===
 // TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
@@ -60,7 +62,7 @@ namespace TharsisRevolution
         private int columnCurrentModule;
         SolidColorBrush color_Blanc = new SolidColorBrush(Colors.White);
         SolidColorBrush color_Black = new SolidColorBrush(Colors.Black);
-
+        private MessageDialog infobox;
         // Bonne fonction randon
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -415,6 +417,8 @@ namespace TharsisRevolution
                     img_Panne.Width = 40;
                     img_Panne.Height = 40;
                     img_Panne.IsTapEnabled = true;
+                    img_Panne.PointerEntered += imgPointerEnter;
+                    img_Panne.PointerExited += imgPointerExit;
                     img_Panne.Tapped += informationPanne_OnClick;
 
                     //positionnement de l'image de panne
@@ -423,6 +427,28 @@ namespace TharsisRevolution
                     this.Grid_Jeu.Children.Add(img_Panne);
                 }
             }
+        }
+
+        /// <summary>
+        /// Permet d'afficher la main pour le passage au dessus des pannes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void imgPointerEnter(object sender, PointerRoutedEventArgs e)
+        {
+            CoreCursor handCursor = new CoreCursor(CoreCursorType.Hand, 1);
+            Window.Current.CoreWindow.PointerCursor = handCursor;
+        }
+
+        /// <summary>
+        /// Permet de rafficher la souris lors que l'on sort de l'image de la panne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void imgPointerExit(object sender, PointerRoutedEventArgs e)
+        {
+            CoreCursor arrowCursor = new CoreCursor(CoreCursorType.Arrow, 1);
+            Window.Current.CoreWindow.PointerCursor = arrowCursor;
         }
 
         /// <summary>
@@ -675,7 +701,7 @@ namespace TharsisRevolution
         /// Dégat infligé par une Panne (fait en fin de semaine)
         /// </summary>
         /// <param name="module"></param>
-        private void PanneInfligeDégat(Module module)
+        private async void PanneInfligeDégat(Module module)
         {
             int typeDegat = RandomNumber(1, 4);
             switch (typeDegat)
@@ -696,7 +722,9 @@ namespace TharsisRevolution
                         if (membre.NombreDeDés - perteDés < 1)
                             membre.NombreDeDés = 1;
                         else
+                        {
                             membre.NombreDeDés = membre.NombreDeDés - perteDés;
+                        }
                     }
                     break;
                 default:
@@ -710,7 +738,6 @@ namespace TharsisRevolution
         private void NouvelleSemaine()
         {
             Debug.WriteLine("Nouvelle semaine");
-
             foreach (Membre membre in membres)
                 membre.AJoué = false;
 
@@ -742,11 +769,13 @@ namespace TharsisRevolution
         private void FinSemaine()
         {
             Debug.WriteLine("Fin semaine");
-
+            
             foreach (Membre membre in membres)
             {
                 if (membre.NombreDeDés > 1)
-                    membre.NombreDeDés--;
+                {
+                    membre.NombreDeDés--;                    
+                }
             }
 
             foreach (Module module in modules)
@@ -756,7 +785,7 @@ namespace TharsisRevolution
             }
 
             if (vaisseau.Pv < 1 || !unMembreEnVie())
-                Défaite();
+                Defaite();
 
             if (numeroSemaine == 10 && vaisseau.Pv < 1 && unMembreEnVie())
                 Victoire();
@@ -781,9 +810,9 @@ namespace TharsisRevolution
         /// <summary>
         /// Declenche la Défaite
         /// </summary>
-        private async void Défaite()
+        private async void Defaite()
         {
-            MessageDialog msgbox = new MessageDialog("Défaite");
+            MessageDialog msgbox = new MessageDialog("Vous avez perdu !","Défaite");
             await msgbox.ShowAsync();
             this.Frame.Navigate(typeof(Accueil));
         }
@@ -793,7 +822,7 @@ namespace TharsisRevolution
         /// </summary>
         private async void Victoire()
         {
-            MessageDialog msgbox = new MessageDialog("Victoire");
+            MessageDialog msgbox = new MessageDialog("Bravo, vous avez gagner !", "Victoire");
             await msgbox.ShowAsync();
             this.Frame.Navigate(typeof(Accueil));
         }
@@ -1258,7 +1287,7 @@ namespace TharsisRevolution
 
             // Défaite si on traverse une panne avec son dernier membre en vie avec un Pv...
             if (!unMembreEnVie())
-                Défaite();
+                Defaite();
             
             // Déplacement
             membres[membre.Id - 1].Position = modules[indexDeLaSalleChoisie - 1];
@@ -1722,6 +1751,30 @@ namespace TharsisRevolution
         private void rePerso_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             boPersoTip.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// bouton pour revenir au menu principal lors de l'anbandon du joueur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btnAbandonner_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog msgbox = new MessageDialog("Etes vous certains de vouloir abandonner ?","Abandonner ?");
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+            
+            var res = await msgbox.ShowAsync();
+            if ((int)res.Id == 0)
+            {
+                Defaite();
+            }
+            else
+            {
+                msgbox = new MessageDialog("Vous n'avez pas cédez à l'abandon ! En route vers Mars !");
+                await msgbox.ShowAsync();
+            }
         }
     }
 }

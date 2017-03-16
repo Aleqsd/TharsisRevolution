@@ -1022,3 +1022,8 @@ C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Mi
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csproj.GenerateResource.Cache
 C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Microsoft.Toolkit.Uwp.dll
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Microsoft.Toolkit.Uwp.pdb
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Newtonsoft.Json.dll
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csproj.GenerateResource.Cache
+D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml

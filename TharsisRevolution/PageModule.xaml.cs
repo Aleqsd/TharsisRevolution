@@ -32,6 +32,7 @@ namespace TharsisRevolution
         private bool utilisationPouvoirCapitaine = false;
         private bool gameStarted = true;
         private string tooltipPiege;
+        private MessageDialog msgbox;
 
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -290,7 +291,7 @@ namespace TharsisRevolution
             this.Frame.Navigate(typeof(MainPage), parameters);
         }
 
-        private void ButtonLancer_Click(object sender, RoutedEventArgs e)
+        private async void ButtonLancer_Click(object sender, RoutedEventArgs e)
         {
             btLancer1.Content = "Relancer";
 
@@ -389,7 +390,8 @@ namespace TharsisRevolution
                                     case déType.Bléssure:
                                         lancer[i].Type = déType.Bléssure;
                                         membres[indexCurrentMembre].Pv--;
-                                        Affichage.Text = "Le dé " + dé.Valeur + " vous inflige une bléssure (PV actuel : " + membres[indexCurrentMembre].Pv + ").";
+                                        msgbox = new MessageDialog("Le dé " + dé.Valeur + " vous inflige 1 point de dégat.");
+                                        await msgbox.ShowAsync();
                                         break;
                                     case déType.Stase:
                                         lancer[i].Type = déType.Stase;
@@ -412,11 +414,14 @@ namespace TharsisRevolution
                 UpdateUI();
             }
             else
-                Affichage.Text = "Vous n'avez plus de lancers";
+            {
+                msgbox = new MessageDialog("Vous n'avez plus de lancers !");
+                await msgbox.ShowAsync();
+            }
         }
 
 
-        private void imDice_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void imDice_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (e.OriginalSource is FrameworkElement)
             {
@@ -450,7 +455,8 @@ namespace TharsisRevolution
                 string s = b.Tag.ToString();
                 if (s.Contains("Lock") || s.Contains("Caduc")) //Gris et Caduc
                 {
-                    Affichage.Text = "Ce dé est inutilisable";
+                    msgbox = new MessageDialog("Ce dé est inutilisable...");
+                    await msgbox.ShowAsync();
                 }
                 else if (s.Contains("Blessure.png")) //Blessure
                 {
@@ -524,7 +530,7 @@ namespace TharsisRevolution
             }
         }
 
-        private void Réparer(int valeur)
+        private async void Réparer(int valeur)
         {
             int dégatAvant = modules[indexCurrentModule].Panne.Dégat;
             int dégatAprès = modules[indexCurrentModule].Panne.Dégat - valeur;
@@ -534,7 +540,8 @@ namespace TharsisRevolution
                 modules[indexCurrentModule].EstEnPanne = false;
                 BorderPanne.Visibility = Visibility.Collapsed;
                 tbReparer.Text = "Panne réparée";
-                Affichage.Text = "Panne réparée";
+                msgbox = new MessageDialog("Panne réparée !");
+                await msgbox.ShowAsync();
             }
             else
                 modules[indexCurrentModule].Panne.Dégat = dégatAprès;
@@ -689,6 +696,55 @@ namespace TharsisRevolution
                 UpdateUI();
                 pouvoirUtilisé = true;
             }
+        }
+
+        /// <summary>
+        /// Fonction qui permet de fournir des informations sur des élements durant le jeu au passage de la souris
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fct_Information_PointerEnter(object sender, PointerRoutedEventArgs e)
+        {
+            Button btn = new Button(); 
+            Image img = new Image(); 
+            if(sender.GetType() == btn.GetType())
+            {
+                 btn = (Button)sender;
+            }
+            else
+            {
+                img = (Image)sender;
+            }
+
+            switch (btn.Name)
+            {
+                case "btLancer1":
+                    Affichage.Text = "Lance les dés pour réparer la panne.";
+                    break;
+                case "bt_PouvoirSpe":
+                    Affichage.Text = "Utilisation du pouvoir du personnage avec un dés de 5 ou 6.";
+                    break;
+                case "btReparerValeur":
+                    Affichage.Text = "Nombre de points de panne restant à réparer.";
+                    break;
+                default:
+                    break;
+            }
+
+            if (img.Name.Contains("imgD"))
+            {
+                Affichage.Text = "Cliquer sur un Dés pour le verrouiller ou l'utiliser.";
+            }    
+        }
+
+        /// <summary>
+        /// Fonction pour vider le textbox qui donne des information à la sortie de la souris de l'element
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fct_Information_PointerExit(object sender, PointerRoutedEventArgs e)
+        {
+            Affichage.Text = "";
         }
     }
 }

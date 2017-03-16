@@ -42,8 +42,9 @@
         </Border>
         <Slider x:Name="volumeSlider" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="140" Background="#66FFFFFF" Maximum="100" LargeChange="20" SmallChange="10" ValueChanged="ChangeVolume" Value="50" StepFrequency="10" TickFrequency="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10,-54,-10,0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" Text="Volume" VerticalAlignment="Top" Foreground="White" RelativePanel.Above="volumeSlider" Margin="55,-72,-55,0"/>
-        <Button x:Name="btnSauvegarde" Content="Sauvegarder" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnSauvegarde_Click" RelativePanel.AlignBottomWith="" RelativePanel.Above="btnFinSemaine" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,5"/>
-        <Button x:Name="btnFinSemaine" Content="Finir Semaine" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Tapped="btnFinSemaine_Tapped" Height="42" Width="141" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,10"/>
+        <Button x:Name="btnAbandonner" Content="Abandonner" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnAbandonner_Click" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,5"/>
+        <Button x:Name="btnSauvegarde" Content="Sauvegarder" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnSauvegarde_Click" RelativePanel.AlignBottomWith="" RelativePanel.Above="btnAbandonner" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,5"/>
+        <Button x:Name="btnFinSemaine" Content="Finir Semaine" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Tapped="btnFinSemaine_Tapped" Height="42" Width="141" RelativePanel.Above="btnSauvegarde" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,10"/>
         <Border x:Name="block_Semaines" Width="500" Height="100" BorderBrush="Gray" Background="Black" BorderThickness="5" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
                 <TextBlock x:Name="lbl_TimeSemaine" Foreground="White" Height="40" Text="1"  Width="40"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" FontFamily="Showcard Gothic"  RelativePanel.LeftOf="lbl_txtSemaine" Margin="3,4,-3,-4"/>
@@ -238,6 +239,7 @@
 
         <MediaElement x:Name="song" Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="0.5" IsLooping="True" ></MediaElement>
         <TextBlock x:Name="Affichage" TextWrapping="Wrap" Foreground="White" RelativePanel.AlignBottomWithPanel="True" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18"/>
+        
     </RelativePanel>
 
 </Page>

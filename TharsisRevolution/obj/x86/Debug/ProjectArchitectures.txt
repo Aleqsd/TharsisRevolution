@@ -1,1 +1,1 @@
-D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\TharsisRevolution.csproj;x86
+C:\Users\louis\Source\Repos\TharsisRevolution\TharsisRevolution\TharsisRevolution.csproj;x86

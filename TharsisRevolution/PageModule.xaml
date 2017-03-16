@@ -12,14 +12,19 @@
             <ImageBrush x:Name="Background_PageModule" ImageSource="Assets/FD_Module_Detente.png"></ImageBrush>
         </RelativePanel.Background>
 
+        <!-- Affichage du titre du module actuel -->
         <Border Background="Black" CornerRadius="4,4,4,4" BorderBrush="Gray" Width="520" Height="70" BorderThickness="2 2 2 2" RelativePanel.AlignLeftWithPanel="True" Margin="180">
             <TextBlock x:Name="rtTitreModule" Foreground="White" FontSize="45" Width="500" Height="50" RelativePanel.AlignLeftWithPanel="True" TextAlignment="Center"/>
         </Border>
+        
+        <!-- Affichage du nom du personnage actuel -->
         <TextBlock x:Name="rtNomPersonnage" Foreground="White" FontSize="25" Width="500" Height="50" RelativePanel.AlignRightWithPanel="True" TextAlignment="Center" Margin="180,180,180,0" />
+        
+        <!-- Affichage de la barre de vie du personnage -->
         <ProgressBar x:Name="pg_Personnage" ValueChanged="progressBar_PvPersonnage" SmallChange="1" Maximum="6" Width="350" Height="50"  VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.Below="rtNomPersonnage" RelativePanel.AlignVerticalCenterWith="" RelativePanel.AlignHorizontalCenterWith="rtNomPersonnage" />
         <TextBlock x:Name="lbl_PvPersonnage" Width="40" FontSize="35" Text="0" RelativePanel.AlignHorizontalCenterWith="pg_Personnage" RelativePanel.AlignTopWith="pg_Personnage"/>
 
-
+        <!-- Bouton permettant de retourner à la fenêtre principale -->
         <Border Background="Gray" RelativePanel.AlignVerticalCenterWithPanel="True" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="2">
             <Button x:Name="btTerminer" RelativePanel.AlignRightWith="imFleche" Foreground="White" FontSize="20" FontWeight="Bold" Click="ButtonTerminer_Click">
                 <StackPanel Orientation="Horizontal">
@@ -28,15 +33,24 @@
                 </StackPanel>
             </Button>
         </Border>
+        
+        <!-- Affichage du nombre de lancés de dés restant -->
         <TextBlock x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" FontSize="24" Margin="-161,-13,83,-5"/>
         <Border x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
             <Button x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold" Click="ButtonLancer_Click" PointerEntered="fct_Information_PointerEnter" PointerExited="fct_Information_PointerExit"/>
         </Border>
+        
+        <!-- Affichage d'informations diverse -->
         <TextBlock x:Name="Affichage" RelativePanel.Above="BorderBottom" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" HorizontalAlignment="Right" Margin="0,14,0,25"/>
+        
+        <!-- Affichage du bouton permettant d'utiliser le pouvoir spécial -->
         <Border x:Name="BorderPouvoir" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,10,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Button x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold" Tapped="bt_PouvoirSpe_Tapped" PointerEntered="fct_Information_PointerEnter" PointerExited="fct_Information_PointerExit"/>
         </Border>
+        <!-- Et une aide pour indiquer quand le pouvoir peut être utilisé -->
         <TextBlock x:Name="DetailPouvoir" TextWrapping="Wrap" Foreground="White" Text="" FontSize="24" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="-328,-105,10,105" HorizontalAlignment="Center" />
+        
+        <!-- Partie utilisée pour l'affichage du nombre de points de panne et le bouton pour réparer -->
         <Border x:Name="BorderPanne" Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <RelativePanel>
                 <TextBlock x:Name="tbReparer" Text="Réparer" FontSize="40" FontWeight="Bold" Foreground="Gray"/>
@@ -45,6 +59,8 @@
                 </Border>
             </RelativePanel>
         </Border>
+        
+        <!-- Affichage des dés de réparation -->
         <Border x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" Margin="2,-14,-2,14" >
 
             <Grid Width="500" Height="100" Name="grPilotage">
@@ -81,6 +97,7 @@
             </Grid>
         </Border>
 
+        <!-- Affichage des dés du mode difficile -->
         <Border x:Name="BorderPiege" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10" Padding="5" >
 
             <Grid Width="300" Height="100" Name="grDesHardMode">
@@ -105,6 +122,8 @@
 
             </Grid>
         </Border>
+        
+        <!-- Informations diverse concernant les dés piegés -->
         <TextBlock x:Name="TooltipPiege" HorizontalAlignment="Center" Height="100" TextWrapping="Wrap" Text="" VerticalAlignment="Center" RelativePanel.Above="BorderPiege" Margin="10,0,-262,0" Width="314" FontSize="24" Foreground="White"/>
         <MediaElement x:Name="song" Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="0.3" IsLooping="True" ></MediaElement>
     </RelativePanel>

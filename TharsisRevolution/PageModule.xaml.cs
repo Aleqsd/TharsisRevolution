@@ -677,7 +677,7 @@ namespace TharsisRevolution
                     }
 
                     // Docteur : +1 pv pour chaque membre
-                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Capitaine))
+                    if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Docteur))
                     {
                         foreach (Membre m in membres)
                         {

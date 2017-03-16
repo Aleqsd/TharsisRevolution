@@ -1741,10 +1741,17 @@ namespace TharsisRevolution
 
         private void rePerso_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (e.OriginalSource is FrameworkElement) {
-                RelativePanel r = ((RelativePanel)e.OriginalSource);
-                tbPersoPouvoirTip.Text = r.Name.Substring(2)+" : \n"+"Pouvoir Spécial : \n"+r.Tag.ToString();
-                boPersoTip.Visibility = Visibility.Visible;
+            if (e.OriginalSource is FrameworkElement)
+            {
+                RelativePanel r = e.OriginalSource as RelativePanel; // tentative de cast
+                // Si le cast échoue, aucune exception n'est provoquée
+                // Cette opération a dû être réalisée car des exceptions apparaissaient
+                // quand l'utilisateur bougait sa souris de partout sur l'application
+                if (r != null)
+                {
+                    tbPersoPouvoirTip.Text = r.Name.Substring(2) + " : \n" + "Pouvoir Spécial : \n" + r.Tag.ToString();
+                    boPersoTip.Visibility = Visibility.Visible;
+                }
             }
         }
 

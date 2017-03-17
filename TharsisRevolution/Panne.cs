@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
@@ -53,9 +50,7 @@ namespace TharsisRevolution
                         if (index < NombreDésPiégés - 1)
                         {
                             while (DésPiégés[index].Valeur == DésPiégés[index + 1].Valeur)
-                            {
                                 DésPiégés[index + 1].Valeur = RandomNumber(1, 7);
-                            }
                         }
                         int random = RandomNumber(0, 3);
                         switch (random)

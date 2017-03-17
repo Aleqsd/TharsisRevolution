@@ -1,5 +1,7 @@
-﻿using Microsoft.Toolkit.Uwp;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.Toolkit.Uwp;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -90,7 +92,7 @@ namespace TharsisRevolution
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_Load_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void btn_Load_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var helper = new LocalObjectStorageHelper();
 
@@ -134,6 +136,11 @@ namespace TharsisRevolution
 
                 CurrentParameters parameters = new CurrentParameters(tempMembres, tempModules, tempIndexCurrentClickMembre, tempIndexCurrentClickModule, tempHardMode, tempVaisseau, tempNumeroSemaine, tempGameStarted);
                 this.Frame.Navigate(typeof(MainPage), parameters);
+            }
+            else
+            {
+                MessageDialog msgbox = new MessageDialog("Vous n'avez pas de partie sauvegardée");
+                await msgbox.ShowAsync();
             }
         }
     }

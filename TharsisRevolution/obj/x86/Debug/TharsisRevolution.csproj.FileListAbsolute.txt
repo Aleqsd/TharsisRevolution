@@ -923,7 +923,6 @@ C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Sy
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\System.Xml.XmlSerializer.dll
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\XamlAnimatedGif.dll
-C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\App.g.i.cs
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\App.g.cs
 C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\obj\x86\Debug\Accueil.g.i.cs
@@ -1027,3 +1026,5 @@ D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - G
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\bin\x86\Debug\Newtonsoft.Json.dll
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\TharsisRevolution.csproj.GenerateResource.Cache
 D:\Documents\Formation Ynov\OneDrive - Ynov\B3 IngeSup\DOT_NET\Projet csharp - Game\Projet_Github\TharsisRevolution\TharsisRevolution\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
+C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe.CodeAnalysisLog.xml
+C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe.lastcodeanalysissucceeded

@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-17T18:29:01.850</Modified>
+      <Modified>2017-03-17T19:55:33.035</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\TharsisRevolution.exe">
       <PackagePath>entrypoint\TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-17T18:29:01.626</Modified>
+      <Modified>2017-03-17T19:55:27.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -865,11 +865,11 @@
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-17T18:00:34.408</Modified>
+      <Modified>2017-03-17T19:55:32.863</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alex\Source\Repos\TharsisRevolution2\TharsisRevolution\bin\x86\Debug\Core\TharsisRevolution.exe">
       <PackagePath>TharsisRevolution.exe</PackagePath>
-      <Modified>2017-03-17T18:29:01.848</Modified>
+      <Modified>2017-03-17T19:55:33.032</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

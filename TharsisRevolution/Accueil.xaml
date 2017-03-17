@@ -10,14 +10,29 @@
         <RelativePanel.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Mars.png"/>
         </RelativePanel.Background>
+        <!--Fond vidéo en boucle de l'écran du menu-->
         <MediaElement Source="Assets/LoopMenu.mp4" AutoPlay="True" Width="1920" Height="1080" IsLooping="True" Volume="0.5"></MediaElement>
+        
+        <!--Bouton du lancement du jeu-->
         <Button x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" Click="btn_Jouer_Click"/>
+        
+        <!--Permet le choix du mode de difficulté du jeu-->
         <ComboBox x:Name="cb_Difficulté" RelativePanel.Below="btn_Jouer" Width="180" Height="40" VerticalAlignment="Top" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" />
         <TextBlock x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="Auto"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
+        
+        <!--Musique en boucle du menu du jeu-->
         <MediaElement x:Name="MusiqueIntro" Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1" AutoPlay="False"></MediaElement>
+        
+        <!--Permet de cacher le menu le temps que l'intro vidéo ce lance-->
         <Rectangle x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
+        
+        <!--Vidéo d'introduction du jeu-->
         <MediaElement x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="1" Canvas.ZIndex="1" IsFullWindow="True" MediaEnded="video_Ended" Tapped="video_clicked"/>
+        
+        <!--Bouton qui permet de charger la partie enregistrer precedement-->
         <Button x:Name="btn_Load" Content="Load" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top" Tapped="btn_Load_Tapped" RelativePanel.Below="cb_Difficulté" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
+        
+        <!--Bouton qui permet de fermer proprement le jeu-->
         <Button x:Name="btn_Quitter" Content="Quitter" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top" Tapped="btn_Quitter_Tapped" RelativePanel.Below="btn_Load" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
     </RelativePanel>
 </Page>

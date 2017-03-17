@@ -14,31 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-// --- HIGH PRIORITY ---
-
-// === BACK-END ===
-// TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule //
-// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT // Fait
-// TODO Afficher instructions de jeu
-// TODO Bug d'application apres avoir fait a mainte reprise finir semaine, en laissant les pannes remplir tous les modules
-// TODO Bug lorsque le personnage est mort on pouvait le déployer et jouer avec dans la page module // Résolue
-
-// === FRONT-END ===
-// TODO Bouton retour au menu dans MainPage//Fait
-// TODO ne pas lier d'element relative a la border de la réparation car elle disparaît (cf le textbox du nom du membre et sa barre de vie)//Fait
-// TODO afficher la mort (tete de mort?) // Fait
-
-// --- MEDIUM PRIORITY ---
-// TODO Ajouter du fun (un nyan cat ?)
-
-// --- LOW PRIORITY ---
-// TODO ajouter volume à la sauvegarde
-
-// --- JUSTE AVANT DE RENDRE LE PROJET ---
-// TODO supprimer les using ou fonctions inutilisées
-// TODO commenter tous le code
-// TODO Virer tous les accents dans le code (gros replace)
-
 namespace TharsisRevolution
 {
     /// <summary>
@@ -62,6 +37,13 @@ namespace TharsisRevolution
         // Bonne fonction randon
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
+
+        /// <summary>
+        /// Fonction de random entre 2 entiers
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static int RandomNumber(int min, int max)
         {
             lock (syncLock)
@@ -558,138 +540,154 @@ namespace TharsisRevolution
         }
 
         /// <summary>
+        /// Renvoi true si le vaisseau est rempli de panne
+        /// </summary>
+        /// <param name="numeroSemaine"></param>
+        private bool RempliDePanne()
+        {
+            foreach (Module module in modules)
+            {
+                if(!module.EstEnPanne)
+                    return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Création d'un certain nombre de panne en fonction du jour de la semaine et assignation de la panne à son module
         /// </summary>
         /// <param name="numeroSemaine"></param>
         private void CreationPannes(int numeroSemaine)
         {
-
-            int random = RandomNumber(0, 7);
-            Debug.WriteLine("Création de panne pour la semaine " + numeroSemaine);
-            switch (numeroSemaine)
+            if (!RempliDePanne())
             {
-                case 1:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
+                int random = RandomNumber(0, 7);
+                Debug.WriteLine("Création de panne pour la semaine " + numeroSemaine);
+                switch (numeroSemaine)
+                {
+                    case 1:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(22, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(22, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(23, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 2:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(23, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 2:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(20, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(21, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 3:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(20, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(17, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(18, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(19, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 4:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(21, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 3:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(15, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(16, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 5:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(17, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(13, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(14, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 6:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(18, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(10, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(11, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(12, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 7:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(19, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 4:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(8, Panne.taille.Grosse, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(9, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 8:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(15, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(5, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(6, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(7, Panne.taille.Petite, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 9:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(16, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 5:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(2, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(3, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        while (modules[random].EstEnPanne)
+                            random = RandomNumber(0, 7);
+                        modules[random].Panne = new Panne(4, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    case 10:
                         random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(13, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(14, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 6:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(10, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(11, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(12, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 7:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(8, Panne.taille.Grosse, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(9, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 8:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(5, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(6, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(7, Panne.taille.Petite, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 9:
-                    random = RandomNumber(0, 7);
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(2, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(3, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    while (modules[random].EstEnPanne)
-                        random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(4, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                case 10:
-                    random = RandomNumber(0, 7);
-                    modules[random].Panne = new Panne(1, Panne.taille.Moyenne, hardMode);
-                    modules[random].EstEnPanne = true;
-                    break;
-                default:
-                    break;
+                        modules[random].Panne = new Panne(1, Panne.taille.Moyenne, hardMode);
+                        modules[random].EstEnPanne = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -702,17 +700,19 @@ namespace TharsisRevolution
             int typeDegat = RandomNumber(1, 4);
             MessageDialog infobox = new MessageDialog("");
             switch (typeDegat)
-            {                
+            {                             
                 case 1: //Perte de vie membres
                     int dégatMembre = RandomNumber(1, 4);
                     infobox = new MessageDialog("Une panne restante a infligé "+dégatMembre+" point(s) de Dégat à tous les personnages !","Information");
                     foreach (Membre membre in membres)
                         membre.Pv = membre.Pv - dégatMembre;
+
                     break;
                 case 2: //Perte de vie vaisseau
                     int dégatVaisseau = RandomNumber(1, 4);
                     infobox = new MessageDialog("Une panne restante a infligé "+dégatVaisseau+" point(s) de Dégat à votre vaisseau !","Information");
                     vaisseau.Pv = vaisseau.Pv - dégatVaisseau;
+
                     break;
                 case 3: //Perte de dés membres
                     int perteDés = RandomNumber(1, 4);
@@ -726,6 +726,7 @@ namespace TharsisRevolution
                         {
                             infobox = new MessageDialog("Une panne restante a fait perdre "+perteDés+" Dé(s) à tous les personnages !","Information");
                             membre.NombreDeDés = membre.NombreDeDés - perteDés;
+
                         }
                     }
                     break;
@@ -733,7 +734,11 @@ namespace TharsisRevolution
                     infobox = new MessageDialog("Vous n'avez subis aucun dommage en fin de semaine.","Information");
                     break;
             }
-            await infobox.ShowAsync();
+            if(infobox.Content.ToString() != "")
+            {
+                await infobox.ShowAsync();
+            }
+
         }
 
         /// <summary>
@@ -832,8 +837,7 @@ namespace TharsisRevolution
             await msgbox.ShowAsync();
             this.Frame.Navigate(typeof(Accueil));
         }
-
-        //############################################################################# IHM ##############################################################################
+                
         /// <summary>
         /// Permet de modifier le texte des semaines en fonction de la valeur du slider du temps
         /// </summary>
@@ -1230,7 +1234,7 @@ namespace TharsisRevolution
 
             int indexDeLaSalleDeDepart;
             int indexDeLaSalleChoisie;
-            MessageDialog infobox = new MessageDialog("");
+            MessageDialog infobox;
 
             switch (membre.Position.Type)
             {
@@ -1299,12 +1303,16 @@ namespace TharsisRevolution
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne", "Information");
                    // Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
                 if (indexDeLaSalleChoisie > 2 && indexDeLaSalleDeDepart == 1) //Depart de Pilotage vers Infirmerie ou plus loin
                 {
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
             }
             if (modules[2].EstEnPanne) // Infirmerie en Panne
@@ -1314,18 +1322,24 @@ namespace TharsisRevolution
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
                 if (indexDeLaSalleChoisie > 4 && (indexDeLaSalleDeDepart < 3 || indexDeLaSalleDeDepart == 4)) //Direction à droite de Infirmerie, départ à gauche Infirmerie ou Laboratoire
                 {
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
                 if (indexDeLaSalleChoisie < 3 && indexDeLaSalleDeDepart > 3) // Direction à gauche de l'Infirmerie, départ à droite de l'Infirmerie ou Laboratoire
                 {
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
             }
             if (modules[4].EstEnPanne) // Détente en Panne
@@ -1335,18 +1349,24 @@ namespace TharsisRevolution
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
                 if (indexDeLaSalleChoisie == 6 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 7)) // Direction Survie, Départ Maintenance ou à gauche de Détente
                 {
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
                 if (indexDeLaSalleChoisie < 5 && (indexDeLaSalleDeDepart > 5)) // Direction gauche de Détente, Départ Maintenance ou Survie
                 {
                     infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
                     //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
+                    await infobox.ShowAsync();
+
                 }
             }
 
@@ -1360,7 +1380,7 @@ namespace TharsisRevolution
             membres[membre.Id - 1].Position = modules[indexDeLaSalleChoisie - 1];
 
             Debug.WriteLine("Membre " + membres[membre.Id - 1].Role + " déplacé à la position " + membres[membre.Id - 1].Position.Type.ToString());
-            await infobox.ShowAsync();
+            UpdateUI();
         }
 
         /// <summary>
@@ -1790,6 +1810,11 @@ namespace TharsisRevolution
 
         }
 
+        /// <summary>
+        /// Fonction déclencher par l'appuie sur le bouton de fin de semaine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btnFinSemaine_Tapped(object sender, TappedRoutedEventArgs e)
         {
             MessageDialog msgbox = new MessageDialog(" Voulez-vous terminer la semaine ?");
@@ -1808,12 +1833,22 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction qui permet d'ajuster le volume de la musique de fond
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeVolume(object sender, RangeBaseValueChangedEventArgs e)
         {
             if (song != null)
                 song.Volume = (double)volumeSlider.Value / 100;
         }
 
+        /// <summary>
+        /// Fonction déclencher lors de l'appuie du bouton de sauvegarde
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btnSauvegarde_Click(object sender, RoutedEventArgs e)
         {
             var helper = new LocalObjectStorageHelper();
@@ -1845,6 +1880,11 @@ namespace TharsisRevolution
             await msg.ShowAsync();
         }
 
+        /// <summary>
+        /// Fonction déclencher lorsque le pointer de la souris entre dans la zone d'un personnage pour fournir des informations au joueur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rePerso_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             if (e.OriginalSource is FrameworkElement)
@@ -1861,6 +1901,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction déclencher lorsque le pointer de la souris sort dans la zone d'un personnage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rePerso_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             boPersoTip.Visibility = Visibility.Collapsed;

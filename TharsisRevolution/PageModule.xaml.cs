@@ -36,6 +36,13 @@ namespace TharsisRevolution
 
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
+
+        /// <summary>
+        /// Fonction de random entre 2 entiers
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static int RandomNumber(int min, int max)
         {
             lock (syncLock)
@@ -44,11 +51,19 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Constructeur, initialise les Component de l'UI
+        /// </summary>
         public PageModule()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Fonction appelée quand on navigate vers cette page, 
+        /// Initialisation des variables et possibles assignation des variables aux valeurs retransmises par les autres pages
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -189,6 +204,9 @@ namespace TharsisRevolution
             btLancer1.Foreground = new SolidColorBrush(Colors.Black);
         }
 
+        /// <summary>
+        /// Fonction à appeler à chaque changement dans l'UI
+        /// </summary>
         private void UpdateUI()
         {
             List<Image> imageList;
@@ -283,6 +301,11 @@ namespace TharsisRevolution
             btReparerValeur.Content = modules[indexCurrentModule].Panne.Dégat;
         }
 
+        /// <summary>
+        /// Fonction déclencher lors du clique sur le bouton Finir le déploiement du module pour le retour à la page principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonTerminer_Click(object sender, RoutedEventArgs e)
         {
             membres[indexCurrentMembre].AJoué = true;
@@ -291,6 +314,13 @@ namespace TharsisRevolution
             this.Frame.Navigate(typeof(MainPage), parameters);
         }
 
+        /// <summary>
+        /// Fonction qui permet le lancement des Dés d'un personnage aléatoirement
+        /// Vérifier si le pouvoir d'un personnage peut etre activé
+        /// Et gestion des Dés en mode difficile
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ButtonLancer_Click(object sender, RoutedEventArgs e)
         {
             btLancer1.Content = "Relancer";
@@ -372,8 +402,7 @@ namespace TharsisRevolution
                     bt_PouvoirSpe.Background = btTerminer.Background;
                     bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.White);
                 }
-
-                // TODO a verifier
+                
                 if (hardMode)
                 {
                     // Pour chaque dés dans le lancer
@@ -419,7 +448,12 @@ namespace TharsisRevolution
             }
         }
 
-
+        /// <summary>
+        /// Fonction activée lors du clic sur un des dés de la barre de lancer
+        ///Highlight et suppression de l'highlight en fonction de l'état du dé au moment du clic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void imDice_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (e.OriginalSource is FrameworkElement)
@@ -529,6 +563,10 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction que permet de réparer la panne d'un module en lui indiquant la valeur des Dés selectionner pour reparer la panne
+        /// </summary>
+        /// <param name="valeur"></param>
         private async void Réparer(int valeur)
         {
             int dégatAvant = modules[indexCurrentModule].Panne.Dégat;
@@ -579,6 +617,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction qui permet de mettre à jour l'affichage du niveau de la barre de vie du personnage dans le module
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvPersonnage(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -592,6 +635,10 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Fonction qui permet la vérification de l'utilisation du pouvoir du personnage dans le module
+        /// </summary>
+        /// <returns></returns>
         private bool PouvoirUtilisable()
         {
             if (nombreLancers == 3)
@@ -605,9 +652,7 @@ namespace TharsisRevolution
             }
             return false;
         }
-
-
-
+        
         /// <summary>
         /// Utilisation du pouvoir spécial onTap
         /// </summary>

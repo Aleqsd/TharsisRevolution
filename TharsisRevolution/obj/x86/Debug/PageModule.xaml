@@ -1,0 +1,131 @@
+﻿<Page
+    x:Class="TharsisRevolution.PageModule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TharsisRevolution"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel x:ConnectionId='1' x:Name="RelativeMain" Width="auto" Height="auto">
+        <RelativePanel.Background>
+            <ImageBrush x:ConnectionId='2' x:Name="Background_PageModule" ImageSource="Assets/FD_Module_Detente.png"></ImageBrush>
+        </RelativePanel.Background>
+
+        <!-- Affichage du titre du module actuel -->
+        <Border Background="Black" CornerRadius="4,4,4,4" BorderBrush="Gray" Width="520" Height="70" BorderThickness="2 2 2 2" RelativePanel.AlignLeftWithPanel="True" Margin="180">
+            <TextBlock x:ConnectionId='39' x:Name="rtTitreModule" Foreground="White" FontSize="45" Width="500" Height="50" RelativePanel.AlignLeftWithPanel="True" TextAlignment="Center"/>
+        </Border>
+        
+        <!-- Affichage du nom du personnage actuel -->
+        <TextBlock x:ConnectionId='3' x:Name="rtNomPersonnage" Foreground="White" FontSize="25" Width="500" Height="50" RelativePanel.AlignRightWithPanel="True" TextAlignment="Center" Margin="180,180,180,0" />
+        
+        <!-- Affichage de la barre de vie du personnage -->
+        <ProgressBar x:ConnectionId='4' x:Name="pg_Personnage"                                         SmallChange="1" Maximum="6" Width="350" Height="50"  VerticalAlignment="Center" Value="0" FontSize="36" Background="#33FFFFFF" BorderBrush="Black" Foreground="#FF4ED700" RequestedTheme="Light" RelativePanel.Below="rtNomPersonnage" RelativePanel.AlignVerticalCenterWith="" RelativePanel.AlignHorizontalCenterWith="rtNomPersonnage" />
+        <TextBlock x:ConnectionId='5' x:Name="lbl_PvPersonnage" Width="40" FontSize="35" Text="0" RelativePanel.AlignHorizontalCenterWith="pg_Personnage" RelativePanel.AlignTopWith="pg_Personnage"/>
+
+        <!-- Bouton permettant de retourner à la fenêtre principale -->
+        <Border Background="Gray" RelativePanel.AlignVerticalCenterWithPanel="True" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="2">
+            <Button x:ConnectionId='37' x:Name="btTerminer" RelativePanel.AlignRightWith="imFleche" Foreground="White" FontSize="20" FontWeight="Bold"                             >
+                <StackPanel Orientation="Horizontal">
+                    <Image x:ConnectionId='38' x:Name="imFleche" Width="50" Height="50" Source="/Assets/Custom-Icon-Design-Mono-General-3-Arrow-undo.ico"/>
+                    <TextBlock Padding="2" Text="Terminer le déploiement" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Border>
+        
+        <!-- Affichage du nombre de lancés de dés restant -->
+        <TextBlock x:ConnectionId='6' x:Name="tbLancesRestant" RelativePanel.Above="btLancer" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Foreground="White" FontSize="24" Margin="-161,-13,83,-5"/>
+        <Border x:ConnectionId='7' x:Name="btLancer" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="10,10,50,10">
+            <Button x:ConnectionId='36' x:Name="btLancer1"  Content="Lancer" Foreground="White" FontSize="40" FontWeight="Bold"                                                                                                                     />
+        </Border>
+        
+        <!-- Affichage d'informations diverse -->
+        <TextBlock x:ConnectionId='8' x:Name="Affichage" RelativePanel.Above="BorderBottom" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Text=""  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" HorizontalAlignment="Right" Margin="0,14,0,25"/>
+        
+        <!-- Affichage du bouton permettant d'utiliser le pouvoir spécial -->
+        <Border x:ConnectionId='9' x:Name="BorderPouvoir" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,10,10,10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Button x:ConnectionId='35' x:Name="bt_PouvoirSpe"  Content="Pouvoir spécial" Foreground="White" FontSize="40" FontWeight="Bold"                                                                                                                        />
+        </Border>
+        <!-- Et une aide pour indiquer quand le pouvoir peut être utilisé -->
+        <TextBlock x:ConnectionId='10' x:Name="DetailPouvoir" TextWrapping="Wrap" Foreground="White" Text="" FontSize="24" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="-328,-105,10,105" HorizontalAlignment="Center" />
+        
+        <!-- Partie utilisée pour l'affichage du nombre de points de panne et le bouton pour réparer -->
+        <Border x:ConnectionId='11' x:Name="BorderPanne" Background="Black" CornerRadius="4,4,4,4" BorderBrush="White" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <RelativePanel>
+                <TextBlock x:ConnectionId='33' x:Name="tbReparer" Text="Réparer" FontSize="40" FontWeight="Bold" Foreground="Gray"/>
+                <Border Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" Padding="5" Margin="10,50,10,10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbReparer">
+                    <Button x:ConnectionId='34' x:Name="btReparerValeur" Content="20" FontSize="40" FontWeight="Bold" Foreground="White"                                 IsEnabled="False" VerticalAlignment="Bottom"                                                                                          />
+                </Border>
+            </RelativePanel>
+        </Border>
+        
+        <!-- Affichage des dés de réparation -->
+        <Border x:ConnectionId='12' x:Name="BorderBottom" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Padding="5" Margin="2,-14,-2,14" >
+
+            <Grid x:ConnectionId='20' Width="500" Height="100" Name="grPilotage">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border x:ConnectionId='21' x:Name="boD1" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='32' x:Name="imgD1"                        Tag="null"                                                                                          ></Image>
+                </Border>
+                <Border x:ConnectionId='22' x:Name="boD2" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='31' x:Name="imgD2"                        Tag="null"                                                                                          ></Image>
+                </Border>
+                <Border x:ConnectionId='23' x:Name="boD3" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='30' x:Name="imgD3"                        Tag="null"                                                                                          ></Image>
+                </Border>
+                <Border x:ConnectionId='24' x:Name="boD4" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="3" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='29' x:Name="imgD4"                        Tag="null"                                                                                          ></Image>
+                </Border>
+                <Border x:ConnectionId='25' x:Name="boD5" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="4" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='28' x:Name="imgD5"                        Tag="null"                                                                                          ></Image>
+                </Border>
+                <Border x:ConnectionId='26' x:Name="boD6" BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="5" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='27' x:Name="imgD6"                        Tag="null"                                                                                          ></Image>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Affichage des dés du mode difficile -->
+        <Border x:ConnectionId='13' x:Name="BorderPiege" Background="Gray" CornerRadius="4,4,4,4" BorderBrush="Gray" BorderThickness="2 2 2 2" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10" Padding="5" >
+
+            <Grid x:ConnectionId='16' Width="300" Height="100" Name="grDesHardMode">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="0" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='19' x:Name="imgD7"></Image>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="1" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='18' x:Name="imgD8"></Image>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="2 2 2 2" Grid.Row="0" Grid.Column="2" CornerRadius="4,4,4,4" Background="Black">
+                    <Image x:ConnectionId='17' x:Name="imgD9"></Image>
+                </Border>
+
+            </Grid>
+        </Border>
+        
+        <!-- Informations diverse concernant les dés piegés -->
+        <TextBlock x:ConnectionId='14' x:Name="TooltipPiege" HorizontalAlignment="Center" Height="100" TextWrapping="Wrap" Text="" VerticalAlignment="Center" RelativePanel.Above="BorderPiege" Margin="10,0,-262,0" Width="314" FontSize="24" Foreground="White"/>
+        <MediaElement x:ConnectionId='15' x:Name="song" Source="Assets/Interstellar Main Theme.mp3" AudioCategory="BackgroundCapableMedia" Volume="0.3" IsLooping="True" ></MediaElement>
+    </RelativePanel>
+</Page>
+

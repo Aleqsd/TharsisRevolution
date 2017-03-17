@@ -698,47 +698,41 @@ namespace TharsisRevolution
         private async void PanneInfligeDégat(Module module)
         {            
             int typeDegat = RandomNumber(1, 4);
-            MessageDialog infobox = new MessageDialog("");
             switch (typeDegat)
             {                             
                 case 1: //Perte de vie membres
                     int dégatMembre = RandomNumber(1, 4);
-                    infobox = new MessageDialog("Une panne restante a infligé "+dégatMembre+" point(s) de Dégat à tous les personnages !","Information");
+                    MessageDialog infobox = new MessageDialog("Une panne restante a infligé "+dégatMembre+" point(s) de Dégat à tous les personnages !","Information");
                     foreach (Membre membre in membres)
                         membre.Pv = membre.Pv - dégatMembre;
-
+                    await infobox.ShowAsync();
                     break;
                 case 2: //Perte de vie vaisseau
                     int dégatVaisseau = RandomNumber(1, 4);
-                    infobox = new MessageDialog("Une panne restante a infligé "+dégatVaisseau+" point(s) de Dégat à votre vaisseau !","Information");
+                    MessageDialog infobox2 = new MessageDialog("Une panne restante a infligé "+dégatVaisseau+" point(s) de Dégat à votre vaisseau !","Information");
                     vaisseau.Pv = vaisseau.Pv - dégatVaisseau;
-
+                    await infobox2.ShowAsync();
                     break;
                 case 3: //Perte de dés membres
                     int perteDés = RandomNumber(1, 4);
                     foreach (Membre membre in membres)
                     {
                         if (membre.NombreDeDés - perteDés < 1)
-                        {
                             membre.NombreDeDés = 1;
-                        }
                         else
                         {
-                            infobox = new MessageDialog("Une panne restante a fait perdre "+perteDés+" Dé(s) à tous les personnages !","Information");
+                            MessageDialog infobox3 = new MessageDialog("Une panne restante a fait perdre "+perteDés+" Dé(s) à tous les personnages !","Information");
                             membre.NombreDeDés = membre.NombreDeDés - perteDés;
-
+                            await infobox3.ShowAsync();
                         }
                     }
                     break;
                 default:
-                    infobox = new MessageDialog("Vous n'avez subis aucun dommage en fin de semaine.","Information");
+                    MessageDialog infobox4 = new MessageDialog("Vous n'avez subis aucun dommage en fin de semaine.","Information");
+                    await infobox4.ShowAsync();
                     break;
             }
-            if(infobox.Content.ToString() != "")
-            {
-                await infobox.ShowAsync();
-            }
-
+            UpdateUI();
         }
 
         /// <summary>
@@ -775,17 +769,14 @@ namespace TharsisRevolution
         /// Gere les événements arrivant en fin de semaine, une fois que tous les membres ont joué.
         /// A appeler si MembresOntJoué()
         /// </summary>
-        private async void FinSemaine()
+        private void FinSemaine()
         {
             Debug.WriteLine("Fin semaine");
-            MessageDialog infobox = new MessageDialog("");
+            //MessageDialog infobox = new MessageDialog("");
             foreach (Membre membre in membres)
             {
                 if (membre.NombreDeDés > 1)
-                {
-                    infobox = new MessageDialog("Les personnages perdent leur dé de fin de semaine...","Fin de semaine");
                     membre.NombreDeDés--;                    
-                }
             }
 
             foreach (Module module in modules)
@@ -795,13 +786,14 @@ namespace TharsisRevolution
             }
 
             if (vaisseau.Pv < 1 || !unMembreEnVie())
+            {
                 Defaite();
+            }
 
-            if (numeroSemaine == 10 && vaisseau.Pv < 1 && unMembreEnVie())
+            if (numeroSemaine > 9 && vaisseau.Pv > 1 && unMembreEnVie())
                 Victoire();
 
             numeroSemaine++;
-            await infobox.ShowAsync();
         }
 
         /// <summary>
@@ -1918,7 +1910,7 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private async void btnAbandonner_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog msgbox = new MessageDialog("Etes vous certains de vouloir abandonner ?","Abandonner ?");
+            MessageDialog msgbox = new MessageDialog("Êtes-vous certain de vouloir abandonner ?","Abandonner ?");
             msgbox.Commands.Clear();
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });

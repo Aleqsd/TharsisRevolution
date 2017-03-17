@@ -668,7 +668,6 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private async void bt_PouvoirSpe_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            MessageDialog msg = new MessageDialog("");
             if (PouvoirUtilisable())
             {
                 bool is5InList = false;
@@ -718,7 +717,8 @@ namespace TharsisRevolution
                     if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Commandant))
                     {
                         Réparer(10);
-                        msg = new MessageDialog("Le Commandant a utilisé son pouvoir de réparation de la panne !", "Pouvoir");
+                        MessageDialog msg = new MessageDialog("Le Commandant a utilisé son pouvoir de réparation de la panne !", "Pouvoir");
+                        await msg.ShowAsync();
                     }
 
                     // Capitaine : +1 Dés pour chaque membre
@@ -730,7 +730,8 @@ namespace TharsisRevolution
                                 m.NombreDeDés++;
                         }
                         utilisationPouvoirCapitaine = true;
-                        msg = new MessageDialog("Le Capitaine a utilisé son pouvoir et offre 1 Dé à chaques personnages !", "Pouvoir");
+                        MessageDialog msg = new MessageDialog("Le Capitaine a utilisé son pouvoir et offre 1 Dé à chaques personnages !", "Pouvoir");
+                        await msg.ShowAsync();
                     }
 
                     // Docteur : +1 pv pour chaque membre
@@ -741,7 +742,8 @@ namespace TharsisRevolution
                             if (m.Pv < 6 && m.Pv > 0)
                                 m.Pv++;
                         }
-                        msg = new MessageDialog("Le Docteur a utilisé son pouvoir de guérison !", "Pouvoir");
+                        MessageDialog msg = new MessageDialog("Le Docteur a utilisé son pouvoir de guérison !", "Pouvoir");
+                        await msg.ShowAsync();
                     }
 
                     // Mécanicien : +1 pv au vaisseau
@@ -749,13 +751,14 @@ namespace TharsisRevolution
                     {
                         if (vaisseau.Pv < 10)
                             vaisseau.Pv++;
-                        msg = new MessageDialog("Le Mécanicien a utilisé son pouvoir de réparation du vaisseau !", "Pouvoir");
+                        MessageDialog msg = new MessageDialog("Le Mécanicien a utilisé son pouvoir de réparation du vaisseau !", "Pouvoir");
+                        await msg.ShowAsync();
 
                     }
                 }
                 UpdateUI();
                 pouvoirUtilisé++;
-                await msg.ShowAsync();
+                nombreLancers = 0;             
             }
         }
 

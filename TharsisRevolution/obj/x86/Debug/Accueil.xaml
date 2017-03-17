@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="TharsisRevolution.Accueil"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TharsisRevolution"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <RelativePanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="Auto" Height="Auto">
+        <RelativePanel.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Mars.png"/>
+        </RelativePanel.Background>
+        <!--Fond vidéo en boucle de l'écran du menu-->
+        <MediaElement Source="Assets/LoopMenu.mp4" AutoPlay="True" Width="1920" Height="1080" IsLooping="True" Volume="0.5"></MediaElement>
+        
+        <!--Bouton du lancement du jeu-->
+        <Button x:ConnectionId='1' x:Name="btn_Jouer" Content="Jouer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF"                        />
+        
+        <!--Permet le choix du mode de difficulté du jeu-->
+        <ComboBox x:ConnectionId='2' x:Name="cb_Difficulté" RelativePanel.Below="btn_Jouer" Width="180" Height="40" VerticalAlignment="Top" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Background="#33FFFFFF" />
+        <TextBlock x:ConnectionId='3' x:Name="textBox" Foreground="White"  HorizontalAlignment="Left" Height="200" TextWrapping="Wrap" Text="Tharsis" VerticalAlignment="Top" Width="Auto"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="100" FontFamily="Showcard Gothic"/>
+        
+        <!--Musique en boucle du menu du jeu-->
+        <MediaElement x:ConnectionId='4' x:Name="MusiqueIntro" Source="Assets/AcceuiSoundTrack.mp3" AudioCategory="BackgroundCapableMedia" Volume="1" AutoPlay="False"></MediaElement>
+        
+        <!--Permet de cacher le menu le temps que l'intro vidéo ce lance-->
+        <Rectangle x:ConnectionId='5' x:Name="FDNoir" Fill="Black" Width="1920" Height="1080"></Rectangle>
+        
+        <!--Vidéo d'introduction du jeu-->
+        <MediaElement x:ConnectionId='6' x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="1" Canvas.ZIndex="1" IsFullWindow="True"                                                />
+
+        <!--Bouton qui permet de charger la partie enregistrée précédemment-->
+        <Button x:ConnectionId='7' x:Name="btn_Load" Content="Charger" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top"                          RelativePanel.Below="cb_Difficulté" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
+        
+        <!--Bouton qui permet de fermer proprement le jeu-->
+        <Button x:ConnectionId='8' x:Name="btn_Quitter" Content="Quitter" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top"                             RelativePanel.Below="btn_Load" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
+    </RelativePanel>
+</Page>
+

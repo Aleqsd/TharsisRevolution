@@ -203,6 +203,7 @@
     <Content Include="Assets\Module_Serre_HightLight.png" />
     <Content Include="Assets\Module_Survie2.png" />
     <Content Include="Assets\Module_Survie_HightLight.png" />
+    <Content Include="Assets\mort.jpg" />
     <Content Include="Assets\original.gif" />
     <Content Include="Assets\Space.png" />
     <Content Include="Assets\Tharsis Intro.mp4" />

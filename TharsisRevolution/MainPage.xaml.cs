@@ -17,25 +17,22 @@ using Windows.UI.Xaml.Navigation;
 // --- HIGH PRIORITY ---
 
 // === BACK-END ===
-// TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule
-// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
+// TODO bien voir quand les boutons s'activent et se désactivent dans la pagemodule //
+// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT // Fait
 // TODO Afficher instructions de jeu
 // TODO Bug d'application apres avoir fait a mainte reprise finir semaine, en laissant les pannes remplir tous les modules
+// TODO Bug lorsque le personnage est mort on pouvait le déployer et jouer avec dans la page module // Résolue
 
 // === FRONT-END ===
-// TODO faire des popups pour blessures, pertes de dés, explosion de pannes, game saved et game loaded, pas de save, PARTOUT
-// TODO Afficher instructions de jeu
-// TODO Bouton retour au menu dans MainPage
-// TODO ne pas lier d'element relative a la border de la réparation car elle disparaît (cf le textbox du nom du membre et sa barre de vie)
-// TODO afficher la mort (tete de mort?)
+// TODO Bouton retour au menu dans MainPage//Fait
+// TODO ne pas lier d'element relative a la border de la réparation car elle disparaît (cf le textbox du nom du membre et sa barre de vie)//Fait
+// TODO afficher la mort (tete de mort?) // Fait
 
 // --- MEDIUM PRIORITY ---
 // TODO Ajouter du fun (un nyan cat ?)
-// TODO faire continuer la musique même dans un module, possible ?
 
 // --- LOW PRIORITY ---
 // TODO ajouter volume à la sauvegarde
-
 
 // --- JUSTE AVANT DE RENDRE LE PROJET ---
 // TODO supprimer les using ou fonctions inutilisées
@@ -62,7 +59,6 @@ namespace TharsisRevolution
         private int columnCurrentModule;
         SolidColorBrush color_Blanc = new SolidColorBrush(Colors.White);
         SolidColorBrush color_Black = new SolidColorBrush(Colors.Black);
-        private MessageDialog infobox;
         // Bonne fonction randon
         private static readonly Random rdm = new Random();
         private static readonly object syncLock = new object();
@@ -702,17 +698,20 @@ namespace TharsisRevolution
         /// </summary>
         /// <param name="module"></param>
         private async void PanneInfligeDégat(Module module)
-        {
+        {            
             int typeDegat = RandomNumber(1, 4);
+            MessageDialog infobox = new MessageDialog("");
             switch (typeDegat)
-            {
+            {                
                 case 1: //Perte de vie membres
                     int dégatMembre = RandomNumber(1, 4);
+                    infobox = new MessageDialog("Une panne restante a infligé "+dégatMembre+" point(s) de Dégat à tous les personnages !","Information");
                     foreach (Membre membre in membres)
                         membre.Pv = membre.Pv - dégatMembre;
                     break;
                 case 2: //Perte de vie vaisseau
                     int dégatVaisseau = RandomNumber(1, 4);
+                    infobox = new MessageDialog("Une panne restante a infligé "+dégatVaisseau+" point(s) de Dégat à votre vaisseau !","Information");
                     vaisseau.Pv = vaisseau.Pv - dégatVaisseau;
                     break;
                 case 3: //Perte de dés membres
@@ -720,16 +719,21 @@ namespace TharsisRevolution
                     foreach (Membre membre in membres)
                     {
                         if (membre.NombreDeDés - perteDés < 1)
+                        {
                             membre.NombreDeDés = 1;
+                        }
                         else
                         {
+                            infobox = new MessageDialog("Une panne restante a fait perdre "+perteDés+" Dé(s) à tous les personnages !","Information");
                             membre.NombreDeDés = membre.NombreDeDés - perteDés;
                         }
                     }
                     break;
                 default:
+                    infobox = new MessageDialog("Vous n'avez subis aucun dommage en fin de semaine.","Information");
                     break;
             }
+            await infobox.ShowAsync();
         }
 
         /// <summary>
@@ -766,14 +770,15 @@ namespace TharsisRevolution
         /// Gere les evenements arrivant en fin de semaine, une fois que tous les membres ont joués
         /// A appeler si MembresOntJoué()
         /// </summary>
-        private void FinSemaine()
+        private async void FinSemaine()
         {
             Debug.WriteLine("Fin semaine");
-            
+            MessageDialog infobox = new MessageDialog("");
             foreach (Membre membre in membres)
             {
                 if (membre.NombreDeDés > 1)
                 {
+                    infobox = new MessageDialog("Les personnages perdent leur dé de fin de semaine...","Fin de semaine");
                     membre.NombreDeDés--;                    
                 }
             }
@@ -791,6 +796,7 @@ namespace TharsisRevolution
                 Victoire();
 
             numeroSemaine++;
+            await infobox.ShowAsync();
         }
 
         /// <summary>
@@ -839,6 +845,11 @@ namespace TharsisRevolution
             this.lbl_TimeSemaine.Text = msg;
         }
 
+        /// <summary>
+        /// Permet de modifier l'indicateur du niveau de la progressebar du vaisseau
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvShip(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -852,6 +863,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage commandant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvCommandant(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -865,6 +881,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage capitaine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvCapitaine(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -878,6 +899,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage Docteur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvDocteur(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -891,6 +917,11 @@ namespace TharsisRevolution
             }
         }
 
+        /// <summary>
+        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage Mecanicien 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void progressBar_PvMeca(object sender, RangeBaseValueChangedEventArgs e)
         {
             string msg = String.Format("{0}", e.NewValue);
@@ -911,8 +942,11 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void Meca_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
-            HightLight_Personnage(Membre.roleMembre.Mécanicien);
-            indexCurrentClickMembre = 3;
+            if(membres[3].Pv > 0)
+            {
+                HightLight_Personnage(Membre.roleMembre.Mécanicien);
+                indexCurrentClickMembre = 3;
+            }
         }
 
         /// <summary>
@@ -922,8 +956,12 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void Doc_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
-            HightLight_Personnage(Membre.roleMembre.Docteur);
-            indexCurrentClickMembre = 2;
+            if(membres[2].pv > 0)
+            {
+                HightLight_Personnage(Membre.roleMembre.Docteur);
+                indexCurrentClickMembre = 2;
+            }
+            
         }
 
         /// <summary>
@@ -933,8 +971,11 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void Capitaine_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
-            HightLight_Personnage(Membre.roleMembre.Capitaine);
-            indexCurrentClickMembre = 1;
+            if (membres[1].Pv > 0)
+            {
+                HightLight_Personnage(Membre.roleMembre.Capitaine);
+                indexCurrentClickMembre = 1;
+            }
         }
 
         /// <summary>
@@ -944,8 +985,11 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void Commandant_HightLight_OnClick(object sender, TappedRoutedEventArgs e)
         {
-            HightLight_Personnage(Membre.roleMembre.Commandant);
-            indexCurrentClickMembre = 0;
+            if (membres[0].Pv > 0)
+            {
+                HightLight_Personnage(Membre.roleMembre.Commandant);
+                indexCurrentClickMembre = 0;
+            }
         }
 
         /// <summary>
@@ -975,13 +1019,17 @@ namespace TharsisRevolution
                 Canvas.SetZIndex(reDocteur, 0);
                 Canvas.SetZIndex(reMeca, 0);
 
-                this.imLogoCommandant.Source = commandant;
-                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoDocteur.Source = doc;
-                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoMeca.Source = meca;
-                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
+                if(membres[0].Pv > 0)                
+                    this.imLogoCommandant.Source = commandant;                
+                if(membres[2].Pv > 0)                
+                    this.imLogoDocteur.Source = doc;                
+                if(membres[3].Pv > 0)
+                    this.imLogoMeca.Source = meca;
+                
 
+                this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
             }
             else if (perso == Membre.roleMembre.Commandant)
             {
@@ -992,14 +1040,17 @@ namespace TharsisRevolution
                 Canvas.SetZIndex(reCommandant, 1);
                 Canvas.SetZIndex(reDocteur, 0);
                 Canvas.SetZIndex(reMeca, 0);
+                                
+                if (membres[1].Pv > 0)
+                    this.imLogoCapitaine.Source = capitaine;
+                if (membres[2].Pv > 0)
+                    this.imLogoDocteur.Source = doc;
+                if (membres[3].Pv > 0)
+                    this.imLogoMeca.Source = meca;
 
-                this.imLogoCapitaine.Source = capitaine;
                 this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoDocteur.Source = doc;
                 this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoMeca.Source = meca;
                 this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
-
             }
             else if (perso == Membre.roleMembre.Docteur)
             {
@@ -1011,13 +1062,16 @@ namespace TharsisRevolution
                 Canvas.SetZIndex(reDocteur, 1);
                 Canvas.SetZIndex(reMeca, 0);
 
-                this.imLogoCommandant.Source = commandant;
-                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoCapitaine.Source = capitaine;
-                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoMeca.Source = meca;
-                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
+                if (membres[0].Pv > 0)
+                    this.imLogoCommandant.Source = commandant;
+                if (membres[1].Pv > 0)
+                    this.imLogoCapitaine.Source = capitaine;
+                if (membres[3].Pv > 0)
+                    this.imLogoMeca.Source = meca;
 
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
+                this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
+                this.reMeca.BorderBrush = new SolidColorBrush(Colors.Black);
             }
             else if (perso == Membre.roleMembre.Mécanicien)
             {
@@ -1029,12 +1083,16 @@ namespace TharsisRevolution
                 Canvas.SetZIndex(reDocteur, 0);
                 Canvas.SetZIndex(reMeca, 1);
 
-                this.imLogoCommandant.Source = commandant;
-                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoDocteur.Source = doc;
+                if (membres[0].Pv > 0)
+                    this.imLogoCommandant.Source = commandant;
+                if (membres[1].Pv > 0)
+                    this.imLogoCapitaine.Source = capitaine;
+                if (membres[2].Pv > 0)
+                    this.imLogoDocteur.Source = doc;
+
                 this.reDocteur.BorderBrush = new SolidColorBrush(Colors.Black);
-                this.imLogoCapitaine.Source = capitaine;
                 this.reCapitaine.BorderBrush = new SolidColorBrush(Colors.Black);
+                this.reCommandant.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }
 
@@ -1166,12 +1224,13 @@ namespace TharsisRevolution
         /// </summary>
         /// <param name="membre"></param>
         /// <param name="moduleDestination"></param>
-        private void Deplacement(Membre membre, Module moduleDestination)
+        private async void Deplacement(Membre membre, Module moduleDestination)
         {
             // Variable du deplacement du personnage
 
             int indexDeLaSalleDeDepart;
             int indexDeLaSalleChoisie;
+            MessageDialog infobox = new MessageDialog("");
 
             switch (membre.Position.Type)
             {
@@ -1237,12 +1296,14 @@ namespace TharsisRevolution
             {
                 if (indexDeLaSalleChoisie == 1 && indexDeLaSalleDeDepart > 2) //Direction Pilotage depuis Infirmerie ou plus loin
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne", "Information");
+                   // Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
                     membres[membre.Id - 1].Pv--;
                 }
                 if (indexDeLaSalleChoisie > 2 && indexDeLaSalleDeDepart == 1) //Depart de Pilotage vers Infirmerie ou plus loin
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Serre en panne";
                     membres[membre.Id - 1].Pv--;
                 }
             }
@@ -1250,17 +1311,20 @@ namespace TharsisRevolution
             {
                 if (indexDeLaSalleChoisie == 4 && (indexDeLaSalleDeDepart != 3 && indexDeLaSalleDeDepart != 4)) // Direction Laboratoire si départ n'est pas Infirmerie ou Laboratoire
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
                 }
                 if (indexDeLaSalleChoisie > 4 && (indexDeLaSalleDeDepart < 3 || indexDeLaSalleDeDepart == 4)) //Direction à droite de Infirmerie, départ à gauche Infirmerie ou Laboratoire
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
                 }
                 if (indexDeLaSalleChoisie < 3 && indexDeLaSalleDeDepart > 3) // Direction à gauche de l'Infirmerie, départ à droite de l'Infirmerie ou Laboratoire
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant l'Infirmerie en panne";
                     membres[membre.Id - 1].Pv--;
                 }
             }
@@ -1268,17 +1332,20 @@ namespace TharsisRevolution
             {
                 if (indexDeLaSalleChoisie == 7 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 6)) // Direction Maintenance, Départ Survie ou à gauche de Détente
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
                 }
                 if (indexDeLaSalleChoisie == 6 && (indexDeLaSalleDeDepart < 5 || indexDeLaSalleDeDepart == 7)) // Direction Survie, Départ Maintenance ou à gauche de Détente
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
                 }
                 if (indexDeLaSalleChoisie < 5 && (indexDeLaSalleDeDepart > 5)) // Direction gauche de Détente, Départ Maintenance ou Survie
                 {
-                    Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
+                    infobox = new MessageDialog("Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne", "Information");
+                    //Affichage.Text = "Le " + membres[membre.Id - 1].Role.ToString() + " a subit 1 dégat en traversant la Salle de détente en panne";
                     membres[membre.Id - 1].Pv--;
                 }
             }
@@ -1293,6 +1360,7 @@ namespace TharsisRevolution
             membres[membre.Id - 1].Position = modules[indexDeLaSalleChoisie - 1];
 
             Debug.WriteLine("Membre " + membres[membre.Id - 1].Role + " déplacé à la position " + membres[membre.Id - 1].Position.Type.ToString());
+            await infobox.ShowAsync();
         }
 
         /// <summary>
@@ -1301,9 +1369,17 @@ namespace TharsisRevolution
         private async void Deplacement_PersonnageToCurrentModule()
         {
             if (membres[indexCurrentClickMembre].AJoué) // A déjà joué
-                Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " a déjà joué";
+            {
+                MessageDialog infoJouer = new MessageDialog("Le " + membres[indexCurrentClickMembre].Role.ToString() + " a déjà joué.", "Information");
+                // Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " a déjà joué";
+                await infoJouer.ShowAsync();
+            }
             else if (membres[indexCurrentClickMembre].Pv == 0) // Mort
-                Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " est mort";
+            {
+                MessageDialog infoMort = new MessageDialog("Le " + membres[indexCurrentClickMembre].Role.ToString() + " est mort.", "Information");
+                //Affichage.Text = "Le " + membres[indexCurrentClickMembre].Role.ToString() + " est mort";
+                await infoMort.ShowAsync();
+            }
             else
             {
                 MessageDialog msgbox = new MessageDialog("Voulez vous déplacer le " + membres[indexCurrentClickMembre].Role.ToString() + " dans le module : '" + modules[indexCurrentClickModule].Type.ToString() + "' ?", "Déplacement Personnage ?");
@@ -1320,7 +1396,7 @@ namespace TharsisRevolution
                         {
                             Deplacement(membres[2], modules[indexCurrentClickModule]); // Déplacement
 
-                            if (modules[indexCurrentClickModule].EstEnPanne) // Déploiement seulemetn si le module est en panne
+                            if (modules[indexCurrentClickModule].EstEnPanne && (membres[2].Pv > 0)) // Déploiement seulemetn si le module est en panne et le personnage non mort
                                 Creation_Btn_Deploiement();
                         }
                         break;
@@ -1330,7 +1406,7 @@ namespace TharsisRevolution
                         {
                             Deplacement(membres[3], modules[indexCurrentClickModule]);
 
-                            if (modules[indexCurrentClickModule].EstEnPanne)
+                            if (modules[indexCurrentClickModule].EstEnPanne && (membres[3].Pv > 0))
                                 Creation_Btn_Deploiement();
                         }
                         break;
@@ -1340,7 +1416,7 @@ namespace TharsisRevolution
                         {
                             Deplacement(membres[1], modules[indexCurrentClickModule]);
 
-                            if (modules[indexCurrentClickModule].EstEnPanne)
+                            if (modules[indexCurrentClickModule].EstEnPanne && (membres[1].Pv > 0))
                                 Creation_Btn_Deploiement();
                         }
                         break;
@@ -1350,7 +1426,7 @@ namespace TharsisRevolution
                         {
                             Deplacement(membres[0], modules[indexCurrentClickModule]);
 
-                            if (modules[indexCurrentClickModule].EstEnPanne)
+                            if (modules[indexCurrentClickModule].EstEnPanne && (membres[0].Pv > 0))
                                 Creation_Btn_Deploiement();
                         }
                         break;
@@ -1366,6 +1442,7 @@ namespace TharsisRevolution
         /// </summary>
         private void InitialiserUIPersonnages()
         {
+            BitmapImage imgMort = new BitmapImage(new Uri("ms-appx:///Assets/mort.jpg"));
             int marginLevel = 0;
             Thickness margin;
             foreach (Membre membre in membres)
@@ -1384,6 +1461,12 @@ namespace TharsisRevolution
                             lbl_Commandant.Foreground = new SolidColorBrush(Colors.DimGray);
                         else
                             lbl_Commandant.Foreground = new SolidColorBrush(Colors.White);
+
+                        if (membre.Pv < 1)
+                        {
+                            imLogoCommandant.Source = imgMort;
+                            reCommandant.IsTapEnabled = false;
+                        }
 
                         break;
                     case Membre.roleMembre.Capitaine:
@@ -1406,6 +1489,12 @@ namespace TharsisRevolution
                             lbl_Capitaine.Foreground = new SolidColorBrush(Colors.DimGray);
                         else
                             lbl_Capitaine.Foreground = new SolidColorBrush(Colors.White);
+
+                        if (membre.Pv < 1)
+                        {
+                            imLogoCapitaine.Source = imgMort;
+                            reCapitaine.IsTapEnabled = false;
+                        }
 
                         break;
                     case Membre.roleMembre.Docteur:
@@ -1430,6 +1519,13 @@ namespace TharsisRevolution
                             lbl_Docteur.Foreground = new SolidColorBrush(Colors.DimGray);
                         else
                             lbl_Docteur.Foreground = new SolidColorBrush(Colors.White);
+
+                        if (membre.Pv < 1)
+                        {
+                            imLogoDocteur.Source = imgMort;
+                            reDocteur.IsTapEnabled = false;
+
+                        }
 
                         break;
                     case Membre.roleMembre.Mécanicien:
@@ -1456,6 +1552,13 @@ namespace TharsisRevolution
                             lbl_Mecanicien.Foreground = new SolidColorBrush(Colors.DimGray);
                         else
                             lbl_Mecanicien.Foreground = new SolidColorBrush(Colors.White);
+
+                        if (membre.Pv < 1)
+                        {
+                            imLogoMeca.Source = imgMort;
+                            reMeca.IsTapEnabled = false;
+
+                        }
 
                         break;
                     default:
@@ -1695,9 +1798,9 @@ namespace TharsisRevolution
             msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
 
-            var resDoc = await msgbox.ShowAsync();
+            var res = await msgbox.ShowAsync();
 
-            if ((int)resDoc.Id == 0)
+            if ((int)res.Id == 0)
             {
                 FinSemaine();
                 NouvelleSemaine();
@@ -1711,7 +1814,7 @@ namespace TharsisRevolution
                 song.Volume = (double)volumeSlider.Value / 100;
         }
 
-        private void btnSauvegarde_Click(object sender, RoutedEventArgs e)
+        private async void btnSauvegarde_Click(object sender, RoutedEventArgs e)
         {
             var helper = new LocalObjectStorageHelper();
 
@@ -1737,6 +1840,9 @@ namespace TharsisRevolution
 
             helper.Save("indexCurrentClickMembre", indexCurrentClickMembre);
             helper.Save("indexCurrentClickModule", indexCurrentClickModule);
+
+            MessageDialog msg = new MessageDialog("Partie sauvegardé !","Sauvegarde");
+            await msg.ShowAsync();
         }
 
         private void rePerso_PointerEntered(object sender, PointerRoutedEventArgs e)

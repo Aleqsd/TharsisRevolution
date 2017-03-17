@@ -487,7 +487,7 @@ namespace TharsisRevolution
                         indexDé = 4;
                         break;
                     case "imgD6":
-                        indexDé = 7;
+                        indexDé = 5;
                         break;
                     default:
                         break;

@@ -10,7 +10,7 @@
     <RelativePanel Width="auto" Height="auto" >
         <Image gif:AnimationBehavior.SourceUri="/Assets/original.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Margin="-243,-497,-1857,-724" RenderTransformOrigin="0.5,0.5" />
 
-        <!-- Tooltip affiché lors du survol d'un personnage destiné a afficher des informations sur celui-ci -->
+        <!-- Tooltip affiché lors du survol d'un personnage destiné à afficher des informations sur celui-ci -->
         <Border x:Name="boPersoTip" Width="200" Height="120" Margin="20" Padding="5" CornerRadius="4,4,4,4" Visibility="Collapsed" BorderBrush="Gray" BorderThickness="3" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <RelativePanel>
                 <TextBlock x:Name="tbPersoPouvoirTip" TextWrapping="Wrap" FontSize="15" Foreground="White"/>
@@ -44,8 +44,8 @@
         <!-- Gestion du son -->
         <Slider x:Name="volumeSlider" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="140" Background="#66FFFFFF" Maximum="100" LargeChange="20" SmallChange="10" ValueChanged="ChangeVolume" Value="50" StepFrequency="10" TickFrequency="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Margin="10,-54,-10,0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" Text="Volume" VerticalAlignment="Top" Foreground="White" RelativePanel.Above="volumeSlider" Margin="55,-72,-55,0"/>
-        
-        <!-- Divers boutons servant a abandonner, sauvegarder ou bien finir la semaine -->
+
+        <!-- Divers boutons servant à abandonner, sauvegarder ou terminer la semaine -->
         <Button x:Name="btnAbandonner" Content="Abandonner" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnAbandonner_Click" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,5"/>
         <Button x:Name="btnSauvegarde" Content="Sauvegarder" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="42" Width="141" Click="btnSauvegarde_Click" RelativePanel.AlignBottomWith="" RelativePanel.Above="btnAbandonner" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,5"/>
         <Button x:Name="btnFinSemaine" Content="Finir Semaine" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Tapped="btnFinSemaine_Tapped" Height="42" Width="141" RelativePanel.Above="btnSauvegarde" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,10"/>

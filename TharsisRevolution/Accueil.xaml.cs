@@ -15,7 +15,7 @@ namespace TharsisRevolution
         private bool hardMode = false;
 
         /// <summary>
-        /// Constructeur, initialise le fullscreen et les élements de l'UI
+        /// Constructeur, initialise le fullscreen et les éléments de l'UI.
         /// </summary>
         public Accueil()
         {
@@ -86,7 +86,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Load la game précédement sauvegardée (fichier local)
+        /// Load la game précédemment sauvegardée (fichier local).
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

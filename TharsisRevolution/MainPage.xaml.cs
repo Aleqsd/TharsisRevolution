@@ -419,7 +419,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de rafficher la souris lors que l'on sort de l'image de la panne
+        /// Permet de réafficher la souris lorsque l'on sort de l'image de la panne
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -450,7 +450,7 @@ namespace TharsisRevolution
             //Initialisation Vaisseau
             vaisseau = new Vaisseau();
 
-            //Initialisation des Moduless //modif thomas (proposition)
+            //Initialisation des Modules
             modules = new List<Module> {
                 new Module(Module.moduleType.PostePilotage,Grid.GetColumn(PostePilotage),Grid.GetRow(PostePilotage)),
                 new Module(Module.moduleType.Serre,Grid.GetColumn(Serre),Grid.GetRow(Serre)),
@@ -471,14 +471,14 @@ namespace TharsisRevolution
 
             int randomModule = RandomNumber(0, 7); //va de 0 à 6, à verifier
 
-            // Positionnement des membres dans les modules // modif Thomas (pas certain mais proposition)
+            // Positionnement des membres dans les modules
             for (int i = 0; i < 4; i++)
             {
-                //Tant qu'on tombe sur un module avec um membre à l'interieur, recommencer.
+                //Tant qu'on tombe sur un module avec un membre à l'interieur, recommencer le random.
                 while (modules[randomModule].PresenceMembre)
                     randomModule = RandomNumber(0, 7);
                 membres[i].Position = modules[randomModule];
-                modules[randomModule].PresenceMembre = true; //thomas (permet de faire fonctionner ta boucle while au dessus)
+                modules[randomModule].PresenceMembre = true;
             }
 
             //Initialisation Semaine
@@ -772,7 +772,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Gere les evenements arrivant en fin de semaine, une fois que tous les membres ont joués
+        /// Gere les événements arrivant en fin de semaine, une fois que tous les membres ont joué.
         /// A appeler si MembresOntJoué()
         /// </summary>
         private async void FinSemaine()
@@ -805,7 +805,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Renvoi true au moins un membre est en vie (condition vicotire)
+        /// Renvoi true si au moins un membre est en vie (condition vicotire).
         /// </summary>
         /// <returns></returns>
         private bool unMembreEnVie()
@@ -819,7 +819,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Declenche la Défaite
+        /// Déclenche la Défaite
         /// </summary>
         private async void Defaite()
         {
@@ -833,7 +833,7 @@ namespace TharsisRevolution
         /// </summary>
         private async void Victoire()
         {
-            MessageDialog msgbox = new MessageDialog("Bravo, vous avez gagner !", "Victoire");
+            MessageDialog msgbox = new MessageDialog("Bravo, vous avez gagné !", "Victoire");
             await msgbox.ShowAsync();
             this.Frame.Navigate(typeof(Accueil));
         }
@@ -850,7 +850,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de modifier l'indicateur du niveau de la progressebar du vaisseau
+        /// Permet de modifier l'indicateur du niveau de la progressbar  du vaisseau
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -868,7 +868,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage commandant
+        /// Permet de modifier l'indicateur du niveau de la progressbar  du personnage commandant
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -886,7 +886,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage capitaine
+        /// Permet de modifier l'indicateur du niveau de la progressbar  du personnage capitaine
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -904,7 +904,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage Docteur
+        /// Permet de modifier l'indicateur du niveau de la progressbar  du personnage Docteur
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -922,7 +922,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Permet de modifier l'indicateur du niveau de la progressebar du personnage Mecanicien 
+        /// Permet de modifier l'indicateur du niveau de la progressbar  du personnage Mecanicien 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -940,7 +940,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction pour affichage lumineux à la selection du personnage MEcanicien
+        /// Fonction pour affichage lumineux à la sélection du personnage Mécanicien.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -954,7 +954,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction pour affichage lumineux à la selection du personnage Docteur
+        /// Fonction pour affichage lumineux à la sélection du personnage Docteur.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -969,7 +969,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction pour affichage lumineux à la selection du personnage Capitaine
+        /// Fonction pour affichage lumineux à la sélection du personnage Capitaine.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -983,7 +983,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction pour affichage lumineux à la selection du personnage Commandant
+        /// Fonction pour affichage lumineux à la sélection du personnage Commandant.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

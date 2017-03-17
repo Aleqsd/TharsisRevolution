@@ -28,7 +28,7 @@ namespace TharsisRevolution
         private int nombreLancers = 3;
         private Vaisseau vaisseau;
         private int numeroSemaine;
-        private bool pouvoirUtilisé = false;
+        private int pouvoirUtilisé = 0;
         private bool utilisationPouvoirCapitaine = false;
         private bool gameStarted = true;
         private string tooltipPiege;
@@ -60,7 +60,7 @@ namespace TharsisRevolution
         }
 
         /// <summary>
-        /// Fonction appelée quand on navigate vers cette page, 
+        /// Fonction appelée quand on navigate vers cette page,
         /// Initialisation des variables et possibles assignation des variables aux valeurs retransmises par les autres pages
         /// </summary>
         /// <param name="e"></param>
@@ -323,128 +323,136 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private async void ButtonLancer_Click(object sender, RoutedEventArgs e)
         {
-            btLancer1.Content = "Relancer";
-
-            if (nombreLancers == 3)
-            {
-                lancer = new List<Dé>(new Dé[membres[indexCurrentMembre].NombreDeDés]);
-                Debug.WriteLine("Lancer de " + membres[indexCurrentMembre].NombreDeDés + " dés");
-            }
-
-            if (nombreLancers == 1)
+            if (pouvoirUtilisé > 0)
             {
                 btLancer1.Background = btTerminer.Background;
                 btLancer1.Foreground = new SolidColorBrush(Colors.White);
             }
-
-            if (nombreLancers > 0)
+            else
             {
-                List<Image> imageList;
-                switch (membres[indexCurrentMembre].NombreDeDés)
+                btLancer1.Content = "Relancer";
+
+                if (nombreLancers == 3)
                 {
-                    case 1:
-                        imageList = new List<Image> { imgD1 };
-                        break;
-                    case 2:
-                        imageList = new List<Image> { imgD1, imgD2 };
-                        break;
-                    case 3:
-                        imageList = new List<Image> { imgD1, imgD2, imgD3 };
-                        break;
-                    case 4:
-                        imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4 };
-                        break;
-                    case 5:
-                        imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5 };
-                        break;
-                    case 6:
-                        imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
-                        break;
-                    default:
-                        imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
-                        break;
+                    lancer = new List<Dé>(new Dé[membres[indexCurrentMembre].NombreDeDés]);
+                    Debug.WriteLine("Lancer de " + membres[indexCurrentMembre].NombreDeDés + " dés");
                 }
-                Random rnd = new Random();
 
-                int j = 0;
-
-                foreach (Image i in imageList)
+                if (nombreLancers == 1)
                 {
-                    //Griser Dé si le dé est piégé en hardmode, animation, ou message ?
+                    btLancer1.Background = btTerminer.Background;
+                    btLancer1.Foreground = new SolidColorBrush(Colors.White);
+                }
 
-                    // new Dé cré un dé à valeur random
-                    if (nombreLancers == 3)
+                if (nombreLancers > 0)
+                {
+                    List<Image> imageList;
+                    switch (membres[indexCurrentMembre].NombreDeDés)
                     {
-                        // Création de la liste de dé, de X dés en fonction du nombre de dés du membre
-                        lancer[j] = new Dé();
-                        i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
-                        i.Tag = "D" + lancer[j].Valeur + ".png";
+                        case 1:
+                            imageList = new List<Image> { imgD1 };
+                            break;
+                        case 2:
+                            imageList = new List<Image> { imgD1, imgD2 };
+                            break;
+                        case 3:
+                            imageList = new List<Image> { imgD1, imgD2, imgD3 };
+                            break;
+                        case 4:
+                            imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4 };
+                            break;
+                        case 5:
+                            imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5 };
+                            break;
+                        case 6:
+                            imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
+                            break;
+                        default:
+                            imageList = new List<Image> { imgD1, imgD2, imgD3, imgD4, imgD5, imgD6 };
+                            break;
                     }
-                    else
+                    Random rnd = new Random();
+
+                    int j = 0;
+
+                    foreach (Image i in imageList)
                     {
-                        if (lancer[j].Type.Equals(déType.Normal) || lancer[j].Type.Equals(déType.Bléssure))
+                        //Griser Dé si le dé est piégé en hardmode, animation, ou message ?
+
+                        // new Dé cré un dé à valeur random
+                        if (nombreLancers == 3)
                         {
+                            // Création de la liste de dé, de X dés en fonction du nombre de dés du membre
                             lancer[j] = new Dé();
                             i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
                             i.Tag = "D" + lancer[j].Valeur + ".png";
                         }
-                    }
-                    j++;
-                }
-
-                if (PouvoirUtilisable())
-                {
-                    bt_PouvoirSpe.Background = new SolidColorBrush(Colors.White);
-                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.Black);
-                }
-                else
-                {
-                    bt_PouvoirSpe.Background = btTerminer.Background;
-                    bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.White);
-                }
-                
-                if (hardMode)
-                {
-                    // Pour chaque dés dans le lancer
-                    for (int i = 0; i < membres[indexCurrentMembre].NombreDeDés; i++)
-                    {
-                        // Pour chaque dé piégé, regarder si c'est la même valeur que le dé du lancer
-                        foreach (Dé dé in listeDéPiégés)
+                        else
                         {
-                            if (dé.Valeur.Equals(lancer[i].Valeur) && (!lancer[i].Type.Equals(déType.Grisé) && !lancer[i].Type.Equals(déType.Caduc)))
+                            if (lancer[j].Type.Equals(déType.Normal) || lancer[j].Type.Equals(déType.Bléssure))
                             {
-                                switch (dé.Type)
+                                lancer[j] = new Dé();
+                                i.Source = new BitmapImage(new Uri("ms-appx:/Assets/D" + lancer[j].Valeur + ".png", UriKind.RelativeOrAbsolute));
+                                i.Tag = "D" + lancer[j].Valeur + ".png";
+                            }
+                        }
+                        j++;
+                    }
+
+                    if (PouvoirUtilisable())
+                    {
+                        bt_PouvoirSpe.Background = new SolidColorBrush(Colors.White);
+                        bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                    else
+                    {
+                        bt_PouvoirSpe.Background = btTerminer.Background;
+                        bt_PouvoirSpe.Foreground = new SolidColorBrush(Colors.White);
+                    }
+
+                    if (hardMode)
+                    {
+                        // Pour chaque dés dans le lancer
+                        for (int i = 0; i < membres[indexCurrentMembre].NombreDeDés; i++)
+                        {
+                            // Pour chaque dé piégé, regarder si c'est la même valeur que le dé du lancer
+                            foreach (Dé dé in listeDéPiégés)
+                            {
+                                if (dé.Valeur.Equals(lancer[i].Valeur) && (!lancer[i].Type.Equals(déType.Grisé) && !lancer[i].Type.Equals(déType.Caduc)))
                                 {
-                                    case déType.Bléssure:
-                                        lancer[i].Type = déType.Bléssure;
-                                        membres[indexCurrentMembre].Pv--;
-                                        msgbox = new MessageDialog("Le dé " + dé.Valeur + " vous inflige 1 point de dégat.");
-                                        await msgbox.ShowAsync();
-                                        break;
-                                    case déType.Stase:
-                                        lancer[i].Type = déType.Stase;
-                                        break;
-                                    case déType.Caduc:
-                                        lancer[i].Type = déType.Caduc;
-                                        break;
+                                    switch (dé.Type)
+                                    {
+                                        case déType.Bléssure:
+                                            lancer[i].Type = déType.Bléssure;
+                                            membres[indexCurrentMembre].Pv--;
+                                            msgbox = new MessageDialog("Le dé " + dé.Valeur + " vous inflige 1 point de dégat.");
+                                            await msgbox.ShowAsync();
+                                            break;
+                                        case déType.Stase:
+                                            lancer[i].Type = déType.Stase;
+                                            break;
+                                        case déType.Caduc:
+                                            lancer[i].Type = déType.Caduc;
+                                            break;
+                                    }
                                 }
                             }
                         }
                     }
+
+                    nombreLancers--;
+
+                    if (membres[indexCurrentMembre].Pv < 1)
+                        nombreLancers = 0;
+                    // Mise à jour du nombre de dés restant affichés
+                    tbLancesRestant.Text = nombreLancers + " restant";
+                    UpdateUI();
                 }
-
-                nombreLancers--;
-
-                if (membres[indexCurrentMembre].Pv < 1)
-                    nombreLancers = 0;
-                // Mise à jour du nombre de dés restant affichés
-                tbLancesRestant.Text = nombreLancers + " restant";
-                UpdateUI();
-            }
-            else
-            {
-                msgbox = new MessageDialog("Vous n'avez plus de lancers !");
-                await msgbox.ShowAsync();
+                else
+                {
+                    msgbox = new MessageDialog("Vous n'avez plus de lancers !");
+                    await msgbox.ShowAsync();
+                }
             }
         }
 
@@ -643,7 +651,7 @@ namespace TharsisRevolution
         {
             if (nombreLancers == 3)
                 return false;
-            if (pouvoirUtilisé)
+            if (pouvoirUtilisé > 2)
                 return false;
             foreach (Dé dé in lancer)
             {
@@ -652,7 +660,7 @@ namespace TharsisRevolution
             }
             return false;
         }
-        
+
         /// <summary>
         /// Utilisation du pouvoir spécial onTap
         /// </summary>
@@ -710,7 +718,7 @@ namespace TharsisRevolution
                     if (membres[indexCurrentMembre].Role.Equals(Membre.roleMembre.Commandant))
                     {
                         Réparer(10);
-                        msg = new MessageDialog("Le Commandant a utilisé son pouvoir de réparation de la panne !","Pouvoir");
+                        msg = new MessageDialog("Le Commandant a utilisé son pouvoir de réparation de la panne !", "Pouvoir");
                     }
 
                     // Capitaine : +1 Dés pour chaque membre
@@ -746,7 +754,7 @@ namespace TharsisRevolution
                     }
                 }
                 UpdateUI();
-                pouvoirUtilisé = true;
+                pouvoirUtilisé++;
                 await msg.ShowAsync();
             }
         }
@@ -758,11 +766,11 @@ namespace TharsisRevolution
         /// <param name="e"></param>
         private void fct_Information_PointerEnter(object sender, PointerRoutedEventArgs e)
         {
-            Button btn = new Button(); 
-            Image img = new Image(); 
-            if(sender.GetType() == btn.GetType())
+            Button btn = new Button();
+            Image img = new Image();
+            if (sender.GetType() == btn.GetType())
             {
-                 btn = (Button)sender;
+                btn = (Button)sender;
             }
             else
             {
@@ -787,7 +795,7 @@ namespace TharsisRevolution
             if (img.Name.Contains("imgD"))
             {
                 Affichage.Text = "Cliquer sur un Dés pour le verrouiller ou l'utiliser.";
-            }    
+            }
         }
 
         /// <summary>
@@ -801,4 +809,3 @@ namespace TharsisRevolution
         }
     }
 }
-

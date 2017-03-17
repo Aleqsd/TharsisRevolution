@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
+    /// <summary>
+    /// Classe permettant le transfert du bool hardMode à la sélection du niveau de difficulté dans la page d'accueil.
+    /// </summary>
     public class GameParameters
     {
         private bool hardMode;

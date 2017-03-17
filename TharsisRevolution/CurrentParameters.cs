@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TharsisRevolution
 {
+    /// <summary>
+    /// Classe permettant le transfert des objets en paramètres d'une page à l'autre par la fonction NavigateTo().
+    /// </summary>
     public class CurrentParameters
     {
         private List<Membre> membres;

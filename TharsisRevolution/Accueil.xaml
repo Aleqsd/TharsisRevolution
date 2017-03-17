@@ -28,8 +28,8 @@
         
         <!--Vidéo d'introduction du jeu-->
         <MediaElement x:Name="VideoIntro" Source="Assets/Tharsis Intro.mp4" Volume="1" Canvas.ZIndex="1" IsFullWindow="True" MediaEnded="video_Ended" Tapped="video_clicked"/>
-        
-        <!--Bouton qui permet de charger la partie enregistrer precedement-->
+
+        <!--Bouton qui permet de charger la partie enregistrée précédemment-->
         <Button x:Name="btn_Load" Content="Load" HorizontalAlignment="Left"  Width="200" Height="50" VerticalAlignment="Top" Tapped="btn_Load_Tapped" RelativePanel.Below="cb_Difficulté" Background="#33FFFFFF" RelativePanel.AlignBottomWith="" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" RelativePanel.AlignTopWith=""/>
         
         <!--Bouton qui permet de fermer proprement le jeu-->
